@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Uniquement la base avec quelques styles minimes globaux */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: theme("fontFamily.mono");
+    font-size: theme("fontSize.base");
+    line-height: theme("lineHeight.relaxed");
+    background-color: theme("colors.background.primary");
+    color: theme("colors.text.primary");
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: theme("fontFamily.sans");
+    font-weight: theme("fontWeight.semibold");
+  }
+}
+
+/* Styles de base pour les composants */
+@layer components {
+  .container {
+    width: 100%;
+    max-width: theme("maxWidth.7xl");
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: theme("spacing.8");
+    padding-right: theme("spacing.8");
+  }
+
+  .btn {
+    @apply inline-block px-6 py-3 bg-accent text-background-primary rounded font-medium transition-all duration-300 hover:bg-accent-600 hover:-translate-y-0.5;
+  }
+
+  .badge {
+    @apply inline-block px-3 py-1 mb-2 mr-2 text-sm rounded-full bg-accent-100 text-accent-700;
+  }
+}
