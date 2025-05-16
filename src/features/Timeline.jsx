@@ -57,7 +57,7 @@ export const Timeline = () => {
                     : "md:pl-[calc(50%+2rem)]"
                 }`}>
                 {/* Point sur la ligne */}
-                <div className="absolute z-10 hidden w-4 h-4 -translate-x-1/2 border-2 border-yellow-500 rounded-full left-1/2 md:top-6 bg-background-primary" />
+                <div className="absolute z-10 w-4 h-4 -translate-x-1/2 border-2 border-yellow-500 rounded-full left-1/2 top-6 bg-background-primary" />
 
                 {/* Contenu */}
                 <div
