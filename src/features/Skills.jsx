@@ -103,9 +103,9 @@ export const Skills = () => {
               <div>
                 <h3 className="relative mb-4 text-xl font-semibold capitalize">
                   <span className="relative inline-block">
-                    <span
-                      className="absolute block -skew-y-3 bg-yellow-100 -inset-1"
-                      aria-hidden="true"></span>
+                    {/* <span
+                      className="absolute block -skew-y-3 bg-accent-100 -inset-1"
+                      aria-hidden="true"></span> */}
                     <span className="relative">{category}</span>
                   </span>
                 </h3>

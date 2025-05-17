@@ -43,7 +43,9 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-text-secondary">contact@example.com</p>
+                    <p className="text-text-secondary">
+                      promazelaygue@gmail.com
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -69,7 +71,7 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">Localisation</h3>
-                    <p className="text-text-secondary">Paris, France</p>
+                    <p className="text-text-secondary">Bordeaux, France</p>
                   </div>
                 </div>
               </div>
