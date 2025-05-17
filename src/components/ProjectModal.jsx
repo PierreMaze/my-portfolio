@@ -68,7 +68,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
-          className="relative w-[95vw] h-[90vh] overflow-hidden bg-[#fafaf8] rounded-xl shadow-2xl"
+          className="relative w-[95vw] h-[90vh] overflow-hidden bg-accent-200 rounded-xl shadow-2xl"
           onClick={(e) => e.stopPropagation()}>
           {/* Bouton retour */}
           <button
@@ -128,7 +128,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
             </div>
 
             {/* Contenu textuel */}
-            <div className="flex-1 p-8 bg-[#fafaf8]">
+            <div className="flex-1 p-8 bg-accent-50">
               <div className="max-w-3xl mx-auto">
                 {/* En-tête avec titre */}
                 <div className="mb-8">

@@ -1,4 +1,8 @@
 import { useState } from "react";
+import ImgProjectClou from "../assets/clou.png";
+import ImgProjectLumi from "../assets/lumi.png";
+import ImgProjectMakeSense from "../assets/make_sense.png";
+import ImgProjectSignature from "../assets/signature.png";
 import { FadeIn } from "../components/FadeIn";
 import { ProjectCard } from "../components/ProjectCard";
 import { ProjectModal } from "../components/ProjectModal";
@@ -8,17 +12,49 @@ const categories = ["Tous", "Frontend", "Backend", "Fullstack", "Design"];
 const projects = [
   {
     id: 1,
-    title: "Plateforme E-commerce",
+    title: "Application web Responsive (en cours de développement)",
     description:
-      "Solution e-commerce complète avec panier d'achat, paiement sécurisé et tableau de bord administrateur.",
-    image: "/api/placeholder/400/320",
+      "Site vitrine optimisé pour les performances et parfaitement responsive pour l'agence Signature.",
+    image: { ImgProjectSignature },
     images: [
-      "/api/placeholder/400/320",
-      "/api/placeholder/400/320",
-      "/api/placeholder/400/320",
+      { ImgProjectSignature },
+      { ImgProjectSignature },
+      { ImgProjectSignature },
     ],
-    tags: ["React", "Node.js", "PostgreSQL"],
-    category: "Fullstack",
+    tags: ["React", "TailwindCSS", "Dotenv"],
+    category: "Backend",
+    github: "https://github.com/username/microservices",
+    diagram: "https://draw.io/...",
+    notion: "https://notion.so/...",
+    demo: "https://api-demo.com",
+    problem: "Besoin d'une architecture scalable et maintenable",
+    objectives: [
+      "Créer une architecture microservices",
+      "Implémenter un système de service discovery",
+      "Mettre en place un monitoring avancé",
+    ],
+    solution: "Architecture microservices avec Node.js et Docker",
+    challenges: [
+      "Gestion de la complexité distribuée",
+      "Monitoring des services",
+      "Déploiement continu",
+    ],
+    technologies: ["Node.js", "Docker", "Kubernetes", "Prometheus", "Grafana"],
+    results: [
+      "Réduction de 70% du temps de déploiement",
+      "Amélioration de 80% de la scalabilité",
+      "Disponibilité de 99.9%",
+    ],
+  },
+  {
+    id: 2,
+    title: "Landing Page Responsive",
+    description:
+      "Site vitrine  optimisé pour les performances et parfaitement responsive pour l'entreprise Clou&Cie.",
+    image: { ImgProjectClou },
+    images: [{ ImgProjectClou }, { ImgProjectClou }, { ImgProjectClou }],
+    tags: ["React", "TailwindCSS"],
+    category: "Frontend",
     github: "https://github.com/username/project",
     figma: "https://figma.com/file/...",
     diagram: "https://draw.io/...",
@@ -47,14 +83,14 @@ const projects = [
     ],
   },
   {
-    id: 2,
-    title: "Application de Gestion",
+    id: 3,
+    title: "Site Vitrine Responsive",
     description:
-      "Système de gestion des tâches avec authentification, notifications et tableaux de bord personnalisables.",
-    image: "/api/placeholder/400/320",
-    images: ["/api/placeholder/400/320", "/api/placeholder/400/320"],
-    tags: ["TailwindCSS", "React", "Prisma"],
-    category: "Frontend",
+      "Site vitrine optimisé pour les performances et parfaitement responsive pour l'entreprise Luminescence33.",
+    image: { ImgProjectLumi },
+    images: [{ ImgProjectLumi }, { ImgProjectLumi }, { ImgProjectLumi }],
+    tags: ["React", "TailwindCSS", "Node", "Dotenv"],
+    category: "Fullstack",
     github: "https://github.com/username/task-manager",
     figma: "https://figma.com/file/...",
     diagram: "https://draw.io/...",
@@ -63,7 +99,7 @@ const projects = [
     behance: "https://behance.net/...",
     dribbble: "https://dribbble.com/...",
     demo: "https://task-manager-demo.com",
-    problem: "Besoin d'un système de gestion de tâches collaboratif",
+    problem: "Besoin d'un système de gestion de tâches collaboratif.",
     objectives: [
       "Créer une interface utilisateur moderne",
       "Implémenter un système de notifications",
@@ -83,15 +119,15 @@ const projects = [
     ],
   },
   {
-    id: 3,
-    title: "Site Vitrine Responsive",
+    id: 4,
+    title: "Application Web de getions d'actions",
     description:
-      "Site vitrine avec animations fluides, optimisé pour les performances et parfaitement responsive.",
-    image: "/api/placeholder/400/320",
+      "Application web de gestion de getions d'actions pour l'entreprise Make_Sense.",
+    image: { ImgProjectMakeSense },
     images: [
-      "/api/placeholder/400/320",
-      "/api/placeholder/400/320",
-      "/api/placeholder/400/320",
+      { ImgProjectMakeSense },
+      { ImgProjectMakeSense },
+      { ImgProjectMakeSense },
     ],
     tags: ["HTML/CSS", "JavaScript", "Figma"],
     category: "Design",
@@ -123,46 +159,9 @@ const projects = [
     ],
   },
   {
-    id: 4,
-    title: "API RESTful Microservices",
-    description:
-      "Architecture microservices avec API Gateway, service discovery et gestion des erreurs avancée.",
-    image: "/api/placeholder/400/320",
-    images: [
-      "/api/placeholder/400/320",
-      "/api/placeholder/400/320",
-      "/api/placeholder/400/320",
-    ],
-    tags: ["Node.js", "Docker", "Kubernetes"],
-    category: "Backend",
-    github: "https://github.com/username/microservices",
-    diagram: "https://draw.io/...",
-    notion: "https://notion.so/...",
-    demo: "https://api-demo.com",
-    problem: "Besoin d'une architecture scalable et maintenable",
-    objectives: [
-      "Créer une architecture microservices",
-      "Implémenter un système de service discovery",
-      "Mettre en place un monitoring avancé",
-    ],
-    solution: "Architecture microservices avec Node.js et Docker",
-    challenges: [
-      "Gestion de la complexité distribuée",
-      "Monitoring des services",
-      "Déploiement continu",
-    ],
-    technologies: ["Node.js", "Docker", "Kubernetes", "Prometheus", "Grafana"],
-    results: [
-      "Réduction de 70% du temps de déploiement",
-      "Amélioration de 80% de la scalabilité",
-      "Disponibilité de 99.9%",
-    ],
-  },
-  {
     id: 5,
-    title: "Dashboard Analytics",
-    description:
-      "Tableau de bord analytique avec visualisations de données en temps réel et export de rapports.",
+    title: "Jeu application web",
+    description: "Application web de jeu nommé MemoryLand.",
     image: "/api/placeholder/400/320",
     images: [
       "/api/placeholder/400/320",
