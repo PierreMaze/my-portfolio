@@ -6,7 +6,7 @@ import { Contact } from "./features/Contact";
 import { Hero } from "./features/Hero";
 import { ProjectDetails } from "./features/ProjectDetails";
 import { Projects } from "./features/Projects";
-import { Skills } from "./features/Skills";
+import Skills from "./features/Skills";
 import { Timeline } from "./features/Timeline";
 import { useSmoothScroll } from "./hooks/useSmoothScroll";
 import { Legal } from "./pages/Legal";

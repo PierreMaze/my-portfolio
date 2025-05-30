@@ -15,7 +15,7 @@ import {
 } from "react-icons/si";
 import { FadeIn } from "../components/FadeIn";
 
-export const Skills = () => {
+const Skills = () => {
   const skillsData = {
     "Langages & Frameworks": [
       {
@@ -137,8 +137,13 @@ export const Skills = () => {
     <section className="py-20">
       <div className="container">
         <FadeIn>
-          <h2 className="text-3xl font-bold text-center text-accent mb-10">
-            🛠 Compétences
+          <h2 className="relative text-3xl font-bold mb-12">
+            <span className="relative inline-block">
+              <span
+                className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
+                aria-hidden="true"></span>
+              <span className="relative">Mes compétences</span>
+            </span>
           </h2>
         </FadeIn>
         <div className="space-y-16">
@@ -155,3 +160,5 @@ export const Skills = () => {
     </section>
   );
 };
+
+export default Skills;
