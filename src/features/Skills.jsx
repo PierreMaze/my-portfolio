@@ -1,3 +1,18 @@
+import { FaDatabase, FaMobile, FaServer } from "react-icons/fa";
+import {
+  SiExpress,
+  SiFigma,
+  SiGithub,
+  SiJavascript,
+  SiMariadb,
+  SiMysql,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiNotion,
+  SiPostgresql,
+  SiReact,
+  SiTailwindcss,
+} from "react-icons/si";
 import { FadeIn } from "../components/FadeIn";
 
 const Skills = () => {
@@ -5,98 +20,93 @@ const Skills = () => {
     "Langages & Frameworks": [
       {
         name: "JavaScript",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+        icon: <SiJavascript className="w-12 h-12 text-yellow-400" />,
         description: "Langage dynamique incontournable du web",
       },
       {
         name: "React",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+        icon: <SiReact className="w-12 h-12 text-blue-500" />,
         description: "Bibliothèque JS pour UI rapides & dynamiques",
       },
       {
         name: "Node.js",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+        icon: <SiNodedotjs className="w-12 h-12 text-green-600" />,
         description: "Exécution JS côté serveur, backend moderne",
       },
       {
         name: "Express",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+        icon: <SiExpress className="w-12 h-12 text-gray-800" />,
         description: "Framework minimaliste pour APIs Node.js",
       },
       {
         name: "TailwindCSS",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+        icon: <SiTailwindcss className="w-12 h-12 text-cyan-500" />,
         description: "Gestion de styles avec utilitaires CSS modernes",
       },
       {
         name: "Next.js",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+        icon: <SiNextdotjs className="w-12 h-12 text-black" />,
         description: "Framework React SSR et routage",
-        bgWhite: true,
       },
     ],
     "Bases de données": [
       {
         name: "PostgreSQL",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+        icon: <SiPostgresql className="w-12 h-12 text-blue-600" />,
         description: "Système de gestion de base relationnelle",
       },
       {
         name: "MariaDB",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mariadb/mariadb-original.svg",
+        icon: <SiMariadb className="w-12 h-12 text-orange-600" />,
         description: "Base SQL open-source robuste et performante",
       },
       {
         name: "SQL",
-        icon: "https://cdn-icons-png.flaticon.com/512/1533/1533827.png",
+        icon: <SiMysql className="w-12 h-12 text-blue-500" />,
         description: "Conception et gestion de bases de données relationnelles",
       },
       {
         name: "BDD",
-        icon: "https://cdn-icons-png.flaticon.com/512/1360/1360729.png",
+        icon: <FaDatabase className="w-12 h-12 text-gray-600" />,
         description: "Modélisation & gestion des données",
       },
     ],
     "Outils & Méthodes": [
       {
         name: "Notion",
-        icon: "https://cdn-icons-png.flaticon.com/512/5968/5968705.png",
+        icon: <SiNotion className="w-12 h-12 text-black" />,
         description:
           "Plateforme collaborative pour gérer les tâches et documents",
       },
       {
         name: "GitHub",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+        icon: <SiGithub className="w-12 h-12 text-gray-800" />,
         description: "Contrôle de version & collaboration sur code",
       },
       {
         name: "VPS",
-        icon: "https://cdn-icons-png.flaticon.com/512/1006/1006547.png",
+        icon: <FaServer className="w-12 h-12 text-gray-600" />,
         description: "Déploiement et gestion de serveurs privés virtuels",
       },
       {
         name: "Figma",
-        icon: "https://cdn-icons-png.flaticon.com/512/5968/5968705.png",
+        icon: <SiFigma className="w-12 h-12 text-purple-600" />,
         description: "Conception et prototypage UI/UX",
       },
       {
         name: "Responsive Design",
-        icon: "https://cdn-icons-png.flaticon.com/512/892/892515.png",
+        icon: <FaMobile className="w-12 h-12 text-gray-600" />,
         description: "Design responsive pour tous types d'écrans",
       },
     ],
   };
 
-  const SkillCard = ({ name, icon, description, bgWhite = false }) => (
+  const SkillCard = ({ name, icon, description }) => (
     <div className="relative p-6 text-center bg-gray-100 rounded-xl transition-all duration-300 group hover:bg-accent/5">
       <div className="relative">
-        <img
-          src={icon}
-          className={`mx-auto w-12 h-12 mb-2 transition-transform duration-300 group-hover:scale-110 ${
-            bgWhite ? "bg-white rounded" : ""
-          }`}
-          alt={name}
-        />
+        <div className="flex justify-center mb-2 transition-transform duration-300 group-hover:scale-110">
+          {icon}
+        </div>
         <h4 className="font-semibold transition-colors duration-300 group-hover:text-accent">
           {name}
         </h4>
