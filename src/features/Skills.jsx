@@ -1,8 +1,8 @@
 import { FaDatabase, FaMobile, FaServer } from "react-icons/fa";
 import {
-  SiExpress,
   SiFigma,
   SiGithub,
+  SiHtml5,
   SiJavascript,
   SiMariadb,
   SiMysql,
@@ -19,13 +19,20 @@ const Skills = () => {
   const skillsData = {
     "Langages & Frameworks": [
       {
+        name: "HTML / CSS",
+        icon: (
+          <SiHtml5 className="w-12 h-12 transition-colors duration-500 ease-in-out text-orange-500" />
+        ),
+        description: "Framework minimaliste pour APIs Node.js",
+      },
+      {
         name: "JavaScript",
         icon: <SiJavascript className="w-12 h-12 text-yellow-400" />,
         description: "Langage dynamique incontournable du web",
       },
       {
         name: "React",
-        icon: <SiReact className="w-12 h-12 text-blue-500" />,
+        icon: <SiReact className="w-12 h-12 text-cyan-500" />,
         description: "Bibliothèque JS pour UI rapides & dynamiques",
       },
       {
@@ -34,13 +41,8 @@ const Skills = () => {
         description: "Exécution JS côté serveur, backend moderne",
       },
       {
-        name: "Express",
-        icon: <SiExpress className="w-12 h-12 text-gray-800" />,
-        description: "Framework minimaliste pour APIs Node.js",
-      },
-      {
         name: "TailwindCSS",
-        icon: <SiTailwindcss className="w-12 h-12 text-cyan-500" />,
+        icon: <SiTailwindcss className="w-12 h-12 text-sky-500" />,
         description: "Gestion de styles avec utilitaires CSS modernes",
       },
       {
@@ -57,7 +59,7 @@ const Skills = () => {
       },
       {
         name: "MariaDB",
-        icon: <SiMariadb className="w-12 h-12 text-orange-600" />,
+        icon: <SiMariadb className="w-12 h-12 text-amber-800" />,
         description: "Base SQL open-source robuste et performante",
       },
       {
@@ -85,12 +87,12 @@ const Skills = () => {
       },
       {
         name: "VPS",
-        icon: <FaServer className="w-12 h-12 text-gray-600" />,
+        icon: <FaServer className="w-12 h-12 text-purple-600" />,
         description: "Déploiement et gestion de serveurs privés virtuels",
       },
       {
         name: "Figma",
-        icon: <SiFigma className="w-12 h-12 text-purple-600" />,
+        icon: <SiFigma className="w-12 h-12 text-orange-600" />,
         description: "Conception et prototypage UI/UX",
       },
       {
@@ -112,7 +114,7 @@ const Skills = () => {
         </h4>
       </div>
       <div className="absolute inset-0 flex items-center justify-center rounded-xl opacity-0 pointer-events-none transition-all duration-300 bg-white/95 group-hover:opacity-100 group-hover:pointer-events-auto">
-        <p className="px-4 text-sm text-gray-600">{description}</p>
+        <p className="px-4 text-sm text-accent-600">{description}</p>
       </div>
     </div>
   );

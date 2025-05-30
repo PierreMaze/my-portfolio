@@ -27,13 +27,12 @@ export const App = () => {
                 <section id="home" className="min-h-screen">
                   <Hero />
                 </section>
+                <section id="skills" className="min-h-screen">
+                  <Skills />
+                </section>
                 <SectionDivider />
                 <section id="projects" className="min-h-screen">
                   <Projects />
-                </section>
-                <SectionDivider />
-                <section id="skills" className="min-h-screen">
-                  <Skills />
                 </section>
                 <SectionDivider />
                 <section id="timeline" className="min-h-screen">
