@@ -15,7 +15,7 @@ import {
 } from "react-icons/si";
 import { FadeIn } from "../components/FadeIn";
 
-const Skills = () => {
+export const Skills = () => {
   const skillsData = {
     "Langages & Frameworks": [
       {
@@ -104,7 +104,7 @@ const Skills = () => {
   const SkillCard = ({ name, icon, description }) => (
     <div className="relative p-6 text-center bg-gray-100 rounded-xl transition-all duration-300 group hover:bg-accent/5">
       <div className="relative">
-        <div className="flex justify-center mb-2 transition-transform duration-300 group-hover:scale-110">
+        <div className="flex justify-center transition-transform duration-300 mb-2 group-hover:scale-110">
           {icon}
         </div>
         <h4 className="font-semibold transition-colors duration-300 group-hover:text-accent">
@@ -155,5 +155,3 @@ const Skills = () => {
     </section>
   );
 };
-
-export default Skills;
