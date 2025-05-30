@@ -18,6 +18,20 @@ export default {
           900: "#131922",
           DEFAULT: "#5D7B8A",
         },
+        // Couleurs secondaires
+        yellow: {
+          50: "#fff9e6",
+          100: "#fff3cc",
+          200: "#FFE799", // Couleur yellow secondaire
+          300: "#ffdb66",
+          400: "#ffcf33",
+          500: "#ffc300",
+          600: "#cc9c00",
+          700: "#997500",
+          800: "#664e00",
+          900: "#332700",
+          DEFAULT: "#FFE799",
+        },
         // Couleurs de texte
         text: {
           primary: "#2c2c18", // Texte principal
@@ -29,32 +43,6 @@ export default {
           primary: "#fafaf8", // Fond principal
           secondary: "#f5f5f0", // Fond secondaire
           tertiary: "#eaeae0", // Fond tertiaire
-        },
-        // Couleurs de gris
-        gray: {
-          50: "#fafaf8",
-          100: "#f5f5f0",
-          200: "#eaeae0",
-          300: "#d4d4c8",
-          400: "#b8b8a8",
-          500: "#9c9c88",
-          600: "#808068",
-          700: "#646448",
-          800: "#484828",
-          900: "#2c2c18",
-        },
-        // Couleurs de jaune
-        yellow: {
-          50: "#fff9e6",
-          100: "#fff3cc",
-          200: "#ffe799",
-          300: "#ffdb66",
-          400: "#ffcf33",
-          500: "#ffc300",
-          600: "#cc9c00",
-          700: "#997500",
-          800: "#664e00",
-          900: "#332700",
         },
       },
       fontFamily: {
