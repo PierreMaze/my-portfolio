@@ -4,11 +4,11 @@ import { FadeIn } from "../components/FadeIn";
 
 export const Hero = () => {
   return (
-    <section className="flex items-center justify-center min-h-screen py-20">
-      <div className="container flex">
+    <section className="flex items-center justify-center py-20 min-h-screen">
+      <div className="container flex flex-col-reverse items-center gap-8 md:flex-row md:items-center">
         <FadeIn>
-          <div className="max-w-3xl">
-            <h1 className="mb-6 text-5xl font-bold md:text-6xl">
+          <div className="text-center max-w-3xl md:text-left">
+            <h1 className="text-5xl font-bold mb-6 md:text-6xl">
               Développeur
               <span className="relative inline-block ml-4">
                 <span
@@ -17,12 +17,12 @@ export const Hero = () => {
                 <span className="relative">Fullstack</span>
               </span>
             </h1>
-            <p className="mb-8 text-xl text-dark/70">
+            <p className="text-xl mb-8 text-dark/70">
               Je crée des applications web modernes et performantes avec React,
               Node.js et TailwindCSS.
             </p>
             {/* Btn et liens sociaux */}
-            <div className="flex">
+            <div className="flex justify-center md:justify-start">
               <div className="flex items-center justify-between m-4">
                 <div className="flex items-center space-x-6">
                   <a
@@ -48,13 +48,13 @@ export const Hero = () => {
           </div>
         </FadeIn>
         {/* Avatar */}
-        <a href="/about" className="flex-shrink-0 w-1/4 mx-auto">
+        <a href="/about" className="w-48 h-48 md:w-64 md:h-64">
           <img
             src={ImgAvatar}
             alt="Mon avatar"
-            className="object-cover w-full h-full transition-transform rounded-full hover:scale-105"
-            width="64"
-            height="64"
+            className="w-full h-full rounded-full transition-transform object-cover hover:scale-105"
+            width="256"
+            height="256"
           />
         </a>
       </div>
