@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { SectionDivider } from "./components/SectionDivider";
+import TerminalLoader from "./components/TerminalLoader";
 import { Contact } from "./features/Contact";
 import { Hero } from "./features/Hero";
 import { ProjectDetails } from "./features/ProjectDetails";
@@ -16,6 +17,7 @@ export const App = () => {
 
   return (
     <div className="flex flex-col min-h-screen selection:bg-accent/20 selection:text-accent">
+      <TerminalLoader />
       <Header />
       <main className="flex-grow">
         <Routes>
