@@ -7,12 +7,12 @@ const navigationItems = [
     path: "#home",
   },
   {
-    label: "Projets",
-    path: "#projects",
-  },
-  {
     label: "Compétences",
     path: "#skills",
+  },
+  {
+    label: "Projets",
+    path: "#projects",
   },
   {
     label: "Parcours",
@@ -28,7 +28,17 @@ export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isVisible, setIsVisible] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    // Attendre que le loader soit terminé
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 3000); // Ajustez ce délai selon la durée de votre loader
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,8 +80,10 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-1000 ${
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
+      } ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
       }`}>
       <div className="container">
         <nav className="flex items-center justify-between h-20">
@@ -80,7 +92,7 @@ export const Header = () => {
           </Link>
 
           {/* Navigation desktop */}
-          <div className="items-center hidden space-x-1 md:flex">
+          <div className="hidden items-center space-x-1 md:flex">
             {navigationItems.map((item) => (
               <button
                 key={item.path}

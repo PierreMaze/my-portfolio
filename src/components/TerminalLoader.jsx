@@ -26,8 +26,8 @@ const TerminalLoader = () => {
         if (index === loadSequence.length - 1) {
           const finalTimeout = setTimeout(() => {
             setIsExiting(true);
-            setTimeout(() => setIsLoaded(true), 800);
-          }, 500);
+            setTimeout(() => setIsLoaded(true), 1000);
+          }, 800);
           timeouts.push(finalTimeout);
         }
       }, totalDelay);
@@ -43,13 +43,13 @@ const TerminalLoader = () => {
   if (!isLoaded) {
     return (
       <div
-        className={`fixed inset-0 z-50 flex items-center justify-center bg-background-primary transition-all duration-800 ${
-          isExiting ? "opacity-0" : "opacity-100"
+        className={`fixed inset-0 z-50 flex items-center justify-center bg-background-primary transition-all duration-1000 ${
+          isExiting ? "opacity-0 scale-95 blur-sm" : "opacity-100 scale-100"
         }`}
         style={{ fontFamily: "Inter, sans-serif" }}>
         <div className="px-6 mx-auto w-full max-w-2xl">
           <div
-            className={`bg-gray-900 rounded-2xl shadow-2xl overflow-hidden transition-all duration-800 ${
+            className={`bg-gray-900 rounded-2xl shadow-2xl overflow-hidden transition-all duration-1000 ${
               isExiting ? "scale-95 opacity-0 blur-sm" : "scale-100 opacity-100"
             }`}>
             <div className="flex items-center gap-2 px-6 py-4 bg-gray-800">
