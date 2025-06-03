@@ -21,7 +21,7 @@ export const App = () => {
       <Background />
       <TerminalLoader />
       <Header />
-      <main className="flex-grow">
+      <main className="px-12 flex-grow">
         <Routes>
           {/* Landing page avec toutes les sections */}
           <Route

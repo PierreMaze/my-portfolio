@@ -7,7 +7,7 @@ export const Contact = () => {
     <section className="py-20">
       <Container>
         <FadeIn>
-          <h2 className="relative mb-12 text-3xl font-bold">
+          <h2 className="relative text-3xl font-bold mb-12">
             <span className="relative inline-block">
               <span
                 className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
@@ -81,35 +81,35 @@ export const Contact = () => {
           <FadeIn className="delay-200">
             <form className="space-y-6">
               <div>
-                <label htmlFor="name" className="block mb-2 font-medium">
+                <label htmlFor="name" className="block font-medium mb-2">
                   Nom
                 </label>
                 <input
                   type="text"
                   id="name"
-                  className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-transparent focus:bg-yellow-50"
+                  className="px-4 py-2 w-full border rounded-lg border-accent-200 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-transparent focus:bg-white"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block mb-2 font-medium">
+                <label htmlFor="email" className="block font-medium mb-2">
                   Email
                 </label>
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:bg-yellow-50 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-transparent"
+                  className="px-4 py-2 w-full border rounded-lg border-accent-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-transparent"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block mb-2 font-medium">
+                <label htmlFor="message" className="block font-medium mb-2">
                   Message
                 </label>
                 <textarea
                   id="message"
                   rows={4}
-                  className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:bg-yellow-50 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-transparent"
+                  className="px-4 py-2 w-full border rounded-lg border-accent-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-transparent"
                   required></textarea>
               </div>
               <Button type="submit">Envoyer le message</Button>

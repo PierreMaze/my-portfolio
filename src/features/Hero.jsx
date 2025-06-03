@@ -48,7 +48,7 @@ export const Hero = () => {
           </div>
         </FadeIn>
         {/* Avatar */}
-        <a href="/about" className="w-48 h-48 md:w-64 md:h-64">
+        <a href="/about" className="mx-auto w-48 h-48 md:w-80 md:h-80">
           <img
             src={ImgAvatar}
             alt="Mon avatar"
