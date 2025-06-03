@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { FaDatabase, FaMobile, FaServer } from "react-icons/fa";
 import {
   SiFigma,
@@ -15,62 +16,89 @@ import {
 } from "react-icons/si";
 import { FadeIn } from "../components/FadeIn";
 
+const AnimatedHtmlIcon = () => {
+  const [htmlColor, setHtmlColor] = useState("text-orange-500");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHtmlColor((prevColor) =>
+        prevColor === "text-orange-500" ? "text-blue-500" : "text-orange-500"
+      );
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <SiHtml5
+      className={`w-12 h-12 transition-colors duration-500 ease-in-out ${htmlColor}`}
+    />
+  );
+};
+
 const Skills = () => {
   const skillsData = {
     "Langages & Frameworks": [
       {
         name: "HTML / CSS",
-        icon: (
-          <SiHtml5 className="w-12 h-12 transition-colors duration-500 ease-in-out text-orange-500" />
-        ),
-        description: "Framework minimaliste pour APIs Node.js",
+        icon: <AnimatedHtmlIcon />,
+        description:
+          "Maîtrise des standards web modernes, sémantique HTML5 et CSS3 avancé",
       },
       {
         name: "JavaScript",
         icon: <SiJavascript className="w-12 h-12 text-yellow-400" />,
-        description: "Langage dynamique incontournable du web",
+        description:
+          "ES6+, programmation asynchrone, manipulation du DOM et patterns modernes",
       },
       {
         name: "React",
         icon: <SiReact className="w-12 h-12 text-cyan-500" />,
-        description: "Bibliothèque JS pour UI rapides & dynamiques",
+        description:
+          "Hooks, Context API, gestion d'état, composants réutilisables et performance",
       },
       {
         name: "Node.js",
         icon: <SiNodedotjs className="w-12 h-12 text-green-600" />,
-        description: "Exécution JS côté serveur, backend moderne",
+        description:
+          "APIs RESTful, Express.js, gestion des middlewares et sécurité",
       },
       {
         name: "TailwindCSS",
         icon: <SiTailwindcss className="w-12 h-12 text-sky-500" />,
-        description: "Gestion de styles avec utilitaires CSS modernes",
+        description:
+          "Design system, responsive design et optimisation des performances",
       },
       {
         name: "Next.js",
         icon: <SiNextdotjs className="w-12 h-12 text-black" />,
-        description: "Framework React SSR et routage",
+        description:
+          "SSR/SSG, routing dynamique, API Routes et optimisation SEO",
       },
     ],
     "Bases de données": [
       {
         name: "PostgreSQL",
         icon: <SiPostgresql className="w-12 h-12 text-blue-600" />,
-        description: "Système de gestion de base relationnelle",
+        description:
+          "Requêtes complexes, indexation, transactions et optimisation des performances",
       },
       {
         name: "MariaDB",
         icon: <SiMariadb className="w-12 h-12 text-amber-800" />,
-        description: "Base SQL open-source robuste et performante",
+        description: "Administration, backup, réplication et maintenance",
       },
       {
         name: "SQL",
         icon: <SiMysql className="w-12 h-12 text-blue-500" />,
-        description: "Conception et gestion de bases de données relationnelles",
+        description:
+          "Modélisation relationnelle, requêtes avancées et optimisation",
       },
       {
         name: "BDD",
         icon: <FaDatabase className="w-12 h-12 text-gray-600" />,
-        description: "Modélisation & gestion des données",
+        description:
+          "Architecture de données, normalisation et stratégies de scaling",
       },
     ],
     "Outils & Méthodes": [
@@ -78,27 +106,28 @@ const Skills = () => {
         name: "Notion",
         icon: <SiNotion className="w-12 h-12 text-black" />,
         description:
-          "Plateforme collaborative pour gérer les tâches et documents",
+          "Gestion de projet, documentation technique et collaboration d'équipe",
       },
       {
         name: "GitHub",
         icon: <SiGithub className="w-12 h-12 text-gray-800" />,
-        description: "Contrôle de version & collaboration sur code",
+        description: "Git flow, CI/CD, code review et gestion de versions",
       },
       {
         name: "VPS",
         icon: <FaServer className="w-12 h-12 text-purple-600" />,
-        description: "Déploiement et gestion de serveurs privés virtuels",
+        description: "Déploiement, monitoring, sécurité et maintenance serveur",
       },
       {
         name: "Figma",
         icon: <SiFigma className="w-12 h-12 text-orange-600" />,
-        description: "Conception et prototypage UI/UX",
+        description:
+          "Design system, prototypage interactif et collaboration UI/UX",
       },
       {
         name: "Responsive Design",
         icon: <FaMobile className="w-12 h-12 text-gray-600" />,
-        description: "Design responsive pour tous types d'écrans",
+        description: "Mobile-first, breakpoints, flexbox/grid et accessibilité",
       },
     ],
   };
