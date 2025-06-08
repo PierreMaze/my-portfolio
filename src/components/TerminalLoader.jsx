@@ -7,10 +7,10 @@ export const TerminalLoader = () => {
   const [terminalOutput, setTerminalOutput] = useState([]);
 
   const loadSequence = [
-    { text: "Initialisation du portfolio...", delay: 500 },
-    { text: "Chargement des compétences...", delay: 800 },
-    { text: "Configuration de l'interface...", delay: 600 },
-    { text: "Prêt ! Bienvenue dans mon univers.", delay: 700 },
+    { text: "🌐 Initialisation du portfolio...", delay: 400 },
+    { text: "⚙️ Chargement des compétences...", delay: 400 },
+    { text: "🎚️ Configuration de l'interface...", delay: 400 },
+    { text: "🆗 Lancement...", delay: 400 },
   ];
 
   useEffect(() => {
