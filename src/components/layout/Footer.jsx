@@ -1,7 +1,7 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <footer className="py-12 text-center bg-dark text-light">
       <div className="container">
@@ -17,9 +17,11 @@ export const Footer = () => {
             <FaLinkedin />
           </a>
         </div>
-        <p>&copy; 2025 - Développeur Fullstack</p>
+        <p>&copy; 2025 - Portfolio Développeur Fullstack</p>
         <Link to="/legal">Mentions légales</Link>
       </div>
     </footer>
   );
 };
+
+export default Footer;
