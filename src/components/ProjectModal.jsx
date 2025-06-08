@@ -24,27 +24,38 @@ import { OptimizedImage } from "./ui/OptimizedImage";
 
 export const ProjectModal = ({ project, isOpen, onClose }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const images = project?.images || [project?.image];
 
-  // Gestion du scroll
+  // Gestion du scroll et des touches
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
     } else {
       document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
     }
     return () => {
       document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen]);
 
   const nextImage = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    setTimeout(() => setIsAnimating(false), 500);
   };
 
   const prevImage = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+    setTimeout(() => setIsAnimating(false), 500);
   };
 
   const handleKeyDown = (e) => {
@@ -63,26 +74,32 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
-        onKeyDown={handleKeyDown}
         tabIndex={0}>
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
+          transition={{ type: "spring", damping: 25, stiffness: 300 }}
           className="relative rounded-xl shadow-2xl w-[95vw] h-[90vh] overflow-hidden bg-accent-200"
           onClick={(e) => e.stopPropagation()}>
           {/* Bouton retour */}
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
             onClick={onClose}
             className="absolute z-10 p-3 bg-white rounded-full transition-all duration-300 ease-in-out top-4 left-4 hover:bg-accent hover:text-white">
             <FaArrowLeft className="w-6 h-6" />
-          </button>
+          </motion.button>
 
           {/* Contenu scrollable */}
           <div className="flex flex-col h-full overflow-y-auto">
             {/* Device Frame avec Carousel */}
             <div className="relative px-8 mx-auto my-8 w-full max-w-4xl">
-              <div className="relative p-4 bg-gray-300 rounded-lg shadow-lg">
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="relative p-4 bg-gray-300 rounded-lg shadow-lg">
                 {/* Barre de titre du device */}
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -91,32 +108,54 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                 </div>
                 {/* Image dans le device */}
                 <div className="relative rounded-lg overflow-hidden aspect-video">
-                  <OptimizedImage
-                    src={images[currentImageIndex]}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentImageIndex}
+                      initial={{ opacity: 0, x: 100 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -100 }}
+                      transition={{
+                        type: "spring",
+                        damping: 25,
+                        stiffness: 300,
+                      }}
+                      className="absolute inset-0">
+                      <OptimizedImage
+                        src={images[currentImageIndex]}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                        onLoad={() => setIsLoaded(true)}
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                  {!isLoaded && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
+                      <div className="w-8 h-8 border-4 rounded-full animate-spin border-accent border-t-transparent"></div>
+                    </div>
+                  )}
                   {images.length > 1 && (
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute p-3 bg-white rounded-full transition-colors -translate-y-1/2 left-4 top-1/2 hover:bg-accent hover:text-white">
+                        className="absolute p-3 bg-white rounded-full transition-colors duration-300 -translate-y-1/2 left-4 top-1/2 hover:bg-accent hover:text-white">
                         <FaArrowLeft className="w-6 h-6" />
                       </button>
                       <button
                         onClick={nextImage}
-                        className="absolute p-3 bg-white rounded-full transition-colors -translate-y-1/2 right-4 top-1/2 hover:bg-accent hover:text-white">
+                        className="absolute p-3 bg-white rounded-full transition-colors duration-300 -translate-y-1/2 right-4 top-1/2 hover:bg-accent hover:text-white">
                         <FaArrowRight className="w-6 h-6" />
                       </button>
                       {/* Indicateurs de navigation */}
                       <div className="absolute flex gap-2 -translate-x-1/2 bottom-4 left-1/2">
                         {images.map((_, index) => (
-                          <button
+                          <motion.button
                             key={index}
+                            whileHover={{ scale: 1.2 }}
+                            whileTap={{ scale: 0.9 }}
                             onClick={() => setCurrentImageIndex(index)}
-                            className={`w-2 h-2 rounded-full transition-colors ${
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
                               index === currentImageIndex
-                                ? "bg-accent"
+                                ? "bg-accent scale-125"
                                 : "bg-white hover:bg-accent/80"
                             }`}
                           />
@@ -125,11 +164,15 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                     </>
                   )}
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Contenu textuel */}
-            <div className="flex-1 p-8 bg-accent-50">
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="flex-1 p-8 bg-accent-50">
               <div className="mx-auto max-w-3xl">
                 {/* En-tête avec titre */}
                 <div className="mb-8">
@@ -138,25 +181,34 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                   </h3>
                   <div className="flex flex-wrap gap-3">
                     {project.tags.map((tag) => (
-                      <span
+                      <motion.span
                         key={tag}
-                        className="inline-flex items-center px-4 py-2 text-sm rounded-full gap-1.5 bg-accent/10 text-accent">
+                        whileHover={{ scale: 1.05 }}
+                        className="inline-flex items-center px-4 py-2 text-sm rounded-full transition-all duration-300 gap-1.5 bg-accent/10 text-accent hover:bg-accent/20">
                         <FaTag className="w-4 h-4" />
                         {tag}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </div>
 
                 {/* Description */}
-                <div className="mb-8 space-y-6">
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className="mb-8 space-y-6">
                   <p className="text-lg leading-relaxed text-gray-700">
                     {project.description}
                   </p>
-                </div>
+                </motion.div>
 
                 {/* Tableau détaillé */}
-                <div className="bg-white rounded-lg shadow-sm mb-8 overflow-hidden">
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="bg-white rounded-lg shadow-sm mb-8 overflow-hidden">
                   <table className="w-full">
                     <tbody>
                       <tr>
@@ -225,11 +277,12 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         <td className="px-6 py-5 text-gray-700">
                           <div className="flex flex-wrap gap-2">
                             {project.technologies?.map((tech, index) => (
-                              <span
+                              <motion.span
                                 key={index}
-                                className="px-3 py-1.5 text-sm font-medium text-gray-700 bg-white rounded-full transition-colors hover:bg-gray-50">
+                                whileHover={{ scale: 1.05 }}
+                                className="px-3 py-1.5 text-sm font-medium text-gray-700 bg-white rounded-full transition-all duration-300 hover:bg-gray-50">
                                 {tech}
-                              </span>
+                              </motion.span>
                             ))}
                           </div>
                         </td>
@@ -253,98 +306,117 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       </tr>
                     </tbody>
                   </table>
-                </div>
+                </motion.div>
 
                 {/* Liens du projet */}
-                <div>
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.6 }}>
                   <h4 className="text-lg font-semibold mb-4">
                     Liens du projet
                   </h4>
                   <div className="flex flex-wrap gap-3">
                     {project.github && (
-                      <a
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-colors hover:bg-gray-200">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-all duration-300 hover:bg-gray-200">
                         <FaGithub className="w-5 h-5" />
                         GitHub
-                      </a>
+                      </motion.a>
                     )}
                     {project.figma && (
-                      <a
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         href={project.figma}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-colors hover:bg-gray-200">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-all duration-300 hover:bg-gray-200">
                         <FaFigma className="w-5 h-5" />
                         Figma
-                      </a>
+                      </motion.a>
                     )}
                     {project.diagram && (
-                      <a
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         href={project.diagram}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-colors hover:bg-gray-200">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-all duration-300 hover:bg-gray-200">
                         <FaCube className="w-5 h-5" />
                         Diagram
-                      </a>
+                      </motion.a>
                     )}
                     {project.excalidraw && (
-                      <a
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         href={project.excalidraw}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-colors hover:bg-gray-200">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-all duration-300 hover:bg-gray-200">
                         <FaPencilAlt className="w-5 h-5" />
                         Excalidraw
-                      </a>
+                      </motion.a>
                     )}
                     {project.notion && (
-                      <a
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         href={project.notion}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-colors hover:bg-gray-200">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-all duration-300 hover:bg-gray-200">
                         <MdOutlineNote className="w-5 h-5" />
                         Notion
-                      </a>
+                      </motion.a>
                     )}
                     {project.behance && (
-                      <a
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         href={project.behance}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-colors hover:bg-gray-200">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-all duration-300 hover:bg-gray-200">
                         <FaBehance className="w-5 h-5" />
                         Behance
-                      </a>
+                      </motion.a>
                     )}
                     {project.dribbble && (
-                      <a
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         href={project.dribbble}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-colors hover:bg-gray-200">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-all duration-300 hover:bg-gray-200">
                         <FaDribbble className="w-5 h-5" />
                         Dribbble
-                      </a>
+                      </motion.a>
                     )}
                     {project.demo && (
-                      <a
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm text-white rounded-lg transition-colors bg-accent hover:bg-accent/90">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm text-white rounded-lg transition-all duration-300 bg-accent hover:bg-accent/90">
                         <FaPlay className="w-5 h-5" />
                         Live Demo
-                      </a>
+                      </motion.a>
                     )}
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </motion.div>
