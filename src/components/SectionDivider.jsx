@@ -1,4 +1,4 @@
-export const SectionDivider = ({ className = "" }) => {
+const SectionDivider = ({ className = "" }) => {
   return (
     <div className={`w-full py-12 ${className}`}>
       <div className="relative">
@@ -26,3 +26,5 @@ export const SectionDivider = ({ className = "" }) => {
     </div>
   );
 };
+
+export default SectionDivider;

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-export const DropdownMenu = ({ title, items }) => {
+const DropdownMenu = ({ title, items }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -39,7 +39,7 @@ export const DropdownMenu = ({ title, items }) => {
       </button>
 
       {isOpen && (
-        <div className="absolute left-0 z-50 w-48 py-2 mt-1 bg-white rounded-lg shadow-lg top-full">
+        <div className="absolute left-0 z-50 py-2 w-48 bg-white rounded-lg shadow-lg mt-1 top-full">
           {items.map((item) => (
             <Link
               key={item.path}
@@ -54,3 +54,5 @@ export const DropdownMenu = ({ title, items }) => {
     </div>
   );
 };
+
+export default DropdownMenu;
