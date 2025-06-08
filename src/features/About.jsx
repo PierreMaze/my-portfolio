@@ -1,12 +1,12 @@
 import { FadeIn } from "../components/FadeIn";
 import { Container } from "../components/layout/Container";
 
-export const About = () => {
+const About = () => {
   return (
     <section className="py-20">
       <Container>
         <FadeIn>
-          <h2 className="relative mb-12 text-3xl font-bold">
+          <h2 className="relative text-3xl font-bold mb-12">
             <span className="relative inline-block">
               <span
                 className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
@@ -37,7 +37,7 @@ export const About = () => {
           <FadeIn className="delay-200">
             <div className="space-y-6">
               <div className="p-6 bg-white rounded-lg shadow-sm">
-                <h3 className="mb-4 text-xl font-semibold">Expertise</h3>
+                <h3 className="text-xl font-semibold mb-4">Expertise</h3>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3">
                     <span className="w-2 h-2 rounded-full bg-accent"></span>
@@ -66,3 +66,5 @@ export const About = () => {
     </section>
   );
 };
+
+export default About;
