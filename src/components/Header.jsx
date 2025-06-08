@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const navigationItems = [
@@ -24,67 +24,75 @@ const navigationItems = [
   },
 ];
 
-export const Header = () => {
+const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isVisible, setIsVisible] = useState(false);
   const location = useLocation();
 
+  // Mémoriser les sections pour éviter de les recalculer à chaque rendu
+  const sections = useMemo(
+    () => ["home", "projects", "skills", "timeline", "contact"],
+    []
+  );
+
+  // Optimiser la fonction de gestion du scroll
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 0);
+
+    const currentSection = sections.find((section) => {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top <= 100 && rect.bottom >= 100;
+      }
+      return false;
+    });
+
+    if (currentSection) {
+      setActiveSection(currentSection);
+    }
+  }, [sections]);
+
   useEffect(() => {
-    // Attendre que le loader soit terminé
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 3000); // Ajustez ce délai selon la durée de votre loader
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-
-      // Mise à jour de la section active
-      const sections = ["home", "projects", "skills", "timeline", "contact"];
-      const currentSection = sections.find((section) => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-
-      if (currentSection) {
-        setActiveSection(currentSection);
-      }
-    };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
 
-  // Fermer le menu mobile lors du changement de route
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location]);
 
-  const handleNavClick = (path) => {
+  // Optimiser la fonction de navigation
+  const handleNavClick = useCallback((path) => {
     if (path.startsWith("#")) {
       const element = document.getElementById(path.substring(1));
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
     }
-  };
+  }, []);
+
+  // Mémoriser les classes conditionnelles
+  const headerClasses = useMemo(() => {
+    return `fixed top-0 left-0 right-0 z-50 transition-all duration-1000 ${
+      isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
+    } ${
+      isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
+    }`;
+  }, [isScrolled, isVisible]);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-1000 ${
-        isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
-      } ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
-      }`}>
+    <header className={headerClasses}>
       <div className="container">
         <nav className="flex items-center justify-between h-20">
           <Link to="/" className="text-2xl font-bold text-accent">
@@ -156,3 +164,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export { Header };
