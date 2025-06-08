@@ -31,7 +31,7 @@ const projectsData = {
   // Ajoutez d'autres projets ici
 };
 
-export const ProjectDetails = () => {
+const ProjectDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const project = projectsData[id];
@@ -131,3 +131,5 @@ export const ProjectDetails = () => {
     </div>
   );
 };
+
+export default ProjectDetails;
