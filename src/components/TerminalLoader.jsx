@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { IoChevronForward } from "react-icons/io5";
 
-const TerminalLoader = () => {
+export const TerminalLoader = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
   const [terminalOutput, setTerminalOutput] = useState([]);
@@ -119,5 +119,3 @@ const TerminalLoader = () => {
 
   return null;
 };
-
-export default TerminalLoader;
