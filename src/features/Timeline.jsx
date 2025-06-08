@@ -69,12 +69,12 @@ export const Timeline = () => {
 
               {/* Contenu */}
               <div
-                className={`bg-white my-12 md:my-0 p-8 rounded-lg shadow-sm relative ${
+                className={`bg-accent-50 my-12 md:my-0 p-8 rounded-lg shadow-sm relative ${
                   index % 2 === 0 ? "md:pr-8" : "md:pl-8"
                 }`}>
                 {/* Flèche */}
                 <div
-                  className={`hidden md:absolute top-6 w-4 h-4 bg-white transform rotate-45 ${
+                  className={`hidden md:block absolute top-6 w-4 h-4 bg-accent-50 transform rotate-45 ${
                     index % 2 === 0 ? "right-[-8px]" : "left-[-8px]"
                   }`}
                 />

@@ -133,7 +133,7 @@ export const Skills = () => {
   };
 
   const SkillCard = ({ name, icon, description }) => (
-    <div className="relative p-6 text-center bg-gray-100 rounded-xl transition-all duration-300 group hover:bg-accent/5">
+    <div className="relative p-6 text-center rounded-xl transition-all duration-300 bg-accent-50 group hover:bg-accent/5">
       <div className="relative">
         <div className="flex justify-center transition-transform duration-300 mb-2 group-hover:scale-110">
           {icon}

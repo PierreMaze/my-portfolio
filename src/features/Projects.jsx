@@ -247,7 +247,7 @@ const Projects = () => {
               className={`px-4 py-2 rounded-full transition-colors ${
                 selectedCategory === category
                   ? "bg-accent text-white"
-                  : "bg-background-tertiary text-text-primary hover:bg-accent/10"
+                  : "bg-accent-100 text-text-primary hover:bg-accent/25"
               }`}>
               {category}
             </button>
