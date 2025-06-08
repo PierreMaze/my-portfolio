@@ -20,6 +20,7 @@ import {
   MdOutlineNote,
   MdOutlineScience,
 } from "react-icons/md";
+import { OptimizedImage } from "./ui/OptimizedImage";
 
 export const ProjectModal = ({ project, isOpen, onClose }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -68,43 +69,43 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
-          className="relative w-[95vw] h-[90vh] overflow-hidden bg-accent-200 rounded-xl shadow-2xl"
+          className="relative rounded-xl shadow-2xl w-[95vw] h-[90vh] overflow-hidden bg-accent-200"
           onClick={(e) => e.stopPropagation()}>
           {/* Bouton retour */}
           <button
             onClick={onClose}
-            className="absolute z-10 p-3 transition-all duration-300 ease-in-out bg-white rounded-full top-4 left-4 hover:bg-accent hover:text-white">
+            className="absolute z-10 p-3 bg-white rounded-full transition-all duration-300 ease-in-out top-4 left-4 hover:bg-accent hover:text-white">
             <FaArrowLeft className="w-6 h-6" />
           </button>
 
           {/* Contenu scrollable */}
           <div className="flex flex-col h-full overflow-y-auto">
             {/* Device Frame avec Carousel */}
-            <div className="relative w-full max-w-4xl px-8 mx-auto my-8">
+            <div className="relative px-8 mx-auto my-8 w-full max-w-4xl">
               <div className="relative p-4 bg-gray-300 rounded-lg shadow-lg">
                 {/* Barre de titre du device */}
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 </div>
                 {/* Image dans le device */}
-                <div className="relative overflow-hidden rounded-lg aspect-video">
-                  <img
+                <div className="relative rounded-lg overflow-hidden aspect-video">
+                  <OptimizedImage
                     src={images[currentImageIndex]}
                     alt={project.title}
-                    className="object-cover w-full h-full"
+                    className="w-full h-full object-cover"
                   />
                   {images.length > 1 && (
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute p-3 transition-colors -translate-y-1/2 bg-white rounded-full left-4 top-1/2 hover:bg-accent hover:text-white">
+                        className="absolute p-3 bg-white rounded-full transition-colors -translate-y-1/2 left-4 top-1/2 hover:bg-accent hover:text-white">
                         <FaArrowLeft className="w-6 h-6" />
                       </button>
                       <button
                         onClick={nextImage}
-                        className="absolute p-3 transition-colors -translate-y-1/2 bg-white rounded-full right-4 top-1/2 hover:bg-accent hover:text-white">
+                        className="absolute p-3 bg-white rounded-full transition-colors -translate-y-1/2 right-4 top-1/2 hover:bg-accent hover:text-white">
                         <FaArrowRight className="w-6 h-6" />
                       </button>
                       {/* Indicateurs de navigation */}
@@ -129,17 +130,17 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
 
             {/* Contenu textuel */}
             <div className="flex-1 p-8 bg-accent-50">
-              <div className="max-w-3xl mx-auto">
+              <div className="mx-auto max-w-3xl">
                 {/* En-tête avec titre */}
                 <div className="mb-8">
-                  <h3 className="mb-4 text-3xl font-bold text-gray-900">
+                  <h3 className="text-3xl font-bold text-gray-900 mb-4">
                     {project.title}
                   </h3>
                   <div className="flex flex-wrap gap-3">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center gap-1.5 px-4 py-2 text-sm rounded-full bg-accent/10 text-accent">
+                        className="inline-flex items-center px-4 py-2 text-sm rounded-full gap-1.5 bg-accent/10 text-accent">
                         <FaTag className="w-4 h-4" />
                         {tag}
                       </span>
@@ -155,11 +156,11 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                 </div>
 
                 {/* Tableau détaillé */}
-                <div className="mb-8 overflow-hidden bg-white rounded-lg shadow-sm">
+                <div className="bg-white rounded-lg shadow-sm mb-8 overflow-hidden">
                   <table className="w-full">
                     <tbody>
                       <tr>
-                        <td className="w-1/4 px-6 py-5 font-semibold text-gray-900">
+                        <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
                             <MdOutlineLightbulb className="w-5 h-5 text-accent" />
                             Problématique
@@ -170,7 +171,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         </td>
                       </tr>
                       <tr className="bg-[#fafaf8]">
-                        <td className="w-1/4 px-6 py-5 font-semibold text-gray-900">
+                        <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
                             <MdOutlineEmojiObjects className="w-5 h-5 text-accent" />
                             Objectifs
@@ -187,7 +188,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         </td>
                       </tr>
                       <tr>
-                        <td className="w-1/4 px-6 py-5 font-semibold text-gray-900">
+                        <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
                             <MdOutlineScience className="w-5 h-5 text-accent" />
                             Solution
@@ -198,7 +199,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         </td>
                       </tr>
                       <tr className="bg-[#fafaf8]">
-                        <td className="w-1/4 px-6 py-5 font-semibold text-gray-900">
+                        <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
                             <MdOutlineCode className="w-5 h-5 text-accent" />
                             Obstacles
@@ -215,7 +216,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         </td>
                       </tr>
                       <tr>
-                        <td className="w-1/4 px-6 py-5 font-semibold text-gray-900">
+                        <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
                             <FaTag className="w-5 h-5 text-accent" />
                             Technologies
@@ -226,7 +227,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                             {project.technologies?.map((tech, index) => (
                               <span
                                 key={index}
-                                className="px-3 py-1.5 text-sm font-medium bg-white text-gray-700 rounded-full hover:bg-gray-50 transition-colors">
+                                className="px-3 py-1.5 text-sm font-medium text-gray-700 bg-white rounded-full transition-colors hover:bg-gray-50">
                                 {tech}
                               </span>
                             ))}
@@ -234,7 +235,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         </td>
                       </tr>
                       <tr className="bg-[#fafaf8]">
-                        <td className="w-1/4 px-6 py-5 font-semibold text-gray-900">
+                        <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
                             <MdOutlineAssessment className="w-5 h-5 text-accent" />
                             Résultats
@@ -256,7 +257,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
 
                 {/* Liens du projet */}
                 <div>
-                  <h4 className="mb-4 text-lg font-semibold">
+                  <h4 className="text-lg font-semibold mb-4">
                     Liens du projet
                   </h4>
                   <div className="flex flex-wrap gap-3">
@@ -265,7 +266,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors bg-gray-100 rounded-lg hover:bg-gray-200">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-colors hover:bg-gray-200">
                         <FaGithub className="w-5 h-5" />
                         GitHub
                       </a>
@@ -275,7 +276,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         href={project.figma}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors bg-gray-100 rounded-lg hover:bg-gray-200">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-colors hover:bg-gray-200">
                         <FaFigma className="w-5 h-5" />
                         Figma
                       </a>
@@ -285,7 +286,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         href={project.diagram}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors bg-gray-100 rounded-lg hover:bg-gray-200">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-colors hover:bg-gray-200">
                         <FaCube className="w-5 h-5" />
                         Diagram
                       </a>
@@ -295,7 +296,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         href={project.excalidraw}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors bg-gray-100 rounded-lg hover:bg-gray-200">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-colors hover:bg-gray-200">
                         <FaPencilAlt className="w-5 h-5" />
                         Excalidraw
                       </a>
@@ -305,7 +306,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         href={project.notion}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors bg-gray-100 rounded-lg hover:bg-gray-200">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-colors hover:bg-gray-200">
                         <MdOutlineNote className="w-5 h-5" />
                         Notion
                       </a>
@@ -315,7 +316,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         href={project.behance}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors bg-gray-100 rounded-lg hover:bg-gray-200">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-colors hover:bg-gray-200">
                         <FaBehance className="w-5 h-5" />
                         Behance
                       </a>
@@ -325,7 +326,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         href={project.dribbble}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm transition-colors bg-gray-100 rounded-lg hover:bg-gray-200">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg transition-colors hover:bg-gray-200">
                         <FaDribbble className="w-5 h-5" />
                         Dribbble
                       </a>
@@ -335,7 +336,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm text-white transition-colors rounded-lg bg-accent hover:bg-accent/90">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm text-white rounded-lg transition-colors bg-accent hover:bg-accent/90">
                         <FaPlay className="w-5 h-5" />
                         Live Demo
                       </a>

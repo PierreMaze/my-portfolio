@@ -1,4 +1,5 @@
 import { Button } from "./ui/Button";
+import { OptimizedImage } from "./ui/OptimizedImage";
 
 export const ProjectCard = ({
   title,
@@ -10,18 +11,18 @@ export const ProjectCard = ({
 }) => {
   return (
     <div
-      className="flex flex-col h-full transition-colors bg-white rounded-lg cursor-pointer hover:bg-accent-50"
+      className="flex flex-col h-full bg-white rounded-lg cursor-pointer transition-colors hover:bg-accent-50"
       onClick={onClick}
       {...props}>
       <div className="relative overflow-hidden aspect-video">
-        <img
+        <OptimizedImage
           src={image}
           alt={title}
-          className="object-cover w-full h-full transition-transform hover:scale-105"
+          className="w-full h-full transition-transform object-cover hover:scale-105"
         />
       </div>
-      <div className="flex flex-col flex-grow p-6">
-        <h3 className="mb-3 text-xl font-semibold">{title}</h3>
+      <div className="flex flex-col p-6 flex-grow">
+        <h3 className="text-xl font-semibold mb-3">{title}</h3>
         <p className="mb-4 text-text-secondary line-clamp-3">{description}</p>
         <div className="flex flex-wrap gap-2 mt-auto">
           {tags.map((tag) => (

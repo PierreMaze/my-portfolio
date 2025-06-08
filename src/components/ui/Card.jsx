@@ -1,3 +1,5 @@
+import { OptimizedImage } from "./OptimizedImage";
+
 export const Card = ({
   title,
   description,
@@ -12,7 +14,7 @@ export const Card = ({
       {...props}>
       {image && (
         <div className="relative h-48 overflow-hidden">
-          <img
+          <OptimizedImage
             src={image}
             alt={title}
             className="object-cover object-center w-full h-full"

@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FadeIn } from "../components/FadeIn";
 import { Container } from "../components/layout/Container";
 import { Button } from "../components/ui/Button";
+import { OptimizedImage } from "../components/ui/OptimizedImage";
 
 // Simulons une base de données de projets
 const projectsData = {
@@ -38,7 +39,7 @@ export const ProjectDetails = () => {
   if (!project) {
     return (
       <Container className="py-20 text-center">
-        <h1 className="mb-4 text-2xl font-bold">Projet non trouvé</h1>
+        <h1 className="text-2xl font-bold mb-4">Projet non trouvé</h1>
         <Button onClick={() => navigate("/")} variant="accent">
           Retour à l'accueil
         </Button>
@@ -59,35 +60,35 @@ export const ProjectDetails = () => {
         </FadeIn>
 
         <FadeIn>
-          <h1 className="mb-4 text-4xl font-bold">{project.title}</h1>
-          <p className="mb-8 text-xl text-text-secondary">
+          <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
+          <p className="text-xl mb-8 text-text-secondary">
             {project.description}
           </p>
         </FadeIn>
 
         <FadeIn className="delay-100">
-          <div className="mb-12 overflow-hidden rounded-lg aspect-video">
-            <img
+          <div className="relative rounded-lg overflow-hidden aspect-video">
+            <OptimizedImage
               src={project.image}
               alt={project.title}
-              className="object-cover w-full h-full"
+              className="w-full h-full object-cover"
             />
           </div>
         </FadeIn>
 
-        <div className="grid gap-12 md:grid-cols-2">
+        <div className="flex flex-col gap-12">
           <FadeIn className="delay-200">
             <div>
-              <h2 className="mb-6 text-2xl font-bold">Description</h2>
+              <h2 className="text-2xl font-bold mb-6">Description</h2>
               <p className="mb-8 text-text-secondary">
                 {project.longDescription}
               </p>
 
-              <h3 className="mb-4 text-xl font-bold">Fonctionnalités</h3>
+              <h3 className="text-xl font-bold mb-4">Fonctionnalités</h3>
               <ul className="space-y-2">
                 {project.features.map((feature, index) => (
                   <li key={index} className="flex items-center">
-                    <span className="w-2 h-2 mr-3 rounded-full bg-accent" />
+                    <span className="w-2 h-2 rounded-full mr-3 bg-accent" />
                     {feature}
                   </li>
                 ))}
@@ -97,10 +98,10 @@ export const ProjectDetails = () => {
 
           <FadeIn className="delay-300">
             <div>
-              <h2 className="mb-6 text-2xl font-bold">Technologies</h2>
+              <h2 className="text-2xl font-bold mb-6">Technologies</h2>
               {Object.entries(project.technologies).map(([category, techs]) => (
                 <div key={category} className="mb-6">
-                  <h3 className="mb-3 text-lg font-semibold capitalize">
+                  <h3 className="text-lg font-semibold capitalize mb-3">
                     {category}
                   </h3>
                   <div className="flex flex-wrap gap-2">
