@@ -1,7 +1,7 @@
 import { FadeIn } from "../components/FadeIn";
 import { Button } from "../components/ui/Button";
 
-export const Contact = () => {
+const Contact = () => {
   return (
     <section className="py-20">
       <FadeIn>
@@ -115,3 +115,5 @@ export const Contact = () => {
     </section>
   );
 };
+
+export default Contact;

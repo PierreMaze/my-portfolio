@@ -36,7 +36,7 @@ const AnimatedHtmlIcon = () => {
   );
 };
 
-export const Skills = () => {
+const Skills = () => {
   const skillsData = {
     "Langages & Frameworks": [
       {
@@ -189,3 +189,5 @@ export const Skills = () => {
     </section>
   );
 };
+
+export default Skills;

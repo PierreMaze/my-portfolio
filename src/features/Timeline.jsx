@@ -39,7 +39,7 @@ const timelineData = [
   },
 ];
 
-export const Timeline = () => {
+const Timeline = () => {
   return (
     <section className="py-20 bg-background-primary/50">
       <FadeIn>
@@ -95,3 +95,5 @@ export const Timeline = () => {
     </section>
   );
 };
+
+export default Timeline;

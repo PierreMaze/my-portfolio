@@ -3,10 +3,10 @@ import ImgAvatar from "../assets/avatar.png";
 import { FadeIn } from "../components/FadeIn";
 import { OptimizedImage } from "../components/ui/OptimizedImage";
 
-export const Hero = () => {
+const Hero = () => {
   return (
     <section className="flex items-center justify-center py-20 min-h-screen">
-      <div className="flex flex-col-reverse items-center gap-8  md:flex-row md:items-center">
+      <div className="flex flex-col-reverse items-center gap-8 md:flex-row md:items-center">
         <FadeIn>
           <div className="text-center max-w-3xl md:text-left">
             <h1 className="text-5xl font-bold mb-6 md:text-6xl">
@@ -62,3 +62,5 @@ export const Hero = () => {
     </section>
   );
 };
+
+export default Hero;
