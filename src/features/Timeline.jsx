@@ -42,57 +42,55 @@ const timelineData = [
 export const Timeline = () => {
   return (
     <section className="py-20 bg-background-primary/50">
-      <div className="container">
-        <FadeIn>
-          <h2 className="relative text-3xl font-bold text-center mb-16">
-            <span className="relative inline-block">
-              <span
-                className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
-                aria-hidden="true"></span>
-              <span className="relative">Mon parcours</span>
-            </span>
-          </h2>
-        </FadeIn>
-        <div className="relative mx-auto max-w-4xl">
-          {/* Ligne verticale centrale */}
-          <div className="absolute top-0 bottom-0 w-0.5 left-1/2 bg-accent/20 -translate-x-1/2" />
+      <FadeIn>
+        <h2 className="relative text-3xl font-bold text-center mb-16">
+          <span className="relative inline-block">
+            <span
+              className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
+              aria-hidden="true"></span>
+            <span className="relative">Mon parcours</span>
+          </span>
+        </h2>
+      </FadeIn>
+      <div className="relative mx-auto max-w-4xl">
+        {/* Ligne verticale centrale */}
+        <div className="absolute top-0 bottom-0 w-0.5 left-1/2 bg-accent/20 -translate-x-1/2" />
 
-          {timelineData.map((item, index) => (
-            <FadeIn key={item.id} className={`delay-[${index * 100}ms]`}>
+        {timelineData.map((item, index) => (
+          <FadeIn key={item.id} className={`delay-[${index * 100}ms]`}>
+            <div
+              className={`relative md:mb-16 last:mb-0 ${
+                index % 2 === 0
+                  ? "md:pr-[calc(50%+2rem)]"
+                  : "md:pl-[calc(50%+2rem)]"
+              }`}>
+              {/* Point sur la ligne */}
+              <div className="absolute z-10 w-4 h-4 border-2 rounded-full -translate-x-1/2 border-yellow-500 left-1/2 -top-6 md:top-6 bg-background-primary" />
+
+              {/* Contenu */}
               <div
-                className={`relative md:mb-16 last:mb-0 ${
-                  index % 2 === 0
-                    ? "md:pr-[calc(50%+2rem)]"
-                    : "md:pl-[calc(50%+2rem)]"
+                className={`bg-white my-12 md:my-0 p-8 rounded-lg shadow-sm relative ${
+                  index % 2 === 0 ? "md:pr-8" : "md:pl-8"
                 }`}>
-                {/* Point sur la ligne */}
-                <div className="absolute z-10 w-4 h-4 border-2 rounded-full -translate-x-1/2 border-yellow-500 left-1/2 top-6 bg-background-primary" />
-
-                {/* Contenu */}
+                {/* Flèche */}
                 <div
-                  className={`bg-white my-12 md:my-0 p-8 rounded-lg shadow-sm relative ${
-                    index % 2 === 0 ? "md:pr-8" : "md:pl-8"
-                  }`}>
-                  {/* Flèche */}
-                  <div
-                    className={`absolute top-6 w-4 h-4 bg-white transform rotate-45 ${
-                      index % 2 === 0 ? "right-[-8px]" : "left-[-8px]"
-                    }`}
-                  />
+                  className={`hidden md:absolute top-6 w-4 h-4 bg-white transform rotate-45 ${
+                    index % 2 === 0 ? "right-[-8px]" : "left-[-8px]"
+                  }`}
+                />
 
-                  <div className="font-semibold mb-3 text-accent">
-                    {item.date}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                  <h4 className="text-sm mb-4 italic">{item.company}</h4>
-                  <p className="leading-relaxed text-dark/70">
-                    {item.description}
-                  </p>
+                <div className="font-semibold mb-3 text-accent">
+                  {item.date}
                 </div>
+                <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                <h4 className="text-sm mb-4 italic">{item.company}</h4>
+                <p className="leading-relaxed text-dark/70">
+                  {item.description}
+                </p>
               </div>
-            </FadeIn>
-          ))}
-        </div>
+            </div>
+          </FadeIn>
+        ))}
       </div>
     </section>
   );

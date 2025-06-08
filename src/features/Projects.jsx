@@ -2,6 +2,7 @@ import { useState } from "react";
 import ImgProjectClou from "../assets/clou.png";
 import ImgProjectLumi from "../assets/lumi.png";
 import ImgProjectMakeSense from "../assets/make_sense.png";
+import MemoryLandPicture from "../assets/memoryland.png";
 import ImgProjectSignature from "../assets/signature.png";
 import { FadeIn } from "../components/FadeIn";
 import { ProjectCard } from "../components/ProjectCard";
@@ -9,18 +10,17 @@ import { ProjectModal } from "../components/ProjectModal";
 
 const categories = ["Tous", "Frontend", "Backend", "Fullstack", "Design"];
 
+// Log pour vérifier l'import
+console.log("MemoryLandPicture import:", MemoryLandPicture);
+
 const projects = [
   {
     id: 1,
     title: "Application web Responsive (en cours de développement)",
     description:
       "Site vitrine optimisé pour les performances et parfaitement responsive pour l'agence Signature.",
-    image: { ImgProjectSignature },
-    images: [
-      { ImgProjectSignature },
-      { ImgProjectSignature },
-      { ImgProjectSignature },
-    ],
+    image: ImgProjectSignature,
+    images: [ImgProjectSignature, ImgProjectSignature, ImgProjectSignature],
     tags: ["React", "TailwindCSS", "Dotenv"],
     category: "Backend",
     github: "https://github.com/username/microservices",
@@ -51,8 +51,8 @@ const projects = [
     title: "Landing Page Responsive",
     description:
       "Site vitrine  optimisé pour les performances et parfaitement responsive pour l'entreprise Clou&Cie.",
-    image: { ImgProjectClou },
-    images: [{ ImgProjectClou }, { ImgProjectClou }, { ImgProjectClou }],
+    image: ImgProjectClou,
+    images: [ImgProjectClou, ImgProjectClou, ImgProjectClou],
     tags: ["React", "TailwindCSS"],
     category: "Frontend",
     github: "https://github.com/username/project",
@@ -87,8 +87,8 @@ const projects = [
     title: "Site Vitrine Responsive",
     description:
       "Site vitrine optimisé pour les performances et parfaitement responsive pour l'entreprise Luminescence33.",
-    image: { ImgProjectLumi },
-    images: [{ ImgProjectLumi }, { ImgProjectLumi }, { ImgProjectLumi }],
+    image: ImgProjectLumi,
+    images: [ImgProjectLumi, ImgProjectLumi, ImgProjectLumi],
     tags: ["React", "TailwindCSS", "Node", "Dotenv"],
     category: "Fullstack",
     github: "https://github.com/username/task-manager",
@@ -123,12 +123,8 @@ const projects = [
     title: "Application Web de getions d'actions",
     description:
       "Application web de gestion de getions d'actions pour l'entreprise Make_Sense.",
-    image: { ImgProjectMakeSense },
-    images: [
-      { ImgProjectMakeSense },
-      { ImgProjectMakeSense },
-      { ImgProjectMakeSense },
-    ],
+    image: ImgProjectMakeSense,
+    images: [ImgProjectMakeSense, ImgProjectMakeSense, ImgProjectMakeSense],
     tags: ["HTML/CSS", "JavaScript", "Figma"],
     category: "Design",
     github: "https://github.com/username/portfolio",
@@ -162,11 +158,11 @@ const projects = [
     id: 5,
     title: "Jeu application web",
     description: "Application web de jeu nommé MemoryLand.",
-    image: "/api/placeholder/400/320",
+    image: MemoryLandPicture.default || MemoryLandPicture,
     images: [
-      "/api/placeholder/400/320",
-      "/api/placeholder/400/320",
-      "/api/placeholder/400/320",
+      MemoryLandPicture.default || MemoryLandPicture,
+      MemoryLandPicture.default || MemoryLandPicture,
+      MemoryLandPicture.default || MemoryLandPicture,
     ],
     tags: ["React", "D3.js", "Node.js"],
     category: "Fullstack",
@@ -196,35 +192,54 @@ const projects = [
   },
 ];
 
-export const Projects = () => {
+import { useCallback, useMemo } from "react";
+
+const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("Tous");
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const filteredProjects = projects.filter(
-    (project) =>
-      selectedCategory === "Tous" || project.category === selectedCategory
+  // Mémoriser les projets filtrés
+  const filteredProjects = useMemo(
+    () =>
+      projects.filter(
+        (project) =>
+          selectedCategory === "Tous" || project.category === selectedCategory
+      ),
+    [selectedCategory]
   );
 
-  const handleProjectClick = (project) => {
+  // Mémoriser les catégories uniques
+  const categories = useMemo(
+    () => ["Tous", ...new Set(projects.map((project) => project.category))],
+    []
+  );
+
+  // Optimiser le gestionnaire de clic sur un projet
+  const handleProjectClick = useCallback((project) => {
     setSelectedProject(project);
-  };
+  }, []);
+
+  // Optimiser le gestionnaire de fermeture du modal
+  const handleCloseModal = useCallback(() => {
+    setSelectedProject(null);
+  }, []);
 
   return (
-    <section className="py-20">
-      <div className="container">
-        <FadeIn>
-          <h2 className="relative mb-12 text-3xl font-bold">
-            <span className="relative inline-block">
-              <span
-                className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
-                aria-hidden="true"></span>
-              <span className="relative">Mes projets</span>
-            </span>
-          </h2>
-        </FadeIn>
+    <div>
+      <FadeIn>
+        <h2 className="relative text-3xl font-bold mb-12">
+          <span className="relative inline-block">
+            <span
+              className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
+              aria-hidden="true"></span>
+            <span className="relative">Mes projets</span>
+          </span>
+        </h2>
+      </FadeIn>
 
-        {/* Filtres */}
-        <div className="flex flex-wrap gap-4 mb-8">
+      {/* Filtres */}
+      <FadeIn className="delay-100">
+        <div className="flex flex-wrap justify-start gap-2 mb-12">
           {categories.map((category) => (
             <button
               key={category}
@@ -232,34 +247,37 @@ export const Projects = () => {
               className={`px-4 py-2 rounded-full transition-colors ${
                 selectedCategory === category
                   ? "bg-accent text-white"
-                  : "bg-accent/10 text-accent hover:bg-accent/20"
+                  : "bg-background-tertiary text-text-primary hover:bg-accent/10"
               }`}>
               {category}
             </button>
           ))}
         </div>
+      </FadeIn>
 
-        {/* Grille de projets */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project, index) => (
-            <FadeIn key={project.id} className="delay-[${index * 100}ms]">
-              <div className="h-full">
-                <ProjectCard
-                  {...project}
-                  onClick={() => handleProjectClick(project)}
-                />
-              </div>
-            </FadeIn>
+      {/* Grille de projets */}
+      <FadeIn className="delay-200">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {filteredProjects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              {...project}
+              onClick={() => handleProjectClick(project)}
+            />
           ))}
         </div>
+      </FadeIn>
 
-        {/* Modal */}
+      {/* Modal de projet */}
+      {selectedProject && (
         <ProjectModal
           project={selectedProject}
           isOpen={!!selectedProject}
-          onClose={() => setSelectedProject(null)}
+          onClose={handleCloseModal}
         />
-      </div>
-    </section>
+      )}
+    </div>
   );
 };
+
+export { Projects };

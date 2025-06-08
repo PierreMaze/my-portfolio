@@ -36,7 +36,7 @@ const AnimatedHtmlIcon = () => {
   );
 };
 
-const Skills = () => {
+export const Skills = () => {
   const skillsData = {
     "Langages & Frameworks": [
       {
@@ -166,30 +166,26 @@ const Skills = () => {
 
   return (
     <section className="py-20">
-      <div className="container">
-        <FadeIn>
-          <h2 className="relative text-3xl font-bold mb-12">
-            <span className="relative inline-block">
-              <span
-                className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
-                aria-hidden="true"></span>
-              <span className="relative">Mes compétences</span>
-            </span>
-          </h2>
-        </FadeIn>
-        <div className="space-y-16">
-          {Object.entries(skillsData).map(([title, skills], index) => (
-            <SkillSection
-              key={title}
-              title={title}
-              skills={skills}
-              cols={title === "Langages & Frameworks" ? 6 : 4}
-            />
-          ))}
-        </div>
+      <FadeIn>
+        <h2 className="relative text-3xl font-bold mb-12">
+          <span className="relative inline-block">
+            <span
+              className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
+              aria-hidden="true"></span>
+            <span className="relative">Mes compétences</span>
+          </span>
+        </h2>
+      </FadeIn>
+      <div className="space-y-16">
+        {Object.entries(skillsData).map(([title, skills], index) => (
+          <SkillSection
+            key={title}
+            title={title}
+            skills={skills}
+            cols={title === "Langages & Frameworks" ? 6 : 4}
+          />
+        ))}
       </div>
     </section>
   );
 };
-
-export default Skills;

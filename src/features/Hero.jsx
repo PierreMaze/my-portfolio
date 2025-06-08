@@ -1,11 +1,12 @@
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import ImgAvatar from "../assets/avatar.png";
 import { FadeIn } from "../components/FadeIn";
+import { OptimizedImage } from "../components/ui/OptimizedImage";
 
 export const Hero = () => {
   return (
     <section className="flex items-center justify-center py-20 min-h-screen">
-      <div className="container flex flex-col-reverse items-center gap-8 md:flex-row md:items-center">
+      <div className="flex flex-col-reverse items-center gap-8  md:flex-row md:items-center">
         <FadeIn>
           <div className="text-center max-w-3xl md:text-left">
             <h1 className="text-5xl font-bold mb-6 md:text-6xl">
@@ -49,7 +50,7 @@ export const Hero = () => {
         </FadeIn>
         {/* Avatar */}
         <a href="/about" className="mx-auto w-48 h-48 md:w-80 md:h-80">
-          <img
+          <OptimizedImage
             src={ImgAvatar}
             alt="Mon avatar"
             className="w-full h-full rounded-full transition-transform object-cover hover:scale-105"
