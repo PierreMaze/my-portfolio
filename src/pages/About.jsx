@@ -20,10 +20,11 @@ const About = () => {
           <FadeIn className="delay-100">
             <div className="space-y-6">
               <p className="text-lg text-text-secondary">
-                Développeur Fullstack passionné par la création d'expériences
-                web modernes et performantes. Je combine expertise technique et
-                sens du design pour construire des applications qui allient
-                esthétique et fonctionnalité.
+                Je me nomme Pierre MAZELAYGUE, j'ai 28 ans. Développeur
+                Fullstack passionné par la création d'expériences web modernes
+                et performantes. Je combine expertise technique et sens du
+                design pour construire des applications qui allient esthétique
+                et fonctionnalité.
               </p>
               <p className="text-lg text-text-secondary">
                 Mon approche se concentre sur l'expérience utilisateur, la
