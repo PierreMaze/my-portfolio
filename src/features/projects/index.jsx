@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import ImgProjectClou from "../../assets/clou.png";
 import ImgProjectLumi from "../../assets/lumi.png";
 import ImgProjectMakeSense from "../../assets/make_sense.png";
 import MemoryLandPicture from "../../assets/memoryland.png";
 import ImgProjectSignature from "../../assets/signature.png";
 import { FadeIn } from "../../components/FadeIn";
-import { ProjectCard } from "../../components/ProjectCard";
-import { ProjectModal } from "../../components/ProjectModal";
+import { ProjectCard } from "./components/ProjectCard";
+import { ProjectModal } from "./components/ProjectModal";
 
 const categories = ["Tous", "Frontend", "Backend", "Fullstack", "Design"];
 
@@ -192,9 +192,7 @@ const projects = [
   },
 ];
 
-import { useCallback, useMemo } from "react";
-
-const Projects = () => {
+export const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("Tous");
   const [selectedProject, setSelectedProject] = useState(null);
 

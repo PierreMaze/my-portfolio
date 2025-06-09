@@ -2,7 +2,7 @@ import Contact from "../features/common/Contact";
 import Hero from "../features/common/Hero";
 import Skills from "../features/common/Skills";
 import Timeline from "../features/common/Timeline";
-import Projects from "../features/projects/Projects";
+import Projects from "../features/projects/index.jsx";
 
 const Home = () => {
   return (

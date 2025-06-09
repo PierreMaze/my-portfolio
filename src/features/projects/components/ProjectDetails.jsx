@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { FadeIn } from "../components/FadeIn";
-import { Container } from "../components/layout/Container";
-import { Button } from "../components/ui/Button";
-import { OptimizedImage } from "../components/ui/OptimizedImage";
+import { FadeIn } from "../../../components/FadeIn";
+import { Container } from "../../../components/layout/Container";
+import { Button } from "../../../components/ui/Button";
+import OptimizedImage from "../../../components/ui/OptimizedImage";
 
 // Simulons une base de données de projets
 const projectsData = {
@@ -31,7 +31,11 @@ const projectsData = {
   // Ajoutez d'autres projets ici
 };
 
-const ProjectDetails = () => {
+/**
+ * Composant ProjectDetails
+ * Affiche les détails d'un projet spécifique
+ */
+export const ProjectDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const project = projectsData[id];
@@ -131,5 +135,3 @@ const ProjectDetails = () => {
     </div>
   );
 };
-
-export default ProjectDetails;

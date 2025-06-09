@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/layout";
 import { TerminalLoader } from "./components/TerminalLoader";
 import { Background } from "./features/common/Background";
+import { ProjectDetails } from "./features/projects/components/ProjectDetails";
 import { useSmoothScroll } from "./hooks/useSmoothScroll";
 import About from "./pages/About";
 import Home from "./pages/Home";
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "legal",
         element: <Legal />,
+      },
+      {
+        path: "projects/:id",
+        element: <ProjectDetails />,
       },
     ],
   },

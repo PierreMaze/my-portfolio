@@ -1,4 +1,4 @@
-export const OptimizedImage = ({ src, alt, className = "", ...props }) => {
+const OptimizedImage = ({ src, alt, className = "", ...props }) => {
   // Vérifier si src est une chaîne de caractères
   const getImageSource = (source) => {
     console.log("Source reçue:", source);
@@ -60,3 +60,5 @@ export const OptimizedImage = ({ src, alt, className = "", ...props }) => {
     </picture>
   );
 };
+
+export default OptimizedImage;

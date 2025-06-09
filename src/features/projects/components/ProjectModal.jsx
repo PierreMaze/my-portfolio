@@ -20,9 +20,14 @@ import {
   MdOutlineNote,
   MdOutlineScience,
 } from "react-icons/md";
-import { OptimizedImage } from "./ui/OptimizedImage";
+import OptimizedImage from "../../../components/ui/OptimizedImage";
 
+/**
+ * Composant ProjectModal
+ * Affiche une modal détaillée pour un projet avec carousel d'images et informations
+ */
 export const ProjectModal = ({ project, isOpen, onClose }) => {
+  // State
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -44,6 +49,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
     };
   }, [isOpen]);
 
+  // Handlers
   const nextImage = () => {
     if (isAnimating) return;
     setIsAnimating(true);

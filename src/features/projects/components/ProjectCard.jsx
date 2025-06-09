@@ -1,6 +1,10 @@
-import { Button } from "./ui/Button";
-import { OptimizedImage } from "./ui/OptimizedImage";
+import { Button } from "../../../components/ui/Button";
+import OptimizedImage from "../../../components/ui/OptimizedImage";
 
+/**
+ * Composant ProjectCard
+ * Affiche une carte de projet avec image, titre, description et tags
+ */
 export const ProjectCard = ({
   title,
   description,
