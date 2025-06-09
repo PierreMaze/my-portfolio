@@ -1,7 +1,7 @@
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
-import ImgAvatar from "../assets/avatar.png";
-import { FadeIn } from "../components/FadeIn";
-import { OptimizedImage } from "../components/ui/OptimizedImage";
+import ImgAvatar from "../../assets/avatar.png";
+import { FadeIn } from "../../components/FadeIn";
+import { OptimizedImage } from "../../components/ui/OptimizedImage";
 
 const Hero = () => {
   return (
