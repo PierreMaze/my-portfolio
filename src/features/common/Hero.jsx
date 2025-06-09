@@ -1,9 +1,46 @@
+import { useState } from "react";
+import { FiLoader } from "react-icons/fi";
+import { IoMdDownload } from "react-icons/io";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
+import { MdDownloadDone } from "react-icons/md";
 import ImgAvatar from "../../assets/avatar.png";
+import { Button } from "../../components/ui/Button";
 import { FadeIn } from "../../components/ui/FadeIn";
 import OptimizedImage from "../../components/ui/OptimizedImage";
 
 const Hero = () => {
+  const [downloadState, setDownloadState] = useState("default"); // 'default', 'loading', 'done'
+
+  const handleDownload = () => {
+    setDownloadState("loading");
+
+    // Créer un lien temporaire pour le téléchargement
+    const link = document.createElement("a");
+    link.href = "/docs/CV_SPONTANEE.pdf";
+    link.download = "CV_PierreMaze.pdf";
+
+    // Simuler un délai de téléchargement
+    setTimeout(() => {
+      link.click();
+      setDownloadState("done");
+      // Réinitialiser après 2 secondes
+      setTimeout(() => {
+        setDownloadState("default");
+      }, 2000);
+    }, 1500);
+  };
+
+  const getDownloadIcon = () => {
+    switch (downloadState) {
+      case "loading":
+        return <FiLoader className="animate-spin" />;
+      case "done":
+        return <MdDownloadDone />;
+      default:
+        return <IoMdDownload />;
+    }
+  };
+
   return (
     <section className="flex items-center justify-center py-20 min-h-screen">
       <div className="flex flex-col-reverse items-center gap-8 md:flex-row md:items-center">
@@ -25,9 +62,9 @@ const Hero = () => {
             {/* Btn et liens sociaux */}
             <div className="flex justify-center md:justify-start">
               <div className="flex items-center justify-between m-4">
-                <div className="flex items-center space-x-6">
+                <div className="flex items-center space-x-6 text-accent-500">
                   <a
-                    href="https://github.com/votre-profil"
+                    href="https://github.com/PierreMaze"
                     title="GitHub"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -36,13 +73,21 @@ const Hero = () => {
                   </a>
 
                   <a
-                    href="https://linkedin.com/in/votre-profil"
+                    href="https://fr.linkedin.com/in/pierremazelaygue"
                     title="LinkedIn"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-8 h-8 transition-transform hover:rotate-12">
                     <IoLogoLinkedin className="w-full h-full transition-colors hover:text-blue-600" />
                   </a>
+                </div>
+                <div>
+                  <Button
+                    variant="primary"
+                    onClick={handleDownload}
+                    className="gap-2 mx-8">
+                    Mon CV {getDownloadIcon()}
+                  </Button>
                 </div>
               </div>
             </div>

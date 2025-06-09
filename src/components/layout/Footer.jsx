@@ -7,12 +7,18 @@ const Footer = () => {
       <div className="container">
         <div className="flex justify-center gap-6 mb-6">
           <a
-            href="#"
+            href="https://github.com/PierreMaze"
+            title="Github"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-2xl transition-colors hover:text-highlight">
             <FaGithub />
           </a>
           <a
-            href="#"
+            href="https://fr.linkedin.com/in/pierremazelaygue"
+            title="LinkedIn"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-2xl transition-colors hover:text-highlight">
             <FaLinkedin />
           </a>
