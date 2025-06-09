@@ -1,48 +1,31 @@
 const OptimizedImage = ({ src, alt, className = "", ...props }) => {
   // Vérifier si src est une chaîne de caractères
   const getImageSource = (source) => {
-    console.log("Source reçue:", source);
-    console.log("Type de source:", typeof source);
-
     // Si ce n'est pas une chaîne, c'est probablement un import d'image
     if (typeof source !== "string") {
-      console.log("Source non-string:", source);
       // Si l'import a une propriété default (cas de Vite), on l'utilise
-      const finalSource = source.default || source;
-      console.log("Source finale:", finalSource);
-      return finalSource;
+      return source.default || source;
     }
 
     // Gérer les URLs externes
     if (source.startsWith("http")) return source;
 
-    try {
-      // Extraire le chemin et le nom de fichier
-      const lastDotIndex = source.lastIndexOf(".");
-      if (lastDotIndex === -1) return source;
-
-      const path = source.substring(0, lastDotIndex);
-      const extension = source.substring(lastDotIndex);
-
-      // Vérifier si l'extension est une image
-      if (!/\.(png|jpg|jpeg)$/i.test(extension)) return source;
-
-      // Construire le chemin WebP
-      return `${path}.webp`;
-    } catch (error) {
-      console.error("Erreur lors du traitement de l'image:", error);
+    // Pour les chemins relatifs, on s'assure qu'ils commencent par /
+    if (source.startsWith("./") || source.startsWith("../")) {
       return source;
     }
+
+    // Pour les autres chemins, on ajoute un / au début
+    return source.startsWith("/") ? source : `/${source}`;
   };
 
-  const webpSrc = getImageSource(src);
-  console.log("WebP source:", webpSrc);
+  const finalSrc = getImageSource(src);
 
   return (
     <picture>
-      <source srcSet={webpSrc} type="image/webp" />
+      <source srcSet={finalSrc} type="image/webp" />
       <img
-        src={src}
+        src={finalSrc}
         alt={alt}
         className={className}
         loading="lazy"
@@ -51,7 +34,7 @@ const OptimizedImage = ({ src, alt, className = "", ...props }) => {
           console.error("Erreur complète:", e);
           e.target.onerror = null;
           // Si l'image WebP échoue, on essaie l'image originale
-          if (e.target.src === webpSrc) {
+          if (e.target.src === finalSrc) {
             e.target.src = src;
           }
         }}
