@@ -96,7 +96,7 @@ const Header = () => {
       <div className="container">
         <nav className="flex items-center justify-between h-20">
           <Link to="/" className="text-2xl font-bold text-accent">
-            Portfolio
+            PORTFOLIO
           </Link>
 
           {/* Navigation desktop */}
