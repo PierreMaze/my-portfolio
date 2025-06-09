@@ -33,9 +33,9 @@ const Footer = () => {
         <p>Pierre MAZELAYGUE | Développeur Fullstack</p>
         <p>&copy; 2025 - Tous droits réservés.</p>
         <p className="flex flex-row justify-center gap-x-2 text-center">
-          Made with{" "}
+          Fait avec{" "}
           <RiPokerHeartsLine className="transition-colors group-hover:text-red-500 group-hover:animate-pulse" />{" "}
-          and much{" "}
+          et beaucoup de{" "}
           <GiCoffeeCup className="transition-colors group-hover:text-amber-900 group-hover:animate-pulse" />
           .
         </p>
