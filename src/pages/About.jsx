@@ -1,5 +1,5 @@
-import { FadeIn } from "../components/FadeIn";
 import { Container } from "../components/layout/Container";
+import { FadeIn } from "../components/ui/FadeIn";
 
 const About = () => {
   return (

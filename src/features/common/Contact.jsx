@@ -1,5 +1,5 @@
-import { FadeIn } from "../../components/FadeIn";
 import { Button } from "../../components/ui/Button";
+import { FadeIn } from "../../components/ui/FadeIn";
 
 const Contact = () => {
   return (

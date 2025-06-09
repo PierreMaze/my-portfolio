@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/layout";
 import { TerminalLoader } from "./components/TerminalLoader";
-import { Background } from "./features/common/Background";
+import { ParallaxGrid } from "./components/ui/ParallaxGrid";
 import { ProjectDetails } from "./features/projects/components/ProjectDetails";
-import { useSmoothScroll } from "./hooks/useSmoothScroll";
+import { useSmoothScroll } from "./hooks/useSmoothScroll.jsx";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Legal from "./pages/Legal";
@@ -38,7 +38,7 @@ const App = () => {
 
   return (
     <div className="relative px-6 min-h-screen bg-light md:px-12">
-      <Background />
+      <ParallaxGrid />
       <TerminalLoader />
       <RouterProvider router={router} />
     </div>

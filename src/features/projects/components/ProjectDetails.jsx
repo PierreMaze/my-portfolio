@@ -1,35 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { FadeIn } from "../../../components/FadeIn";
 import { Container } from "../../../components/layout/Container";
 import { Button } from "../../../components/ui/Button";
+import { FadeIn } from "../../../components/ui/FadeIn";
 import OptimizedImage from "../../../components/ui/OptimizedImage";
-
-// Simulons une base de données de projets
-const projectsData = {
-  1: {
-    title: "Plateforme E-commerce",
-    description:
-      "Solution e-commerce complète avec panier d'achat, paiement sécurisé et tableau de bord administrateur.",
-    longDescription:
-      "Une plateforme e-commerce complète développée avec React et Node.js. Le projet inclut un système de panier d'achat, des paiements sécurisés via Stripe, et un tableau de bord administrateur pour la gestion des produits et des commandes.",
-    image: "/api/placeholder/800/400",
-    tags: ["React", "Node.js", "PostgreSQL", "Stripe", "TailwindCSS"],
-    features: [
-      "Système de panier d'achat en temps réel",
-      "Intégration de paiement sécurisée",
-      "Tableau de bord administrateur",
-      "Gestion des stocks",
-      "Système de recherche avancé",
-    ],
-    technologies: {
-      frontend: ["React", "TailwindCSS", "Redux Toolkit"],
-      backend: ["Node.js", "Express", "PostgreSQL"],
-      tools: ["Docker", "Git", "Jest"],
-    },
-    link: "#",
-  },
-  // Ajoutez d'autres projets ici
-};
 
 /**
  * Composant ProjectDetails

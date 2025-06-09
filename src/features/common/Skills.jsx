@@ -14,7 +14,7 @@ import {
   SiReact,
   SiTailwindcss,
 } from "react-icons/si";
-import { FadeIn } from "../../components/FadeIn";
+import { FadeIn } from "../../components/ui/FadeIn";
 
 const AnimatedHtmlIcon = () => {
   const [htmlColor, setHtmlColor] = useState("text-orange-500");

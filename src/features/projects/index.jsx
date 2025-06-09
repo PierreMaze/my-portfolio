@@ -4,7 +4,7 @@ import ImgProjectLumi from "../../assets/lumi.png";
 import ImgProjectMakeSense from "../../assets/make_sense.png";
 import MemoryLandPicture from "../../assets/memoryland.png";
 import ImgProjectSignature from "../../assets/signature.png";
-import { FadeIn } from "../../components/FadeIn";
+import { FadeIn } from "../../components/ui/FadeIn";
 import { ProjectCard } from "./components/ProjectCard";
 import { ProjectModal } from "./components/ProjectModal";
 
