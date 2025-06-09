@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useScrollToTop } from "../../hooks/useScrollToTop";
 
 const navigationItems = [
   {
@@ -30,6 +31,7 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isVisible, setIsVisible] = useState(false);
   const location = useLocation();
+  useScrollToTop();
 
   // Mémoriser les sections pour éviter de les recalculer à chaque rendu
   const sections = useMemo(
