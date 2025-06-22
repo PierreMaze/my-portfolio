@@ -133,7 +133,7 @@ const Skills = () => {
   };
 
   const SkillCard = ({ name, icon, description }) => (
-    <div className="relative py-6 text-center rounded-xl transition-all duration-300 bg-accent-50 group hover:bg-accent/5">
+    <div className="relative py-8 text-center rounded-xl transition-all duration-300 bg-accent-50 group hover:bg-accent/5">
       <div className="relative">
         <div className="flex justify-center transition-transform duration-300 mb-2 group-hover:scale-110">
           {icon}
@@ -165,7 +165,7 @@ const Skills = () => {
   );
 
   return (
-    <section className="py-12 lg:py-24">
+    <section className="py-16 lg:py-32">
       <FadeIn>
         <h2 className="relative text-3xl font-bold mb-12">
           <span className="relative inline-block">

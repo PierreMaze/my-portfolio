@@ -3,7 +3,7 @@ import { FadeIn } from "../../components/ui/FadeIn";
 
 const Contact = () => {
   return (
-    <section className="py-16">
+    <section className="py-16 lg:py-32">
       <FadeIn>
         <h2 className="relative text-3xl font-bold mb-12">
           <span className="relative inline-block">
@@ -17,8 +17,8 @@ const Contact = () => {
 
       <div className="grid gap-12 md:grid-cols-2">
         <FadeIn className="delay-100">
-          <div className="space-y-6">
-            <p className="text-lg text-text-secondary">
+          <div className="space-y-8">
+            <p className="text-basemd:text-lg text-text-secondary">
               Vous avez un projet en tête ? N'hésitez pas à me contacter pour en
               discuter. Je suis toujours ouvert à de nouvelles opportunités et
               collaborations.
