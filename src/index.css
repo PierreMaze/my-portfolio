@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Animation glitch */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.glitch {
+  animation: glitch 0.3s infinite;
+}
+
 /* Uniquement la base avec quelques styles minimes globaux */
 @layer base {
   html {
@@ -9,11 +35,11 @@
   }
 
   body {
-    font-family: theme("fontFamily.mono");
-    font-size: theme("fontSize.base");
-    line-height: theme("lineHeight.relaxed");
-    background-color: theme("colors.background.primary");
-    color: theme("colors.text.primary");
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1rem;
+    line-height: 1.625;
+    background-color: #fafaf8;
+    color: #2c2c18;
   }
 
   h1,
@@ -22,8 +48,8 @@
   h4,
   h5,
   h6 {
-    font-family: theme("fontFamily.sans");
-    font-weight: theme("fontWeight.semibold");
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
   }
 }
 
@@ -31,18 +57,36 @@
 @layer components {
   .container {
     width: 100%;
-    max-width: theme("maxWidth.7xl");
+    max-width: 80rem;
     margin-left: auto;
     margin-right: auto;
-    padding-left: theme("spacing.8");
-    padding-right: theme("spacing.8");
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .btn {
-    @apply inline-block px-6 py-3 bg-accent text-background-primary rounded font-medium transition-all duration-300 hover:bg-accent-600 hover:-translate-y-0.5;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #5d7b8a;
+    color: white;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+
+  .btn:hover {
+    background-color: #4a6270;
+    transform: translateY(-0.125rem);
   }
 
   .badge {
-    @apply inline-block px-3 py-1 mb-2 mr-2 text-sm rounded-full bg-accent-100 text-accent-700;
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 9999px;
+    background-color: #e1e9ed;
+    color: #384a56;
   }
 }

@@ -57,26 +57,23 @@ const Timeline = () => {
         <div className="absolute top-0 bottom-0 w-0.5 left-1/2 bg-accent/20 -translate-x-1/2" />
 
         {timelineData.map((item, index) => (
-          <FadeIn key={item.id} className={`delay-[${index * 100}ms]`}>
+          <FadeIn key={item.id} className={`delay-[${index*100}ms]`}>
             <div
               className={`relative md:mb-16 last:mb-0 ${
                 index % 2 === 0
                   ? "md:pr-[calc(50%+2rem)]"
-                  : "md:pl-[calc(50%+2rem)]"
-              }`}>
+                  : "md:pl-[calc(50%+2rem)]"}`}>
               {/* Point sur la ligne */}
               <div className="absolute z-10 w-4 h-4 border-2 rounded-full -translate-x-1/2 border-yellow-500 left-1/2 -top-6 md:top-6 bg-background-primary" />
 
               {/* Contenu */}
               <div
                 className={`bg-accent-50 my-12 md:my-0 p-8 rounded-lg shadow-sm relative ${
-                  index % 2 === 0 ? "md:pr-8" : "md:pl-8"
-                }`}>
+                  index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}>
                 {/* Flèche */}
                 <div
                   className={`hidden md:block absolute top-6 w-4 h-4 bg-accent-50 transform rotate-45 ${
-                    index % 2 === 0 ? "right-[-8px]" : "left-[-8px]"
-                  }`}
+                    index % 2 === 0 ? "right-[-8px]" : "left-[-8px]"}`}
                 />
 
                 <div className="font-semibold mb-3 text-accent">

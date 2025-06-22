@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { IoChevronForward } from "react-icons/io5";
 
-export const TerminalLoader = () => {
+export const TerminalLoader = ({ onComplete }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
   const [terminalOutput, setTerminalOutput] = useState([]);
 
   const loadSequence = [
-    { text: "🌐 Initialisation du portfolio...", delay: 400 },
-    { text: "⚙️ Chargement des compétences...", delay: 400 },
-    { text: "🎚️ Configuration de l'interface...", delay: 400 },
+    { text: "🌐 Initialisation du portfolio...", delay: 300 },
+    { text: "⚙️ Chargement des compétences...", delay: 300 },
+    { text: "🎚️ Configuration de l'interface...", delay: 300 },
     { text: "🆗 Lancement...", delay: 400 },
   ];
 
@@ -26,7 +26,12 @@ export const TerminalLoader = () => {
         if (index === loadSequence.length - 1) {
           const finalTimeout = setTimeout(() => {
             setIsExiting(true);
-            setTimeout(() => setIsLoaded(true), 1000);
+            setTimeout(() => {
+              setIsLoaded(true);
+              if (onComplete) {
+                onComplete();
+              }
+            }, 1000);
           }, 800);
           timeouts.push(finalTimeout);
         }
@@ -38,20 +43,18 @@ export const TerminalLoader = () => {
     return () => {
       timeouts.forEach((timeout) => clearTimeout(timeout));
     };
-  }, []);
+  }, [onComplete]);
 
   if (!isLoaded) {
     return (
       <div
         className={`fixed inset-0 z-50 flex items-center justify-center bg-background-primary transition-all duration-1000 ${
-          isExiting ? "opacity-0 scale-95 blur-sm" : "opacity-100 scale-100"
-        }`}
+          isExiting ? "opacity-0 scale-95 blur-sm" : "opacity-100 scale-100"}`}
         style={{ fontFamily: "Inter, sans-serif" }}>
         <div className="px-6 mx-auto w-full max-w-2xl">
           <div
             className={`bg-gray-900 rounded-2xl shadow-2xl overflow-hidden transition-all duration-1000 ${
-              isExiting ? "scale-95 opacity-0 blur-sm" : "scale-100 opacity-100"
-            }`}>
+              isExiting ? "scale-95 opacity-0 blur-sm" : "scale-100 opacity-100"}`}>
             <div className="flex items-center gap-2 px-6 py-4 bg-gray-800">
               <div className="w-3 h-3 bg-red-500 rounded-full"></div>
               <div className="w-3 h-3 rounded-full bg-[#FFE799]"></div>
@@ -66,7 +69,7 @@ export const TerminalLoader = () => {
                 <span className="text-blue-400">dev@portfolio</span>
                 <span className="text-white">:</span>
                 <span className="text-purple-400">~</span>
-                <span className="text-white">$ npx create-portfolio</span>
+                <span className="text-white">$ pnpm run portfolio</span>
               </div>
 
               <div className="text-gray-400 space-y-2">
@@ -86,33 +89,6 @@ export const TerminalLoader = () => {
             </div>
           </div>
         </div>
-
-        <style jsx>{`
-          @keyframes glitch {
-            0% {
-              transform: translate(0);
-            }
-            20% {
-              transform: translate(-2px, 2px);
-            }
-            40% {
-              transform: translate(-2px, -2px);
-            }
-            60% {
-              transform: translate(2px, 2px);
-            }
-            80% {
-              transform: translate(2px, -2px);
-            }
-            100% {
-              transform: translate(0);
-            }
-          }
-
-          .glitch {
-            animation: glitch 0.3s infinite;
-          }
-        `}</style>
       </div>
     );
   }

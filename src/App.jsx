@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/layout";
 import { TerminalLoader } from "./components/TerminalLoader";
@@ -34,14 +35,24 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
   useSmoothScroll();
 
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
   return (
-    <div className="relative px-6 min-h-screen bg-light md:px-12">
-      <ParallaxGrid />
-      <TerminalLoader />
-      <RouterProvider router={router} />
-    </div>
+    <>
+      {isLoading ? (
+        <TerminalLoader onComplete={handleLoadingComplete} />
+      ) : (
+        <div className="relative px-6 min-h-screen bg-light md:px-12 xl:px-24">
+          <ParallaxGrid />
+          <RouterProvider router={router} />
+        </div>
+      )}
+    </>
   );
 };
 
