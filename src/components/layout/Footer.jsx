@@ -1,12 +1,10 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { GiCoffeeCup } from "react-icons/gi";
-import { RiPokerHeartsLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="py-12 text-center xl:pt-16 group bg-dark text-light">
-      <div className="container">
+    <footer className="pt-16 pb-12 text-center xl:pt-32 group bg-dark text-light">
+      <div className="mx-auto w-full">
         <div className="flex justify-center gap-6 mb-6">
           <a
             href="https://github.com/PierreMaze"
@@ -25,20 +23,13 @@ const Footer = () => {
             <FaLinkedin className="transition-colors hover:text-blue-600" />
           </a>
         </div>
-        <div className="my-4 hover:text-accent-600">
+        <div className="my-4 underline underline-offset-auto hover:text-accent-600">
           <Link to="/legal">Mentions légales</Link>
         </div>
       </div>
-      <div className="flex flex-col gap-y-2 px-8 w-full text-sm">
+      <div className="flex flex-col gap-y-2 px-8 w-full text-sm mt-8">
         <p>Pierre MAZELAYGUE | Développeur Fullstack</p>
         <p>&copy; 2025 - Tous droits réservés.</p>
-        <p className="flex flex-row justify-center gap-x-2 text-center">
-          Fait avec{" "}
-          <RiPokerHeartsLine className="transition-colors group-hover:text-red-500 group-hover:animate-pulse" />{" "}
-          et beaucoup de{" "}
-          <GiCoffeeCup className="transition-colors group-hover:text-amber-900 group-hover:animate-pulse" />
-          .
-        </p>
       </div>
     </footer>
   );
