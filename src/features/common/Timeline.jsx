@@ -41,7 +41,7 @@ const timelineData = [
 
 const Timeline = () => {
   return (
-    <section className="py-20 bg-background-primary/50">
+    <section className="py-12 lg:py-24 bg-background-primary/50">
       <FadeIn>
         <h2 className="relative text-3xl font-bold text-center mb-16">
           <span className="relative inline-block">

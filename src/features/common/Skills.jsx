@@ -31,7 +31,7 @@ const AnimatedHtmlIcon = () => {
 
   return (
     <SiHtml5
-      className={`w-12 h-12 transition-colors duration-500 ease-in-out ${htmlColor}`}
+      className={`w-12 h-12 transition-colors duration-500 ease-in-out${htmlColor}`}
     />
   );
 };
@@ -133,7 +133,7 @@ const Skills = () => {
   };
 
   const SkillCard = ({ name, icon, description }) => (
-    <div className="relative p-6 text-center rounded-xl transition-all duration-300 bg-accent-50 group hover:bg-accent/5">
+    <div className="relative py-6 text-center rounded-xl transition-all duration-300 bg-accent-50 group hover:bg-accent/5">
       <div className="relative">
         <div className="flex justify-center transition-transform duration-300 mb-2 group-hover:scale-110">
           {icon}
@@ -165,7 +165,7 @@ const Skills = () => {
   );
 
   return (
-    <section className="py-20">
+    <section className="py-12 lg:py-24">
       <FadeIn>
         <h2 className="relative text-3xl font-bold mb-12">
           <span className="relative inline-block">

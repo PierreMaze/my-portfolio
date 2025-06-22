@@ -42,11 +42,11 @@ const Hero = () => {
   };
 
   return (
-    <section className="flex items-center justify-center py-20 min-h-screen">
-      <div className="flex flex-col-reverse items-center gap-8 md:flex-row md:items-center">
+    <section className="flex items-center justify-center min-h-screen">
+      <div className="flex flex-col-reverse items-center gap-8 md:flex-row md:items-center 2xl:gap-48">
         <FadeIn>
-          <div className="text-center max-w-3xl md:text-left">
-            <h1 className="text-5xl font-bold mb-6 md:text-6xl">
+          <div className="text-center max-w-3xl md:text-left 2xl:max-w-screen-lg">
+            <h1 className="text-5xl font-bold mb-6 md:text-6xl 2xl:text-7xl">
               Développeur
               <span className="relative inline-block ml-4">
                 <span
@@ -94,7 +94,9 @@ const Hero = () => {
           </div>
         </FadeIn>
         {/* Avatar */}
-        <a href="/about" className="mx-auto w-48 h-48 md:w-80 md:h-80">
+        <a
+          href="/about"
+          className="mx-auto w-48 h-48 md:w-80 md:h-80 2xl:scale-150">
           <OptimizedImage
             src={ImgAvatar}
             alt="Mon avatar"
