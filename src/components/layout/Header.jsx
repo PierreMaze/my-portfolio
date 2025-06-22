@@ -60,7 +60,7 @@ const Header = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 300);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -95,7 +95,7 @@ const Header = () => {
 
   return (
     <header className={headerClasses}>
-      <div className="px-24 mx-auto w-full 2xl:px-96">
+      <div className="container">
         <nav className="flex items-center justify-between h-20">
           <Link to="/" className="text-2xl font-bold text-accent">
             PORTFOLIO
@@ -145,7 +145,7 @@ const Header = () => {
         {/* Menu mobile */}
         {isMobileMenuOpen && (
           <div className="bg-white border-t md:hidden">
-            <div className="px-8 py-4 mx-auto w-full max-w-7xl space-y-2">
+            <div className="container py-4 space-y-2">
               {navigationItems.map((item) => (
                 <button
                   key={item.path}
