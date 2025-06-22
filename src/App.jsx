@@ -47,7 +47,7 @@ const App = () => {
       {isLoading ? (
         <TerminalLoader onComplete={handleLoadingComplete} />
       ) : (
-        <div className="relative px-6 min-h-screen bg-light md:px-12 xl:px-24">
+        <div className="relative px-6 min-h-screen bg-light md:px-12 xl:px-24 2xl:px-96">
           <ParallaxGrid />
           <RouterProvider router={router} />
         </div>
