@@ -223,7 +223,7 @@ export const Projects = () => {
   }, []);
 
   return (
-    <div>
+    <div className="py-12 lg:py-24">
       <FadeIn>
         <h2 className="relative text-3xl font-bold mb-12">
           <span className="relative inline-block">
@@ -245,8 +245,7 @@ export const Projects = () => {
               className={`px-4 py-2 rounded-full transition-colors ${
                 selectedCategory === category
                   ? "bg-accent text-white"
-                  : "bg-accent-100 text-text-primary hover:bg-accent/25"
-              }`}>
+                  : "bg-accent-100 text-text-primary hover:bg-accent/25"}`}>
               {category}
             </button>
           ))}

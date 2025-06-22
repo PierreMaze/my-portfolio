@@ -1,4 +1,3 @@
-import { Button } from "../../../components/ui/Button";
 import OptimizedImage from "../../../components/ui/OptimizedImage";
 
 /**
@@ -15,14 +14,14 @@ export const ProjectCard = ({
 }) => {
   return (
     <div
-      className="flex flex-col h-full bg-white rounded-lg cursor-pointer transition-colors hover:bg-accent-50"
+      className="flex flex-col h-full rounded-lg cursor-pointer transition-colors group bg-accent-50 hover:bg-accent-100"
       onClick={onClick}
       {...props}>
       <div className="relative overflow-hidden aspect-video">
         <OptimizedImage
           src={image}
           alt={title}
-          className="w-full h-full transition-transform object-cover hover:scale-105"
+          className="w-full h-full transition-transform object-cover group-hover:scale-105"
         />
       </div>
       <div className="flex flex-col p-6 flex-grow">
@@ -32,20 +31,11 @@ export const ProjectCard = ({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="px-2 py-1 text-xs font-medium rounded-full bg-accent/10 text-accent">
+              className="px-2 py-1 font-mono text-xs rounded-full font-base xl:text-base bg-accent/10 text-accent">
               {tag}
             </span>
           ))}
         </div>
-        <Button
-          variant="primary"
-          className="w-full mt-6"
-          onClick={(e) => {
-            e.stopPropagation();
-            onClick();
-          }}>
-          Voir plus
-        </Button>
       </div>
     </div>
   );
