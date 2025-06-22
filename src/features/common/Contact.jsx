@@ -3,7 +3,7 @@ import { FadeIn } from "../../components/ui/FadeIn";
 
 const Contact = () => {
   return (
-    <section className="py-16 lg:py-32">
+    <section className="py-16 lg:py-24 xl:py-32">
       <FadeIn>
         <h2 className="relative text-3xl font-bold mb-12">
           <span className="relative inline-block">
