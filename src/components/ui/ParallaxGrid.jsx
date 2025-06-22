@@ -19,8 +19,8 @@ export const ParallaxGrid = () => {
         className="absolute inset-0"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(93, 123, 138, 0.3) 2px, transparent 2px),
-            linear-gradient(90deg, rgba(93, 123, 138, 0.3) 2px, transparent 2px)
+            linear-gradient(rgba(93, 123, 138, 0.5) 2px, transparent 2px),
+            linear-gradient(90deg, rgba(93, 123, 138, 0.5) 2px, transparent 2px)
           `,
           backgroundSize: "50px 50px",
           backgroundPosition: `0 ${scrollY * 0.2}px`,
@@ -30,7 +30,7 @@ export const ParallaxGrid = () => {
 
       {/* Dégradé de fond */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-gray-100"
+        className="absolute inset-0 bg-gradient-to-b from-accent-50 via-gray-50 to-yellow-50"
         style={{
           opacity: 0.9,
         }}
