@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useScrollToTop } from "../../hooks/useScrollToTop";
@@ -143,23 +144,70 @@ const Header = () => {
         </nav>
 
         {/* Menu mobile */}
-        {isMobileMenuOpen && (
-          <div className="bg-white border-t md:hidden">
-            <div className="container py-4 space-y-2">
-              {navigationItems.map((item) => (
-                <button
-                  key={item.path}
-                  onClick={() => handleNavClick(item.path)}
-                  className={`w-full text-left px-4 py-2 text-dark/70 hover:text-accent transition-colors ${
-                    activeSection === item.path.substring(1)
-                      ? "text-accent"
-                      : ""}`}>
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <>
+              {/* Overlay sombre */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="fixed right-0 left-0 z-40 md:hidden"
+                onClick={() => setIsMobileMenuOpen(false)}
+              />
+
+              {/* Menu principal */}
+              <motion.div
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{
+                  type: "spring",
+                  damping: 25,
+                  stiffness: 200,
+                  duration: 0.4,
+                }}
+                className="fixed right-0 left-0 z-50 h-fit bg-white shadow-2xl md:hidden">
+                {/* En-tête du menu */}
+                <div className="p-6 border-b border-gray-100">
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    Navigation
+                  </h3>
+                </div>
+
+                {/* Liens de navigation */}
+                <div className="flex-1 p-6">
+                  <nav className="space-y-4">
+                    {navigationItems.map((item, index) => (
+                      <motion.button
+                        key={item.path}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          duration: 0.3,
+                          delay: index * 0.1,
+                          ease: "easeOut",
+                        }}
+                        onClick={() => {
+                          handleNavClick(item.path);
+                          setIsMobileMenuOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group ${
+                          activeSection === item.path.substring(1)
+                            ? "bg-accent/10 text-accent border border-accent/20"
+                            : "text-gray-700 hover:bg-gray-50 hover:text-accent"}`}>
+                        <span className="text-lg font-medium transition-transform duration-200 group-hover:translate-x-1">
+                          {item.label}
+                        </span>
+                      </motion.button>
+                    ))}
+                  </nav>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
