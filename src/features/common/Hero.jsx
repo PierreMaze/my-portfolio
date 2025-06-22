@@ -55,7 +55,7 @@ const Hero = () => {
                 <span className="relative">Fullstack</span>
               </span>
             </h1>
-            <p className="text-xl mb-8 text-dark/70">
+            <p className="text-base md:text-xl mb-8 text-dark/70">
               Je crée des applications web modernes et performantes avec React,
               Node.js et TailwindCSS.
             </p>
@@ -96,7 +96,7 @@ const Hero = () => {
         {/* Avatar */}
         <a
           href="/about"
-          className="mx-auto w-48 h-48 md:w-80 md:h-80 2xl:scale-150">
+          className="mx-auto h-48 mt-16 md:mt-0w-48 md:w-80 md:h-80 2xl:scale-150">
           <OptimizedImage
             src={ImgAvatar}
             alt="Mon avatar"
