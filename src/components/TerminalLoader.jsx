@@ -7,10 +7,10 @@ export const TerminalLoader = ({ onComplete }) => {
   const [terminalOutput, setTerminalOutput] = useState([]);
 
   const loadSequence = [
-    { text: "🌐 Initialisation du portfolio...", delay: 300 },
-    { text: "⚙️ Chargement des compétences...", delay: 300 },
-    { text: "🎚️ Configuration de l'interface...", delay: 300 },
-    { text: "🆗 Lancement...", delay: 400 },
+    { text: "🌐 Initialisation du portfolio...", delay: 100 },
+    { text: "⚙️ Chargement des compétences...", delay: 100 },
+    { text: "🎚️ Configuration de l'interface...", delay: 100 },
+    { text: "🆗 Lancement...", delay: 100 },
   ];
 
   useEffect(() => {
@@ -31,8 +31,8 @@ export const TerminalLoader = ({ onComplete }) => {
               if (onComplete) {
                 onComplete();
               }
-            }, 1000);
-          }, 800);
+            }, 300);
+          }, 300);
           timeouts.push(finalTimeout);
         }
       }, totalDelay);
