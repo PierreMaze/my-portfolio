@@ -60,7 +60,7 @@ const Header = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 3000);
+    }, 300);
 
     return () => clearTimeout(timer);
   }, []);
@@ -95,14 +95,14 @@ const Header = () => {
 
   return (
     <header className={headerClasses}>
-      <div className="container">
+      <div className="px-8 mx-auto w-full max-w-6xl 2xl:max-w-[1850px]">
         <nav className="flex items-center justify-between h-20">
-          <Link to="/" className="text-2xl font-bold text-accent">
+          <Link to="/" className="text-2xl font-bold 2xl:text-4xl text-accent">
             PORTFOLIO
           </Link>
 
           {/* Navigation desktop */}
-          <div className="hidden items-center space-x-1 md:flex">
+          <div className="hidden items-center space-x-1 md:flex 2xl:text-xl">
             {navigationItems.map((item) => (
               <button
                 key={item.path}
