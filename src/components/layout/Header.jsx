@@ -60,7 +60,7 @@ const Header = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 3000);
+    }, 300);
 
     return () => clearTimeout(timer);
   }, []);
@@ -95,7 +95,7 @@ const Header = () => {
 
   return (
     <header className={headerClasses}>
-      <div className="container">
+      <div className="px-24 mx-auto w-full 2xl:px-96">
         <nav className="flex items-center justify-between h-20">
           <Link to="/" className="text-2xl font-bold text-accent">
             PORTFOLIO
@@ -108,8 +108,7 @@ const Header = () => {
                 key={item.path}
                 onClick={() => handleNavClick(item.path)}
                 className={`px-4 py-2 text-dark/70 hover:text-accent transition-colors ${
-                  activeSection === item.path.substring(1) ? "text-accent" : ""
-                }`}>
+                  activeSection === item.path.substring(1) ? "text-accent" : ""}`}>
                 {item.label}
               </button>
             ))}
@@ -146,7 +145,7 @@ const Header = () => {
         {/* Menu mobile */}
         {isMobileMenuOpen && (
           <div className="bg-white border-t md:hidden">
-            <div className="container py-4 space-y-2">
+            <div className="px-8 py-4 mx-auto w-full max-w-7xl space-y-2">
               {navigationItems.map((item) => (
                 <button
                   key={item.path}
@@ -154,8 +153,7 @@ const Header = () => {
                   className={`w-full text-left px-4 py-2 text-dark/70 hover:text-accent transition-colors ${
                     activeSection === item.path.substring(1)
                       ? "text-accent"
-                      : ""
-                  }`}>
+                      : ""}`}>
                   {item.label}
                 </button>
               ))}
