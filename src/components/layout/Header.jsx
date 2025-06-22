@@ -87,7 +87,7 @@ const Header = () => {
 
   // Mémoriser les classes conditionnelles
   const headerClasses = useMemo(() => {
-    return `fixed top-0 left-0 right-0 z-50 transition-all duration-1000 ${
+    return `fixed top-0 left-0 right-0 z-40 transition-all duration-1000 ${
       isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
     } ${
       isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
@@ -153,7 +153,7 @@ const Header = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="fixed right-0 left-0 z-40 md:hidden"
+                className="fixed top-0 right-0 bottom-0 left-0 w-full h-full z-[9999]bg-black/20 md:hidden"
                 onClick={() => setIsMobileMenuOpen(false)}
               />
 
@@ -168,7 +168,7 @@ const Header = () => {
                   stiffness: 200,
                   duration: 0.4,
                 }}
-                className="fixed right-0 left-0 z-50 h-fit bg-white shadow-2xl md:hidden">
+                className="fixed right-0 left-0 z-[10000]h-fit bg-white shadow-2xl md:hidden">
                 {/* En-tête du menu */}
                 <div className="p-6 border-b border-gray-100">
                   <h3 className="text-lg font-semibold text-gray-900">
