@@ -64,7 +64,7 @@ export const ProjectCard = ({
 }) => {
   return (
     <div
-      className="flex flex-col h-full rounded-lg shadow-lg cursor-pointer transition-colors hover:shadow-amber-500/40 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden"
+      className="flex flex-col h-full border-2 rounded-lg shadow-lg cursor-pointer transition-colors hover:shadow-amber-500/40 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden"
       onClick={onClick}
       {...props}>
       <div className="relative overflow-hidden aspect-video">
