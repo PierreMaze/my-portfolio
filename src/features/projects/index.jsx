@@ -13,7 +13,7 @@ const projects = [
     id: 1,
     title: "La Voix Intime",
     description:
-      "Site vitrine optimisé pour les performances et parfaitement responsive pour la voix intime.",
+      "App vitrine de prestations via WhatsApp et prise de RDV avec Calendly.",
     image: ImgProjectSignature,
     images: createImageArray(ImgProjectSignature),
     tags: [
@@ -50,9 +50,9 @@ const projects = [
   },
   {
     id: 2,
-    title: "Landing Page Responsive",
+    title: "Clou & Cie",
     description:
-      "Site vitrine  optimisé pour les performances et parfaitement responsive pour l'entreprise Clou&Cie.",
+      "Site vitrine dans le BTP : services clairs, chantiers mis en valeur, demande de devis.",
     image: ImgProjectClou,
     images: [ImgProjectClou, ImgProjectClou, ImgProjectClou],
     tags: ["React", "TailwindCSS", "Figma"],
@@ -86,9 +86,9 @@ const projects = [
   },
   {
     id: 3,
-    title: "Site Vitrine Responsive",
+    title: "Luminescence33",
     description:
-      "Site vitrine optimisé pour les performances et parfaitement responsive pour l'entreprise Luminescence33.",
+      "App d’événements, connectée à Google Calendar, avec vitrine claire des services.",
     image: ImgProjectLumi,
     images: [ImgProjectLumi, ImgProjectLumi, ImgProjectLumi],
     tags: [
@@ -130,9 +130,9 @@ const projects = [
   },
   {
     id: 4,
-    title: "Application Web de getions d'actions",
+    title: "Make Sense",
     description:
-      "Application web de gestion de getions d'actions pour l'entreprise Make_Sense.",
+      "Application web de gestion d'actions pour l'entreprise Make_Sense.",
     image: ImgProjectMakeSense,
     images: [ImgProjectMakeSense, ImgProjectMakeSense, ImgProjectMakeSense],
     tags: [
@@ -210,7 +210,7 @@ export const Projects = () => {
               className={`px-3 py-1.5 text-sm font-medium transition-all duration-300 rounded ${
                 selectedCategory === category
                   ? "bg-orange-500 hover:bg-orange-600 text-white "
-                  : "border border-stone-500 text-stone-500 hover:bg-orange-100 hover:text-orange-600 hover:border-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:ring-orange-500/50"}disabled:opacity-50 disabled:cursor-not-allowed`}>
+                  : "border border-zinc-500 text-zinc-500 hover:bg-orange-100 hover:text-orange-600 hover:border-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:ring-orange-500/50"}disabled:opacity-50 disabled:cursor-not-allowed`}>
               {category}
             </button>
           ))}

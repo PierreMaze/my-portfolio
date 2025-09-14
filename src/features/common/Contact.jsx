@@ -25,9 +25,9 @@ const Contact = () => {
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent/10">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-orange-100">
                   <svg
-                    className="w-6 h-6 text-accent"
+                    className="w-6 h-6 text-orange-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24">
@@ -45,9 +45,9 @@ const Contact = () => {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent/10">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-orange-100">
                   <svg
-                    className="w-6 h-6 text-accent"
+                    className="w-6 h-6 text-orange-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24">
@@ -83,7 +83,7 @@ const Contact = () => {
               <input
                 type="text"
                 id="name"
-                className="px-4 py-2 w-full border rounded-lg border-accent-200 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-transparent focus:bg-white"
+                className="px-4 py-2 w-full border rounded-lg border-accent-200 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent focus:bg-white"
                 required
               />
             </div>
@@ -94,7 +94,7 @@ const Contact = () => {
               <input
                 type="email"
                 id="email"
-                className="px-4 py-2 w-full border rounded-lg border-accent-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-transparent"
+                className="px-4 py-2 w-full border rounded-lg border-accent-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent"
                 required
               />
             </div>
@@ -105,7 +105,7 @@ const Contact = () => {
               <textarea
                 id="message"
                 rows={4}
-                className="px-4 py-2 w-full border rounded-lg border-accent-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-transparent"
+                className="px-4 py-2 w-full border rounded-lg border-accent-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent"
                 required></textarea>
             </div>
             <button

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="pt-16 pb-12 text-center xl:pt-32 group bg-dark text-light">
+    <footer className="pt-16 pb-12 text-center xl:pt-32 group">
       <div className="mx-auto w-full">
         <div className="flex justify-center gap-6 mb-6">
           <a
@@ -12,7 +12,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-2xl transition-transform hover:text-highlight hover:rotate-12">
-            <FaGithub className="transition-colors hover:text-purple-600" />
+            <FaGithub className="transition-colors text-orange-500 hover:text-purple-600" />
           </a>
           <a
             href="https://fr.linkedin.com/in/pierremazelaygue"
@@ -20,10 +20,10 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-2xl transition-transform hover:text-highlight hover:rotate-12">
-            <FaLinkedin className="transition-colors hover:text-blue-600" />
+            <FaLinkedin className="transition-colors text-orange-500 hover:text-blue-600" />
           </a>
         </div>
-        <div className="my-4 underline underline-offset-auto hover:text-accent-600">
+        <div className="my-4 underline transition-colors underline-offset-auto hover:text-orange-500">
           <Link to="/legal">Mentions légales</Link>
         </div>
       </div>

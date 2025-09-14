@@ -93,7 +93,7 @@ const Legal = () => {
                   pouvez me contacter via le{" "}
                   <Link
                     to="/#contact"
-                    className="underline transition-colors text-accent hover:text-accent-dark"
+                    className="underline transition-colors text-orange-500 hover:text-accent-dark"
                     onClick={() => {
                       setTimeout(() => {
                         const contactSection =

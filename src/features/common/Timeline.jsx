@@ -41,7 +41,7 @@ const timelineData = [
 
 const Timeline = () => {
   return (
-    <section className="py-16 lg:py-24 xl:py-32 bg-background-primary/50">
+    <section className="py-16 lg:py-24 xl:py-32">
       <FadeIn>
         <h2 className="relative text-3xl font-bold text-center mb-16">
           <span className="relative inline-block">
@@ -54,34 +54,40 @@ const Timeline = () => {
       </FadeIn>
       <div className="relative mx-auto max-w-4xl">
         {/* Ligne verticale centrale */}
-        <div className="absolute top-0 bottom-0 w-0.5 left-1/2 bg-accent/20 -translate-x-1/2" />
+        <div className="absolute top-0 bottom-0 w-0.5 left-1/2 bg-zinc-300 -translate-x-1/2" />
 
         {timelineData.map((item, index) => (
-          <FadeIn key={item.id} className={`delay-[${index*100}ms]`}>
+          <FadeIn key={item.id}>
             <div
               className={`relative md:mb-16 last:mb-0 ${
                 index % 2 === 0
                   ? "md:pr-[calc(50%+2rem)]"
                   : "md:pl-[calc(50%+2rem)]"}`}>
               {/* Point sur la ligne */}
-              <div className="absolute z-10 w-4 h-4 border-2 rounded-full -translate-x-1/2 border-orange-500 left-1/2 -top-6 md:top-6 bg-background-primary" />
+              <div className="absolute z-10 w-4 h-4 rounded-full bg-orange-500 -translate-x-1/2 left-1/2 -top-6 md:top-6" />
 
               {/* Contenu */}
               <div
-                className={`bg-accent-50 my-12 md:my-0 p-8 rounded-lg shadow-sm relative ${
+                className={`bg-zinc-100 border-2 my-12 md:my-0 p-8 rounded-lg relative ${
                   index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}>
                 {/* Flèche */}
                 <div
-                  className={`hidden md:block absolute top-6 w-4 h-4 bg-accent-50 transform rotate-45 ${
-                    index % 2 === 0 ? "right-[-8px]" : "left-[-8px]"}`}
+                  className={`hidden md:block absolute top-6 w-4 h-4 bg-zinc-100 transform rotate-45 ${
+                    index % 2 === 0
+                      ? "right-[-8px] border-r-2  border-t-2"
+                      : "left-[-8px] border-l-2 border-b-2"}`}
                 />
 
-                <div className="font-semibold mb-3 text-accent">
+                <div className="font-semibold mb-3 text-orange-600">
                   {item.date}
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                <h4 className="text-sm mb-4 italic">{item.company}</h4>
-                <p className="leading-relaxed text-dark/70">
+                <h3 className="text-xl font-semibold mb-3 text-zinc-800">
+                  {item.title}
+                </h3>
+                <h4 className="text-sm mb-4 italic text-zinc-600">
+                  {item.company}
+                </h4>
+                <p className="leading-relaxed text-zinc-700">
                   {item.description}
                 </p>
               </div>

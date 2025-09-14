@@ -64,7 +64,7 @@ export const ProjectCard = ({
 }) => {
   return (
     <div
-      className="flex flex-col h-full rounded-lg shadow-lg cursor-pointer transition-colors hover:shadow-amber-500/40 group bg-stone-100 hover:bg-stone-200 overflow-hidden"
+      className="flex flex-col h-full rounded-lg shadow-lg cursor-pointer transition-colors hover:shadow-amber-500/40 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden"
       onClick={onClick}
       {...props}>
       <div className="relative overflow-hidden aspect-video">
@@ -83,7 +83,7 @@ export const ProjectCard = ({
           {tags.map((tag) => (
             <div
               key={tag}
-              className="flex items-center justify-center w-8 h-8 bg-white border rounded-full shadow-sm transition-shadow duration-200 border-stone-200 hover:shadow-md"
+              className="flex items-center justify-center w-8 h-8 bg-white border rounded-full shadow-sm transition-shadow duration-200 border-zinc-200 hover:shadow-md"
               title={tag}>
               {getTagIcon(tag)}
             </div>

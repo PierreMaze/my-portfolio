@@ -87,7 +87,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
             className="absolute z-10 top-4 left-4">
             <button
               onClick={onClose}
-              className="inline-flex items-center justify-center p-4 text-base font-medium bg-white border rounded transition-all duration-300 border-stone-500 hover:bg-stone-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 disabled:opacity-50 disabled:cursor-not-allowed">
+              className="inline-flex items-center justify-center p-4 text-base font-medium bg-white border rounded transition-all duration-300 border-zinc-500 hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 disabled:opacity-50 disabled:cursor-not-allowed">
               <IoClose className="w-5 h-5" />
             </button>
           </motion.div>
@@ -138,12 +138,12 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute inline-flex items-center justify-center p-4 text-base font-medium bg-white border rounded transition-all duration-300 -translate-y-1/2 left-4 top-1/2 border-stone-500 hover:bg-stone-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                        className="absolute inline-flex items-center justify-center p-4 text-base font-medium bg-white border rounded transition-all duration-300 -translate-y-1/2 left-4 top-1/2 border-zinc-500 hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 disabled:opacity-50 disabled:cursor-not-allowed">
                         <IoChevronBack className="w-5 h-5" />
                       </button>
                       <button
                         onClick={nextImage}
-                        className="absolute inline-flex items-center justify-center p-4 text-base font-medium bg-white border rounded transition-all duration-300 -translate-y-1/2 right-4 top-1/2 border-stone-500 hover:bg-stone-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                        className="absolute inline-flex items-center justify-center p-4 text-base font-medium bg-white border rounded transition-all duration-300 -translate-y-1/2 right-4 top-1/2 border-zinc-500 hover:bg-zinc-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 disabled:opacity-50 disabled:cursor-not-allowed">
                         <IoChevronForward className="w-5 h-5" />
                       </button>
                       {/* Indicateurs de navigation */}
@@ -156,8 +156,8 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                             onClick={() => setCurrentImageIndex(index)}
                             className={`w-2 h-2 rounded-full transition-all duration-300 ${
                               index === currentImageIndex
-                                ? "bg-stone-500 scale-125"
-                                : "bg-white hover:bg-stone-500/80"}`}
+                                ? "bg-zinc-500 scale-125"
+                                : "bg-white hover:bg-zinc-500/80"}`}
                           />
                         ))}
                       </div>
@@ -184,7 +184,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       <motion.span
                         key={tag}
                         whileHover={{ scale: 1.05 }}
-                        className="inline-flex items-center gap-1.px-4 py-2 text-sm rounded-full transition-all duration-300 5 bg-stone-100 text-stone-700 hover:bg-stone-200">
+                        className="inline-flex items-center gap-1.px-4 py-2 text-sm rounded-full transition-all duration-300 5 bg-zinc-100 text-zinc-700 hover:bg-zinc-200">
                         <FaTag className="w-4 h-4" />
                         {tag}
                       </motion.span>
@@ -214,7 +214,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       <tr>
                         <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
-                            <MdOutlineLightbulb className="w-5 h-5 text-stone-600" />
+                            <MdOutlineLightbulb className="w-5 h-5 text-zinc-600" />
                             Problématique
                           </div>
                         </td>
@@ -225,7 +225,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       <tr className="bg-[#fafaf8]">
                         <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
-                            <MdOutlineEmojiObjects className="w-5 h-5 text-stone-600" />
+                            <MdOutlineEmojiObjects className="w-5 h-5 text-zinc-600" />
                             Objectifs
                           </div>
                         </td>
@@ -242,7 +242,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       <tr>
                         <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
-                            <MdOutlineScience className="w-5 h-5 text-stone-600" />
+                            <MdOutlineScience className="w-5 h-5 text-zinc-600" />
                             Solution
                           </div>
                         </td>
@@ -253,7 +253,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       <tr className="bg-[#fafaf8]">
                         <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
-                            <MdOutlineCode className="w-5 h-5 text-stone-600" />
+                            <MdOutlineCode className="w-5 h-5 text-zinc-600" />
                             Obstacles
                           </div>
                         </td>
@@ -270,7 +270,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       <tr>
                         <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
-                            <FaTag className="w-5 h-5 text-stone-600" />
+                            <FaTag className="w-5 h-5 text-zinc-600" />
                             Technologies
                           </div>
                         </td>
@@ -290,7 +290,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       <tr className="bg-[#fafaf8]">
                         <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
-                            <MdOutlineAssessment className="w-5 h-5 text-stone-600" />
+                            <MdOutlineAssessment className="w-5 h-5 text-zinc-600" />
                             Résultats
                           </div>
                         </td>
@@ -408,7 +408,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm text-white rounded-lg transition-all duration-300 bg-stone-500 hover:bg-stone-600">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm text-white rounded-lg transition-all duration-300 bg-zinc-500 hover:bg-zinc-600">
                         <FaPlay className="w-5 h-5" />
                         Live Demo
                       </motion.a>
