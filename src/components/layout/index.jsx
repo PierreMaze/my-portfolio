@@ -1,11 +1,6 @@
-import { lazy, Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import { ChunkErrorBoundary } from "../ui/ChunkErrorBoundary";
-import { MiniLoader } from "../ui/MiniLoader";
+import Footer from "./Footer";
 import Header from "./Header";
-
-// Lazy loading du Footer (non-critique pour le LCP)
-const Footer = lazy(() => import("./Footer"));
 
 const Layout = () => {
   return (
@@ -14,11 +9,7 @@ const Layout = () => {
       <main className="flex-grow">
         <Outlet />
       </main>
-      <ChunkErrorBoundary>
-        <Suspense fallback={<MiniLoader message="Chargement du footer..." />}>
-          <Footer />
-        </Suspense>
-      </ChunkErrorBoundary>
+      <Footer />
     </div>
   );
 };

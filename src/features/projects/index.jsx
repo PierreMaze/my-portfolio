@@ -3,9 +3,7 @@ import ImgProjectClou from "../../assets/clou.png";
 import ImgProjectLumi from "../../assets/lumi.png";
 import ImgProjectMakeSense from "../../assets/make_sense.png";
 import ImgProjectSignature from "../../assets/signature.png";
-import { ChunkErrorBoundary } from "../../components/ui/ChunkErrorBoundary";
 import { FadeIn } from "../../components/ui/FadeIn";
-import { MiniLoader } from "../../components/ui/MiniLoader";
 import { useProjects } from "../../hooks/useProjects";
 import { createImageArray } from "../../utils/imageUtils";
 import { ProjectCard } from "./components/ProjectCard";
@@ -241,19 +239,14 @@ export const Projects = () => {
 
       {/* Modal de projet */}
       {selectedProject && (
-        <ChunkErrorBoundary>
-          <Suspense
-            fallback={
-              <MiniLoader message="Chargement des détails du projet..." />
-            }>
-            <ProjectModal
-              project={selectedProject}
-              isOpen={!!selectedProject}
-              onClose={handleCloseModal}
-              aria-label={`Détails du projet ${selectedProject.title}`}
-            />
-          </Suspense>
-        </ChunkErrorBoundary>
+        <Suspense fallback={<div />}>
+          <ProjectModal
+            project={selectedProject}
+            isOpen={!!selectedProject}
+            onClose={handleCloseModal}
+            aria-label={`Détails du projet ${selectedProject.title}`}
+          />
+        </Suspense>
       )}
     </div>
   );

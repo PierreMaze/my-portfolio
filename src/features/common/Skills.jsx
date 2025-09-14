@@ -1,4 +1,4 @@
-import { Suspense, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { FaMobile, FaServer } from "react-icons/fa";
 import {
   SiFigma,
@@ -16,7 +16,6 @@ import {
   SiTailwindcss,
 } from "react-icons/si";
 import { FadeIn } from "../../components/ui/FadeIn";
-import { MiniLoader } from "../../components/ui/MiniLoader";
 import {
   BADGE_COLOR_CLASSES,
   HTML_ANIMATION_CONFIG,
@@ -67,8 +66,8 @@ const HtmlCssBadge = () => {
 
   return (
     <div
-      className={`flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300${colorClass}`}>
-      <div className="text-[10px]scale-75">
+      className={`${"flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300 "}${colorClass}`}>
+      <div className="text-sm scale-75">
         <AnimatedHtmlIcon onColorChange={handleColorChange} />
       </div>
       <span className="text-xs font-medium lg:text-sm">HTML / CSS</span>
@@ -90,10 +89,10 @@ const SkillBadge = ({ name, icon, color }) => {
 
   return (
     <div
-      className={`flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300${colorClass}`}
+      className={`${"flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300 "}${colorClass}`}
       role="listitem"
       aria-label={`Compétence en ${name}`}>
-      <div className="text-[10px]scale-75" aria-hidden="true">
+      <div className="scale-75 text-md" aria-hidden="true">
         {icon}
       </div>
       <span className="text-sm font-medium lg:text-base">{name}</span>
@@ -215,21 +214,19 @@ const Skills = () => {
           <span className="w-2 h-2 rounded-full bg-orange-400"></span>
           {title}
         </h3>
-        <Suspense fallback={<MiniLoader message="Chargement des badges..." />}>
-          <div
-            className="flex flex-wrap gap-2"
-            role="list"
-            aria-label={`Compétences en ${title}`}>
-            {skills.map((skill, index) => (
-              <SkillBadge
-                key={`${title}-${index}`}
-                name={skill.name}
-                icon={skill.icon}
-                color={skill.color}
-              />
-            ))}
-          </div>
-        </Suspense>
+        <div
+          className="flex flex-wrap gap-2"
+          role="list"
+          aria-label={`Compétences en ${title}`}>
+          {skills.map((skill, index) => (
+            <SkillBadge
+              key={`${title}-${index}`}
+              name={skill.name}
+              icon={skill.icon}
+              color={skill.color}
+            />
+          ))}
+        </div>
       </div>
     </FadeIn>
   );

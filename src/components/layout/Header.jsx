@@ -88,8 +88,7 @@ const Header = () => {
                 className={`px-4 py-2 text-dark/70 hover:text-orange-500 transition-colors ${
                   activeSection === item.path.substring(1)
                     ? "text-orange-500"
-                    : ""
-                }`}>
+                    : ""}`}>
                 {item.label}
               </button>
             ))}
@@ -150,8 +149,8 @@ const Header = () => {
                 }}
                 className="fixed right-0 left-0 z-[10000]h-fit bg-white shadow-2xl md:hidden">
                 {/* En-tête du menu */}
-                <div className="p-6 border-b border-gray-100">
-                  <h3 className="text-lg font-semibold text-gray-900">
+                <div className="p-6 border-b border-zinc-100">
+                  <h3 className="text-lg font-semibold text-zinc-900">
                     Navigation
                   </h3>
                 </div>
@@ -175,9 +174,8 @@ const Header = () => {
                         }}
                         className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group ${
                           activeSection === item.path.substring(1)
-                            ? "bg-accent/10 text-accent border border-accent/20"
-                            : "text-gray-700 hover:bg-gray-50 hover:text-accent"
-                        }`}>
+                            ? "bg-orange/10 text-orange border border-orange/20"
+                            : "text-zinc-700 hover:bg-zinc-50 hover:text-orange"}`}>
                         <span className="text-lg font-medium transition-transform duration-200 group-hover:translate-x-1">
                           {item.label}
                         </span>

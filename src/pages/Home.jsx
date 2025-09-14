@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
-import { ChunkErrorBoundary } from "../components/ui/ChunkErrorBoundary";
-import { MiniLoader } from "../components/ui/MiniLoader";
+import { ProjectsLoader } from "../components/ui/ProjectsLoader";
+import { SkillsLoader } from "../components/ui/SkillsLoader";
+import { TimelineLoader } from "../components/ui/TimelineLoader";
 import Contact from "../features/common/Contact";
 import Hero from "../features/common/Hero";
 
@@ -16,28 +17,22 @@ const Home = () => {
         <Hero />
       </section>
       <section id="skills" className="h-fit">
-        <ChunkErrorBoundary>
-          <Suspense
-            fallback={<MiniLoader message="Chargement des compétences..." />}>
-            <Skills />
-          </Suspense>
-        </ChunkErrorBoundary>
+        <Suspense
+          fallback={<SkillsLoader message="Chargement des compétences..." />}>
+          <Skills />
+        </Suspense>
       </section>
       <section id="projects" className="h-fit">
-        <ChunkErrorBoundary>
-          <Suspense
-            fallback={<MiniLoader message="Chargement des projets..." />}>
-            <Projects />
-          </Suspense>
-        </ChunkErrorBoundary>
+        <Suspense
+          fallback={<ProjectsLoader message="Chargement des projets..." />}>
+          <Projects />
+        </Suspense>
       </section>
       <section id="timeline" className="h-fit">
-        <ChunkErrorBoundary>
-          <Suspense
-            fallback={<MiniLoader message="Chargement du parcours..." />}>
-            <Timeline />
-          </Suspense>
-        </ChunkErrorBoundary>
+        <Suspense
+          fallback={<TimelineLoader message="Chargement du parcours..." />}>
+          <Timeline />
+        </Suspense>
       </section>
       <section id="contact" className="h-fit">
         <Contact />

@@ -5,7 +5,7 @@ import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { MdDownloadDone } from "react-icons/md";
 import ImgAvatar from "../../assets/avatar.png";
 import { FadeIn } from "../../components/ui/FadeIn";
-import { MiniLoader } from "../../components/ui/MiniLoader";
+import { ImageLoader } from "../../components/ui/ImageLoader";
 
 // Lazy loading de l'image optimisée
 const OptimizedImage = lazy(() => import("../../components/ui/OptimizedImage"));
@@ -45,10 +45,10 @@ const Hero = () => {
 
   return (
     <section className="flex items-center justify-center min-h-screen">
-      <div className="flex flex-col-reverse items-center gap-8 md:flex-row md:items-center 2xl:gap-48">
+      <div className="flex flex-col-reverse items-center gp-8 lg:gap-0 md:flex-row md:items-center 2xl:gap-48">
         <FadeIn>
           <div className="text-center max-w-3xl md:text-left 2xl:max-w-screen-lg">
-            <h1 className="text-5xl font-bold mb-6 md:text-6xl 2xl:text-7xl">
+            <h1 className="text-4xl font-bold mb-6 md:text-6xl 2xl:text-6xl">
               Développeur
               <span className="relative inline-block ml-4">
                 <span
@@ -86,7 +86,7 @@ const Hero = () => {
                 <div>
                   <button
                     onClick={handleDownload}
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2 mx-8 text-base font-medium text-white rounded transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                    className="inline-flex items-center justify-center gap-2 py-2 mx-8 w-3/4 text-base font-medium text-white rounded transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed">
                     {getDownloadIcon()}
                     Mon CV
                   </button>
@@ -98,9 +98,9 @@ const Hero = () => {
         {/* Avatar */}
         <a
           href="/about"
-          className="mx-auto h-48 mt-16 hover:shadow-2xl hover:shadow-amber-600 md:mt-0w-48 md:w-80 md:h-80 2xl:scale-150">
+          className="hidden mx-auto h-40 lg:inline-block mt-20 lg:mt-16 hover:shadow-2xl hover:shadow-amber-600 md:mt-48 lg:w-80 lg:h-80 2xl:scale-150">
           <Suspense
-            fallback={<MiniLoader message="Chargement de l'avatar..." />}>
+            fallback={<ImageLoader className="w-full h-full rounded-md" />}>
             <OptimizedImage
               src={ImgAvatar}
               alt="Mon avatar"
