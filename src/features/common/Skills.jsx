@@ -55,17 +55,17 @@ const HtmlCssBadge = () => {
 
   const colorClasses = {
     orange:
-      "bg-orange-50 border-orange-200 text-orange-700 hover:bg-orange-100",
-    blue: "bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100",
+      "bg-orange-100 border-orange-200 text-orange-800 hover:bg-orange-200",
+    blue: "bg-blue-100 border-blue-200 text-blue-800 hover:bg-blue-200",
   };
 
   return (
     <div
-      className={`flex items-center gap-2 px-2 py-1.5 border rounded-full shadow-sm transition-all duration-300 ${colorClasses[htmlColor]}`}>
+      className={`flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300 ${colorClasses[htmlColor]}`}>
       <div className="text-[10px] scale-75">
         <AnimatedHtmlIcon onColorChange={handleColorChange} />
       </div>
-      <span className="text-xs font-medium">HTML / CSS</span>
+      <span className="text-xs font-medium lg:text-sm">HTML / CSS</span>
     </div>
   );
 };
@@ -213,37 +213,38 @@ const Skills = () => {
 
     const colorClasses = {
       orange:
-        "bg-orange-50 border-orange-200 text-orange-700 hover:bg-orange-100",
-      blue: "bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100",
-      cyan: "bg-cyan-50 border-cyan-200 text-cyan-700 hover:bg-cyan-100",
-      green: "bg-green-50 border-green-200 text-green-700 hover:bg-green-100",
-      red: "bg-red-50 border-red-200 text-red-700 hover:bg-red-100",
-      amber: "bg-amber-100 border-amber-300 text-amber-800 hover:bg-amber-200",
+        "bg-orange-100 border-orange-200 text-orange-800 hover:bg-orange-200",
+      blue: "bg-blue-100 border-blue-200 text-blue-800 hover:bg-blue-200",
+      cyan: "bg-cyan-100 border-cyan-200 text-cyan-800 hover:bg-cyan-200",
+      green: "bg-green-100 border-green-200 text-green-800 hover:bg-green-200",
+      red: "bg-red-100 border-red-200 text-red-800 hover:bg-red-200",
+      amber: "bg-amber-100 border-amber-200 text-amber-800 hover:bg-amber-200",
       purple:
-        "bg-purple-50 border-purple-200 text-purple-700 hover:bg-purple-100",
+        "bg-purple-100 border-purple-200 text-purple-800 hover:bg-purple-200",
       yellow:
-        "bg-yellow-50 border-yellow-200 text-yellow-700 hover:bg-yellow-100",
+        "bg-yellow-100 border-yellow-200 text-yellow-800 hover:bg-yellow-200",
       indigo:
-        "bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100",
-      pink: "bg-pink-50 border-pink-200 text-pink-700 hover:bg-pink-100",
-      gray: "bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100",
-      stone: "bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100",
-      black: "bg-gray-100 border-gray-300 text-gray-800 hover:bg-gray-200",
+        "bg-indigo-100 border-indigo-200 text-indigo-800 hover:bg-indigo-200",
+      pink: "bg-pink-100 border-pink-200 text-pink-800 hover:bg-pink-200",
+      gray: "bg-gray-100 border-gray-200 text-gray-800 hover:bg-gray-200",
+      stone: "bg-stone-100 border-stone-200 text-stone-800 hover:bg-stone-200",
+      black: "bg-gray-200 border-gray-300 text-gray-900 hover:bg-gray-300",
     };
 
     return (
       <div
-        className={`flex items-center gap-2 px-2 py-1.5 border rounded-full shadow-sm transition-all duration-300 ${colorClasses[badgeColor]}`}>
+        className={`flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300 ${colorClasses[badgeColor]}`}>
         <div className="text-[10px] scale-75">{icon}</div>
-        <span className="text-xs font-medium">{name}</span>
+        <span className="text-sm font-medium lg:text-base">{name}</span>
       </div>
     );
   });
 
   const SkillSection = ({ title, skills }) => (
     <FadeIn>
-      <div className="py-4 lg:mb-12">
-        <h3 className="text-lg font-semibold text-start text-stone-800 mb-4">
+      <div className="py-4 mx-4">
+        <h3 className="text-lg font-semibold text-start text-stone-800 mb-4 flex items-center gap-2">
+          <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
           {title}
         </h3>
         <div className="flex flex-wrap gap-2">
