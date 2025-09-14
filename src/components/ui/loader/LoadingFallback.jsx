@@ -17,7 +17,7 @@ const LoadingFallback = ({ message = "Chargement..." }) => (
         aria-hidden="true"
       />
       {/* Message pour les lecteurs d'écran */}
-      <span className="text-sm font-medium text-gray-600">{message}</span>
+      <span className="text-sm font-medium text-gray-700">{message}</span>
     </div>
   </div>
 );

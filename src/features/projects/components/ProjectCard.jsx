@@ -58,6 +58,8 @@ export const ProjectCard = ({ title, description, image, tags, ...props }) => {
   return (
     <div
       className="flex flex-col h-full border-2 rounded-lg shadow-2xl transition-colors hover:shadow-amber-500/30 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden"
+      role="listitem"
+      aria-label={`Projet ${title}`}
       {...props}>
       <div className="relative overflow-hidden aspect-video">
         <LazyProjectImage

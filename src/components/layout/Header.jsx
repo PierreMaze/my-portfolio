@@ -85,10 +85,12 @@ const Header = () => {
               <button
                 key={item.path}
                 onClick={() => handleNavClick(item.path)}
-                className={`px-4 py-2 text-dark/70 hover:text-orange-500 transition-colors ${
+                aria-label={`Aller à la section ${item.label}`}
+                className={`px-4 py-2 text-dark/90 hover:text-orange-500 transition-colors ${
                   activeSection === item.path.substring(1)
                     ? "text-orange-500"
-                    : ""}`}>
+                    : ""
+                }`}>
                 {item.label}
               </button>
             ))}
@@ -97,7 +99,9 @@ const Header = () => {
           {/* Bouton menu mobile */}
           <button
             className="p-2 md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={isMobileMenuOpen}>
             <svg
               className="w-6 h-6"
               fill="none"
@@ -172,10 +176,12 @@ const Header = () => {
                           handleNavClick(item.path);
                           setIsMobileMenuOpen(false);
                         }}
+                        aria-label={`Aller à la section ${item.label}`}
                         className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group ${
                           activeSection === item.path.substring(1)
                             ? "bg-orange/10 text-orange border border-orange/20"
-                            : "text-zinc-700 hover:bg-zinc-50 hover:text-orange"}`}>
+                            : "text-zinc-700 hover:bg-zinc-50 hover:text-orange"
+                        }`}>
                         <span className="text-lg font-medium transition-transform duration-200 group-hover:translate-x-1">
                           {item.label}
                         </span>

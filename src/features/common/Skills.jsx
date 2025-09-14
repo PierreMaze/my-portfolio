@@ -172,7 +172,7 @@ const Skills = () => {
     Méthodes: [
       {
         name: "Responsive Design",
-        icon: <FaMobile className="w-4 h-4 text-gray-600" />,
+        icon: <FaMobile className="w-4 h-4 text-gray-700" />,
         description: "Mobile-first, breakpoints, flexbox/grid et accessibilité",
       },
       {

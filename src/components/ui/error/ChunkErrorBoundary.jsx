@@ -15,11 +15,12 @@ class ChunkErrorBoundary extends React.Component {
     if (this.state.hasError) {
       return (
         <div className="flex flex-col items-center justify-center p-8 h-screen text-center">
-          <p className="text-lg text-gray-600 mb-4">
+          <p className="text-lg text-gray-700 mb-4">
             Oups, échec de chargement du composant.
           </p>
           <button
             onClick={() => location.reload()}
+            aria-label="Recharger la page pour réessayer"
             className="px-4 py-2 text-white rounded-lg transition-colors bg-orange-500 hover:bg-orange-600">
             Réessayer
           </button>

@@ -206,8 +206,7 @@ export const Projects = () => {
               className={`px-3 py-1.5 text-sm font-medium transition-all duration-300 rounded ${
                 selectedCategory === category
                   ? "bg-orange-500 hover:bg-orange-600 text-white "
-                  : "border border-zinc-500 text-zinc-500 hover:bg-orange-100 hover:text-orange-600 hover:border-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:ring-orange-500/50"
-              }disabled:opacity-50 disabled:cursor-not-allowed`}>
+                  : "border border-zinc-600 text-zinc-700 hover:bg-orange-100 hover:text-orange-600 hover:border-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:ring-orange-500/50"}disabled:opacity-50 disabled:cursor-not-allowed`}>
               {category}
             </button>
           ))}
@@ -218,7 +217,7 @@ export const Projects = () => {
       <FadeIn className="delay-200">
         <div
           className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-          role="grid"
+          role="list"
           aria-label="Liste des projets">
           {filteredProjects.map((project) => (
             <ProjectCard key={project.id} {...project} />

@@ -20,7 +20,9 @@ const DropdownMenu = ({ title, items }) => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1 px-4 py-2 transition-colors text-dark/70 hover:text-accent">
+        aria-label={`${isOpen ? "Fermer" : "Ouvrir"} le menu ${title}`}
+        aria-expanded={isOpen}
+        className="flex items-center gap-1 px-4 py-2 transition-colors text-dark/90 hover:text-zinc-900">
         {title}
         <svg
           className={`w-4 h-4 transition-transform ${

@@ -12,6 +12,18 @@ export default defineConfig({
     rollupOptions: {
       output: {
         assetFileNames: "assets/[name].[hash][extname]",
+        manualChunks: {
+          vendor: ["react", "react-dom"],
+          router: ["react-router-dom"],
+          icons: ["react-icons"],
+        },
+      },
+    },
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
       },
     },
   },

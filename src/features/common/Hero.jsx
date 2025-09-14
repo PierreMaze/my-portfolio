@@ -58,7 +58,7 @@ const Hero = () => {
                 <span className="relative">Fullstack</span>
               </span>
             </h1>
-            <p className="text-base md:text-xl mb-8 text-dark/70">
+            <p className="text-base md:text-xl mb-8 text-dark/90">
               Je crée des applications web modernes et performantes avec React,
               Node.js et TailwindCSS.
             </p>
@@ -87,6 +87,7 @@ const Hero = () => {
                 <div>
                   <button
                     onClick={handleDownload}
+                    aria-label="Télécharger mon CV au format PDF"
                     className="inline-flex items-center justify-center gap-2 py-2 mx-8 w-3/4 text-base font-medium text-white rounded transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed">
                     {getDownloadIcon()}
                     Mon CV
@@ -108,6 +109,7 @@ const Hero = () => {
               className="w-full h-full rounded-md transition-transform object-cover hover:scale-105"
               width="256"
               height="256"
+              priority={true}
             />
           </Suspense>
         </a>
