@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/layout";
-import { TerminalLoader } from "./components/TerminalLoader";
 import { ParallaxGrid } from "./components/ui/ParallaxGrid";
 import { ProjectDetails } from "./features/projects/components/ProjectDetails";
 import { useSmoothScroll } from "./hooks/useSmoothScroll.jsx";
@@ -35,24 +33,13 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
   useSmoothScroll();
 
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-  };
-
   return (
-    <>
-      {isLoading ? (
-        <TerminalLoader onComplete={handleLoadingComplete} />
-      ) : (
-        <div className="relative px-6 min-h-screen bg-light md:px-12 xl:px-24 2xl:px-96">
-          <ParallaxGrid />
-          <RouterProvider router={router} />
-        </div>
-      )}
-    </>
+    <div className="relative px-6 min-h-screen bg-light md:px-12 xl:px-24 2xl:px-96">
+      <ParallaxGrid />
+      <RouterProvider router={router} />
+    </div>
   );
 };
 

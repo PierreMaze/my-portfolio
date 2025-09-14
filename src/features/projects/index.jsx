@@ -1,17 +1,13 @@
-import { useCallback, useMemo, useState } from "react";
 import ImgProjectClou from "../../assets/clou.png";
 import ImgProjectLumi from "../../assets/lumi.png";
 import ImgProjectMakeSense from "../../assets/make_sense.png";
 import MemoryLandPicture from "../../assets/memoryland.png";
 import ImgProjectSignature from "../../assets/signature.png";
 import { FadeIn } from "../../components/ui/FadeIn";
+import { useProjects } from "../../hooks/useProjects";
+import { createImageArray, getImageSource } from "../../utils/imageUtils";
 import { ProjectCard } from "./components/ProjectCard";
 import { ProjectModal } from "./components/ProjectModal";
-
-const categories = ["Tous", "Frontend", "Backend", "Fullstack", "Design"];
-
-// Log pour vérifier l'import
-console.log("MemoryLandPicture import:", MemoryLandPicture);
 
 const projects = [
   {
@@ -20,7 +16,7 @@ const projects = [
     description:
       "Site vitrine optimisé pour les performances et parfaitement responsive pour l'agence Signature.",
     image: ImgProjectSignature,
-    images: [ImgProjectSignature, ImgProjectSignature, ImgProjectSignature],
+    images: createImageArray(ImgProjectSignature),
     tags: ["React", "TailwindCSS", "Dotenv"],
     category: "Backend",
     github: "https://github.com/username/microservices",
@@ -158,12 +154,8 @@ const projects = [
     id: 5,
     title: "Jeu application web",
     description: "Application web de jeu nommé MemoryLand.",
-    image: MemoryLandPicture.default || MemoryLandPicture,
-    images: [
-      MemoryLandPicture.default || MemoryLandPicture,
-      MemoryLandPicture.default || MemoryLandPicture,
-      MemoryLandPicture.default || MemoryLandPicture,
-    ],
+    image: getImageSource(MemoryLandPicture),
+    images: createImageArray(MemoryLandPicture),
     tags: ["React", "D3.js", "Node.js"],
     category: "Fullstack",
     github: "https://github.com/username/analytics-dashboard",
@@ -193,34 +185,15 @@ const projects = [
 ];
 
 export const Projects = () => {
-  const [selectedCategory, setSelectedCategory] = useState("Tous");
-  const [selectedProject, setSelectedProject] = useState(null);
-
-  // Mémoriser les projets filtrés
-  const filteredProjects = useMemo(
-    () =>
-      projects.filter(
-        (project) =>
-          selectedCategory === "Tous" || project.category === selectedCategory
-      ),
-    [selectedCategory]
-  );
-
-  // Mémoriser les catégories uniques
-  const categories = useMemo(
-    () => ["Tous", ...new Set(projects.map((project) => project.category))],
-    []
-  );
-
-  // Optimiser le gestionnaire de clic sur un projet
-  const handleProjectClick = useCallback((project) => {
-    setSelectedProject(project);
-  }, []);
-
-  // Optimiser le gestionnaire de fermeture du modal
-  const handleCloseModal = useCallback(() => {
-    setSelectedProject(null);
-  }, []);
+  const {
+    selectedCategory,
+    selectedProject,
+    filteredProjects,
+    categories,
+    handleCategoryChange,
+    handleProjectClick,
+    handleCloseModal,
+  } = useProjects(projects);
 
   return (
     <div className="py-16 lg:py-24 xl:py-32">
@@ -241,12 +214,13 @@ export const Projects = () => {
           {categories.map((category) => (
             <button
               key={category}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => handleCategoryChange(category)}
+              aria-pressed={selectedCategory === category}
+              aria-label={`Filtrer par ${category}`}
               className={`px-3 py-1.5 text-sm font-medium transition-all duration-300 rounded ${
                 selectedCategory === category
                   ? "bg-orange-500 hover:bg-orange-600 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-                  : "border border-stone-500 text-stone-500 hover:bg-stone-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500"
-              }disabled:opacity-50 disabled:cursor-not-allowed`}>
+                  : "border border-stone-500 text-stone-500 hover:bg-stone-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500"}disabled:opacity-50 disabled:cursor-not-allowed`}>
               {category}
             </button>
           ))}
@@ -255,7 +229,10 @@ export const Projects = () => {
 
       {/* Grille de projets */}
       <FadeIn className="delay-200">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          role="grid"
+          aria-label="Liste des projets">
           {filteredProjects.map((project) => (
             <ProjectCard
               key={project.id}
@@ -272,6 +249,7 @@ export const Projects = () => {
           project={selectedProject}
           isOpen={!!selectedProject}
           onClose={handleCloseModal}
+          aria-label={`Détails du projet ${selectedProject.title}`}
         />
       )}
     </div>

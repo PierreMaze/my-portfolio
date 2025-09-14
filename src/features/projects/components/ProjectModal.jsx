@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import {
   FaBehance,
   FaCube,
@@ -20,6 +20,8 @@ import {
   MdOutlineScience,
 } from "react-icons/md";
 import OptimizedImage from "../../../components/ui/OptimizedImage";
+import { ANIMATION_CONFIG } from "../../../constants/projects";
+import { useModal } from "../../../hooks/useModal";
 
 /**
  * Composant ProjectModal
@@ -33,41 +35,32 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
 
   const images = project?.images || [project?.image];
 
-  // Gestion du scroll et des touches
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleKeyDown);
-    } else {
-      document.body.style.overflow = "unset";
-      window.removeEventListener("keydown", handleKeyDown);
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isOpen]);
+  // Utilisation du hook personnalisé pour la gestion de la modale
+  useModal(isOpen, onClose);
 
-  // Handlers
-  const nextImage = () => {
+  // Handlers optimisés avec useCallback
+  const nextImage = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    setTimeout(() => setIsAnimating(false), 500);
-  };
+    setTimeout(() => setIsAnimating(false), ANIMATION_CONFIG.imageTransition);
+  }, [isAnimating, images.length]);
 
-  const prevImage = () => {
+  const prevImage = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
-    setTimeout(() => setIsAnimating(false), 500);
-  };
+    setTimeout(() => setIsAnimating(false), ANIMATION_CONFIG.imageTransition);
+  }, [isAnimating, images.length]);
 
-  const handleKeyDown = (e) => {
-    if (e.key === "ArrowLeft") prevImage();
-    if (e.key === "ArrowRight") nextImage();
-    if (e.key === "Escape") onClose();
-  };
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "Escape") onClose();
+    },
+    [prevImage, nextImage, onClose]
+  );
 
   if (!isOpen || !project) return null;
 

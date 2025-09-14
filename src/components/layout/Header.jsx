@@ -1,30 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { NAVIGATION_ITEMS, SECTIONS } from "../../constants/navigation";
 import { useScrollToTop } from "../../hooks/useScrollToTop";
-
-const navigationItems = [
-  {
-    label: "Accueil",
-    path: "#home",
-  },
-  {
-    label: "Compétences",
-    path: "#skills",
-  },
-  {
-    label: "Projets",
-    path: "#projects",
-  },
-  {
-    label: "Parcours",
-    path: "#timeline",
-  },
-  {
-    label: "Contact",
-    path: "#contact",
-  },
-];
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,10 +13,7 @@ const Header = () => {
   useScrollToTop();
 
   // Mémoriser les sections pour éviter de les recalculer à chaque rendu
-  const sections = useMemo(
-    () => ["home", "projects", "skills", "timeline", "contact"],
-    []
-  );
+  const sections = useMemo(() => SECTIONS, []);
 
   // Optimiser la fonction de gestion du scroll
   const handleScroll = useCallback(() => {
@@ -106,14 +81,15 @@ const Header = () => {
 
           {/* Navigation desktop */}
           <div className="hidden items-center space-x-1 md:flex 2xl:text-xl">
-            {navigationItems.map((item) => (
+            {NAVIGATION_ITEMS.map((item) => (
               <button
                 key={item.path}
                 onClick={() => handleNavClick(item.path)}
                 className={`px-4 py-2 text-dark/70 hover:text-orange-500 transition-colors ${
                   activeSection === item.path.substring(1)
                     ? "text-orange-500"
-                    : ""}`}>
+                    : ""
+                }`}>
                 {item.label}
               </button>
             ))}
@@ -183,7 +159,7 @@ const Header = () => {
                 {/* Liens de navigation */}
                 <div className="flex-1 p-6">
                   <nav className="space-y-4">
-                    {navigationItems.map((item, index) => (
+                    {NAVIGATION_ITEMS.map((item, index) => (
                       <motion.button
                         key={item.path}
                         initial={{ opacity: 0, x: 20 }}
@@ -200,7 +176,8 @@ const Header = () => {
                         className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group ${
                           activeSection === item.path.substring(1)
                             ? "bg-accent/10 text-accent border border-accent/20"
-                            : "text-gray-700 hover:bg-gray-50 hover:text-accent"}`}>
+                            : "text-gray-700 hover:bg-gray-50 hover:text-accent"
+                        }`}>
                         <span className="text-lg font-medium transition-transform duration-200 group-hover:translate-x-1">
                           {item.label}
                         </span>
