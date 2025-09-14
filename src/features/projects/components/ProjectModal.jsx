@@ -10,7 +10,7 @@ import {
   FaPlay,
   FaTag,
 } from "react-icons/fa";
-import { IoClose } from "react-icons/io5";
+import { IoChevronBack, IoChevronForward, IoClose } from "react-icons/io5";
 import {
   MdOutlineAssessment,
   MdOutlineCode,
@@ -157,8 +157,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                             className={`w-2 h-2 rounded-full transition-all duration-300 ${
                               index === currentImageIndex
                                 ? "bg-stone-500 scale-125"
-                                : "bg-white hover:bg-stone-500/80"
-                            }`}
+                                : "bg-white hover:bg-stone-500/80"}`}
                           />
                         ))}
                       </div>

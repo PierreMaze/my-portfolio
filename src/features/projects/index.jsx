@@ -1,24 +1,30 @@
 import ImgProjectClou from "../../assets/clou.png";
 import ImgProjectLumi from "../../assets/lumi.png";
 import ImgProjectMakeSense from "../../assets/make_sense.png";
-import MemoryLandPicture from "../../assets/memoryland.png";
 import ImgProjectSignature from "../../assets/signature.png";
 import { FadeIn } from "../../components/ui/FadeIn";
 import { useProjects } from "../../hooks/useProjects";
-import { createImageArray, getImageSource } from "../../utils/imageUtils";
+import { createImageArray } from "../../utils/imageUtils";
 import { ProjectCard } from "./components/ProjectCard";
 import { ProjectModal } from "./components/ProjectModal";
 
 const projects = [
   {
     id: 1,
-    title: "Application web Responsive (en cours de développement)",
+    title: "La Voix Intime",
     description:
-      "Site vitrine optimisé pour les performances et parfaitement responsive pour l'agence Signature.",
+      "Site vitrine optimisé pour les performances et parfaitement responsive pour la voix intime.",
     image: ImgProjectSignature,
     images: createImageArray(ImgProjectSignature),
-    tags: ["React", "TailwindCSS", "Dotenv"],
-    category: "Backend",
+    tags: [
+      "React",
+      "react-router-dom",
+      "TailwindCSS",
+      "framer-motion",
+      "Figma",
+      "calendly",
+    ],
+    category: "Frontend",
     github: "https://github.com/username/microservices",
     diagram: "https://draw.io/...",
     notion: "https://notion.so/...",
@@ -49,7 +55,7 @@ const projects = [
       "Site vitrine  optimisé pour les performances et parfaitement responsive pour l'entreprise Clou&Cie.",
     image: ImgProjectClou,
     images: [ImgProjectClou, ImgProjectClou, ImgProjectClou],
-    tags: ["React", "TailwindCSS"],
+    tags: ["React", "TailwindCSS", "Figma"],
     category: "Frontend",
     github: "https://github.com/username/project",
     figma: "https://figma.com/file/...",
@@ -85,7 +91,15 @@ const projects = [
       "Site vitrine optimisé pour les performances et parfaitement responsive pour l'entreprise Luminescence33.",
     image: ImgProjectLumi,
     images: [ImgProjectLumi, ImgProjectLumi, ImgProjectLumi],
-    tags: ["React", "TailwindCSS", "Node", "Dotenv"],
+    tags: [
+      "React",
+      "react-router-dom",
+      "TailwindCSS",
+      "HeadlessUI",
+      "Node",
+      "Dotenv",
+      "Figma",
+    ],
     category: "Fullstack",
     github: "https://github.com/username/task-manager",
     figma: "https://figma.com/file/...",
@@ -121,8 +135,16 @@ const projects = [
       "Application web de gestion de getions d'actions pour l'entreprise Make_Sense.",
     image: ImgProjectMakeSense,
     images: [ImgProjectMakeSense, ImgProjectMakeSense, ImgProjectMakeSense],
-    tags: ["HTML/CSS", "JavaScript", "Figma"],
-    category: "Design",
+    tags: [
+      "React",
+      "react-router-dom",
+      "chakraui",
+      "HeadlessUI",
+      "Node",
+      "Dotenv",
+      "Figma",
+    ],
+    category: "Fullstack",
     github: "https://github.com/username/portfolio",
     figma: "https://figma.com/file/...",
     diagram: "https://draw.io/...",
@@ -148,38 +170,6 @@ const projects = [
       "Score de performance de 95/100",
       "Taux de rebond réduit de 40%",
       "Engagement utilisateur augmenté de 60%",
-    ],
-  },
-  {
-    id: 5,
-    title: "Jeu application web",
-    description: "Application web de jeu nommé MemoryLand.",
-    image: getImageSource(MemoryLandPicture),
-    images: createImageArray(MemoryLandPicture),
-    tags: ["React", "D3.js", "Node.js"],
-    category: "Fullstack",
-    github: "https://github.com/username/analytics-dashboard",
-    figma: "https://figma.com/file/...",
-    diagram: "https://draw.io/...",
-    notion: "https://notion.so/...",
-    demo: "https://analytics-demo.com",
-    problem: "Besoin d'un système d'analyse de données en temps réel",
-    objectives: [
-      "Créer des visualisations interactives",
-      "Implémenter l'export de données",
-      "Développer un système de rapports automatisés",
-    ],
-    solution: "Application fullstack avec visualisations en temps réel",
-    challenges: [
-      "Performance des visualisations",
-      "Gestion des données en temps réel",
-      "Export de données volumineuses",
-    ],
-    technologies: ["React", "D3.js", "Node.js", "WebSocket", "MongoDB"],
-    results: [
-      "Temps de chargement réduit de 60%",
-      "Précision des données de 99.9%",
-      "Satisfaction utilisateur de 90%",
     ],
   },
 ];
@@ -219,8 +209,8 @@ export const Projects = () => {
               aria-label={`Filtrer par ${category}`}
               className={`px-3 py-1.5 text-sm font-medium transition-all duration-300 rounded ${
                 selectedCategory === category
-                  ? "bg-orange-500 hover:bg-orange-600 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-                  : "border border-stone-500 text-stone-500 hover:bg-stone-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500"}disabled:opacity-50 disabled:cursor-not-allowed`}>
+                  ? "bg-orange-500 hover:bg-orange-600 text-white "
+                  : "border border-stone-500 text-stone-500 hover:bg-orange-100 hover:text-orange-600 hover:border-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:ring-orange-500/50"}disabled:opacity-50 disabled:cursor-not-allowed`}>
               {category}
             </button>
           ))}

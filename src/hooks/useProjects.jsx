@@ -10,14 +10,25 @@ export const useProjects = (projects) => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   // Mémoriser les projets filtrés
-  const filteredProjects = useMemo(
-    () =>
-      projects.filter(
-        (project) =>
-          selectedCategory === "Tous" || project.category === selectedCategory
-      ),
-    [projects, selectedCategory]
-  );
+  const filteredProjects = useMemo(() => {
+    if (selectedCategory === "Tous") {
+      return projects;
+    }
+
+    return projects.filter((project) => {
+      // Si le projet est Fullstack, il apparaît dans Backend, Frontend ET Fullstack
+      if (project.category === "Fullstack") {
+        return (
+          selectedCategory === "Backend" ||
+          selectedCategory === "Frontend" ||
+          selectedCategory === "Fullstack"
+        );
+      }
+
+      // Sinon, correspondance exacte
+      return project.category === selectedCategory;
+    });
+  }, [projects, selectedCategory]);
 
   // Mémoriser les catégories
   const categories = useMemo(() => PROJECT_CATEGORIES, []);

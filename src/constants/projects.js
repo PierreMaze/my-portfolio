@@ -1,11 +1,5 @@
 // Configuration des projets
-export const PROJECT_CATEGORIES = [
-  "Tous",
-  "Frontend",
-  "Backend",
-  "Fullstack",
-  "Design",
-];
+export const PROJECT_CATEGORIES = ["Tous", "Frontend", "Backend", "Fullstack"];
 
 // Configuration des animations
 export const ANIMATION_CONFIG = {
