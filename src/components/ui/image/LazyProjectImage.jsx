@@ -1,8 +1,8 @@
 import { lazy, Suspense } from "react";
 import { ImageLoader } from "../loader";
 
-// Lazy loading du composant OptimizedImage pour les projets
-const OptimizedImage = lazy(() => import("./OptimizedImage"));
+// Lazy loading du composant SimpleImage pour les projets
+const SimpleImage = lazy(() => import("./SimpleImage"));
 
 /**
  * Composant LazyProjectImage
@@ -11,7 +11,7 @@ const OptimizedImage = lazy(() => import("./OptimizedImage"));
 const LazyProjectImage = ({ src, alt, className, ...props }) => {
   return (
     <Suspense fallback={<ImageLoader className={className} />}>
-      <OptimizedImage src={src} alt={alt} className={className} {...props} />
+      <SimpleImage src={src} alt={alt} className={className} {...props} />
     </Suspense>
   );
 };

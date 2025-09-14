@@ -6,10 +6,8 @@ import { MdDownloadDone } from "react-icons/md";
 import ImgAvatar from "../../assets/avatar.png";
 import { FadeIn, ImageLoader } from "../../components/ui";
 
-// Lazy loading de l'image optimisée
-const OptimizedImage = lazy(() =>
-  import("../../components/ui/image/OptimizedImage")
-);
+// Lazy loading de l'image simple
+const SimpleImage = lazy(() => import("../../components/ui/image/SimpleImage"));
 
 const Hero = () => {
   const [downloadState, setDownloadState] = useState("default"); // 'default', 'loading', 'done'
@@ -103,7 +101,7 @@ const Hero = () => {
           className="inline-block mx-auto h-52 md:mx-4 lg:mt-16 hover:shadow-2xl hover:shadow-amber-600/50 md:mt-48 lg:w-80 lg:h-80 2xl:scale-150">
           <Suspense
             fallback={<ImageLoader className="w-full h-full rounded-md" />}>
-            <OptimizedImage
+            <SimpleImage
               src={ImgAvatar}
               alt="Mon avatar"
               className="w-full h-full rounded-md transition-transform object-cover hover:scale-105"

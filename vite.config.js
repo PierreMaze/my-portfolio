@@ -11,7 +11,16 @@ export default defineConfig({
     assetsDir: "assets",
     rollupOptions: {
       output: {
-        assetFileNames: "assets/[name].[hash][extname]",
+        assetFileNames: (assetInfo) => {
+          // Garder les images avec un nom plus prévisible
+          if (
+            assetInfo.name &&
+            /\.(png|jpe?g|gif|svg|webp)$/.test(assetInfo.name)
+          ) {
+            return "assets/[name].[hash][extname]";
+          }
+          return "assets/[name].[hash][extname]";
+        },
         manualChunks: {
           vendor: ["react", "react-dom"],
           router: ["react-router-dom"],
