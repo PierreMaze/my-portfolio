@@ -226,9 +226,9 @@ const Skills = () => {
       indigo:
         "bg-indigo-100 border-indigo-200 text-indigo-800 hover:bg-indigo-200",
       pink: "bg-pink-100 border-pink-200 text-pink-800 hover:bg-pink-200",
-      gray: "bg-gray-100 border-gray-200 text-gray-800 hover:bg-gray-200",
-      stone: "bg-stone-100 border-stone-200 text-stone-800 hover:bg-stone-200",
-      black: "bg-gray-200 border-gray-300 text-gray-900 hover:bg-gray-300",
+      gray: "bg-gray-100 border-gray-300 text-gray-800 hover:bg-gray-200",
+      stone: "bg-stone-100 border-stone-300 text-stone-800 hover:bg-stone-200",
+      black: "bg-zinc-100 border-zinc-300 text-zinc-900 hover:bg-zinc-200",
     };
 
     return (
@@ -243,8 +243,8 @@ const Skills = () => {
   const SkillSection = ({ title, skills }) => (
     <FadeIn>
       <div className="py-4 mx-4">
-        <h3 className="text-lg font-semibold text-start text-stone-800 mb-4 flex items-center gap-2">
-          <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
+        <h3 className="flex items-center gap-2 text-lg font-semibold text-start text-stone-800 mb-4">
+          <span className="w-2 h-2 rounded-full bg-orange-400"></span>
           {title}
         </h3>
         <div className="flex flex-wrap gap-2">
