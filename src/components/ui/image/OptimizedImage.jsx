@@ -1,7 +1,7 @@
 const OptimizedImage = ({
   src,
   alt,
-    ,
+  className,
   priority = false,
   ...props
 }) => {
@@ -51,7 +51,7 @@ const OptimizedImage = ({
       <img
         src={finalSrc}
         alt={alt}
-          ={className}
+        className={className}
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : "auto"}
         onError={(e) => {
