@@ -98,7 +98,9 @@ const Header = () => {
     <header className={headerClasses}>
       <div className="px-8 mx-auto w-full max-w-6xl 2xl:max-w-[1850px]">
         <nav className="flex items-center justify-between h-20">
-          <Link to="/" className="text-2xl font-bold 2xl:text-4xl text-accent">
+          <Link
+            to="/"
+            className="text-2xl font-bold 2xl:text-4xl text-orange-500">
             PORTFOLIO
           </Link>
 
@@ -108,8 +110,10 @@ const Header = () => {
               <button
                 key={item.path}
                 onClick={() => handleNavClick(item.path)}
-                className={`px-4 py-2 text-dark/70 hover:text-accent transition-colors ${
-                  activeSection === item.path.substring(1) ? "text-accent" : ""}`}>
+                className={`px-4 py-2 text-dark/70 hover:text-orange-500 transition-colors ${
+                  activeSection === item.path.substring(1)
+                    ? "text-orange-500"
+                    : ""}`}>
                 {item.label}
               </button>
             ))}

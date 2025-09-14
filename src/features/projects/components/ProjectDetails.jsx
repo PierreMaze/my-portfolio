@@ -1,6 +1,6 @@
+import { IoArrowBack, IoOpenOutline } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../../../components/layout/Container";
-import { Button } from "../../../components/ui/Button";
 import { FadeIn } from "../../../components/ui/FadeIn";
 import OptimizedImage from "../../../components/ui/OptimizedImage";
 
@@ -17,9 +17,12 @@ export const ProjectDetails = () => {
     return (
       <Container className="py-20 text-center">
         <h1 className="text-2xl font-bold mb-4">Projet non trouvé</h1>
-        <Button onClick={() => navigate("/")} variant="accent">
+        <button
+          onClick={() => navigate("/")}
+          className="inline-flex items-center justify-center gap-2 px-4 py-2 text-base font-medium text-white rounded transition-all duration-300 bg-stone-500 hover:bg-stone-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 disabled:opacity-50 disabled:cursor-not-allowed">
+          <IoArrowBack className="w-4 h-4" />
           Retour à l'accueil
-        </Button>
+        </button>
       </Container>
     );
   }
@@ -28,12 +31,12 @@ export const ProjectDetails = () => {
     <div className="py-20">
       <Container>
         <FadeIn>
-          <Button
+          <button
             onClick={() => navigate("/")}
-            variant="outline"
-            className="mb-8">
-            ← Retour
-          </Button>
+            className="inline-flex items-center justify-center gap-2 px-4 py-2 text-base font-medium border rounded transition-all duration-300 mb-8 border-stone-500 text-stone-500 hover:bg-stone-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 disabled:opacity-50 disabled:cursor-not-allowed">
+            <IoArrowBack className="w-4 h-4" />
+            Retour
+          </button>
         </FadeIn>
 
         <FadeIn>
@@ -93,14 +96,14 @@ export const ProjectDetails = () => {
                 </div>
               ))}
 
-              <Button
+              <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="accent"
-                className="mt-8">
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 text-base font-medium text-white rounded transition-all duration-300 mt-8 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                <IoOpenOutline className="w-4 h-4" />
                 Voir le projet
-              </Button>
+              </a>
             </div>
           </FadeIn>
         </div>

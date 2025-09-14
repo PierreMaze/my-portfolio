@@ -1,4 +1,4 @@
-import { Button } from "../../components/ui/Button";
+import { IoPaperPlane } from "react-icons/io5";
 import { FadeIn } from "../../components/ui/FadeIn";
 
 const Contact = () => {
@@ -8,7 +8,7 @@ const Contact = () => {
         <h2 className="relative text-3xl font-bold mb-12">
           <span className="relative inline-block">
             <span
-              className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
+              className="absolute block -skew-y-3 bg-orange-200 -inset-1"
               aria-hidden="true"></span>
             <span className="relative">Me contacter</span>
           </span>
@@ -108,7 +108,12 @@ const Contact = () => {
                 className="px-4 py-2 w-full border rounded-lg border-accent-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-transparent"
                 required></textarea>
             </div>
-            <Button type="submit">Envoyer le message</Button>
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2 text-base font-medium text-white rounded transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed">
+              <IoPaperPlane className="w-4 h-4" />
+              Envoyer le message
+            </button>
           </form>
         </FadeIn>
       </div>

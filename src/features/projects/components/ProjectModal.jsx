@@ -1,8 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import {
-  FaArrowLeft,
-  FaArrowRight,
   FaBehance,
   FaCube,
   FaDribbble,
@@ -12,6 +10,7 @@ import {
   FaPlay,
   FaTag,
 } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 import {
   MdOutlineAssessment,
   MdOutlineCode,
@@ -86,16 +85,19 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
-          className="relative rounded-xl shadow-2xl w-[95vw] h-[90vh] overflow-hidden bg-accent-200"
+          className="relative rounded-xl shadow-2xl w-[95vw]h-[90vh]overflow-hidden bg-accent-200"
           onClick={(e) => e.stopPropagation()}>
           {/* Bouton retour */}
-          <motion.button
+          <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            onClick={onClose}
-            className="absolute z-10 p-3 bg-white rounded-full transition-all duration-300 ease-in-out top-4 left-4 hover:bg-accent hover:text-white">
-            <FaArrowLeft className="w-6 h-6" />
-          </motion.button>
+            className="absolute z-10 top-4 left-4">
+            <button
+              onClick={onClose}
+              className="inline-flex items-center justify-center p-4 text-base font-medium bg-white border rounded transition-all duration-300 border-stone-500 hover:bg-stone-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 disabled:opacity-50 disabled:cursor-not-allowed">
+              <IoClose className="w-5 h-5" />
+            </button>
+          </motion.div>
 
           {/* Contenu scrollable */}
           <div className="flex flex-col h-full overflow-y-auto">
@@ -109,7 +111,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                 {/* Barre de titre du device */}
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-orange-500"></div>
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 </div>
                 {/* Image dans le device */}
@@ -143,13 +145,13 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute p-3 bg-white rounded-full transition-colors duration-300 -translate-y-1/2 left-4 top-1/2 hover:bg-accent hover:text-white">
-                        <FaArrowLeft className="w-6 h-6" />
+                        className="absolute inline-flex items-center justify-center p-4 text-base font-medium bg-white border rounded transition-all duration-300 -translate-y-1/2 left-4 top-1/2 border-stone-500 hover:bg-stone-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <IoChevronBack className="w-5 h-5" />
                       </button>
                       <button
                         onClick={nextImage}
-                        className="absolute p-3 bg-white rounded-full transition-colors duration-300 -translate-y-1/2 right-4 top-1/2 hover:bg-accent hover:text-white">
-                        <FaArrowRight className="w-6 h-6" />
+                        className="absolute inline-flex items-center justify-center p-4 text-base font-medium bg-white border rounded transition-all duration-300 -translate-y-1/2 right-4 top-1/2 border-stone-500 hover:bg-stone-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <IoChevronForward className="w-5 h-5" />
                       </button>
                       {/* Indicateurs de navigation */}
                       <div className="absolute flex gap-2 -translate-x-1/2 bottom-4 left-1/2">
@@ -161,8 +163,8 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                             onClick={() => setCurrentImageIndex(index)}
                             className={`w-2 h-2 rounded-full transition-all duration-300 ${
                               index === currentImageIndex
-                                ? "bg-accent scale-125"
-                                : "bg-white hover:bg-accent/80"
+                                ? "bg-stone-500 scale-125"
+                                : "bg-white hover:bg-stone-500/80"
                             }`}
                           />
                         ))}
@@ -190,7 +192,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       <motion.span
                         key={tag}
                         whileHover={{ scale: 1.05 }}
-                        className="inline-flex items-center px-4 py-2 text-sm rounded-full transition-all duration-300 gap-1.5 bg-accent/10 text-accent hover:bg-accent/20">
+                        className="inline-flex items-center gap-1.px-4 py-2 text-sm rounded-full transition-all duration-300 5 bg-stone-100 text-stone-700 hover:bg-stone-200">
                         <FaTag className="w-4 h-4" />
                         {tag}
                       </motion.span>
@@ -220,7 +222,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       <tr>
                         <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
-                            <MdOutlineLightbulb className="w-5 h-5 text-accent" />
+                            <MdOutlineLightbulb className="w-5 h-5 text-stone-600" />
                             Problématique
                           </div>
                         </td>
@@ -231,7 +233,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       <tr className="bg-[#fafaf8]">
                         <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
-                            <MdOutlineEmojiObjects className="w-5 h-5 text-accent" />
+                            <MdOutlineEmojiObjects className="w-5 h-5 text-stone-600" />
                             Objectifs
                           </div>
                         </td>
@@ -248,7 +250,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       <tr>
                         <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
-                            <MdOutlineScience className="w-5 h-5 text-accent" />
+                            <MdOutlineScience className="w-5 h-5 text-stone-600" />
                             Solution
                           </div>
                         </td>
@@ -259,7 +261,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       <tr className="bg-[#fafaf8]">
                         <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
-                            <MdOutlineCode className="w-5 h-5 text-accent" />
+                            <MdOutlineCode className="w-5 h-5 text-stone-600" />
                             Obstacles
                           </div>
                         </td>
@@ -276,7 +278,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       <tr>
                         <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
-                            <FaTag className="w-5 h-5 text-accent" />
+                            <FaTag className="w-5 h-5 text-stone-600" />
                             Technologies
                           </div>
                         </td>
@@ -286,7 +288,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                               <motion.span
                                 key={index}
                                 whileHover={{ scale: 1.05 }}
-                                className="px-3 py-1.5 text-sm font-medium text-gray-700 bg-white rounded-full transition-all duration-300 hover:bg-gray-50">
+                                className="px-3 py-1.text-sm font-medium text-gray-700 bg-white rounded-full transition-all duration-300 5 hover:bg-gray-50">
                                 {tech}
                               </motion.span>
                             ))}
@@ -296,7 +298,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                       <tr className="bg-[#fafaf8]">
                         <td className="px-6 py-5 w-1/4 font-semibold text-gray-900">
                           <div className="flex items-center gap-2">
-                            <MdOutlineAssessment className="w-5 h-5 text-accent" />
+                            <MdOutlineAssessment className="w-5 h-5 text-stone-600" />
                             Résultats
                           </div>
                         </td>
@@ -414,7 +416,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 text-sm text-white rounded-lg transition-all duration-300 bg-accent hover:bg-accent/90">
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm text-white rounded-lg transition-all duration-300 bg-stone-500 hover:bg-stone-600">
                         <FaPlay className="w-5 h-5" />
                         Live Demo
                       </motion.a>

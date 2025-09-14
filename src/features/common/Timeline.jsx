@@ -46,7 +46,7 @@ const Timeline = () => {
         <h2 className="relative text-3xl font-bold text-center mb-16">
           <span className="relative inline-block">
             <span
-              className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
+              className="absolute block -skew-y-3 bg-orange-200 -inset-1"
               aria-hidden="true"></span>
             <span className="relative">Mon parcours</span>
           </span>
@@ -64,7 +64,7 @@ const Timeline = () => {
                   ? "md:pr-[calc(50%+2rem)]"
                   : "md:pl-[calc(50%+2rem)]"}`}>
               {/* Point sur la ligne */}
-              <div className="absolute z-10 w-4 h-4 border-2 rounded-full -translate-x-1/2 border-yellow-500 left-1/2 -top-6 md:top-6 bg-background-primary" />
+              <div className="absolute z-10 w-4 h-4 border-2 rounded-full -translate-x-1/2 border-orange-500 left-1/2 -top-6 md:top-6 bg-background-primary" />
 
               {/* Contenu */}
               <div

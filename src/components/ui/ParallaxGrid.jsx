@@ -30,7 +30,7 @@ export const ParallaxGrid = () => {
 
       {/* Dégradé de fond */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-accent-50 via-gray-50 to-yellow-50"
+        className="absolute inset-0 bg-gradient-to-b from-accent-50 via-gray-50 to-orange-50"
         style={{
           opacity: 0.9,
         }}

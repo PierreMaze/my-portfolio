@@ -4,7 +4,6 @@ import { IoMdDownload } from "react-icons/io";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { MdDownloadDone } from "react-icons/md";
 import ImgAvatar from "../../assets/avatar.png";
-import { Button } from "../../components/ui/Button";
 import { FadeIn } from "../../components/ui/FadeIn";
 import OptimizedImage from "../../components/ui/OptimizedImage";
 
@@ -50,7 +49,7 @@ const Hero = () => {
               Développeur
               <span className="relative inline-block ml-4">
                 <span
-                  className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
+                  className="absolute block -skew-y-3 bg-orange-200 -inset-1"
                   aria-hidden="true"></span>
                 <span className="relative">Fullstack</span>
               </span>
@@ -62,7 +61,7 @@ const Hero = () => {
             {/* Btn et liens sociaux */}
             <div className="flex justify-center md:justify-start">
               <div className="flex items-center justify-between m-4">
-                <div className="flex items-center space-x-6 text-accent-500">
+                <div className="flex items-center space-x-6 text-orange-500">
                   <a
                     href="https://github.com/PierreMaze"
                     title="GitHub"
@@ -82,12 +81,12 @@ const Hero = () => {
                   </a>
                 </div>
                 <div>
-                  <Button
-                    variant="primary"
+                  <button
                     onClick={handleDownload}
-                    className="gap-2 mx-8">
-                    Mon CV {getDownloadIcon()}
-                  </Button>
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2 mx-8 text-base font-medium text-white rounded transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                    {getDownloadIcon()}
+                    Mon CV
+                  </button>
                 </div>
               </div>
             </div>

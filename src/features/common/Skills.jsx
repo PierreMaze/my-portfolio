@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { FaDatabase, FaMobile, FaServer } from "react-icons/fa";
+import { memo, useEffect, useState } from "react";
+import { FaMobile, FaServer } from "react-icons/fa";
 import {
   SiFigma,
   SiGithub,
@@ -12,152 +12,248 @@ import {
   SiNotion,
   SiPostgresql,
   SiReact,
+  SiReactrouter,
   SiTailwindcss,
 } from "react-icons/si";
 import { FadeIn } from "../../components/ui/FadeIn";
 
-const AnimatedHtmlIcon = () => {
-  const [htmlColor, setHtmlColor] = useState("text-orange-500");
+// Composant HTML/CSS avec son propre état isolé
+const AnimatedHtmlIcon = ({ onColorChange }) => {
+  const [isOrange, setIsOrange] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setHtmlColor((prevColor) =>
-        prevColor === "text-orange-500" ? "text-blue-500" : "text-orange-500"
-      );
-    }, 2000);
+      setIsOrange((prev) => {
+        const newColor = !prev;
+        // Notifier le parent du changement de couleur
+        if (onColorChange) {
+          onColorChange(newColor ? "orange" : "blue");
+        }
+        return newColor;
+      });
+    }, 1500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [onColorChange]);
 
   return (
     <SiHtml5
-      className={`w-12 h-12 transition-colors duration-500 ease-in-out${htmlColor}`}
+      className={`w-4 h-4 transition-colors duration-500 ease-in-out ${
+        isOrange ? "text-orange-500" : "text-blue-500"
+      }`}
     />
+  );
+};
+
+// Composant spécial pour le badge HTML/CSS avec synchronisation de couleur
+const HtmlCssBadge = () => {
+  const [htmlColor, setHtmlColor] = useState("orange");
+
+  const handleColorChange = (newColor) => {
+    setHtmlColor(newColor);
+  };
+
+  const colorClasses = {
+    orange:
+      "bg-orange-50 border-orange-200 text-orange-700 hover:bg-orange-100",
+    blue: "bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100",
+  };
+
+  return (
+    <div
+      className={`flex items-center gap-2 px-2 py-1.5 border rounded-full shadow-sm transition-all duration-300 ${colorClasses[htmlColor]}`}>
+      <div className="text-[10px] scale-75">
+        <AnimatedHtmlIcon onColorChange={handleColorChange} />
+      </div>
+      <span className="text-xs font-medium">HTML / CSS</span>
+    </div>
   );
 };
 
 const Skills = () => {
   const skillsData = {
-    "Langages & Frameworks": [
+    Langages: [
       {
         name: "HTML / CSS",
-        icon: <AnimatedHtmlIcon />,
+        icon: <HtmlCssBadge />,
         description:
           "Maîtrise des standards web modernes, sémantique HTML5 et CSS3 avancé",
       },
       {
         name: "JavaScript",
-        icon: <SiJavascript className="w-12 h-12 text-yellow-400" />,
+        icon: <SiJavascript className="w-4 h-4 text-yellow-400" />,
         description:
           "ES6+, programmation asynchrone, manipulation du DOM et patterns modernes",
       },
       {
-        name: "React",
-        icon: <SiReact className="w-12 h-12 text-cyan-500" />,
+        name: "SQL",
+        icon: <SiMysql className="w-4 h-4 text-blue-500" />,
         description:
-          "Hooks, Context API, gestion d'état, composants réutilisables et performance",
+          "Modélisation relationnelle, requêtes avancées et optimisation",
       },
+    ],
+    "Environnements & Frameworks": [
       {
         name: "Node.js",
-        icon: <SiNodedotjs className="w-12 h-12 text-green-600" />,
+        icon: <SiNodedotjs className="w-4 h-4 text-green-600" />,
         description:
           "APIs RESTful, Express.js, gestion des middlewares et sécurité",
       },
       {
+        name: "Next.js",
+        icon: <SiNextdotjs className="w-4 h-4 text-black" />,
+        description:
+          "SSR/SSG, routing dynamique, API Routes et optimisation SEO",
+      },
+      {
         name: "TailwindCSS",
-        icon: <SiTailwindcss className="w-12 h-12 text-sky-500" />,
+        icon: <SiTailwindcss className="w-4 h-4 text-sky-500" />,
         description:
           "Design system, responsive design et optimisation des performances",
       },
+    ],
+    Bibliothèques: [
       {
-        name: "Next.js",
-        icon: <SiNextdotjs className="w-12 h-12 text-black" />,
+        name: "React",
+        icon: <SiReact className="w-4 h-4 text-cyan-500" />,
         description:
-          "SSR/SSG, routing dynamique, API Routes et optimisation SEO",
+          "Hooks, Context API, gestion d'état, composants réutilisables et performance",
+      },
+      {
+        name: "React Router DOM",
+        icon: <SiReactrouter className="w-4 h-4 text-red-500" />,
+        description:
+          "Hooks, Context API, gestion d'état, composants réutilisables et performance",
       },
     ],
     "Bases de données": [
       {
         name: "PostgreSQL",
-        icon: <SiPostgresql className="w-12 h-12 text-blue-600" />,
+        icon: <SiPostgresql className="w-4 h-4 text-blue-600" />,
         description:
           "Requêtes complexes, indexation, transactions et optimisation des performances",
       },
       {
         name: "MariaDB",
-        icon: <SiMariadb className="w-12 h-12 text-amber-800" />,
+        icon: <SiMariadb className="w-4 h-4 text-amber-700" />,
         description: "Administration, backup, réplication et maintenance",
       },
+    ],
+    Méthodes: [
       {
-        name: "SQL",
-        icon: <SiMysql className="w-12 h-12 text-blue-500" />,
-        description:
-          "Modélisation relationnelle, requêtes avancées et optimisation",
+        name: "Responsive Design",
+        icon: <FaMobile className="w-4 h-4 text-gray-600" />,
+        description: "Mobile-first, breakpoints, flexbox/grid et accessibilité",
       },
       {
-        name: "BDD",
-        icon: <FaDatabase className="w-12 h-12 text-gray-600" />,
-        description:
-          "Architecture de données, normalisation et stratégies de scaling",
+        name: "CI/CD",
+        icon: <SiGithub className="w-4 h-4 text-gray-800" />,
+        description: "Git flow, CI/CD, code review et gestion de versions",
       },
     ],
-    "Outils & Méthodes": [
+    Outils: [
       {
         name: "Notion",
-        icon: <SiNotion className="w-12 h-12 text-black" />,
+        icon: <SiNotion className="w-4 h-4 text-black" />,
         description:
           "Gestion de projet, documentation technique et collaboration d'équipe",
       },
       {
         name: "GitHub",
-        icon: <SiGithub className="w-12 h-12 text-gray-800" />,
+        icon: <SiGithub className="w-4 h-4 text-gray-800" />,
         description: "Git flow, CI/CD, code review et gestion de versions",
       },
       {
         name: "VPS",
-        icon: <FaServer className="w-12 h-12 text-purple-600" />,
+        icon: <FaServer className="w-4 h-4 text-purple-600" />,
         description: "Déploiement, monitoring, sécurité et maintenance serveur",
       },
       {
         name: "Figma",
-        icon: <SiFigma className="w-12 h-12 text-orange-600" />,
+        icon: <SiFigma className="w-4 h-4 text-orange-600" />,
         description:
           "Design system, prototypage interactif et collaboration UI/UX",
-      },
-      {
-        name: "Responsive Design",
-        icon: <FaMobile className="w-12 h-12 text-gray-600" />,
-        description: "Mobile-first, breakpoints, flexbox/grid et accessibilité",
       },
     ],
   };
 
-  const SkillCard = ({ name, icon, description }) => (
-    <div className="relative py-8 text-center rounded-xl transition-all duration-300 bg-accent-50 group hover:bg-accent/5">
-      <div className="relative">
-        <div className="flex justify-center transition-transform duration-300 mb-2 group-hover:scale-110">
-          {icon}
-        </div>
-        <h4 className="font-semibold transition-colors duration-300 group-hover:text-accent">
-          {name}
-        </h4>
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center rounded-xl opacity-0 pointer-events-none transition-all duration-300 bg-white/95 group-hover:opacity-100 group-hover:pointer-events-auto">
-        <p className="px-4 text-sm text-accent-600">{description}</p>
-      </div>
-    </div>
-  );
+  // Fonction pour extraire la couleur de l'icône
+  const getColorFromIcon = (iconElement) => {
+    if (!iconElement || !iconElement.props || !iconElement.props.className) {
+      return "stone";
+    }
 
-  const SkillSection = ({ title, skills, cols = 6 }) => (
+    const className = iconElement.props.className;
+
+    // Détection des couleurs dans les classes
+    if (className.includes("text-orange")) return "orange";
+    if (className.includes("text-blue")) return "blue";
+    if (className.includes("text-cyan")) return "cyan";
+    if (className.includes("text-green")) return "green";
+    if (className.includes("text-red")) return "red";
+    if (className.includes("text-amber")) return "amber";
+    if (className.includes("text-purple")) return "purple";
+    if (className.includes("text-yellow")) return "yellow";
+    if (className.includes("text-indigo")) return "indigo";
+    if (className.includes("text-pink")) return "pink";
+    if (className.includes("text-gray")) return "gray";
+    if (className.includes("text-black")) return "black";
+
+    return "stone";
+  };
+
+  const SkillCard = memo(({ name, icon, color }) => {
+    // Cas spécial pour HTML/CSS qui est déjà un composant complet
+    if (name === "HTML / CSS") {
+      return icon;
+    }
+
+    // Utilise la couleur détectée de l'icône si aucune couleur n'est spécifiée
+    const badgeColor = color || getColorFromIcon(icon);
+
+    const colorClasses = {
+      orange:
+        "bg-orange-50 border-orange-200 text-orange-700 hover:bg-orange-100",
+      blue: "bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100",
+      cyan: "bg-cyan-50 border-cyan-200 text-cyan-700 hover:bg-cyan-100",
+      green: "bg-green-50 border-green-200 text-green-700 hover:bg-green-100",
+      red: "bg-red-50 border-red-200 text-red-700 hover:bg-red-100",
+      amber: "bg-amber-100 border-amber-300 text-amber-800 hover:bg-amber-200",
+      purple:
+        "bg-purple-50 border-purple-200 text-purple-700 hover:bg-purple-100",
+      yellow:
+        "bg-yellow-50 border-yellow-200 text-yellow-700 hover:bg-yellow-100",
+      indigo:
+        "bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100",
+      pink: "bg-pink-50 border-pink-200 text-pink-700 hover:bg-pink-100",
+      gray: "bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100",
+      stone: "bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100",
+      black: "bg-gray-100 border-gray-300 text-gray-800 hover:bg-gray-200",
+    };
+
+    return (
+      <div
+        className={`flex items-center gap-2 px-2 py-1.5 border rounded-full shadow-sm transition-all duration-300 ${colorClasses[badgeColor]}`}>
+        <div className="text-[10px] scale-75">{icon}</div>
+        <span className="text-xs font-medium">{name}</span>
+      </div>
+    );
+  });
+
+  const SkillSection = ({ title, skills }) => (
     <FadeIn>
-      <div>
-        <h3 className="pb-2 text-2xl font-semibold border-b mb-6 border-accent">
+      <div className="py-4 lg:mb-12">
+        <h3 className="text-lg font-semibold text-start text-stone-800 mb-4">
           {title}
         </h3>
-        <div
-          className={`grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-${cols}`}>
+        <div className="flex flex-wrap gap-2">
           {skills.map((skill, index) => (
-            <SkillCard key={`${title}-${index}`} {...skill} />
+            <SkillCard
+              key={`${title}-${index}`}
+              name={skill.name}
+              icon={skill.icon}
+              color={skill.color}
+            />
           ))}
         </div>
       </div>
@@ -170,20 +266,15 @@ const Skills = () => {
         <h2 className="relative text-3xl font-bold mb-12">
           <span className="relative inline-block">
             <span
-              className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
+              className="absolute block -skew-y-3 bg-orange-200 -inset-1"
               aria-hidden="true"></span>
             <span className="relative">Mes compétences</span>
           </span>
         </h2>
       </FadeIn>
-      <div className="space-y-16">
-        {Object.entries(skillsData).map(([title, skills], index) => (
-          <SkillSection
-            key={title}
-            title={title}
-            skills={skills}
-            cols={title === "Langages & Frameworks" ? 6 : 4}
-          />
+      <div className="grid grid-cols-1 gap-8 mx-auto sm:grid-cols-2 lg:grid-cols-3 max-w-6xl">
+        {Object.entries(skillsData).map(([title, skills]) => (
+          <SkillSection key={title} title={title} skills={skills} />
         ))}
       </div>
     </section>

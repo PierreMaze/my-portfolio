@@ -228,7 +228,7 @@ export const Projects = () => {
         <h2 className="relative text-3xl font-bold mb-12">
           <span className="relative inline-block">
             <span
-              className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
+              className="absolute block -skew-y-3 bg-orange-200 -inset-1"
               aria-hidden="true"></span>
             <span className="relative">Mes projets</span>
           </span>
@@ -242,10 +242,11 @@ export const Projects = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full transition-colors ${
+              className={`px-3 py-1.5 text-sm font-medium transition-all duration-300 rounded ${
                 selectedCategory === category
-                  ? "bg-accent text-white"
-                  : "bg-accent-100 text-text-primary hover:bg-accent/25"}`}>
+                  ? "bg-orange-500 hover:bg-orange-600 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                  : "border border-stone-500 text-stone-500 hover:bg-stone-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-500"
+              }disabled:opacity-50 disabled:cursor-not-allowed`}>
               {category}
             </button>
           ))}

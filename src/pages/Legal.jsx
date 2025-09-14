@@ -10,7 +10,7 @@ const Legal = () => {
           <h2 className="relative text-3xl font-bold mb-12">
             <span className="relative inline-block">
               <span
-                className="absolute block -skew-y-3 bg-yellow-200 -inset-1"
+                className="absolute block -skew-y-3 bg-orange-200 -inset-1"
                 aria-hidden="true"></span>
               <span className="relative">Mentions Légales</span>
             </span>
