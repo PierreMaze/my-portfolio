@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://votre-domaine.netlify.app/sitemap.xml
+
+# Bloquer l'accès aux fichiers de développement
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/assets/*.js
+Disallow: /dist/assets/*.css
+
+# Autoriser l'accès aux images et documents
+Allow: /assets/
+Allow: /docs/
+
+# Bloquer l'accès aux fichiers de configuration
+Disallow: /package.json
+Disallow: /vite.config.js
+Disallow: /tailwind.config.js
+Disallow: /netlify.toml
