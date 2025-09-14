@@ -19,7 +19,7 @@ import {
   MdOutlineNote,
   MdOutlineScience,
 } from "react-icons/md";
-import OptimizedImage from "../../../components/ui/OptimizedImage";
+import { LazyProjectImage } from "../../../components/ui/LazyProjectImage";
 import { ANIMATION_CONFIG } from "../../../constants/projects";
 import { useModal } from "../../../hooks/useModal";
 
@@ -121,7 +121,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                         stiffness: 300,
                       }}
                       className="absolute inset-0">
-                      <OptimizedImage
+                      <LazyProjectImage
                         src={images[currentImageIndex]}
                         alt={project.title}
                         className="w-full h-full object-cover"
@@ -157,7 +157,8 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                             className={`w-2 h-2 rounded-full transition-all duration-300 ${
                               index === currentImageIndex
                                 ? "bg-zinc-500 scale-125"
-                                : "bg-white hover:bg-zinc-500/80"}`}
+                                : "bg-white hover:bg-zinc-500/80"
+                            }`}
                           />
                         ))}
                       </div>

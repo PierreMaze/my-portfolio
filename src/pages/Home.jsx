@@ -1,8 +1,13 @@
+import { lazy, Suspense } from "react";
+import { ChunkErrorBoundary } from "../components/ui/ChunkErrorBoundary";
+import { MiniLoader } from "../components/ui/MiniLoader";
 import Contact from "../features/common/Contact";
 import Hero from "../features/common/Hero";
-import Skills from "../features/common/Skills";
-import Timeline from "../features/common/Timeline";
-import Projects from "../features/projects/index.jsx";
+
+// Lazy loading des sections lourdes
+const Projects = lazy(() => import("../features/projects/index.jsx"));
+const Skills = lazy(() => import("../features/common/Skills"));
+const Timeline = lazy(() => import("../features/common/Timeline"));
 
 const Home = () => {
   return (
@@ -11,13 +16,28 @@ const Home = () => {
         <Hero />
       </section>
       <section id="skills" className="h-fit">
-        <Skills />
+        <ChunkErrorBoundary>
+          <Suspense
+            fallback={<MiniLoader message="Chargement des compétences..." />}>
+            <Skills />
+          </Suspense>
+        </ChunkErrorBoundary>
       </section>
       <section id="projects" className="h-fit">
-        <Projects />
+        <ChunkErrorBoundary>
+          <Suspense
+            fallback={<MiniLoader message="Chargement des projets..." />}>
+            <Projects />
+          </Suspense>
+        </ChunkErrorBoundary>
       </section>
       <section id="timeline" className="h-fit">
-        <Timeline />
+        <ChunkErrorBoundary>
+          <Suspense
+            fallback={<MiniLoader message="Chargement du parcours..." />}>
+            <Timeline />
+          </Suspense>
+        </ChunkErrorBoundary>
       </section>
       <section id="contact" className="h-fit">
         <Contact />

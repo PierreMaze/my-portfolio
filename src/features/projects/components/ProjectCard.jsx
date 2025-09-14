@@ -15,7 +15,7 @@ import {
   TbBrandFramerMotion,
   TbBrandHeadlessui,
 } from "react-icons/tb";
-import OptimizedImage from "../../../components/ui/OptimizedImage";
+import { LazyProjectImage } from "../../../components/ui/LazyProjectImage";
 
 // Mapping des tags vers les icônes
 const getTagIcon = (tag) => {
@@ -62,13 +62,19 @@ export const ProjectCard = ({
   onClick,
   ...props
 }) => {
+  // Préchargement du modal au survol
+  const preloadModal = () => {
+    import("./ProjectModal");
+  };
   return (
     <div
       className="flex flex-col h-full border-2 rounded-lg shadow-lg cursor-pointer transition-colors hover:shadow-amber-500/40 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden"
       onClick={onClick}
+      onMouseEnter={preloadModal}
+      onFocus={preloadModal}
       {...props}>
       <div className="relative overflow-hidden aspect-video">
-        <OptimizedImage
+        <LazyProjectImage
           src={image}
           alt={title}
           className="w-full h-full transition-transform object-cover group-hover:scale-105"

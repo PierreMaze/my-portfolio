@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { FiLoader } from "react-icons/fi";
 import { IoMdDownload } from "react-icons/io";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { MdDownloadDone } from "react-icons/md";
 import ImgAvatar from "../../assets/avatar.png";
 import { FadeIn } from "../../components/ui/FadeIn";
-import OptimizedImage from "../../components/ui/OptimizedImage";
+import { MiniLoader } from "../../components/ui/MiniLoader";
+
+// Lazy loading de l'image optimisée
+const OptimizedImage = lazy(() => import("../../components/ui/OptimizedImage"));
 
 const Hero = () => {
   const [downloadState, setDownloadState] = useState("default"); // 'default', 'loading', 'done'
@@ -96,13 +99,16 @@ const Hero = () => {
         <a
           href="/about"
           className="mx-auto h-48 mt-16 hover:shadow-2xl hover:shadow-amber-600 md:mt-0w-48 md:w-80 md:h-80 2xl:scale-150">
-          <OptimizedImage
-            src={ImgAvatar}
-            alt="Mon avatar"
-            className="w-full h-full rounded-md transition-transform object-cover hover:scale-105"
-            width="256"
-            height="256"
-          />
+          <Suspense
+            fallback={<MiniLoader message="Chargement de l'avatar..." />}>
+            <OptimizedImage
+              src={ImgAvatar}
+              alt="Mon avatar"
+              className="w-full h-full rounded-md transition-transform object-cover hover:scale-105"
+              width="256"
+              height="256"
+            />
+          </Suspense>
         </a>
       </div>
     </section>

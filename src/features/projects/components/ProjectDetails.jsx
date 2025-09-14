@@ -2,7 +2,7 @@ import { IoArrowBack, IoOpenOutline } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../../../components/layout/Container";
 import { FadeIn } from "../../../components/ui/FadeIn";
-import OptimizedImage from "../../../components/ui/OptimizedImage";
+import { LazyProjectImage } from "../../../components/ui/LazyProjectImage";
 
 /**
  * Composant ProjectDetails
@@ -48,7 +48,7 @@ export const ProjectDetails = () => {
 
         <FadeIn className="delay-100">
           <div className="relative rounded-lg overflow-hidden aspect-video">
-            <OptimizedImage
+            <LazyProjectImage
               src={project.image}
               alt={project.title}
               className="w-full h-full object-cover"
