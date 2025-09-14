@@ -8,21 +8,21 @@ export const ANIMATION_CONFIG = {
   scrollOffset: 100,
 };
 
-// Configuration des couleurs de badges
+// Configuration des couleurs de badges avec contrastes améliorés
 export const BADGE_COLOR_CLASSES = {
-  orange: "bg-orange-100 border-orange-200 text-orange-800",
-  blue: "bg-blue-100 border-blue-200 text-blue-800",
-  cyan: "bg-cyan-100 border-cyan-200 text-cyan-800",
-  green: "bg-green-100 border-green-200 text-green-800",
-  red: "bg-red-100 border-red-200 text-red-800",
-  amber: "bg-amber-100 border-amber-200 text-amber-800",
-  purple: "bg-purple-100 border-purple-200 text-purple-800",
-  yellow: "bg-yellow-100 border-yellow-200 text-yellow-800",
-  indigo: "bg-indigo-100 border-indigo-200 text-indigo-800",
-  pink: "bg-pink-100 border-pink-200 text-pink-800",
-  gray: "bg-gray-100 border-gray-300 text-gray-800",
-  stone: "bg-stone-100 border-stone-300 text-stone-800",
-  black: "bg-zinc-100 border-zinc-300 text-zinc-900",
+  orange: "bg-orange-100 border-orange-300 text-orange-900",
+  blue: "bg-blue-100 border-blue-300 text-blue-900",
+  cyan: "bg-cyan-100 border-cyan-300 text-cyan-900",
+  green: "bg-green-100 border-green-300 text-green-900",
+  red: "bg-red-100 border-red-300 text-red-900",
+  amber: "bg-amber-100 border-amber-300 text-amber-900",
+  purple: "bg-purple-100 border-purple-300 text-purple-900",
+  yellow: "bg-yellow-100 border-yellow-300 text-yellow-900",
+  indigo: "bg-indigo-100 border-indigo-300 text-indigo-900",
+  pink: "bg-pink-100 border-pink-300 text-pink-900",
+  gray: "bg-gray-100 border-gray-400 text-gray-900",
+  stone: "bg-stone-100 border-stone-400 text-stone-900",
+  black: "bg-zinc-100 border-zinc-400 text-zinc-900",
 };
 
 // Configuration de l'animation HTML

@@ -56,7 +56,7 @@ const Hero = () => {
                 <span className="relative">Fullstack</span>
               </span>
             </h1>
-            <p className="text-base md:text-xl mb-8 text-dark/90">
+            <p className="text-base md:text-xl mb-8 text-zinc-700">
               Je crée des applications web modernes et performantes avec React,
               Node.js et TailwindCSS.
             </p>
@@ -70,7 +70,7 @@ const Hero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-8 h-8 transition-transform hover:rotate-12">
-                    <IoLogoGithub className="w-full h-full transition-colors text-zinc-950 lg:text-zinc-800 hover:text-zinc-950" />
+                    <IoLogoGithub className="w-full h-full transition-colors text-zinc-900 hover:text-zinc-700" />
                   </a>
 
                   <a
@@ -79,7 +79,7 @@ const Hero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-8 h-8 transition-transform hover:rotate-12">
-                    <IoLogoLinkedin className="w-full h-full transition-colors text-blue-600 lg:text-zinc-800 hover:text-blue-600" />
+                    <IoLogoLinkedin className="w-full h-full transition-colors text-zinc-900 hover:text-blue-600" />
                   </a>
                 </div>
                 <div>

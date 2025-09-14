@@ -196,7 +196,10 @@ export const Projects = () => {
 
       {/* Filtres */}
       <FadeIn className="delay-100">
-        <div className="flex flex-wrap justify-start gap-2 mb-12">
+        <div 
+          className="flex flex-wrap justify-start gap-2 mb-12"
+          role="group"
+          aria-label="Filtres de catégories de projets">
           {categories.map((category) => (
             <button
               key={category}
@@ -205,8 +208,8 @@ export const Projects = () => {
               aria-label={`Filtrer par ${category}`}
               className={`px-3 py-1.5 text-sm font-medium transition-all duration-300 rounded ${
                 selectedCategory === category
-                  ? "bg-orange-500 hover:bg-orange-600 text-white "
-                  : "border border-zinc-600 text-zinc-700 hover:bg-orange-100 hover:text-orange-600 hover:border-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:ring-orange-500/50"}disabled:opacity-50 disabled:cursor-not-allowed`}>
+                  ? "bg-orange-600 hover:bg-orange-700 text-white "
+                  : "border border-zinc-600 text-zinc-800 hover:bg-orange-100 hover:text-orange-700 hover:border-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:ring-orange-500/50"}disabled:opacity-50 disabled:cursor-not-allowed`}>
               {category}
             </button>
           ))}

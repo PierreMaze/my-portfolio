@@ -66,11 +66,13 @@ const HtmlCssBadge = () => {
 
   return (
     <div
-      className={`${"flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300 "}${colorClass}`}>
-      <div className="text-sm scale-75">
+      className={`${"flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300 "}${colorClass}`}
+      role="listitem"
+      aria-label="Compétence en HTML / CSS">
+      <div className="text-sm scale-75" aria-hidden="true">
         <AnimatedHtmlIcon onColorChange={handleColorChange} />
       </div>
-      <span className="text-xs font-medium lg:text-sm">HTML / CSS</span>
+      <span className="text-xs font-medium lg:text-sm text-zinc-800">HTML / CSS</span>
     </div>
   );
 };
@@ -95,7 +97,7 @@ const SkillBadge = ({ name, icon, color }) => {
       <div className="scale-75 text-md" aria-hidden="true">
         {icon}
       </div>
-      <span className="text-sm font-medium lg:text-base">{name}</span>
+      <span className="text-sm font-medium lg:text-base text-zinc-800">{name}</span>
     </div>
   );
 };

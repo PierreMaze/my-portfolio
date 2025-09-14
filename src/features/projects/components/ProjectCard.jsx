@@ -56,34 +56,43 @@ const getTagIcon = (tag) => {
  */
 export const ProjectCard = ({ title, description, image, tags, ...props }) => {
   return (
-    <div
+    <article
       className="flex flex-col h-full border-2 rounded-lg shadow-2xl transition-colors hover:shadow-amber-500/30 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden"
       role="listitem"
-      aria-label={`Projet ${title}`}
+      aria-labelledby={`project-title-${title.replace(/\s+/g, '-').toLowerCase()}`}
       {...props}>
       <div className="relative overflow-hidden aspect-video">
         <LazyProjectImage
           src={image}
-          alt={title}
+          alt={`Aperçu du projet ${title}`}
           className="w-full h-full transition-transform object-cover group-hover:scale-105"
         />
       </div>
       <div className="flex flex-col p-6 flex-grow">
-        <h3 className="text-xl font-semibold mb-3">{title}</h3>
-        <p className="text-sm mb-4 text-text-secondary line-clamp-3">
+        <h3 
+          id={`project-title-${title.replace(/\s+/g, '-').toLowerCase()}`}
+          className="text-xl font-semibold mb-3 text-zinc-900">
+          {title}
+        </h3>
+        <p className="text-sm mb-4 text-zinc-700 line-clamp-3">
           {description}
         </p>
-        <div className="flex flex-wrap gap-2 mt-auto">
+        <div 
+          className="flex flex-wrap gap-2 mt-auto"
+          role="list"
+          aria-label={`Technologies utilisées pour ${title}`}>
           {tags.map((tag) => (
             <div
               key={tag}
               className="flex items-center justify-center w-8 h-8 bg-white border rounded-full shadow-sm transition-shadow duration-200 border-zinc-200 hover:shadow-md"
-              title={tag}>
+              role="listitem"
+              title={tag}
+              aria-label={`Technologie: ${tag}`}>
               {getTagIcon(tag)}
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </article>
   );
 };

@@ -86,9 +86,9 @@ const Header = () => {
                 key={item.path}
                 onClick={() => handleNavClick(item.path)}
                 aria-label={`Aller à la section ${item.label}`}
-                className={`px-4 py-2 text-dark/90 hover:text-orange-500 transition-colors ${
+                className={`px-4 py-2 text-zinc-800 hover:text-orange-600 transition-colors ${
                   activeSection === item.path.substring(1)
-                    ? "text-orange-500"
+                    ? "text-orange-600"
                     : ""
                 }`}>
                 {item.label}
