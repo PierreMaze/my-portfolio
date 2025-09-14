@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export const FadeIn = ({ children, className = "" }) => {
+const FadeIn = ({ children, className }) => {
   const elementRef = useRef(null);
 
   useEffect(() => {
@@ -30,8 +30,10 @@ export const FadeIn = ({ children, className = "" }) => {
   return (
     <div
       ref={elementRef}
-      className={`opacity-0 translate-y-4 transition-all duration-500 ${className}`}>
+      className={`${"opacity-0 transition-all duration-500 translate-y-4 "}${className}`}>
       {children}
     </div>
   );
 };
+
+export default FadeIn;

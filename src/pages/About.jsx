@@ -1,7 +1,20 @@
 import { Container } from "../components/layout/Container";
-import { FadeIn } from "../components/ui/FadeIn";
+import { FadeIn } from "../components/ui";
+import { useDocumentTitle, useMeta } from "../hooks";
 
 const About = () => {
+  // SEO dynamique
+  useDocumentTitle("À propos");
+  useMeta({
+    description:
+      "Découvrez le parcours et l'expertise de Pierre Mazelaygue, développeur Fullstack passionné par la création d'expériences web modernes.",
+    keywords:
+      "à propos, Pierre Mazelaygue, développeur, parcours, expertise, fullstack",
+    ogTitle: "À propos - Pierre Mazelaygue",
+    ogDescription:
+      "Découvrez le parcours et l'expertise d'un développeur Fullstack passionné",
+  });
+
   return (
     <section className="py-20">
       <Container>

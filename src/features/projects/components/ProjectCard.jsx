@@ -15,7 +15,7 @@ import {
   TbBrandFramerMotion,
   TbBrandHeadlessui,
 } from "react-icons/tb";
-import { LazyProjectImage } from "../../../components/ui/LazyProjectImage";
+import { LazyProjectImage } from "../../../components/ui";
 
 // Mapping des tags vers les icônes
 const getTagIcon = (tag) => {
@@ -54,24 +54,10 @@ const getTagIcon = (tag) => {
  * Composant ProjectCard
  * Affiche une carte de projet avec image, titre, description et tags
  */
-export const ProjectCard = ({
-  title,
-  description,
-  image,
-  tags,
-  onClick,
-  ...props
-}) => {
-  // Préchargement du modal au survol
-  const preloadModal = () => {
-    import("./ProjectModal");
-  };
+export const ProjectCard = ({ title, description, image, tags, ...props }) => {
   return (
     <div
-      className="flex flex-col h-full border-2 rounded-lg shadow-lg cursor-pointer transition-colors hover:shadow-amber-500/40 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden"
-      onClick={onClick}
-      onMouseEnter={preloadModal}
-      onFocus={preloadModal}
+      className="flex flex-col h-full border-2 rounded-lg shadow-2xl transition-colors hover:shadow-amber-500/30 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden"
       {...props}>
       <div className="relative overflow-hidden aspect-video">
         <LazyProjectImage

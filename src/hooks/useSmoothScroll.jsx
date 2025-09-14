@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const useSmoothScroll = () => {
+const useSmoothScroll = () => {
   useEffect(() => {
     const handleClick = (e) => {
       const target = e.target.closest("a");
@@ -19,3 +19,5 @@ export const useSmoothScroll = () => {
     return () => document.removeEventListener("click", handleClick);
   }, []);
 };
+
+export default useSmoothScroll;

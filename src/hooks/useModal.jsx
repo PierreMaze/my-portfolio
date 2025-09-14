@@ -4,7 +4,7 @@ import { useCallback, useEffect } from "react";
  * Hook personnalisé pour gérer les modales
  * Gère l'overflow du body et les événements clavier
  */
-export const useModal = (isOpen, onClose) => {
+const useModal = (isOpen, onClose) => {
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === "Escape") {
@@ -31,3 +31,5 @@ export const useModal = (isOpen, onClose) => {
 
   return { handleKeyDown };
 };
+
+export default useModal;

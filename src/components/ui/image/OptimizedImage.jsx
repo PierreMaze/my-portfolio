@@ -30,8 +30,11 @@ const OptimizedImage = ({ src, alt, className = "", ...props }) => {
         className={className}
         loading="lazy"
         onError={(e) => {
-          console.error(`Erreur de chargement de l'image: ${src}`);
-          console.error("Erreur complète:", e);
+          // En production, on évite les console.error pour les performances
+          if (process.env.NODE_ENV === "development") {
+            console.error(`Erreur de chargement de l'image: ${src}`);
+            console.error("Erreur complète:", e);
+          }
           e.target.onerror = null;
           // Si l'image WebP échoue, on essaie l'image originale
           if (e.target.src === finalSrc) {

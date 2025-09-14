@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { NAVIGATION_ITEMS, SECTIONS } from "../../constants/navigation";
-import { useScrollToTop } from "../../hooks/useScrollToTop";
+import { useScrollToTop } from "../../hooks";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);

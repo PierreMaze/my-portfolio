@@ -1,8 +1,8 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/layout";
-import { ParallaxGrid } from "./components/ui/ParallaxGrid";
-import { useSmoothScroll } from "./hooks/useSmoothScroll.jsx";
+import { ParallaxGrid } from "./components/ui";
+import { useSmoothScroll } from "./hooks";
 
 // Lazy loading des pages
 const Home = lazy(() => import("./pages/Home"));

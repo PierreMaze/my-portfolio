@@ -15,7 +15,7 @@ import {
   SiReactrouter,
   SiTailwindcss,
 } from "react-icons/si";
-import { FadeIn } from "../../components/ui/FadeIn";
+import { FadeIn } from "../../components/ui";
 import {
   BADGE_COLOR_CLASSES,
   HTML_ANIMATION_CONFIG,

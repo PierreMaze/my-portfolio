@@ -1,8 +1,7 @@
 import { IoArrowBack, IoOpenOutline } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../../../components/layout/Container";
-import { FadeIn } from "../../../components/ui/FadeIn";
-import { LazyProjectImage } from "../../../components/ui/LazyProjectImage";
+import { FadeIn, LazyProjectImage } from "../../../components/ui";
 
 /**
  * Composant ProjectDetails

@@ -1,15 +1,11 @@
-import { lazy, Suspense } from "react";
 import ImgProjectClou from "../../assets/clou.png";
 import ImgProjectLumi from "../../assets/lumi.png";
 import ImgProjectMakeSense from "../../assets/make_sense.png";
 import ImgProjectSignature from "../../assets/signature.png";
-import { FadeIn } from "../../components/ui/FadeIn";
-import { useProjects } from "../../hooks/useProjects";
+import { FadeIn } from "../../components/ui";
+import { useProjects } from "../../hooks";
 import { createImageArray } from "../../utils/imageUtils";
 import { ProjectCard } from "./components/ProjectCard";
-
-// Lazy loading du modal lourd
-const ProjectModal = lazy(() => import("./components/ProjectModal"));
 
 const projects = [
   {
@@ -180,12 +176,9 @@ const projects = [
 export const Projects = () => {
   const {
     selectedCategory,
-    selectedProject,
     filteredProjects,
     categories,
     handleCategoryChange,
-    handleProjectClick,
-    handleCloseModal,
   } = useProjects(projects);
 
   return (
@@ -228,26 +221,10 @@ export const Projects = () => {
           role="grid"
           aria-label="Liste des projets">
           {filteredProjects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              {...project}
-              onClick={() => handleProjectClick(project)}
-            />
+            <ProjectCard key={project.id} {...project} />
           ))}
         </div>
       </FadeIn>
-
-      {/* Modal de projet */}
-      {selectedProject && (
-        <Suspense fallback={<div />}>
-          <ProjectModal
-            project={selectedProject}
-            isOpen={!!selectedProject}
-            onClose={handleCloseModal}
-            aria-label={`Détails du projet ${selectedProject.title}`}
-          />
-        </Suspense>
-      )}
     </div>
   );
 };

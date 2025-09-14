@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Container } from "../components/layout/Container";
-import { FadeIn } from "../components/ui/FadeIn";
+import { FadeIn } from "../components/ui";
 
 const Legal = () => {
   return (

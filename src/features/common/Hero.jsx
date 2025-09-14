@@ -4,11 +4,12 @@ import { IoMdDownload } from "react-icons/io";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { MdDownloadDone } from "react-icons/md";
 import ImgAvatar from "../../assets/avatar.png";
-import { FadeIn } from "../../components/ui/FadeIn";
-import { ImageLoader } from "../../components/ui/ImageLoader";
+import { FadeIn, ImageLoader } from "../../components/ui";
 
 // Lazy loading de l'image optimisée
-const OptimizedImage = lazy(() => import("../../components/ui/OptimizedImage"));
+const OptimizedImage = lazy(() =>
+  import("../../components/ui/image/OptimizedImage")
+);
 
 const Hero = () => {
   const [downloadState, setDownloadState] = useState("default"); // 'default', 'loading', 'done'
@@ -47,7 +48,7 @@ const Hero = () => {
     <section className="flex items-center justify-center min-h-screen">
       <div className="flex flex-col-reverse items-center gp-8 lg:gap-0 md:flex-row md:items-center 2xl:gap-48">
         <FadeIn>
-          <div className="text-center max-w-3xl md:text-left 2xl:max-w-screen-lg">
+          <div className="text-center mt-4 max-w-3xl md:text-left 2xl:max-w-screen-lg">
             <h1 className="text-4xl font-bold mb-6 md:text-6xl 2xl:text-6xl">
               Développeur
               <span className="relative inline-block ml-4">
@@ -64,14 +65,14 @@ const Hero = () => {
             {/* Btn et liens sociaux */}
             <div className="flex justify-center md:justify-start">
               <div className="flex items-center justify-between m-4">
-                <div className="flex items-center space-x-6 text-orange-500">
+                <div className="flex items-center space-x-6">
                   <a
                     href="https://github.com/PierreMaze"
                     title="GitHub"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-8 h-8 transition-transform hover:rotate-12">
-                    <IoLogoGithub className="w-full h-full transition-colors hover:text-purple-600" />
+                    <IoLogoGithub className="w-full h-full transition-colors text-zinc-950 lg:text-zinc-800 hover:text-zinc-950" />
                   </a>
 
                   <a
@@ -80,7 +81,7 @@ const Hero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-8 h-8 transition-transform hover:rotate-12">
-                    <IoLogoLinkedin className="w-full h-full transition-colors hover:text-blue-600" />
+                    <IoLogoLinkedin className="w-full h-full transition-colors text-blue-600 lg:text-zinc-800 hover:text-blue-600" />
                   </a>
                 </div>
                 <div>
@@ -98,7 +99,7 @@ const Hero = () => {
         {/* Avatar */}
         <a
           href="/about"
-          className="hidden mx-auto h-40 lg:inline-block mt-20 lg:mt-16 hover:shadow-2xl hover:shadow-amber-600 md:mt-48 lg:w-80 lg:h-80 2xl:scale-150">
+          className="inline-block mx-auto h-52 md:mx-4 lg:mt-16 hover:shadow-2xl hover:shadow-amber-600/50 md:mt-48 lg:w-80 lg:h-80 2xl:scale-150">
           <Suspense
             fallback={<ImageLoader className="w-full h-full rounded-md" />}>
             <OptimizedImage

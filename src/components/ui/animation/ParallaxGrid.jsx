@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-export const ParallaxGrid = () => {
+const ParallaxGrid = () => {
   const [scrollY, setScrollY] = useState(0);
 
   const handleScroll = useCallback(() => {
@@ -38,3 +38,5 @@ export const ParallaxGrid = () => {
     </div>
   );
 };
+
+export default ParallaxGrid;

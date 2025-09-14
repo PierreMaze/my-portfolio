@@ -4,7 +4,7 @@ import React from "react";
  * Error Boundary minimal pour gérer les erreurs de chargement des chunks
  * Utilisé pour les composants lazy-loaded
  */
-export class ChunkErrorBoundary extends React.Component {
+class ChunkErrorBoundary extends React.Component {
   state = { hasError: false };
 
   static getDerivedStateFromError() {
@@ -30,3 +30,5 @@ export class ChunkErrorBoundary extends React.Component {
     return this.props.children;
   }
 }
+
+export default ChunkErrorBoundary;

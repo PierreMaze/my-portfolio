@@ -2,7 +2,7 @@
  * Composant de chargement spécialisé pour les images
  * Skeleton loader moderne et élégant
  */
-export const ImageLoader = ({ className }) => {
+const ImageLoader = ({ className }) => {
   return (
     <div
       className={`relative rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden${className}`}
@@ -47,3 +47,5 @@ export const ImageLoader = ({ className }) => {
     </div>
   );
 };
+
+export default ImageLoader;
