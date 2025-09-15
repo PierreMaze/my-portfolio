@@ -1,28 +1,114 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <!-- Meta tags essentiels -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Pierre MAZELAYGUE" />
-    <meta name="title" content="Développeur Fullstack" />
-    <meta name="description" content="Portfolio développeur Fullstack" />
+
+    <!-- Titre et description -->
+    <title>Maze Web - Portfolio de Developer Fullstack</title>
+    <meta
+      name="description"
+      content="Portfolio de Pierre Mazelaygue, développeur Fullstack spécialisé en React, Node.js et technologies modernes." />
+    <meta name="author" content="Pierre Mazelaygue" />
     <meta
       name="keywords"
-      content="Dev, Frontend, Backend, Fullstack, React, TailwindCSS, NextJS, NodeJS, JavaScript, HTML, CSS, Developer, Portfolio, Pierre Mazelaygue" />
-    <title>Développeur Fullstack</title>
+      content="Portfolio, Developer, Fullstack, React, TailwindCSS, NextJS, NodeJS, JavaScript, HTML, CSS, Pierre Mazelaygue, Bordeaux" />
+
+    <!-- SEO et robots -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Maze Web - Portfolio de Developer Fullstack" />
+    <meta
+      property="og:description"
+      content="Portfolio de Pierre Mazelaygue, développeur Fullstack spécialisé en React, Node.js et technologies modernes." />
+    <meta
+      property="og:image"
+      content="https://mazeweb.netlify.app/src/assets/avatar.png" />
+    <meta property="og:url" content="https://mazeweb.netlify.app/" />
+    <meta property="og:site_name" content="Maze Web" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Maze Web - Portfolio de Developer Fullstack" />
+    <meta
+      name="twitter:description"
+      content="Portfolio de Pierre Mazelaygue, développeur Fullstack spécialisé en React, Node.js et technologies modernes." />
+    <meta
+      name="twitter:image"
+      content="https://mazeweb.netlify.app/src/assets/avatar.png" />
+
+    <!-- Favicons et icônes -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mazeweb.netlify.app/" />
+
+    <!-- Preconnect pour les performances -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+    <!-- Preload des ressources critiques -->
     <link
+      rel="preload"
+      href="/src/assets/avatar.png"
+      as="image"
+      type="image/png" />
+    <link
+      rel="preload"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'" />
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'" />
+
+    <!-- Fallback pour les polices -->
     <noscript>
       <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     </noscript>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Pierre Mazelaygue",
+        "jobTitle": "Développeur Fullstack",
+        "description": "Développeur Fullstack spécialisé en React, Node.js et technologies modernes.",
+        "url": "https://mazeweb.netlify.app/",
+        "image": "https://mazeweb.netlify.app/src/assets/avatar.png",
+        "email": "promazelaygue@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Bordeaux",
+          "addressCountry": "FR"
+        },
+        "sameAs": [],
+        "knowsAbout": [
+          "React",
+          "Node.js",
+          "JavaScript",
+          "TypeScript",
+          "TailwindCSS",
+          "Next.js",
+          "Fullstack Development"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
