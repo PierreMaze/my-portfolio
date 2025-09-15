@@ -1,20 +1,34 @@
 import { useCallback, useEffect, useState } from "react";
+import { DiScrum } from "react-icons/di";
 import { FaMobile, FaServer } from "react-icons/fa";
+import { TbBrandFramerMotion, TbBrandVite } from "react-icons/tb";
+
 import {
+  SiClaude,
+  SiDotenv,
+  SiExpress,
   SiFigma,
   SiGithub,
+  SiGraphql,
   SiHtml5,
   SiJavascript,
   SiMariadb,
+  SiMongodb,
   SiMysql,
   SiNextdotjs,
   SiNodedotjs,
   SiNotion,
+  SiOpenai,
   SiPostgresql,
+  SiPrisma,
   SiReact,
   SiReactrouter,
   SiTailwindcss,
+  SiTypescript,
+  SiZod,
 } from "react-icons/si";
+TbBrandFramerMotion;
+
 import { FadeIn } from "../../components/ui";
 import {
   BADGE_COLOR_CLASSES,
@@ -72,7 +86,7 @@ const HtmlCssBadge = () => {
         <AnimatedHtmlIcon onColorChange={handleColorChange} />
       </div>
       <span className="text-xs font-medium lg:text-sm text-zinc-900">
-        b HTML / CSS
+        HTML / CSS
       </span>
     </div>
   );
@@ -120,6 +134,12 @@ const Skills = () => {
           "ES6+, programmation asynchrone, manipulation du DOM et patterns modernes",
       },
       {
+        name: "TypeScript",
+        icon: <SiTypescript className="w-4 h-4 text-sky-400" />,
+        description:
+          "ES6+, programmation asynchrone, manipulation du DOM et patterns modernes",
+      },
+      {
         name: "SQL",
         icon: <SiMysql className="w-4 h-4 text-blue-500" />,
         description:
@@ -159,6 +179,30 @@ const Skills = () => {
         description:
           "Hooks, Context API, gestion d'état, composants réutilisables et performance",
       },
+      {
+        name: "ExpressJS",
+        icon: <SiExpress className="w-4 h-4 text-black-600" />,
+        description:
+          "Hooks, Context API, gestion d'état, composants réutilisables et performance",
+      },
+      {
+        name: "Dotenv",
+        icon: <SiDotenv className="w-4 h-4 text-yellow-600" />,
+        description:
+          "Hooks, Context API, gestion d'état, composants réutilisables et performance",
+      },
+      {
+        name: "Zod",
+        icon: <SiZod className="w-4 h-4 text-sky-600" />,
+        description:
+          "Hooks, Context API, gestion d'état, composants réutilisables et performance",
+      },
+      {
+        name: "Framer Motion",
+        icon: <TbBrandFramerMotion className="w-4 h-4 text-pink-600" />,
+        description:
+          "Hooks, Context API, gestion d'état, composants réutilisables et performance",
+      },
     ],
     "Bases de données": [
       {
@@ -172,16 +216,36 @@ const Skills = () => {
         icon: <SiMariadb className="w-4 h-4 text-amber-800" />,
         description: "Administration, backup, réplication et maintenance",
       },
+      {
+        name: "MongoDB",
+        icon: <SiMongodb className="w-4 h-4 text-green-800" />,
+        description: "Administration, backup, réplication et maintenance",
+      },
+      {
+        name: "Prisma",
+        icon: <SiPrisma className="w-4 h-4 text-stone-800" />,
+        description: "Administration, backup, réplication et maintenance",
+      },
+      {
+        name: "GraphQL",
+        icon: <SiGraphql className="w-4 h-4 text-pink-800" />,
+        description: "Administration, backup, réplication et maintenance",
+      },
     ],
     Méthodes: [
       {
         name: "Responsive Design",
-        icon: <FaMobile className="w-4 h-4 text-gray-800" />,
+        icon: <FaMobile className="w-4 h-4 text-green-800" />,
         description: "Mobile-first, breakpoints, flexbox/grid et accessibilité",
       },
       {
         name: "CI/CD",
         icon: <SiGithub className="w-4 h-4 text-gray-900" />,
+        description: "Git flow, CI/CD, code review et gestion de versions",
+      },
+      {
+        name: "SCRUM",
+        icon: <DiScrum className="w-4 h-4 text-purple-900" />,
         description: "Git flow, CI/CD, code review et gestion de versions",
       },
     ],
@@ -205,6 +269,24 @@ const Skills = () => {
       {
         name: "Figma",
         icon: <SiFigma className="w-4 h-4 text-orange-600" />,
+        description:
+          "Design system, prototypage interactif et collaboration UI/UX",
+      },
+      {
+        name: "Vite",
+        icon: <TbBrandVite className="w-4 h-4 text-yellow-600" />,
+        description:
+          "Design system, prototypage interactif et collaboration UI/UX",
+      },
+      {
+        name: "ChatGPT IA",
+        icon: <SiOpenai className="w-4 h-4 text-black" />,
+        description:
+          "Design system, prototypage interactif et collaboration UI/UX",
+      },
+      {
+        name: "Claude IA",
+        icon: <SiClaude className="w-4 h-4 text-orange-600" />,
         description:
           "Design system, prototypage interactif et collaboration UI/UX",
       },

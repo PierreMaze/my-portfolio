@@ -9,6 +9,7 @@ export const getColorFromIcon = (iconElement) => {
   // Détection des couleurs dans les classes
   if (className.includes("text-orange")) return "orange";
   if (className.includes("text-blue")) return "blue";
+  if (className.includes("text-sky")) return "sky";
   if (className.includes("text-cyan")) return "cyan";
   if (className.includes("text-green")) return "green";
   if (className.includes("text-red")) return "red";

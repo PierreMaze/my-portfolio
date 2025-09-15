@@ -11,6 +11,7 @@ export const ANIMATION_CONFIG = {
 export const BADGE_COLOR_CLASSES = {
   orange: "bg-orange-100 border-orange-400 text-orange-900",
   blue: "bg-blue-100 border-blue-400 text-blue-900",
+  sky: "bg-sky-100 border-sky-400 text-sky-900",
   cyan: "bg-cyan-100 border-cyan-400 text-cyan-900",
   green: "bg-green-100 border-green-400 text-green-900",
   red: "bg-red-100 border-red-400 text-red-900",
