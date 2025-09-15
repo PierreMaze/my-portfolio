@@ -98,7 +98,7 @@ const SkillBadge = ({ name, icon, color }) => {
         {icon}
       </div>
       <span className="text-sm font-medium lg:text-base text-zinc-800">
-        {name}b
+        {name}
       </span>
     </div>
   );
