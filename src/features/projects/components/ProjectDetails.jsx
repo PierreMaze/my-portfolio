@@ -237,7 +237,7 @@ export const ProjectDetails = () => {
           <FadeIn className="delay-200">
             <div>
               <h2 className="text-2xl font-bold mb-6">Problématique</h2>
-              <p className="mb-8 text-zinc-700">{project.problem}</p>
+              <p className="mb-8 text-zinc-800">{project.problem}</p>
 
               <h3 className="text-xl font-bold mb-4">Objectifs</h3>
               <ul className="space-y-2 mb-8">
@@ -250,7 +250,7 @@ export const ProjectDetails = () => {
               </ul>
 
               <h3 className="text-xl font-bold mb-4">Solution</h3>
-              <p className="mb-8 text-zinc-700">{project.solution}</p>
+              <p className="mb-8 text-zinc-800">{project.solution}</p>
             </div>
           </FadeIn>
 
@@ -263,7 +263,7 @@ export const ProjectDetails = () => {
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 text-sm rounded-full bg-orange-100 text-orange-800">
+                    className="px-3 py-1 text-sm rounded-full bg-orange-100 text-orange-900">
                     {tech}
                   </span>
                 ))}

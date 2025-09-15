@@ -86,11 +86,10 @@ const Header = () => {
                 key={item.path}
                 onClick={() => handleNavClick(item.path)}
                 aria-label={`Aller à la section ${item.label}`}
-                className={`px-4 py-2 text-zinc-800 hover:text-orange-600 transition-colors ${
+                className={`px-4 py-2 text-zinc-900 hover:text-orange-600 transition-colors ${
                   activeSection === item.path.substring(1)
                     ? "text-orange-600"
-                    : ""
-                }`}>
+                    : ""}`}>
                 {item.label}
               </button>
             ))}
@@ -180,8 +179,7 @@ const Header = () => {
                         className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group ${
                           activeSection === item.path.substring(1)
                             ? "bg-orange/10 text-orange border border-orange/20"
-                            : "text-zinc-700 hover:bg-zinc-50 hover:text-orange"
-                        }`}>
+                            : "text-zinc-700 hover:bg-zinc-50 hover:text-orange"}`}>
                         <span className="text-lg font-medium transition-transform duration-200 group-hover:translate-x-1">
                           {item.label}
                         </span>

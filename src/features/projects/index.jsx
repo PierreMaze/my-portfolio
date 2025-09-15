@@ -196,36 +196,40 @@ export const Projects = () => {
 
       {/* Filtres */}
       <FadeIn className="delay-100">
-        <div 
-          className="flex flex-wrap justify-start gap-2 mb-12"
-          role="group"
-          aria-label="Filtres de catégories de projets">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => handleCategoryChange(category)}
-              aria-pressed={selectedCategory === category}
-              aria-label={`Filtrer par ${category}`}
-              className={`px-3 py-1.5 text-sm font-medium transition-all duration-300 rounded ${
-                selectedCategory === category
-                  ? "bg-orange-600 hover:bg-orange-700 text-white "
-                  : "border border-zinc-600 text-zinc-800 hover:bg-orange-100 hover:text-orange-700 hover:border-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:ring-orange-500/50"}disabled:opacity-50 disabled:cursor-not-allowed`}>
-              {category}
-            </button>
-          ))}
-        </div>
+        <fieldset className="mb-12">
+          <legend className="sr-only">Filtres de catégories de projets</legend>
+          <div
+            className="flex flex-wrap justify-start gap-2"
+            role="radiogroup"
+            aria-label="Filtres de catégories de projets">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => handleCategoryChange(category)}
+                aria-pressed={selectedCategory === category}
+                aria-label={`Filtrer par ${category}`}
+                className={`px-3 py-1.5 text-sm font-medium transition-all duration-300 rounded ${
+                  selectedCategory === category
+                    ? "bg-orange-600 hover:bg-orange-700 text-white "
+                    : "border border-zinc-700 text-zinc-900 hover:bg-orange-100 hover:text-orange-800 hover:border-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:ring-orange-500/50"}disabled:opacity-50 disabled:cursor-not-allowed`}>
+                {category}
+              </button>
+            ))}
+          </div>
+        </fieldset>
       </FadeIn>
 
       {/* Grille de projets */}
       <FadeIn className="delay-200">
-        <div
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-          role="list"
+        <ul
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 list-none"
           aria-label="Liste des projets">
           {filteredProjects.map((project) => (
-            <ProjectCard key={project.id} {...project} />
+            <li key={project.id}>
+              <ProjectCard {...project} />
+            </li>
           ))}
-        </div>
+        </ul>
       </FadeIn>
     </div>
   );

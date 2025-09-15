@@ -56,7 +56,7 @@ const Hero = () => {
                 <span className="relative">Fullstack</span>
               </span>
             </h1>
-            <p className="text-base md:text-xl mb-8 text-zinc-700">
+            <p className="text-base md:text-xl mb-8 text-zinc-800">
               Je crée des applications web modernes et performantes avec React,
               Node.js et TailwindCSS.
             </p>
@@ -104,6 +104,7 @@ const Hero = () => {
             <SimpleImage
               src={ImgAvatar}
               alt="Mon avatar"
+              fetchpriority="high"
               className="w-full h-full rounded-md transition-transform object-cover hover:scale-105"
               width="256"
               height="256"

@@ -67,12 +67,13 @@ const HtmlCssBadge = () => {
   return (
     <div
       className={`${"flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300 "}${colorClass}`}
-      role="listitem"
       aria-label="Compétence en HTML / CSS">
       <div className="text-sm scale-75" aria-hidden="true">
         <AnimatedHtmlIcon onColorChange={handleColorChange} />
       </div>
-      <span className="text-xs font-medium lg:text-sm text-zinc-800">HTML / CSS</span>
+      <span className="text-xs font-medium lg:text-sm text-zinc-900">
+        b HTML / CSS
+      </span>
     </div>
   );
 };
@@ -92,12 +93,13 @@ const SkillBadge = ({ name, icon, color }) => {
   return (
     <div
       className={`${"flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300 "}${colorClass}`}
-      role="listitem"
       aria-label={`Compétence en ${name}`}>
       <div className="scale-75 text-md" aria-hidden="true">
         {icon}
       </div>
-      <span className="text-sm font-medium lg:text-base text-zinc-800">{name}</span>
+      <span className="text-sm font-medium lg:text-base text-zinc-800">
+        {name}b
+      </span>
     </div>
   );
 };
@@ -147,13 +149,13 @@ const Skills = () => {
     Bibliothèques: [
       {
         name: "React",
-        icon: <SiReact className="w-4 h-4 text-cyan-500" />,
+        icon: <SiReact className="w-4 h-4 text-cyan-600" />,
         description:
           "Hooks, Context API, gestion d'état, composants réutilisables et performance",
       },
       {
         name: "React Router DOM",
-        icon: <SiReactrouter className="w-4 h-4 text-red-500" />,
+        icon: <SiReactrouter className="w-4 h-4 text-red-600" />,
         description:
           "Hooks, Context API, gestion d'état, composants réutilisables et performance",
       },
@@ -167,19 +169,19 @@ const Skills = () => {
       },
       {
         name: "MariaDB",
-        icon: <SiMariadb className="w-4 h-4 text-amber-700" />,
+        icon: <SiMariadb className="w-4 h-4 text-amber-800" />,
         description: "Administration, backup, réplication et maintenance",
       },
     ],
     Méthodes: [
       {
         name: "Responsive Design",
-        icon: <FaMobile className="w-4 h-4 text-gray-700" />,
+        icon: <FaMobile className="w-4 h-4 text-gray-800" />,
         description: "Mobile-first, breakpoints, flexbox/grid et accessibilité",
       },
       {
         name: "CI/CD",
-        icon: <SiGithub className="w-4 h-4 text-gray-800" />,
+        icon: <SiGithub className="w-4 h-4 text-gray-900" />,
         description: "Git flow, CI/CD, code review et gestion de versions",
       },
     ],
@@ -192,12 +194,12 @@ const Skills = () => {
       },
       {
         name: "GitHub",
-        icon: <SiGithub className="w-4 h-4 text-gray-800" />,
+        icon: <SiGithub className="w-4 h-4 text-gray-900" />,
         description: "Git flow, CI/CD, code review et gestion de versions",
       },
       {
         name: "VPS",
-        icon: <FaServer className="w-4 h-4 text-purple-600" />,
+        icon: <FaServer className="w-4 h-4 text-purple-700" />,
         description: "Déploiement, monitoring, sécurité et maintenance serveur",
       },
       {
@@ -216,19 +218,19 @@ const Skills = () => {
           <span className="w-2 h-2 rounded-full bg-orange-400"></span>
           {title}
         </h3>
-        <div
-          className="flex flex-wrap gap-2"
-          role="list"
+        <ul
+          className="flex flex-wrap gap-2 list-none"
           aria-label={`Compétences en ${title}`}>
           {skills.map((skill, index) => (
-            <SkillBadge
-              key={`${title}-${index}`}
-              name={skill.name}
-              icon={skill.icon}
-              color={skill.color}
-            />
+            <li key={`${title}-${index}`}>
+              <SkillBadge
+                name={skill.name}
+                icon={skill.icon}
+                color={skill.color}
+              />
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </FadeIn>
   );
