@@ -279,13 +279,13 @@ const Skills = () => {
           "Design system, prototypage interactif et collaboration UI/UX",
       },
       {
-        name: "ChatGPT IA",
+        name: "ChatGPT",
         icon: <SiOpenai className="w-4 h-4 text-black" />,
         description:
           "Design system, prototypage interactif et collaboration UI/UX",
       },
       {
-        name: "Claude IA",
+        name: "Claude",
         icon: <SiClaude className="w-4 h-4 text-orange-600" />,
         description:
           "Design system, prototypage interactif et collaboration UI/UX",
