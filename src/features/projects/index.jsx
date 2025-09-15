@@ -1,6 +1,7 @@
 import ImgProjectClou from "../../assets/clou.png";
 import ImgProjectLumi from "../../assets/lumi.png";
 import ImgProjectMakeSense from "../../assets/make_sense.png";
+import ImgProjectPortfolio from "../../assets/portfolio.png";
 import ImgProjectSignature from "../../assets/signature.png";
 import { FadeIn } from "../../components/ui";
 import { useProjects } from "../../hooks";
@@ -10,6 +11,56 @@ import { ProjectCard } from "./components/ProjectCard";
 const projects = [
   {
     id: 1,
+    title: "Mon Portfolio",
+    description:
+      "Site vitrine personnel moderne avec animations fluides et design responsive.",
+    image: ImgProjectPortfolio,
+    images: createImageArray(ImgProjectPortfolio),
+    tags: [
+      "React",
+      "react-router-dom",
+      "TailwindCSS",
+      "framer-motion",
+      "Figma",
+    ],
+    category: "Frontend",
+    github: "https://github.com/username/portfolio",
+    figma: "https://figma.com/file/...",
+    diagram: "https://draw.io/...",
+    excalidraw: "https://excalidraw.com/...",
+    notion: "https://notion.so/...",
+    behance: "https://behance.net/...",
+    dribbble: "https://dribbble.com/...",
+    demo: "https://portfolio-demo.com",
+    problem:
+      "Création d'une identité visuelle forte et moderne pour présenter mes compétences",
+    objectives: [
+      "Développer une expérience utilisateur immersive",
+      "Optimiser les performances et l'accessibilité",
+      "Assurer la compatibilité mobile et desktop",
+    ],
+    solution:
+      "Site vitrine moderne avec animations fluides et design responsive",
+    challenges: [
+      "Optimisation des animations et transitions",
+      "Performance sur mobile et desktop",
+      "Accessibilité et SEO",
+    ],
+    technologies: [
+      "React",
+      "react-router-dom",
+      "TailwindCSS",
+      "framer-motion",
+      "Figma",
+    ],
+    results: [
+      "Score de performance de 95/100",
+      "Taux de rebond réduit de 40%",
+      "Engagement utilisateur augmenté de 60%",
+    ],
+  },
+  {
+    id: 2,
     title: "La Voix Intime",
     description:
       "App vitrine de prestations via WhatsApp et prise de RDV avec Calendly.",
@@ -48,7 +99,7 @@ const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "Clou & Cie",
     description:
       "Site vitrine dans le BTP : services clairs, chantiers mis en valeur, demande de devis.",
@@ -84,10 +135,10 @@ const projects = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Luminescence33",
     description:
-      "App d’événements, connectée à Google Calendar, avec vitrine claire des services.",
+      "App d'événements, connectée à Google Calendar, avec vitrine claire des services.",
     image: ImgProjectLumi,
     images: [ImgProjectLumi, ImgProjectLumi, ImgProjectLumi],
     tags: [
@@ -128,7 +179,7 @@ const projects = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "Make Sense",
     description:
       "Application web de gestion d'actions pour l'entreprise Make_Sense.",

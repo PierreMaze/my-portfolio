@@ -15,6 +15,7 @@ import {
   TbBrandFramerMotion,
   TbBrandHeadlessui,
 } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
 import { LazyProjectImage } from "../../../components/ui";
 
 // Mapping des tags vers les icônes
@@ -40,7 +41,7 @@ const getTagIcon = (tag) => {
   if (tagLower === "headlessui")
     return <TbBrandHeadlessui className="w-4 h-4 text-purple-600" />;
   if (tagLower === "dotenv")
-    return <SiDotenv className="w-4 h-4 text-green-700" />;
+    return <SiDotenv className="w-4 h-4 text-zinc-800" />;
   if (tagLower === "node" || tagLower === "node.js")
     return <SiNodedotjs className="w-4 h-4 text-green-700" />;
   if (tagLower === "d3.js")
@@ -54,13 +55,35 @@ const getTagIcon = (tag) => {
  * Composant ProjectCard
  * Affiche une carte de projet avec image, titre, description et tags
  */
-export const ProjectCard = ({ title, description, image, tags, ...props }) => {
+export const ProjectCard = ({
+  id,
+  title,
+  description,
+  image,
+  tags,
+  ...props
+}) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/projects/${id}`);
+  };
+
   return (
     <article
-      className="flex flex-col h-full border-2 rounded-lg shadow-2xl transition-colors hover:shadow-amber-500/30 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden"
+      className="flex flex-col h-full border-2 rounded-lg shadow-2xl cursor-pointer transition-colors hover:shadow-amber-500/30 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden"
       aria-labelledby={`project-title-${title
         .replace(/\s+/g, "-")
         .toLowerCase()}`}
+      onClick={handleClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleClick();
+        }
+      }}
       {...props}>
       <div className="relative overflow-hidden aspect-video">
         <LazyProjectImage
