@@ -7,12 +7,55 @@ import { FadeIn, LazyProjectImage } from "../../../components/ui";
 import ImgProjectClou from "../../../assets/clou.png";
 import ImgProjectLumi from "../../../assets/lumi.png";
 import ImgProjectMakeSense from "../../../assets/make_sense.png";
+import ImgProjectPortfolio from "../../../assets/portfolio.png";
 import ImgProjectSignature from "../../../assets/signature.png";
 import { createImageArray } from "../../../utils/imageUtils";
 
 const projectsData = [
   {
     id: 1,
+    title: "Mon Portfolio",
+    description:
+      "App vitrine de prestations via WhatsApp et prise de RDV avec Calendly.",
+    image: ImgProjectPortfolio,
+    images: createImageArray(ImgProjectPortfolio),
+    tags: [
+      "React",
+      "react-router-dom",
+      "TailwindCSS",
+      "framer-motion",
+      "Figma",
+    ],
+    category: "Frontend",
+    github: "https://github.com/username/microservices",
+    demo: "https://api-demo.com",
+    problem: "Besoin d'une architecture scalable et maintenable",
+    objectives: [
+      "Créer une architecture microservices",
+      "Implémenter un système de service discovery",
+      "Mettre en place un monitoring avancé",
+    ],
+    solution: "Architecture microservices avec Node.js et Docker",
+    challenges: [
+      "Gestion de la complexité distribuée",
+      "Monitoring des services",
+      "Déploiement continu",
+    ],
+    technologies: [
+      "React",
+      "react-router-dom",
+      "TailwindCSS",
+      "framer-motion",
+      "Figma",
+    ],
+    results: [
+      "Réduction de 70% du temps de déploiement",
+      "Amélioration de 80% de la scalabilité",
+      "Disponibilité de 99.9%",
+    ],
+  },
+  {
+    id: 2,
     title: "La Voix Intime",
     description:
       "App vitrine de prestations via WhatsApp et prise de RDV avec Calendly.",
@@ -56,7 +99,7 @@ const projectsData = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "Clou & Cie",
     description:
       "Site vitrine dans le BTP : services clairs, chantiers mis en valeur, demande de devis.",
@@ -86,7 +129,7 @@ const projectsData = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Luminescence33",
     description:
       "App d'événements, connectée à Google Calendar, avec vitrine claire des services.",
@@ -132,7 +175,7 @@ const projectsData = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "Make Sense",
     description:
       "Application web de gestion d'actions pour l'entreprise Make_Sense.",
