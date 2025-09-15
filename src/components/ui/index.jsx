@@ -10,8 +10,5 @@ export * from "./image";
 // Composants d'animation
 export * from "./animation";
 
-// Composants modaux
-export * from "./modal";
-
 // Composants de gestion d'erreurs
 export * from "./error";

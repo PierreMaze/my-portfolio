@@ -4,7 +4,6 @@ export const PROJECT_CATEGORIES = ["Tous", "Fullstack", "Frontend", "Backend"];
 // Configuration des animations
 export const ANIMATION_CONFIG = {
   imageTransition: 500,
-  modalTransition: 300,
   scrollOffset: 100,
 };
 
