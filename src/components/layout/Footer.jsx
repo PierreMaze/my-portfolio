@@ -12,7 +12,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-2xl transition-transform hover:text-highlight hover:rotate-12">
-            <FaGithub className="transition-colors text-orange-500 hover:text-purple-600" />
+            <FaGithub className="transition-colors text-zinc-900 hover:text-zinc-700" />
           </a>
           <a
             href="https://fr.linkedin.com/in/pierremazelaygue"
@@ -20,7 +20,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-2xl transition-transform hover:text-highlight hover:rotate-12">
-            <FaLinkedin className="transition-colors text-orange-500 hover:text-blue-600" />
+            <FaLinkedin className="transition-colors text-zinc-900 hover:text-blue-600" />
           </a>
         </div>
         <div className="my-4 underline transition-colors underline-offset-auto hover:text-orange-500">
