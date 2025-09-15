@@ -16,7 +16,7 @@ const projectsData = [
     id: 1,
     title: "Mon Portfolio",
     description:
-      "App vitrine de prestations via WhatsApp et prise de RDV avec Calendly.",
+      "Site vitrine personnel moderne avec animations fluides et design responsive.",
     image: ImgProjectPortfolio,
     images: createImageArray(ImgProjectPortfolio),
     tags: [
@@ -27,19 +27,21 @@ const projectsData = [
       "Figma",
     ],
     category: "Frontend",
-    github: "https://github.com/username/microservices",
-    demo: "https://api-demo.com",
-    problem: "Besoin d'une architecture scalable et maintenable",
+    github: "https://github.com/username/portfolio",
+    demo: "https://portfolio-demo.com",
+    problem:
+      "Création d'une identité visuelle forte et moderne pour présenter mes compétences",
     objectives: [
-      "Créer une architecture microservices",
-      "Implémenter un système de service discovery",
-      "Mettre en place un monitoring avancé",
+      "Développer une expérience utilisateur immersive",
+      "Optimiser les performances et l'accessibilité",
+      "Assurer la compatibilité mobile et desktop",
     ],
-    solution: "Architecture microservices avec Node.js et Docker",
+    solution:
+      "Site vitrine moderne avec animations fluides et design responsive",
     challenges: [
-      "Gestion de la complexité distribuée",
-      "Monitoring des services",
-      "Déploiement continu",
+      "Optimisation des animations et transitions",
+      "Performance sur mobile et desktop",
+      "Accessibilité et SEO",
     ],
     technologies: [
       "React",
@@ -49,9 +51,9 @@ const projectsData = [
       "Figma",
     ],
     results: [
-      "Réduction de 70% du temps de déploiement",
-      "Amélioration de 80% de la scalabilité",
-      "Disponibilité de 99.9%",
+      "Score de performance de 95/100",
+      "Taux de rebond réduit de 40%",
+      "Engagement utilisateur augmenté de 60%",
     ],
   },
   {
