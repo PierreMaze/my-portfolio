@@ -22,12 +22,11 @@ const DropdownMenu = ({ title, items }) => {
         onClick={() => setIsOpen(!isOpen)}
         aria-label={`${isOpen ? "Fermer" : "Ouvrir"} le menu ${title}`}
         aria-expanded={isOpen}
-        className="flex items-center gap-1 px-4 py-2 transition-colors text-dark/90 hover:text-zinc-900">
+        className="flex items-center gap-1 px-4 py-2 transition-colors text-dark/90 hover:text-zinc-900 focus:outline-none focus:ring-0">
         {title}
         <svg
           className={`w-4 h-4 transition-transform ${
-            isOpen ? "rotate-180" : ""
-          }`}
+            isOpen ? "rotate-180" : ""}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24">
@@ -46,7 +45,7 @@ const DropdownMenu = ({ title, items }) => {
             <Link
               key={item.path}
               to={item.path}
-              className="block px-4 py-2 transition-colors text-text-primary/70 hover:bg-background-primary hover:text-accent"
+              className="block px-4 py-2 transition-colors text-text-primary/70 hover:bg-background-primary hover:text-accent focus:outline-none focus:ring-0"
               onClick={() => setIsOpen(false)}>
               {item.label}
             </Link>

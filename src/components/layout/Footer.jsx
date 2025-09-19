@@ -11,7 +11,7 @@ const Footer = () => {
             title="Github"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-2xl transition-transform hover:text-highlight hover:rotate-12">
+            className="text-2xl transition-transform hover:text-highlight hover:rotate-12 focus:outline-none focus:ring-0">
             <FaGithub className="transition-colors text-zinc-900 hover:text-zinc-700" />
           </a>
           <a
@@ -19,12 +19,14 @@ const Footer = () => {
             title="LinkedIn"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-2xl transition-transform hover:text-highlight hover:rotate-12">
+            className="text-2xl transition-transform hover:text-highlight hover:rotate-12 focus:outline-none focus:ring-0">
             <FaLinkedin className="transition-colors text-zinc-900 hover:text-blue-600" />
           </a>
         </div>
         <div className="my-4 underline transition-colors underline-offset-auto hover:text-orange-500">
-          <Link to="/legal">Mentions légales</Link>
+          <Link to="/legal" className="focus:outline-none focus:ring-0">
+            Mentions légales
+          </Link>
         </div>
       </div>
       <div className="flex flex-col gap-y-2 px-8 w-full text-sm mt-8">

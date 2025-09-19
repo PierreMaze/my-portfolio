@@ -69,7 +69,7 @@ const Hero = () => {
                     title="GitHub"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-8 h-8 transition-transform hover:rotate-12">
+                    className="w-8 h-8 transition-transform hover:rotate-12 focus:outline-none focus:ring-0">
                     <IoLogoGithub className="w-full h-full transition-colors text-zinc-900 hover:text-zinc-700" />
                   </a>
 
@@ -78,7 +78,7 @@ const Hero = () => {
                     title="LinkedIn"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-8 h-8 transition-transform hover:rotate-12">
+                    className="w-8 h-8 transition-transform hover:rotate-12 focus:outline-none focus:ring-0">
                     <IoLogoLinkedin className="w-full h-full transition-colors text-zinc-900 hover:text-blue-600" />
                   </a>
                 </div>
@@ -86,7 +86,7 @@ const Hero = () => {
                   <button
                     onClick={handleDownload}
                     aria-label="Télécharger mon CV au format PDF"
-                    className="inline-flex items-center justify-center gap-2 py-2 mx-8 w-3/4 text-base font-medium text-white rounded transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                    className="inline-flex items-center justify-center gap-2 py-2 mx-8 w-3/4 text-base font-medium text-white rounded transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-0 disabled:opacity-50 disabled:cursor-not-allowed">
                     {getDownloadIcon()}
                     Mon CV
                   </button>
@@ -98,7 +98,7 @@ const Hero = () => {
         {/* Avatar */}
         <a
           href="/about"
-          className="inline-block mx-auto h-52 md:mx-4 lg:mt-16 hover:shadow-2xl hover:shadow-amber-600/50 md:mt-48 lg:w-80 lg:h-80 2xl:scale-150">
+          className="inline-block mx-auto h-52 md:mx-4 lg:mt-16 hover:shadow-2xl hover:shadow-amber-600/50 md:mt-48 lg:w-80 lg:h-80 2xl:scale-150 focus:outline-none focus:ring-0">
           <Suspense
             fallback={<ImageLoader className="w-full h-full rounded-md" />}>
             <SimpleImage
