@@ -12,6 +12,16 @@ const Header = () => {
   const location = useLocation();
   useScrollToTop();
 
+  // Navigation pour la page Legal
+  const legalNavigationItems = [
+    { path: "#informations-legales", label: "Informations Légales" },
+    { path: "#hebergement", label: "Hébergement" },
+    { path: "#propriete-intellectuelle", label: "Propriété Intellectuelle" },
+    { path: "#protection-donnees", label: "Protection des Données" },
+    { path: "#politique-cookies", label: "Politique des Cookies" },
+    { path: "#contact-legal", label: "Contact" },
+  ];
+
   // Mémoriser les sections pour éviter de les recalculer à chaque rendu
   const sections = useMemo(() => SECTIONS, []);
 
@@ -19,7 +29,13 @@ const Header = () => {
   const handleScroll = useCallback(() => {
     setIsScrolled(window.scrollY > 0);
 
-    const currentSection = sections.find((section) => {
+    // Déterminer les sections à surveiller selon la page
+    const sectionsToWatch =
+      location.pathname === "/legal"
+        ? legalNavigationItems.map((item) => item.path.substring(1))
+        : sections;
+
+    const currentSection = sectionsToWatch.find((section) => {
       const element = document.getElementById(section);
       if (element) {
         const rect = element.getBoundingClientRect();
@@ -31,7 +47,7 @@ const Header = () => {
     if (currentSection) {
       setActiveSection(currentSection);
     }
-  }, [sections]);
+  }, [sections, location.pathname, legalNavigationItems]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -57,6 +73,9 @@ const Header = () => {
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
+    } else if (path === "/") {
+      // Navigation vers l'accueil
+      window.location.href = "/";
     }
   }, []);
 
@@ -81,18 +100,31 @@ const Header = () => {
 
           {/* Navigation desktop */}
           <div className="hidden items-center space-x-1 md:flex 2xl:text-xl">
-            {NAVIGATION_ITEMS.map((item) => (
+            {location.pathname === "/legal" ||
+            location.pathname === "/about" ? (
+              // Navigation simplifiée pour les pages Legal et About
               <button
-                key={item.path}
-                onClick={() => handleNavClick(item.path)}
-                aria-label={`Aller à la section ${item.label}`}
-                className={`px-4 py-2 text-zinc-900 hover:text-orange-600 transition-colors focus:outline-none focus:ring-0 relative ${
-                  activeSection === item.path.substring(1)
-                    ? "text-orange-600 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-orange-600 after:transition-all after:duration-300"
-                    : "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-transparent after:transition-all after:duration-300"}`}>
-                {item.label}
+                onClick={() => handleNavClick("/")}
+                aria-label="Retour à l'accueil"
+                className="px-4 py-2 transition-colors text-zinc-900 hover:text-orange-600 focus:outline-none focus:ring-0">
+                Accueil
               </button>
-            ))}
+            ) : (
+              // Navigation par défaut (page d'accueil)
+              NAVIGATION_ITEMS.map((item) => (
+                <button
+                  key={item.path}
+                  onClick={() => handleNavClick(item.path)}
+                  aria-label={`Aller à la section ${item.label}`}
+                  className={`px-4 py-2 text-zinc-900 hover:text-orange-600 transition-colors focus:outline-none focus:ring-0 relative ${
+                    activeSection === item.path.substring(1)
+                      ? "text-orange-600 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-orange-600 after:transition-all after:duration-300"
+                      : "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-transparent after:transition-all after:duration-300"
+                  }`}>
+                  {item.label}
+                </button>
+              ))
+            )}
           </div>
 
           {/* Bouton menu mobile */}
@@ -161,30 +193,55 @@ const Header = () => {
                 {/* Liens de navigation */}
                 <div className="flex-1 p-6">
                   <nav className="space-y-4">
-                    {NAVIGATION_ITEMS.map((item, index) => (
+                    {location.pathname === "/legal" ||
+                    location.pathname === "/about" ? (
+                      // Navigation mobile simplifiée pour les pages Legal et About
                       <motion.button
-                        key={item.path}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{
                           duration: 0.3,
-                          delay: index * 0.1,
+                          delay: 0.1,
                           ease: "easeOut",
                         }}
                         onClick={() => {
-                          handleNavClick(item.path);
+                          handleNavClick("/");
                           setIsMobileMenuOpen(false);
                         }}
-                        aria-label={`Aller à la section ${item.label}`}
-                        className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0 ${
-                          activeSection === item.path.substring(1)
-                            ? "bg-orange/10 text-orange border border-orange/20"
-                            : "text-zinc-700 hover:bg-zinc-50 hover:text-orange"}`}>
+                        aria-label="Retour à l'accueil"
+                        className="px-4 py-3 w-full text-left rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0 text-zinc-700 hover:bg-zinc-50 hover:text-orange">
                         <span className="text-lg font-medium transition-transform duration-200 group-hover:translate-x-1">
-                          {item.label}
+                          Accueil
                         </span>
                       </motion.button>
-                    ))}
+                    ) : (
+                      // Navigation mobile par défaut (page d'accueil)
+                      NAVIGATION_ITEMS.map((item, index) => (
+                        <motion.button
+                          key={item.path}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{
+                            duration: 0.3,
+                            delay: index * 0.1,
+                            ease: "easeOut",
+                          }}
+                          onClick={() => {
+                            handleNavClick(item.path);
+                            setIsMobileMenuOpen(false);
+                          }}
+                          aria-label={`Aller à la section ${item.label}`}
+                          className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0 ${
+                            activeSection === item.path.substring(1)
+                              ? "bg-orange/10 text-orange border border-orange/20"
+                              : "text-zinc-700 hover:bg-zinc-50 hover:text-orange"
+                          }`}>
+                          <span className="text-lg font-medium transition-transform duration-200 group-hover:translate-x-1">
+                            {item.label}
+                          </span>
+                        </motion.button>
+                      ))
+                    )}
                   </nav>
                 </div>
               </motion.div>

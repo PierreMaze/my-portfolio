@@ -18,6 +18,17 @@ const About = () => {
   return (
     <section className="py-20">
       <Container>
+        {/* Bouton de navigation */}
+        <FadeIn>
+          <div className="mb-8">
+            <button
+              onClick={() => window.history.back()}
+              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-0">
+              ← Retour
+            </button>
+          </div>
+        </FadeIn>
+
         <FadeIn>
           <h2 className="relative text-3xl font-bold mb-12">
             <span className="relative inline-block">

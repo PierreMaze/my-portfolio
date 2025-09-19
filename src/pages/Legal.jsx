@@ -6,6 +6,17 @@ const Legal = () => {
   return (
     <section className="py-20">
       <Container>
+        {/* Bouton de navigation */}
+        <FadeIn>
+          <div className="mb-8">
+            <button
+              onClick={() => window.history.back()}
+              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-0">
+              ← Retour
+            </button>
+          </div>
+        </FadeIn>
+
         <FadeIn>
           <h2 className="relative text-3xl font-bold mb-12">
             <span className="relative inline-block">
@@ -20,7 +31,9 @@ const Legal = () => {
         <div className="mx-auto max-w-3xl">
           <FadeIn className="delay-100">
             <div className="space-y-8">
-              <div className="p-6 bg-white rounded-lg shadow-sm">
+              <div
+                id="informations-legales"
+                className="p-6 bg-white rounded-lg shadow-sm">
                 <h3 className="text-xl font-semibold mb-4">
                   1. Informations Légales
                 </h3>
@@ -30,7 +43,9 @@ const Legal = () => {
                 </p>
               </div>
 
-              <div className="p-6 bg-white rounded-lg shadow-sm">
+              <div
+                id="hebergement"
+                className="p-6 bg-white rounded-lg shadow-sm">
                 <h3 className="text-xl font-semibold mb-4">2. Hébergement</h3>
                 <p className="text-text-secondary">
                   Ce site est hébergé par Netlify, Inc. 2325 3rd Street, Suite
@@ -38,7 +53,9 @@ const Legal = () => {
                 </p>
               </div>
 
-              <div className="p-6 bg-white rounded-lg shadow-sm">
+              <div
+                id="propriete-intellectuelle"
+                className="p-6 bg-white rounded-lg shadow-sm">
                 <h3 className="text-xl font-semibold mb-4">
                   3. Propriété Intellectuelle
                 </h3>
@@ -51,7 +68,9 @@ const Legal = () => {
                 </p>
               </div>
 
-              <div className="p-6 bg-white rounded-lg shadow-sm">
+              <div
+                id="protection-donnees"
+                className="p-6 bg-white rounded-lg shadow-sm">
                 <h3 className="text-xl font-semibold mb-4">
                   4. Protection des Données Personnelles
                 </h3>
@@ -63,7 +82,9 @@ const Legal = () => {
                 </p>
               </div>
 
-              <div className="p-6 bg-white rounded-lg shadow-sm">
+              <div
+                id="politique-cookies"
+                className="p-6 bg-white rounded-lg shadow-sm">
                 <h3 className="text-xl font-semibold mb-4">
                   5. Politique des Cookies
                 </h3>
@@ -86,7 +107,9 @@ const Legal = () => {
                 </p>
               </div>
 
-              <div className="p-6 bg-white rounded-lg shadow-sm">
+              <div
+                id="contact-legal"
+                className="p-6 bg-white rounded-lg shadow-sm">
                 <h3 className="text-xl font-semibold mb-4">6. Contact</h3>
                 <p className="text-text-secondary">
                   Pour toute question concernant ces mentions légales, vous
