@@ -75,7 +75,7 @@ const Header = () => {
         <nav className="flex items-center justify-between h-20">
           <Link
             to="/"
-            className="text-2xl font-bold 2xl:text-4xl text-orange-500">
+            className="text-2xl font-bold 2xl:text-4xl text-orange-500 focus:outline-none focus:ring-0 hover:outline-none">
             PORTFOLIO
           </Link>
 
@@ -86,10 +86,10 @@ const Header = () => {
                 key={item.path}
                 onClick={() => handleNavClick(item.path)}
                 aria-label={`Aller à la section ${item.label}`}
-                className={`px-4 py-2 text-zinc-900 hover:text-orange-600 transition-colors ${
+                className={`px-4 py-2 text-zinc-900 hover:text-orange-600 transition-colors focus:outline-none focus:ring-0 relative ${
                   activeSection === item.path.substring(1)
-                    ? "text-orange-600"
-                    : ""}`}>
+                    ? "text-orange-600 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-orange-600 after:transition-all after:duration-300"
+                    : "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-transparent after:transition-all after:duration-300"}`}>
                 {item.label}
               </button>
             ))}
@@ -97,7 +97,7 @@ const Header = () => {
 
           {/* Bouton menu mobile */}
           <button
-            className="p-2 md:hidden"
+            className="p-2 md:hidden focus:outline-none focus:ring-0"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={isMobileMenuOpen}>
@@ -176,7 +176,7 @@ const Header = () => {
                           setIsMobileMenuOpen(false);
                         }}
                         aria-label={`Aller à la section ${item.label}`}
-                        className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group ${
+                        className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0 ${
                           activeSection === item.path.substring(1)
                             ? "bg-orange/10 text-orange border border-orange/20"
                             : "text-zinc-700 hover:bg-zinc-50 hover:text-orange"}`}>
