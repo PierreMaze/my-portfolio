@@ -89,6 +89,7 @@ export const ProjectCard = ({
         <LazyProjectImage
           src={image}
           alt={`Aperçu du projet ${title}`}
+          loading="lazy"
           className="w-full h-full transition-transform object-cover group-hover:scale-105"
         />
       </div>
