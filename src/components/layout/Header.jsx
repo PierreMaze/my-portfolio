@@ -119,8 +119,7 @@ const Header = () => {
                   className={`px-4 py-2 text-zinc-900 hover:text-orange-600 transition-colors focus:outline-none focus:ring-0 relative ${
                     activeSection === item.path.substring(1)
                       ? "text-orange-600 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-orange-600 after:transition-all after:duration-300"
-                      : "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-transparent after:transition-all after:duration-300"
-                  }`}>
+                      : "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-transparent after:transition-all after:duration-300"}`}>
                   {item.label}
                 </button>
               ))
@@ -184,7 +183,7 @@ const Header = () => {
                 }}
                 className="fixed right-0 left-0 z-[10000]h-fit bg-white shadow-2xl md:hidden">
                 {/* En-tête du menu */}
-                <div className="p-6 border-b border-zinc-100">
+                <div className="p-6 border border-zinc-100">
                   <h3 className="text-lg font-semibold text-zinc-900">
                     Navigation
                   </h3>
@@ -233,9 +232,8 @@ const Header = () => {
                           aria-label={`Aller à la section ${item.label}`}
                           className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0 ${
                             activeSection === item.path.substring(1)
-                              ? "bg-orange/10 text-orange border border-orange/20"
-                              : "text-zinc-700 hover:bg-zinc-50 hover:text-orange"
-                          }`}>
+                              ? "bg-white text-orange-500  border-2 border-orange-500"
+                              : "text-zinc-700 hover:bg-orange-50 hover:text-orange-600"}`}>
                           <span className="text-lg font-medium transition-transform duration-200 group-hover:translate-x-1">
                             {item.label}
                           </span>
