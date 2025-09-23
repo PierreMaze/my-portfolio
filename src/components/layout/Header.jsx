@@ -183,7 +183,7 @@ const Header = () => {
                 }}
                 className="fixed right-0 left-0 z-[10000]h-fit bg-white shadow-2xl md:hidden">
                 {/* En-tête du menu */}
-                <div className="p-6 border border-zinc-100">
+                <div className="p-6 border-none ring-1 ring-zinc-100">
                   <h3 className="text-lg font-semibold text-zinc-900">
                     Navigation
                   </h3>
@@ -230,10 +230,10 @@ const Header = () => {
                             setIsMobileMenuOpen(false);
                           }}
                           aria-label={`Aller à la section ${item.label}`}
-                          className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0 ${
+                          className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group border-none focus:outline-none focus:ring-0 ${
                             activeSection === item.path.substring(1)
-                              ? "bg-white text-orange-500  border-2 border-orange-500"
-                              : "text-zinc-700 hover:bg-orange-50 hover:text-orange-600"}`}>
+                              ? "bg-white text-orange-500 ring-2 ring-orange-500"
+                              : "text-zinc-700 hover:bg-orange-50 hover:text-orange-600 ring-2 ring-transparent focus:ring-orange-500 active:ring-orange-500"}`}>
                           <span className="text-lg font-medium transition-transform duration-200 group-hover:translate-x-1">
                             {item.label}
                           </span>
