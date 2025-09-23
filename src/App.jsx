@@ -8,6 +8,7 @@ import { useSmoothScroll } from "./hooks";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Legal = lazy(() => import("./pages/Legal"));
+const Error = lazy(() => import("./pages/Error"));
 const ProjectDetails = lazy(() =>
   import("./features/projects/components/ProjectDetails")
 );
@@ -46,6 +47,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<div className="min-h-screen" />}>
             <ProjectDetails />
+          </Suspense>
+        ),
+      },
+      {
+        path: "*",
+        element: (
+          <Suspense fallback={<div className="min-h-screen" />}>
+            <Error statusCode={404} />
           </Suspense>
         ),
       },
