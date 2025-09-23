@@ -66,12 +66,34 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   }, [location]);
 
+  // Bloquer le scroll quand le menu mobile est ouvert
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup: restaurer le scroll quand le composant est démonté
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   // Optimiser la fonction de navigation
   const handleNavClick = useCallback((path) => {
     if (path.startsWith("#")) {
       const element = document.getElementById(path.substring(1));
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        // Ajuster l'offset pour la version mobile
+        const isMobile = window.innerWidth < 768;
+        const offset = isMobile ? 60 : -10; // Plus d'offset sur mobile
+
+        const elementPosition = element.offsetTop - offset;
+        window.scrollTo({
+          top: elementPosition,
+          behavior: "smooth",
+        });
       }
     } else if (path === "/") {
       // Navigation vers l'accueil
