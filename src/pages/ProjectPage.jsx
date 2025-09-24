@@ -24,19 +24,21 @@ const ProjectNavigation = ({ previous, next, onNavigate }) => {
 
   return (
     <nav
-      className="flex items-center justify-between py-8 border-t border-zinc-200"
+      className="flex items-center justify-between py-8"
       aria-label="Navigation entre projets">
       <div className="flex-1">
         {previous && (
           <button
             onClick={() => onNavigate(previous.id)}
-            className="flex items-center gap-3 transition-colors duration-200 group text-zinc-600 hover:text-zinc-900"
+            className="relative flex items-center gap-3 transition-all duration-200 group text-zinc-600 hover:text-zinc-900 focus:text-zinc-900 focus:outline-none"
             aria-label={`Aller au projet précédent: ${previous.title}`}>
             <IoChevronBack className="w-5 h-5 transition-transform duration-200 group-hover:-translate-x-1" />
             <div className="text-left">
               <div className="text-sm text-zinc-500">Projet précédent</div>
               <div className="font-medium">{previous.title}</div>
             </div>
+            {/* Underline personnalisée */}
+            <div className="absolute left-0 w-full h-1 transition-transform duration-200 transform -bottom-1 bg-orange-500 scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100"></div>
           </button>
         )}
       </div>
@@ -45,13 +47,15 @@ const ProjectNavigation = ({ previous, next, onNavigate }) => {
         {next && (
           <button
             onClick={() => onNavigate(next.id)}
-            className="flex items-center gap-3 transition-colors duration-200 group text-zinc-600 hover:text-zinc-900"
+            className="relative flex items-center gap-3 transition-all duration-200 group text-zinc-600 hover:text-zinc-900 focus:text-zinc-900 focus:outline-none"
             aria-label={`Aller au projet suivant: ${next.title}`}>
             <div className="text-right">
               <div className="text-sm text-zinc-500">Projet suivant</div>
               <div className="font-medium">{next.title}</div>
             </div>
             <IoChevronForward className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
+            {/* Underline personnalisée */}
+            <div className="absolute left-0 w-full h-1 transition-transform duration-200 transform -bottom-1 bg-orange-500 scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100"></div>
           </button>
         )}
       </div>
@@ -72,9 +76,6 @@ const ProjectInfo = ({ project }) => {
       <div className="relative px-8 py-6 bg-gradient-to-r from-orange-500 via-orange-600 to-amber-600">
         <div className="absolute inset-0 bg-black/5"></div>
         <div className="relative flex items-center gap-4">
-          <div className="flex items-center justify-center w-12 h-12 border rounded-xl bg-white/20 backdrop-blur-sm border-white/30">
-            <span className="text-2xl">🚧</span>
-          </div>
           <div>
             <h3 className="text-2xl font-bold text-white">Défis relevés</h3>
             <p className="text-sm text-orange-100 mt-1">
