@@ -23,6 +23,7 @@ export const BADGE_COLOR_CLASSES = {
   gray: "bg-gray-100 border-gray-500 text-gray-900",
   stone: "bg-stone-100 border-stone-500 text-stone-900",
   black: "bg-zinc-100 border-zinc-500 text-zinc-900",
+  teal: "bg-teal-100 border-teal-400 text-teal-900",
 };
 
 // Configuration de l'animation HTML

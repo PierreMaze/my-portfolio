@@ -12,3 +12,6 @@ export * from "./animation";
 
 // Composants de gestion d'erreurs
 export * from "./error";
+
+// Composants de badges
+export * from "./badge";

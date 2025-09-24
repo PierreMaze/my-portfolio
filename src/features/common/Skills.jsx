@@ -1,4 +1,3 @@
-import { useCallback, useEffect, useState } from "react";
 import { DiScrum } from "react-icons/di";
 import { FaMobile, FaServer } from "react-icons/fa";
 import { TbBrandFramerMotion, TbBrandVite } from "react-icons/tb";
@@ -27,103 +26,15 @@ import {
   SiTypescript,
   SiZod,
 } from "react-icons/si";
-TbBrandFramerMotion;
 
-import { FadeIn } from "../../components/ui";
-import {
-  BADGE_COLOR_CLASSES,
-  HTML_ANIMATION_CONFIG,
-} from "../../constants/projects";
-import { getColorFromIcon } from "../../utils/colorUtils";
-
-// Composant HTML/CSS ultra-simplifié
-const AnimatedHtmlIcon = ({ onColorChange }) => {
-  const [isOrange, setIsOrange] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsOrange((prev) => !prev);
-    }, HTML_ANIMATION_CONFIG.interval);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    if (onColorChange) {
-      onColorChange(isOrange ? "orange" : "blue");
-    }
-  }, [isOrange, onColorChange]);
-
-  const iconColor = isOrange
-    ? HTML_ANIMATION_CONFIG.colors.orange
-    : HTML_ANIMATION_CONFIG.colors.blue;
-
-  return (
-    <SiHtml5
-      className={`w-4 h-4 transition-colors duration-500 ease-in-out${iconColor}`}
-    />
-  );
-};
-
-// Badge HTML/CSS ultra-simplifié
-const HtmlCssBadge = () => {
-  const [htmlColor, setHtmlColor] = useState("orange");
-
-  const handleColorChange = useCallback((newColor) => {
-    setHtmlColor(newColor);
-  }, []);
-
-  const colorClass =
-    htmlColor === "orange"
-      ? BADGE_COLOR_CLASSES.orange
-      : BADGE_COLOR_CLASSES.blue;
-
-  return (
-    <div
-      className={`${"flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300 "}${colorClass}`}
-      aria-label="Compétence en HTML / CSS">
-      <div className="text-sm scale-75" aria-hidden="true">
-        <AnimatedHtmlIcon onColorChange={handleColorChange} />
-      </div>
-      <span className="text-xs font-medium lg:text-sm text-zinc-900">
-        HTML / CSS
-      </span>
-    </div>
-  );
-};
-
-// Composant de badge générique ultra-robuste
-const SkillBadge = ({ name, icon, color }) => {
-  // Cas spécial pour HTML/CSS
-  if (name === "HTML / CSS") {
-    return <HtmlCssBadge />;
-  }
-
-  // Détermine la couleur du badge avec fallback robuste
-  const badgeColor = color || getColorFromIcon(icon) || "stone";
-  const colorClass =
-    BADGE_COLOR_CLASSES[badgeColor] || BADGE_COLOR_CLASSES.stone;
-
-  return (
-    <div
-      className={`${"flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300 "}${colorClass}`}
-      aria-label={`Compétence en ${name}`}>
-      <div className="scale-75 text-md" aria-hidden="true">
-        {icon}
-      </div>
-      <span className="text-sm font-medium lg:text-base text-zinc-800">
-        {name}
-      </span>
-    </div>
-  );
-};
+import { FadeIn, SkillBadge } from "../../components/ui";
 
 const Skills = () => {
   const skillsData = {
     Langages: [
       {
         name: "HTML / CSS",
-        icon: <HtmlCssBadge />,
+        icon: <SiHtml5 className="w-4 h-4 text-orange-500" />,
         description:
           "Maîtrise des standards web modernes, sémantique HTML5 et CSS3 avancé",
       },
