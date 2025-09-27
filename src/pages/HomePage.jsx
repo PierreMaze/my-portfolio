@@ -22,6 +22,8 @@ const Home = () => {
       "Portfolio d'un développeur Fullstack passionné par les technologies modernes",
   });
 
+  // Le scroll vers le haut est géré par AppRoot pour éviter les conflits
+
   return (
     <>
       <section id="home" className="h-fit">
@@ -32,10 +34,10 @@ const Home = () => {
           fallback={
             <div className="py-16 lg:py-24 xl:py-32">
               <div className="container px-4 mx-auto">
-                <SkeletonFallback className="h-12 mb-8" />
+                <SkeletonFallback className="w-64 h-12 mb-8" />
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {[...Array(6)].map((_, i) => (
-                    <SkeletonFallback key={i} className="h-32" />
+                    <SkeletonFallback key={i} className="w-full h-32" />
                   ))}
                 </div>
               </div>
@@ -49,10 +51,10 @@ const Home = () => {
           fallback={
             <div className="py-16 lg:py-24 xl:py-32">
               <div className="container px-4 mx-auto">
-                <SkeletonFallback className="h-12 mb-8" />
+                <SkeletonFallback className="w-64 h-12 mb-8" />
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   {[...Array(6)].map((_, i) => (
-                    <SkeletonFallback key={i} className="h-80" />
+                    <SkeletonFallback key={i} className="w-full h-80" />
                   ))}
                 </div>
               </div>
@@ -66,13 +68,13 @@ const Home = () => {
           fallback={
             <div className="py-16 lg:py-24 xl:py-32">
               <div className="container px-4 mx-auto">
-                <SkeletonFallback className="h-12 mb-8" />
+                <SkeletonFallback className="w-64 h-12 mb-8" />
                 <div className="space-y-8">
                   {[...Array(4)].map((_, i) => (
                     <div key={i} className="flex gap-4">
-                      <SkeletonFallback className="w-4 h-4 rounded-full mt-2" />
+                      <SkeletonFallback className="w-4 h-4 rounded-full mt-2 flex-shrink-0" />
                       <div className="flex-1">
-                        <SkeletonFallback className="h-6 mb-2" />
+                        <SkeletonFallback className="w-full h-6 mb-2" />
                         <SkeletonFallback className="w-3/4 h-4" />
                       </div>
                     </div>

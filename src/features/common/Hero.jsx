@@ -45,8 +45,10 @@ const Hero = () => {
   };
 
   return (
-    <section className="flex items-center justify-center min-h-screen">
-      <div className="flex flex-col-reverse items-center gp-8 lg:gap-0 md:flex-row md:items-center 2xl:gap-48">
+    <section
+      className="flex items-center justify-center min-h-screen"
+      style={{ paddingTop: "-80px" }}>
+      <div className="flex flex-col-reverse items-center gap-8 lg:gap-0 md:flex-row md:items-center 2xl:gap-48">
         <FadeIn>
           <div className="text-center mt-4 max-w-3xl md:text-left 2xl:max-w-screen-lg">
             <h1 className="text-4xl font-bold mb-6 md:text-6xl 2xl:text-6xl">
@@ -100,7 +102,7 @@ const Hero = () => {
         {/* Avatar */}
         <a
           href="/about"
-          className="inline-block mx-auto h-52 md:mx-4 lg:mt-16 hover:shadow-2xl hover:shadow-amber-600/50 md:mt-48 lg:w-80 lg:h-80 2xl:scale-150 focus:outline-none focus:ring-0">
+          className="inline-block mx-auto w-52 h-52 md:mx-4 lg:mt-16 hover:shadow-2xl hover:shadow-amber-600/50 md:mt-48 lg:w-80 lg:h-80 2xl:scale-150 focus:outline-none focus:ring-0">
           <Suspense
             fallback={<ImageLoader className="w-full h-full rounded-md" />}>
             <img
