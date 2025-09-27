@@ -69,12 +69,12 @@ const Timeline = () => {
 
               {/* Contenu */}
               <div
-                className={`bg-zinc-100 border-2 my-12 md:my-0 p-8 rounded-lg relative ${
+                className={`bg-zinc-100 border-2 border-zinc-300 my-12 md:my-0 p-8 rounded-lg relative ${
                   index % 2 === 0 ? "md:pr-8" : "md:pl-8"
                 }`}>
                 {/* Flèche */}
                 <div
-                  className={`hidden md:block absolute top-6 w-4 h-4 bg-zinc-100 transform rotate-45 ${
+                  className={`hidden md:block absolute top-6 w-4 h-4 border-zinc-300 bg-zinc-100 transform rotate-45 ${
                     index % 2 === 0
                       ? "right-[-8px] border-r-2  border-t-2"
                       : "left-[-8px] border-l-2 border-b-2"
