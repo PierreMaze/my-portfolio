@@ -39,7 +39,7 @@ const ProjectNavigation = ({ previous, next, onNavigate }) => {
               <div className="font-medium">{previous.title}</div>
             </div>
             {/* Underline personnalisée */}
-            <div className="absolute left-0 w-full h-1 transition-transform duration-200 transform -bottom-1 bg-orange-500 scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100"></div>
+            <div className="absolute left-0 w-full h-1 transition-transform duration-200 transform -bottom-1 bg-orange-600 hover:bg-orange-700 scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100"></div>
           </button>
         )}
       </div>
@@ -94,7 +94,7 @@ const ProjectInfo = ({ project }) => {
               key={index}
               className="flex items-start gap-3 p-3 rounded-lg transition-all duration-300 sm:gap-4 sm:p-4 group bg-gradient-to-r from-zinc-50 to-white hover:shadow-md">
               <div className="flex items-center justify-center w-6 h-6 rounded-full transition-colors duration-300 sm:w-7 sm:h-7 bg-amber-100 group-hover:bg-amber-200 mt-0.5 flex-shrink-0">
-                <span className="text-xs font-bold sm:text-sm text-amber-600">
+                <span className="text-xs font-bold sm:text-sm text-orange-600">
                   {index + 1}
                 </span>
               </div>

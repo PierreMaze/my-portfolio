@@ -83,7 +83,7 @@ const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
             className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               to="/"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 hover:shadow-lg hover:shadow-orange-500/25">
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 hover:shadow-lg hover:shadow-orange-500/25">
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -101,7 +101,7 @@ const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
 
             <button
               onClick={() => window.history.back()}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium border rounded-lg transition-all duration-300 text-zinc-700 bg-zinc-50 ring-zinc-300 ring-2 hover:ring-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-orange-500 focus:ring-offset-2">
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium border rounded-lg transition-all duration-300 text-zinc-700 bg-zinc-50 ring-zinc-300 ring-2 hover:ring-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-orange-600 focus:ring-offset-2">
               <svg
                 className="w-5 h-5"
                 fill="none"

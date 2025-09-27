@@ -11,7 +11,7 @@ const Legal = () => {
           <div className="mb-8">
             <button
               onClick={() => window.history.back()}
-              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-0">
+              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-0">
               ← Retour
             </button>
           </div>

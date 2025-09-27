@@ -47,7 +47,7 @@ const Hero = () => {
   return (
     <section
       className="flex items-center justify-center min-h-screen"
-      style={{ paddingTop: "-80px" }}>
+      style={{ paddingTop: "-200px" }}>
       <div className="flex flex-col-reverse items-center gap-8 lg:gap-0 md:flex-row md:items-center 2xl:gap-48">
         <FadeIn>
           <div className="text-center mt-4 max-w-3xl md:text-left 2xl:max-w-screen-lg">
