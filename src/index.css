@@ -2,53 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Animations personnalisées pour les loaders */
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-.animate-shimmer {
-  animation: shimmer 2s infinite;
-}
-
-/* Animation glitch */
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    transform: translate(2px, 2px);
-  }
-  80% {
-    transform: translate(2px, -2px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-.glitch {
-  animation: glitch 0.3s infinite;
-}
-
 /* Uniquement la base avec quelques styles minimes globaux */
 @layer base {
   html {
-    scroll-behavior: auto;
-  }
-
-  html.smooth-scroll {
     scroll-behavior: smooth;
   }
 
@@ -57,7 +13,7 @@
     font-size: 1rem;
     line-height: 1.625;
     background-color: #fafaf8;
-    color: #2c2c18;
+    color: black;
   }
 
   h1,
@@ -69,72 +25,8 @@
     font-family: "Inter", sans-serif;
     font-weight: 600;
   }
-}
 
-/* Styles de base pour les composants */
-@layer components {
-  .container {
-    width: 100%;
-    max-width: 80rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: #5d7b8a;
-    color: white;
-    border-radius: 0.25rem;
-    font-weight: 500;
-    transition: all 0.3s;
-  }
-
-  .btn:hover {
-    background-color: #4a6270;
-    transform: translateY(-0.125rem);
-  }
-
-  .badge {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    margin-bottom: 0.5rem;
-    margin-right: 0.5rem;
-    font-size: 0.875rem;
-    border-radius: 9999px;
-    background-color: #e1e9ed;
-    color: #384a56;
-  }
-
-  /* Classes d'accessibilité */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  .focus-visible {
-    outline: 2px solid #f97316;
-    outline-offset: 2px;
-  }
-
-  /* Amélioration du contraste pour les liens */
-  a:focus {
-    outline: 2px solid #f97316;
-    outline-offset: 2px;
-  }
-
-  /* Amélioration du contraste pour les boutons */
-  button:focus {
-    outline: 2px solid #f97316;
-    outline-offset: 2px;
+  .smooth-scroll {
+    scroll-behavior: smooth;
   }
 }
