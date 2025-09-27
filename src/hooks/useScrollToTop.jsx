@@ -1,48 +1,59 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
+/**
+ * Hook amélioré pour gérer le scroll vers le haut
+ * Version plus agressive pour s'assurer que le scroll remonte bien
+ */
 const useScrollToTop = () => {
   const { pathname } = useLocation();
   const isInitialMount = useRef(true);
 
   useEffect(() => {
-    // Pour le premier chargement/rafraîchissement, scroll instantané et agressif
-    if (isInitialMount.current) {
-      // Forcer le scroll à 0 immédiatement
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
+    const scrollToTop = () => {
+      // Méthode 1: window.scrollTo
       window.scrollTo(0, 0);
 
-      // Supprimer la classe smooth-scroll
-      document.documentElement.classList.remove("smooth-scroll");
+      // Méthode 2: document.documentElement
+      document.documentElement.scrollTop = 0;
 
-      // Forcer à nouveau après un court délai pour s'assurer
-      setTimeout(() => {
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
-        window.scrollTo(0, 0);
-      }, 10);
+      // Méthode 3: document.body
+      document.body.scrollTop = 0;
 
-      // Forcer une dernière fois après le rendu
-      setTimeout(() => {
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
-        window.scrollTo(0, 0);
-        isInitialMount.current = false;
-
-        // Réactiver le smooth scroll
-        setTimeout(() => {
-          document.documentElement.classList.add("smooth-scroll");
-        }, 100);
-      }, 50);
-    } else {
-      // Pour les changements de route, s'assurer que smooth scroll est activé
-      document.documentElement.classList.add("smooth-scroll");
+      // Méthode 4: scrollTo avec options
       window.scrollTo({
         top: 0,
-        behavior: "smooth",
+        left: 0,
+        behavior: isInitialMount.current ? "auto" : "smooth",
       });
-    }
+    };
+
+    // Premier scroll immédiat
+    scrollToTop();
+
+    // Scroll de sécurité après un délai
+    const timer1 = setTimeout(scrollToTop, 10);
+    const timer2 = setTimeout(scrollToTop, 50);
+    const timer3 = setTimeout(scrollToTop, 100);
+
+    // Vérification finale après 500ms
+    const finalCheck = setTimeout(() => {
+      if (window.scrollY > 0) {
+        console.log("Scroll final check - forcing to top");
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      }
+    }, 500);
+
+    isInitialMount.current = false;
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+      clearTimeout(finalCheck);
+    };
   }, [pathname]);
 };
 
