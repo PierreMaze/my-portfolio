@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { FaChartBar } from "react-icons/fa";
 import {
   SiCalendly,
@@ -16,7 +17,7 @@ import {
   TbBrandHeadlessui,
 } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
-import { LazyProjectImage } from "../../../components/ui";
+// import { LazyProjectImage } from "../../../components/ui"; // Composant supprimé
 
 // Mapping des tags vers les icônes
 const getTagIcon = (tag) => {
@@ -86,10 +87,12 @@ export const ProjectCard = ({
       }}
       {...props}>
       <div className="relative overflow-hidden aspect-video">
-        <LazyProjectImage
+        <img
           src={image}
           alt={`Aperçu du projet ${title}`}
           loading="lazy"
+          width="600"
+          height="400"
           className="w-full h-full transition-transform object-cover group-hover:scale-105"
         />
       </div>
@@ -116,4 +119,12 @@ export const ProjectCard = ({
       </div>
     </article>
   );
+};
+
+ProjectCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

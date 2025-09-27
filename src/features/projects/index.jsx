@@ -261,8 +261,9 @@ export const Projects = () => {
                 aria-label={`Filtrer par ${category}`}
                 className={`px-3 py-1.5 text-sm font-medium transition-all duration-300 rounded ${
                   selectedCategory === category
-                    ? "bg-orange-600 hover:bg-orange-700 text-white "
-                    : "border border-zinc-700 text-zinc-900 hover:bg-orange-100 hover:text-orange-800 hover:border-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:ring-orange-500/50"}disabled:opacity-50 disabled:cursor-not-allowed`}>
+                    ? "bg-orange-600 text-white"
+                    : "text-black bg-zinc-100 ring-zinc-500 ring-2 hover:ring-zinc-800 hover:bg-white"
+                }`}>
                 {category}
               </button>
             ))}

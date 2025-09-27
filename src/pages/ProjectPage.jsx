@@ -7,9 +7,10 @@ import {
 } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../components/layout/Container";
-import { FadeIn, LazyProjectImage, TechBadge } from "../components/ui";
+import { FadeIn, TechBadge } from "../components/ui";
 import { useProjects } from "../contexts";
 import { useDocumentTitle, useMeta } from "../hooks";
+import Error from "./ErrorPage";
 
 /**
  * Composant de navigation entre projets
@@ -30,11 +31,11 @@ const ProjectNavigation = ({ previous, next, onNavigate }) => {
         {previous && (
           <button
             onClick={() => onNavigate(previous.id)}
-            className="relative flex items-center gap-3 transition-all duration-200 group text-zinc-600 hover:text-zinc-900 focus:text-zinc-900 focus:outline-none"
+            className="relative flex items-center gap-3 text-black border-none transition-all duration-200 group ring-0 focus:outline-none focus:ring-0"
             aria-label={`Aller au projet précédent: ${previous.title}`}>
             <IoChevronBack className="w-5 h-5 transition-transform duration-200 group-hover:-translate-x-1" />
             <div className="text-left">
-              <div className="text-sm text-zinc-500">Projet précédent</div>
+              <div className="text-sm text-zinc-800">Projet précédent</div>
               <div className="font-medium">{previous.title}</div>
             </div>
             {/* Underline personnalisée */}
@@ -47,10 +48,10 @@ const ProjectNavigation = ({ previous, next, onNavigate }) => {
         {next && (
           <button
             onClick={() => onNavigate(next.id)}
-            className="relative flex items-center gap-3 transition-all duration-200 group text-zinc-600 hover:text-zinc-900 focus:text-zinc-900 focus:outline-none"
+            className="relative flex items-center gap-3 text-black transition-all duration-200 group ring-0 focus:outline-none focus:ring-0"
             aria-label={`Aller au projet suivant: ${next.title}`}>
             <div className="text-right">
-              <div className="text-sm text-zinc-500">Projet suivant</div>
+              <div className="text-sm text-zinc-800">Projet suivant</div>
               <div className="font-medium">{next.title}</div>
             </div>
             <IoChevronForward className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
@@ -71,7 +72,7 @@ const ProjectNavigation = ({ previous, next, onNavigate }) => {
  */
 const ProjectInfo = ({ project }) => {
   return (
-    <div className="relative bg-white border rounded-2xl shadow-lg overflow-hidden border-zinc-200/60 shadow-zinc-200/50 mb-8">
+    <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden shadow-zinc-200/50 mb-8">
       {/* Header avec gradient */}
       <div className="relative px-8 py-6 bg-gradient-to-r from-orange-500 via-orange-600 to-amber-600">
         <div className="absolute inset-0 bg-black/5"></div>
@@ -91,7 +92,7 @@ const ProjectInfo = ({ project }) => {
           {project.challenges.map((challenge, index) => (
             <div
               key={index}
-              className="flex items-start gap-3 p-3 border rounded-lg transition-all duration-300 sm:gap-4 sm:p-4 group bg-gradient-to-r from-zinc-50 to-white border-zinc-200/60 hover:border-amber-300/60 hover:shadow-md">
+              className="flex items-start gap-3 p-3 rounded-lg transition-all duration-300 sm:gap-4 sm:p-4 group bg-gradient-to-r from-zinc-50 to-white hover:shadow-md">
               <div className="flex items-center justify-center w-6 h-6 rounded-full transition-colors duration-300 sm:w-7 sm:h-7 bg-amber-100 group-hover:bg-amber-200 mt-0.5 flex-shrink-0">
                 <span className="text-xs font-bold sm:text-sm text-amber-600">
                   {index + 1}
@@ -165,7 +166,7 @@ const ProjectLinks = ({ github, demo }) => (
         href={github}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-zinc-600 hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500"
+        className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-zinc-600 hover:bg-zinc-700 focus:outline-none focus:ring-0"
         aria-label="Voir le code source sur GitHub">
         <IoOpenOutline className="w-5 h-5" />
         Code source
@@ -176,7 +177,7 @@ const ProjectLinks = ({ github, demo }) => (
         href={demo}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+        className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-0"
         aria-label="Voir la démonstration du projet">
         <IoOpenOutline className="w-5 h-5" />
         Voir le projet
@@ -219,25 +220,10 @@ const ProjectPage = () => {
 
   if (!project) {
     return (
-      <Container className="py-20 text-center">
-        <FadeIn>
-          <div className="mx-auto max-w-md">
-            <h1 className="text-3xl font-bold mb-4 text-zinc-900">
-              Projet non trouvé
-            </h1>
-            <p className="text-lg text-zinc-600 mb-8">
-              Le projet que vous recherchez n'existe pas ou a été supprimé.
-            </p>
-            <button
-              onClick={handleBack}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-zinc-600 hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500"
-              aria-label="Retourner à la page d'accueil">
-              <IoArrowBack className="w-5 h-5" />
-              Retour à l'accueil
-            </button>
-          </div>
-        </FadeIn>
-      </Container>
+      <Error
+        statusCode={404}
+        message="Le projet que vous recherchez n'existe pas ou a été supprimé."
+      />
     );
   }
 
@@ -251,7 +237,7 @@ const ProjectPage = () => {
             <div className="flex items-center gap-4 my-12 lg:my-6">
               <button
                 onClick={handleBack}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-lg shadow-sm transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 hover:shadow-md"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-lg shadow-sm transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-0 hover:shadow-md"
                 aria-label="Retourner à la liste des projets">
                 <IoArrowBack className="w-4 h-4" />
                 Retour
@@ -269,10 +255,14 @@ const ProjectPage = () => {
         {/* Image principale du projet */}
         <FadeIn className="delay-100">
           <div className="relative rounded-xl shadow-lg overflow-hidden aspect-video mb-8">
-            <LazyProjectImage
+            <img
               src={project.image}
               alt={project.title}
               className="w-full h-full object-cover"
+              fetchPriority="eager"
+              width="600"
+              height="400"
+              priority="true"
             />
           </div>
         </FadeIn>
