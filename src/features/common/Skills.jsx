@@ -179,7 +179,7 @@ const Skills = () => {
       },
       {
         name: "Figma",
-        icon: <SiFigma className="w-4 h-4 text-orange-600" />,
+        icon: <SiFigma className="w-4 h-4 text-sky-600" />,
         description:
           "Design system, prototypage interactif et collaboration UI/UX",
       },

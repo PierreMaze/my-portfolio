@@ -1,13 +1,13 @@
 import { lazy, Suspense } from "react";
-import { SkeletonFallback } from "../components/ui";
-import Contact from "../features/common/Contact";
-import Hero from "../features/common/Hero";
-import { useDocumentTitle, useMeta } from "../hooks";
+import { SkeletonFallback } from "../components/ui/index.jsx";
+import Contact from "../features/common/Contact.jsx";
+import Hero from "../features/common/Hero.jsx";
+import { useDocumentTitle, useMeta } from "../hooks/index.jsx";
 
 // Lazy loading des sections lourdes
 const Projects = lazy(() => import("../features/projects/index.jsx"));
-const Skills = lazy(() => import("../features/common/Skills"));
-const Timeline = lazy(() => import("../features/common/Timeline"));
+const Skills = lazy(() => import("../features/common/Skills.jsx"));
+const Timeline = lazy(() => import("../features/common/Timeline.jsx"));
 
 const Home = () => {
   // SEO dynamique

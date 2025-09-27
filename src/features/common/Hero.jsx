@@ -7,7 +7,9 @@ import ImgAvatar from "../../assets/avatar.png";
 import { FadeIn, ImageLoader } from "../../components/ui";
 
 // Lazy loading de l'image simple
-const SimpleImage = lazy(() => import("../../components/ui/image/SimpleImage"));
+const SimpleImage = lazy(() =>
+  import("../../components/ui/loader/ImageLoader")
+);
 
 const Hero = () => {
   const [downloadState, setDownloadState] = useState("default"); // 'default', 'loading', 'done'
@@ -101,14 +103,14 @@ const Hero = () => {
           className="inline-block mx-auto h-52 md:mx-4 lg:mt-16 hover:shadow-2xl hover:shadow-amber-600/50 md:mt-48 lg:w-80 lg:h-80 2xl:scale-150 focus:outline-none focus:ring-0">
           <Suspense
             fallback={<ImageLoader className="w-full h-full rounded-md" />}>
-            <SimpleImage
+            <img
               src={ImgAvatar}
               alt="Mon avatar"
-              fetchpriority="high"
+              fetchPriority="eager"
               className="w-full h-full rounded-md transition-transform object-cover hover:scale-105"
               width="256"
               height="256"
-              priority={true}
+              priority="true"
             />
           </Suspense>
         </a>
