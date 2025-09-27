@@ -83,7 +83,7 @@ const Contact = () => {
               <input
                 type="text"
                 id="name"
-                className="px-4 py-2 w-full border rounded-lg border-accent-200 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent focus:bg-white"
+                className="px-4 py-2 w-full rounded-lg ring-2 ring-zinc-300 focus:outline-none focus:ring-orange-500/50 focus:bg-white"
                 required
               />
             </div>
@@ -94,7 +94,7 @@ const Contact = () => {
               <input
                 type="email"
                 id="email"
-                className="px-4 py-2 w-full border rounded-lg border-accent-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent"
+                className="px-4 py-2 w-full rounded-lg ring-2 ring-zinc-300 focus:bg-white focus:outline-none focus:ring-orange-500/50"
                 required
               />
             </div>
@@ -105,7 +105,7 @@ const Contact = () => {
               <textarea
                 id="message"
                 rows={4}
-                className="px-4 py-2 w-full border rounded-lg border-accent-200 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-transparent"
+                className="px-4 py-2 w-full rounded-lg ring-2 ring-zinc-300 focus:bg-white focus:outline-none focus:ring-orange-500/50"
                 required></textarea>
             </div>
             <button
