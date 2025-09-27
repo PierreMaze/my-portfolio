@@ -1,8 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { NAVIGATION_ITEMS, SECTIONS } from "../../constants/navigation";
-import { useScrollToTop } from "../../hooks";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,7 +9,6 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isVisible, setIsVisible] = useState(false);
   const location = useLocation();
-  useScrollToTop();
 
   // Navigation pour la page Legal
   const legalNavigationItems = [
@@ -58,8 +56,21 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Throttle le scroll pour améliorer les performances
+    let ticking = false;
+
+    const throttledHandleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", throttledHandleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", throttledHandleScroll);
   }, [handleScroll]);
 
   useEffect(() => {
@@ -117,7 +128,7 @@ const Header = () => {
           <Link
             to="/"
             className="text-2xl font-bold 2xl:text-4xl text-orange-500 focus:outline-none focus:ring-0 hover:outline-none">
-            PORTFOLIO
+            MAZE Dev.
           </Link>
 
           {/* Navigation desktop */}
@@ -125,12 +136,18 @@ const Header = () => {
             {location.pathname === "/legal" ||
             location.pathname === "/about" ? (
               // Navigation simplifiée pour les pages Legal et About
-              <button
-                onClick={() => handleNavClick("/")}
+              <NavLink
+                to="/"
                 aria-label="Retour à l'accueil"
-                className="px-4 py-2 transition-colors text-zinc-900 hover:text-orange-600 focus:outline-none focus:ring-0">
+                className={({ isActive }) =>
+                  `px-4 py-2 transition-colors focus:outline-none focus:ring-0 ${
+                    isActive
+                      ? "text-orange-600"
+                      : "text-zinc-900 hover:text-orange-600"
+                  }`
+                }>
                 Accueil
-              </button>
+              </NavLink>
             ) : (
               // Navigation par défaut (page d'accueil)
               NAVIGATION_ITEMS.map((item) => (
@@ -141,7 +158,8 @@ const Header = () => {
                   className={`px-4 py-2 text-zinc-900 hover:text-orange-600 transition-colors focus:outline-none focus:ring-0 relative ${
                     activeSection === item.path.substring(1)
                       ? "text-orange-600 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-orange-600 after:transition-all after:duration-300"
-                      : "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-transparent after:transition-all after:duration-300"}`}>
+                      : "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-transparent after:transition-all after:duration-300"
+                  }`}>
                   {item.label}
                 </button>
               ))
@@ -217,24 +235,30 @@ const Header = () => {
                     {location.pathname === "/legal" ||
                     location.pathname === "/about" ? (
                       // Navigation mobile simplifiée pour les pages Legal et About
-                      <motion.button
+                      <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{
                           duration: 0.3,
                           delay: 0.1,
                           ease: "easeOut",
-                        }}
-                        onClick={() => {
-                          handleNavClick("/");
-                          setIsMobileMenuOpen(false);
-                        }}
-                        aria-label="Retour à l'accueil"
-                        className="px-4 py-3 w-full text-left rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0 text-zinc-700 hover:bg-zinc-50 hover:text-orange">
-                        <span className="text-lg font-medium transition-transform duration-200 group-hover:translate-x-1">
-                          Accueil
-                        </span>
-                      </motion.button>
+                        }}>
+                        <NavLink
+                          to="/"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          aria-label="Retour à l'accueil"
+                          className={({ isActive }) =>
+                            `px-4 py-3 w-full text-left rounded-lg transition-all duration-200 group focus:outline-none focus:ring-0 ${
+                              isActive
+                                ? "bg-orange-50 text-orange-600"
+                                : "text-zinc-700 hover:bg-zinc-50 hover:text-orange-600"
+                            }`
+                          }>
+                          <span className="text-lg font-medium transition-transform duration-200 group-hover:translate-x-1">
+                            Accueil
+                          </span>
+                        </NavLink>
+                      </motion.div>
                     ) : (
                       // Navigation mobile par défaut (page d'accueil)
                       NAVIGATION_ITEMS.map((item, index) => (
@@ -255,7 +279,8 @@ const Header = () => {
                           className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group border-none focus:outline-none focus:ring-0 ${
                             activeSection === item.path.substring(1)
                               ? "bg-white text-orange-500 ring-2 ring-orange-500"
-                              : "text-zinc-700 hover:bg-orange-50 hover:text-orange-600 ring-2 ring-transparent focus:ring-orange-500 active:ring-orange-500"}`}>
+                              : "text-zinc-700 hover:bg-orange-50 hover:text-orange-600 ring-2 ring-transparent focus:ring-orange-500 active:ring-orange-500"
+                          }`}>
                           <span className="text-lg font-medium transition-transform duration-200 group-hover:translate-x-1">
                             {item.label}
                           </span>

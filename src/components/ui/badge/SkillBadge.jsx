@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import {
   SiDotenv,
   SiFigma,
@@ -9,68 +9,22 @@ import {
   SiTailwindcss,
 } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
-import {
-  BADGE_COLOR_CLASSES,
-  HTML_ANIMATION_CONFIG,
-} from "../../../constants/projects";
+import { BADGE_COLOR_CLASSES } from "../../../constants/projects";
 import { getColorFromIcon } from "../../../utils/colorUtils";
 
 /**
- * Composant HTML/CSS avec animation de couleur
- * @param {Object} props
- * @param {Function} props.onColorChange - Callback pour le changement de couleur
- * @returns {JSX.Element}
- */
-const AnimatedHtmlIcon = ({ onColorChange }) => {
-  const [isOrange, setIsOrange] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsOrange((prev) => !prev);
-    }, HTML_ANIMATION_CONFIG.interval);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    if (onColorChange) {
-      onColorChange(isOrange ? "orange" : "blue");
-    }
-  }, [isOrange, onColorChange]);
-
-  const iconColor = isOrange
-    ? HTML_ANIMATION_CONFIG.colors.orange
-    : HTML_ANIMATION_CONFIG.colors.blue;
-
-  return (
-    <SiHtml5
-      className={`w-4 h-4 transition-colors duration-500 ease-in-out${iconColor}`}
-    />
-  );
-};
-
-/**
- * Badge HTML/CSS avec animation
+ * Composant HTML/CSS avec animation CSS pure
  * @returns {JSX.Element}
  */
 const HtmlCssBadge = () => {
-  const [htmlColor, setHtmlColor] = useState("orange");
-
-  const handleColorChange = useCallback((newColor) => {
-    setHtmlColor(newColor);
-  }, []);
-
-  const colorClass =
-    htmlColor === "orange"
-      ? BADGE_COLOR_CLASSES.orange
-      : BADGE_COLOR_CLASSES.blue;
-
   return (
     <div
-      className={`${"flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300 "}${colorClass}`}
+      className={`${"flex items-center gap-2 px-2 py-1 border-2 rounded-md shadow-sm transition-all duration-300 "}${
+        BADGE_COLOR_CLASSES.orange
+      }`}
       aria-label="Compétence en HTML / CSS">
       <div className="text-sm scale-75" aria-hidden="true">
-        <AnimatedHtmlIcon onColorChange={handleColorChange} />
+        <SiHtml5 className="w-4 h-4 animate-pulse text-orange-600" />
       </div>
       <span className="text-xs font-medium lg:text-sm text-zinc-900">
         HTML / CSS
@@ -100,16 +54,22 @@ export const SkillBadge = ({ name, icon, color }) => {
 
   return (
     <div
-      className={`${"flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300 "}${colorClass}`}
+      className={`${"flex items-center gap-2 px-2 py-1 border-2 text-current rounded-md shadow-sm transition-all duration-300 "}${colorClass}`}
       aria-label={`Compétence en ${name}`}>
       <div className="scale-75 text-md" aria-hidden="true">
         {icon}
       </div>
-      <span className="text-sm font-medium lg:text-base text-zinc-800">
+      <span className="text-sm font-medium lg:text-base text-current">
         {name}
       </span>
     </div>
   );
+};
+
+SkillBadge.propTypes = {
+  name: PropTypes.string.isRequired,
+  icon: PropTypes.node,
+  color: PropTypes.string,
 };
 
 /**
@@ -132,8 +92,8 @@ const getTechIconAndColor = (techName) => {
       color: "green",
     },
     Figma: {
-      icon: <SiFigma className="w-4 h-4 text-orange-600" />,
-      color: "orange",
+      icon: <SiFigma className="w-4 h-4 text-sky-600" />,
+      color: "sky",
     },
     "framer-motion": {
       icon: <TbBrandFramerMotion className="w-4 h-4 text-pink-600" />,
@@ -184,14 +144,19 @@ export const TechBadge = ({ name, color }) => {
 
   return (
     <div
-      className={`${"flex items-center gap-2 px-2 py-1 border rounded-md shadow-sm transition-all duration-300 "}${colorClass}`}
+      className={`${"flex items-center gap-2 px-2 py-1 border-2 rounded-md shadow-sm transition-all duration-300 "}${colorClass}`}
       aria-label={`Technologie: ${name}`}>
       <div className="scale-75 text-md" aria-hidden="true">
         {icon}
       </div>
-      <span className="text-sm font-medium lg:text-base text-zinc-800">
+      <span className="text-sm font-medium text-current lg:text-base">
         {name}
       </span>
     </div>
   );
+};
+
+TechBadge.propTypes = {
+  name: PropTypes.string.isRequired,
+  color: PropTypes.string,
 };
