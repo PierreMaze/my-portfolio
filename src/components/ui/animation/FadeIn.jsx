@@ -31,7 +31,7 @@ const FadeIn = ({ children, className }) => {
   return (
     <div
       ref={elementRef}
-      className={`${"opacity-0 transition-all duration-500 translate-y-4 "}${className}`}>
+      className={`${"opacity-0 transition-all duration-500 "}${className}`}>
       {children}
     </div>
   );

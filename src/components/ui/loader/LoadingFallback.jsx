@@ -24,6 +24,7 @@ const LoadingFallback = ({ message = "Chargement..." }) => (
 
 /**
  * Fallback skeleton pour de meilleurs CLS (Cumulative Layout Shift)
+ * Dimensions fixes pour éviter les décalages de layout
  */
 const SkeletonFallback = ({ className }) => (
   <div

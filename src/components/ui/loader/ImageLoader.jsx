@@ -1,11 +1,11 @@
 /**
  * Composant de chargement spécialisé pour les images
- * Skeleton loader moderne et élégant
+ * Skeleton loader moderne et élégant avec dimensions fixes pour éviter le CLS
  */
 const ImageLoader = ({ className }) => {
   return (
     <div
-      className={`relative rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden${className}`}
+      className={`relative w-full h-full rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden min-h-full${className}`}
       aria-busy="true"
       role="status"
       aria-label="Chargement de l'image">
