@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -26,7 +27,8 @@ const DropdownMenu = ({ title, items }) => {
         {title}
         <svg
           className={`w-4 h-4 transition-transform ${
-            isOpen ? "rotate-180" : ""}`}
+            isOpen ? "rotate-180" : ""
+          }`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24">
@@ -54,6 +56,16 @@ const DropdownMenu = ({ title, items }) => {
       )}
     </div>
   );
+};
+
+DropdownMenu.propTypes = {
+  title: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      path: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default DropdownMenu;

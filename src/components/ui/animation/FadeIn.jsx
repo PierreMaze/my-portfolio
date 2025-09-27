@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";
 
 const FadeIn = ({ children, className }) => {
@@ -34,6 +35,11 @@ const FadeIn = ({ children, className }) => {
       {children}
     </div>
   );
+};
+
+FadeIn.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 };
 
 export default FadeIn;
