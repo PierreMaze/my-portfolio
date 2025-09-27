@@ -48,11 +48,8 @@ const Header = () => {
   }, [sections, location.pathname, legalNavigationItems]);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 300);
-
-    return () => clearTimeout(timer);
+    // Afficher le header immédiatement pour éviter les décalages
+    setIsVisible(true);
   }, []);
 
   useEffect(() => {
@@ -114,11 +111,9 @@ const Header = () => {
 
   // Mémoriser les classes conditionnelles
   const headerClasses = useMemo(() => {
-    return `fixed top-0 left-0 right-0 z-40 transition-all duration-1000 ${
+    return `fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
       isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
-    } ${
-      isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
-    }`;
+    } ${isVisible ? "opacity-100" : "opacity-0"}`;
   }, [isScrolled, isVisible]);
 
   return (

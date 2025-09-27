@@ -36,8 +36,8 @@ const ParallaxGrid = () => {
             linear-gradient(90deg, rgba(93, 123, 138, 0.5) 2px, transparent 2px)
           `,
           backgroundSize: "50px 50px",
-          backgroundPosition: `0 ${scrollY * 0.2}px`,
-          transition: "background-position 0.1s ease-out",
+          backgroundPosition: `0 ${scrollY * 0.1}px`,
+          transition: "background-position 0.05s ease-out",
         }}
       />
 
