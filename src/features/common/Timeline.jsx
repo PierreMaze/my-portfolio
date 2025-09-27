@@ -65,19 +65,19 @@ const Timeline = () => {
                   : "md:pl-[calc(50%+2rem)]"
               }`}>
               {/* Point sur la ligne */}
-              <div className="absolute z-10 w-4 h-4 rounded-full bg-orange-500 -translate-x-1/2 left-1/2 -top-6 md:top-6" />
+              <div className="absolute z-10 w-4 h-4 rounded-full bg-orange-600 -translate-x-1/2 left-1/2 -top-6 md:top-6" />
 
               {/* Contenu */}
               <div
-                className={`bg-zinc-100 border-2 border-zinc-300 my-12 md:my-0 p-8 rounded-lg relative ${
+                className={`bg-zinc-100 ring-2 ring-zinc-300 my-12 md:my-0 p-8 rounded-lg relative ${
                   index % 2 === 0 ? "md:pr-8" : "md:pl-8"
                 }`}>
                 {/* Flèche */}
                 <div
-                  className={`hidden md:block absolute top-6 w-4 h-4 border-zinc-300 bg-zinc-100 transform rotate-45 ${
+                  className={`hidden md:block absolute top-6 w-4 h-4 ring-zinc-300 bg-zinc-100 transform rotate-45 ${
                     index % 2 === 0
-                      ? "right-[-8px] border-r-2  border-t-2"
-                      : "left-[-8px] border-l-2 border-b-2"
+                      ? "right-[-8px] border-r-2 border-zinc-300  border-t-2"
+                      : "left-[-8px] border-l-2 border-zinc-300 border-b-2"
                   }`}
                 />
 

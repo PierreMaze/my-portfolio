@@ -261,7 +261,7 @@ export const Projects = () => {
                 aria-label={`Filtrer par ${category}`}
                 className={`px-3 py-1.5 text-sm font-medium transition-all duration-300 rounded ${
                   selectedCategory === category
-                    ? "bg-orange-600 text-white"
+                    ? "bg-orange-600 text-white ring-orange-600 ring-2 "
                     : "text-black bg-zinc-100 ring-zinc-500 ring-2 hover:ring-zinc-800 hover:bg-white"
                 }`}>
                 {category}

@@ -109,7 +109,7 @@ export const ProjectCard = ({
           {tags.map((tag) => (
             <li
               key={tag}
-              className="flex items-center justify-center w-8 h-8 bg-white border rounded-full shadow-sm transition-shadow duration-200 border-zinc-200 hover:shadow-md"
+              className="flex items-center justify-center w-8 h-8 bg-white border-2 rounded-full shadow-sm transition-shadow duration-200 border-zinc-200 hover:shadow-md"
               title={tag}
               aria-label={`Technologie: ${tag}`}>
               {getTagIcon(tag)}

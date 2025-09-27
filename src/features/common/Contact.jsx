@@ -27,7 +27,7 @@ const Contact = () => {
               <div className="flex items-center gap-4">
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-orange-100">
                   <svg
-                    className="w-6 h-6 text-orange-500"
+                    className="w-6 h-6 text-orange-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24">
@@ -47,7 +47,7 @@ const Contact = () => {
               <div className="flex items-center gap-4">
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-orange-100">
                   <svg
-                    className="w-6 h-6 text-orange-500"
+                    className="w-6 h-6 text-orange-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24">
@@ -111,7 +111,7 @@ const Contact = () => {
             <button
               type="submit"
               aria-label="Envoyer le message de contact"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2 text-base font-medium text-white rounded transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed">
+              className="inline-flex items-center justify-center gap-2 px-4 py-2 text-base font-medium text-white rounded transition-all duration-300 bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 disabled:cursor-not-allowed">
               <IoPaperPlane className="w-4 h-4" />
               Envoyer le message
             </button>
