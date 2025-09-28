@@ -86,7 +86,7 @@ const getTechIconAndColor = (techName) => {
  * @param {string} props.color - Couleur du badge (optionnel, sera surchargée par le mapping)
  * @returns {JSX.Element}
  */
-export const TechBadge = ({ name, color }) => {
+export const TechRoundedBadge = ({ name, color }) => {
   const { icon, color: mappedColor } = getTechIconAndColor(name);
   const badgeColor = color || mappedColor;
   const colorClass =
@@ -104,7 +104,7 @@ export const TechBadge = ({ name, color }) => {
   );
 };
 
-TechBadge.propTypes = {
+TechRoundedBadge.propTypes = {
   name: PropTypes.string.isRequired,
   color: PropTypes.string,
 };

@@ -31,7 +31,7 @@ const HtmlCssBadge = () => {
  * @param {string} props.color - Couleur du badge (optionnel)
  * @returns {JSX.Element}
  */
-export const CompetenceBadge = ({ name, icon, color }) => {
+export const TechRectangularBadge = ({ name, icon, color }) => {
   // Cas spécial pour HTML/CSS
   if (name === "HTML / CSS") {
     return <HtmlCssBadge />;
@@ -56,7 +56,7 @@ export const CompetenceBadge = ({ name, icon, color }) => {
   );
 };
 
-CompetenceBadge.propTypes = {
+TechRectangularBadge.propTypes = {
   name: PropTypes.string.isRequired,
   icon: PropTypes.node,
   color: PropTypes.string,

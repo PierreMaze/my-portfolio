@@ -20,7 +20,7 @@ import {
 import { TbApi, TbBrandFramerMotion, TbBrandHeadlessui } from "react-icons/tb";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../components/layout/Container";
-import { CompetenceBadge, FadeIn } from "../components/ui";
+import { FadeIn, TechRectangularBadge } from "../components/ui";
 import { useProjects } from "../contexts";
 import { useMeta, useTabTitle } from "../hooks";
 import Error from "./ErrorPage";
@@ -161,7 +161,11 @@ const TechnologiesList = ({ technologies }) => {
       </h3>
       <div className="flex flex-wrap gap-2">
         {technologies.map((tech) => (
-          <CompetenceBadge key={tech} name={tech} icon={getTechIcon(tech)} />
+          <TechRectangularBadge
+            key={tech}
+            name={tech}
+            icon={getTechIcon(tech)}
+          />
         ))}
       </div>
     </div>

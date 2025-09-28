@@ -27,7 +27,7 @@ import {
   SiZod,
 } from "react-icons/si";
 
-import { FadeIn, CompetenceBadge } from "../../ui";
+import { FadeIn, TechRectangularBadge } from "../../ui";
 
 const Skills = () => {
   const skillsData = {
@@ -216,7 +216,7 @@ const Skills = () => {
           aria-label={`Compétences en ${title}`}>
           {skills.map((skill, index) => (
             <li key={`${title}-${index}`}>
-              <CompetenceBadge
+              <TechRectangularBadge
                 name={skill.name}
                 icon={skill.icon}
                 color={skill.color}
