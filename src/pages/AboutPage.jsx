@@ -1,16 +1,16 @@
 import { Container } from "../components/layout/Container";
 import { FadeIn } from "../components/ui";
-import { useDocumentTitle, useMeta } from "../hooks";
+import { useMeta, useTabTitle } from "../hooks";
 
 const About = () => {
   // SEO dynamique
-  useDocumentTitle("À propos");
+  useTabTitle("À propos");
   useMeta({
     description:
       "Découvrez le parcours et l'expertise de Pierre Mazelaygue, développeur Fullstack passionné par la création d'expériences web modernes.",
     keywords:
       "à propos, Pierre Mazelaygue, développeur, parcours, expertise, fullstack",
-    ogTitle: "À propos - Pierre Mazelaygue",
+    ogTitle: "À propos - MAZE Web.",
     ogDescription:
       "Découvrez le parcours et l'expertise d'un développeur Fullstack passionné",
   });
@@ -43,14 +43,14 @@ const About = () => {
         <div className="grid gap-12 md:grid-cols-2">
           <FadeIn className="delay-100">
             <div className="space-y-6">
-              <p className="text-lg text-text-secondary">
+              <p className="text-lg text-black">
                 Je me nomme Pierre MAZELAYGUE, j'ai 28 ans. Développeur
                 Fullstack passionné par la création d'expériences web modernes
                 et performantes. Je combine expertise technique et sens du
                 design pour construire des applications qui allient esthétique
                 et fonctionnalité.
               </p>
-              <p className="text-lg text-text-secondary">
+              <p className="text-lg text-black">
                 Mon approche se concentre sur l'expérience utilisateur, la
                 performance et la maintenabilité du code. Je m'efforce de créer
                 des solutions élégantes qui répondent aux besoins des
@@ -61,25 +61,25 @@ const About = () => {
 
           <FadeIn className="delay-200">
             <div className="space-y-6">
-              <div className="p-6 bg-white rounded-lg shadow-sm">
+              <div className="p-6 bg-white rounded shadow-sm ring-2 ring-zinc-200">
                 <h3 className="text-xl font-semibold mb-4">Expertise</h3>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-accent"></span>
+                    <span className="w-2 h-2 rounded-full bg-orange-600"></span>
                     <span>
                       Développement Frontend avec React et TailwindCSS
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-accent"></span>
+                    <span className="w-2 h-2 rounded-full bg-orange-600"></span>
                     <span>Architecture Backend avec Node.js et PostgreSQL</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-accent"></span>
+                    <span className="w-2 h-2 rounded-full bg-orange-600"></span>
                     <span>Optimisation des performances et SEO</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-accent"></span>
+                    <span className="w-2 h-2 rounded-full bg-orange-600"></span>
                     <span>Design d'interface utilisateur et UX</span>
                   </li>
                 </ul>

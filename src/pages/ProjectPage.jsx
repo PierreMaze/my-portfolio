@@ -10,7 +10,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../components/layout/Container";
 import { FadeIn, TechBadge } from "../components/ui";
 import { useProjects } from "../contexts";
-import { useDocumentTitle, useMeta } from "../hooks";
+import { useMeta, useTabTitle } from "../hooks";
 import Error from "./ErrorPage";
 
 /**
@@ -93,8 +93,8 @@ const ProjectInfo = ({ project }) => {
             <div
               key={index}
               className="flex items-start gap-3 p-3 bg-white rounded-lg transition-all duration-300 sm:gap-4 sm:p-4 group">
-              <div className="flex items-center justify-center w-6 h-6 rounded-full transition-colors duration-300 sm:w-7 sm:h-7 bg-zinc-200 mt-0.5 flex-shrink-0">
-                <span className="text-xs font-bold sm:text-sm text-orange-500">
+              <div className="flex items-center justify-center w-6 h-6 rounded-full transition-colors duration-300 sm:w-7 sm:h-7 bg-orange-100 mt-0.5 flex-shrink-0">
+                <span className="text-xs font-bold sm:text-sm text-orange-600">
                   {index + 1}
                 </span>
               </div>
@@ -199,9 +199,7 @@ const ProjectPage = () => {
   const { previous, next } = getAdjacentProjects(parseInt(id));
 
   // Gestion du titre de la page et des meta tags
-  useDocumentTitle(
-    project ? `${project.title} | Portfolio` : "Projet non trouvé"
-  );
+  useTabTitle(project ? `${project.title} | Portfolio` : "Projet non trouvé");
   useMeta({
     description: project?.description || "Projet non trouvé",
     keywords: project?.tags?.join(", ") || "portfolio, projet",

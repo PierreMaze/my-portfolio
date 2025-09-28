@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { SkeletonFallback } from "../components/ui/index.jsx";
 import Contact from "../features/common/Contact.jsx";
 import Hero from "../features/common/Hero.jsx";
-import { useDocumentTitle, useMeta } from "../hooks/index.jsx";
+import { useMeta, useTabTitle } from "../hooks/index.jsx";
 
 // Lazy loading des sections lourdes
 const Projects = lazy(() => import("../features/projects/index.jsx"));
@@ -11,7 +11,7 @@ const Timeline = lazy(() => import("../features/common/Timeline.jsx"));
 
 const Home = () => {
   // SEO dynamique
-  useDocumentTitle("Développeur Fullstack");
+  useTabTitle("Portfolio");
   useMeta({
     description:
       "Portfolio de Pierre Mazelaygue, développeur Fullstack spécialisé en React, Node.js et TailwindCSS. Découvrez mes projets et compétences.",

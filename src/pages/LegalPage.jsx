@@ -1,8 +1,20 @@
 import { Link } from "react-router-dom";
 import { Container } from "../components/layout/Container";
 import { FadeIn } from "../components/ui";
+import { useMeta, useTabTitle } from "../hooks/index.jsx";
 
 const Legal = () => {
+  // SEO dynamique
+  useTabTitle("Mentions Legales");
+  useMeta({
+    description:
+      "Mentions légales du portfolio de Pierre Mazelaygue. Informations sur l'éditeur, l'hébergement, la propriété intellectuelle, la protection des données et la politique des cookies.",
+    keywords:
+      "mentions légales, Pierre Mazelaygue, portfolio, RGPD, cookies, propriété intellectuelle, hébergement, Netlify",
+    ogTitle: "Mentions Légales - Pierre Mazelaygue",
+    ogDescription:
+      "Mentions légales et informations juridiques du portfolio de Pierre Mazelaygue, développeur Fullstack",
+  });
   return (
     <section className="py-20">
       <Container>
