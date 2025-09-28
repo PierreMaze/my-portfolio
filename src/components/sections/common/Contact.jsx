@@ -1,5 +1,5 @@
 import { IoPaperPlane } from "react-icons/io5";
-import { FadeIn } from "../../components/ui";
+import { FadeIn } from "../../ui";
 
 const Contact = () => {
   return (

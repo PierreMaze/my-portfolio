@@ -3,13 +3,11 @@ import { FiLoader } from "react-icons/fi";
 import { IoMdDownload } from "react-icons/io";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { MdDownloadDone } from "react-icons/md";
-import ImgAvatar from "../../assets/avatar.png";
-import { FadeIn, ImageLoader } from "../../components/ui";
+import ImgAvatar from "../../../assets/avatar.png";
+import { FadeIn, ImageLoader } from "../../ui";
 
 // Lazy loading de l'image simple
-const SimpleImage = lazy(() =>
-  import("../../components/ui/loader/ImageLoader")
-);
+const SimpleImage = lazy(() => import("../../ui/loader/ImageLoader"));
 
 const Hero = () => {
   const [downloadState, setDownloadState] = useState("default"); // 'default', 'loading', 'done'

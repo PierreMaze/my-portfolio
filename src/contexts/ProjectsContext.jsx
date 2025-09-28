@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo } from "react";
-import { createImageArray } from "../utils/imageUtils";
+import { createImageArray } from "../components/utils/imageUtils";
 
 // Import des images des projets
 import ImgProjectClou from "../assets/clou.png";

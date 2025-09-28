@@ -1,4 +1,4 @@
-import { FadeIn } from "../../components/ui";
+import { FadeIn } from "../../ui";
 
 const timelineData = [
   {
