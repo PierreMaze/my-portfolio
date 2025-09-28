@@ -4,6 +4,9 @@
 // Composants de chargement
 export * from "./loader";
 
+// Composants de badges
+export * from "./buttons";
+
 // Composants d'animation
 export * from "./animation";
 
