@@ -4,7 +4,7 @@ import { IoMdDownload } from "react-icons/io";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { MdDownloadDone } from "react-icons/md";
 import ImgAvatar from "../../../assets/avatar.png";
-import { FadeIn, ImageLoader } from "../../ui";
+import { ButtonRectangularPrimary, FadeIn, ImageLoader } from "../../ui";
 
 // Lazy loading de l'image simple
 const SimpleImage = lazy(() => import("../../ui/loader/ImageLoader"));
@@ -85,13 +85,13 @@ const Hero = () => {
                   </a>
                 </div>
                 <div>
-                  <button
+                  <ButtonRectangularPrimary
                     onClick={handleDownload}
-                    aria-label="Télécharger mon CV au format PDF"
-                    className="inline-flex items-center justify-center gap-2 py-2 mx-8 w-3/4 text-base font-medium text-white rounded transition-all duration-300 bg-orange-600 hover:bg-orange-700">
+                    ariaLabel="Télécharger mon CV au format PDF"
+                    className="mx-8 w-3/4">
                     {getDownloadIcon()}
                     Mon CV
-                  </button>
+                  </ButtonRectangularPrimary>
                 </div>
               </div>
             </div>
