@@ -3,6 +3,7 @@ import {
   IoArrowBack,
   IoChevronBack,
   IoChevronForward,
+  IoLogoGithub,
   IoOpenOutline,
 } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
@@ -31,11 +32,11 @@ const ProjectNavigation = ({ previous, next, onNavigate }) => {
         {previous && (
           <button
             onClick={() => onNavigate(previous.id)}
-            className="relative flex items-center gap-3 text-black border-none transition-all duration-200 group ring-0 focus:outline-none focus:ring-0"
+            className="relative flex items-center gap-3 text-black border-none transition-all duration-200 group"
             aria-label={`Aller au projet précédent: ${previous.title}`}>
             <IoChevronBack className="w-5 h-5 transition-transform duration-200 group-hover:-translate-x-1" />
             <div className="text-left">
-              <div className="text-sm text-zinc-800">Projet précédent</div>
+              <div className="text-sm text-zinc-900">Projet précédent</div>
               <div className="font-medium">{previous.title}</div>
             </div>
             {/* Underline personnalisée */}
@@ -51,7 +52,7 @@ const ProjectNavigation = ({ previous, next, onNavigate }) => {
             className="relative flex items-center gap-3 text-black transition-all duration-200 group ring-0 focus:outline-none focus:ring-0"
             aria-label={`Aller au projet suivant: ${next.title}`}>
             <div className="text-right">
-              <div className="text-sm text-zinc-800">Projet suivant</div>
+              <div className="text-sm text-zinc-900">Projet suivant</div>
               <div className="font-medium">{next.title}</div>
             </div>
             <IoChevronForward className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
@@ -72,14 +73,13 @@ const ProjectNavigation = ({ previous, next, onNavigate }) => {
  */
 const ProjectInfo = ({ project }) => {
   return (
-    <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden shadow-zinc-200/50 mb-8">
+    <div className="relative bg-white rounded shadow-lg overflow-hidden shadow-zinc-200/50 mb-8">
       {/* Header avec gradient */}
-      <div className="relative px-8 py-6 bg-gradient-to-r from-orange-500 via-orange-600 to-amber-600">
-        <div className="absolute inset-0 bg-black/5"></div>
+      <div className="relative px-8 py-6 bg-orange-600">
         <div className="relative flex items-center gap-4">
           <div>
             <h3 className="text-2xl font-bold text-white">Défis relevés</h3>
-            <p className="text-sm text-orange-100 mt-1">
+            <p className="text-sm text-zinc-50 mt-1">
               Obstacles surmontés durant le développement
             </p>
           </div>
@@ -92,14 +92,14 @@ const ProjectInfo = ({ project }) => {
           {project.challenges.map((challenge, index) => (
             <div
               key={index}
-              className="flex items-start gap-3 p-3 rounded-lg transition-all duration-300 sm:gap-4 sm:p-4 group bg-gradient-to-r from-zinc-50 to-white hover:shadow-md">
-              <div className="flex items-center justify-center w-6 h-6 rounded-full transition-colors duration-300 sm:w-7 sm:h-7 bg-amber-100 group-hover:bg-amber-200 mt-0.5 flex-shrink-0">
-                <span className="text-xs font-bold sm:text-sm text-orange-600">
+              className="flex items-start gap-3 p-3 bg-white rounded-lg transition-all duration-300 sm:gap-4 sm:p-4 group">
+              <div className="flex items-center justify-center w-6 h-6 rounded-full transition-colors duration-300 sm:w-7 sm:h-7 bg-zinc-200 mt-0.5 flex-shrink-0">
+                <span className="text-xs font-bold sm:text-sm text-orange-500">
                   {index + 1}
                 </span>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm leading-relaxed transition-colors duration-300 sm:text-base text-zinc-700 group-hover:text-zinc-800">
+                <p className="text-sm leading-relaxed text-black transition-colors duration-300 sm:text-base">
                   {challenge}
                 </p>
               </div>
@@ -120,7 +120,7 @@ const ProjectInfo = ({ project }) => {
 const TechnologiesList = ({ technologies }) => {
   return (
     <div className="mb-8">
-      <h3 className="text-xl font-bold mb-4 text-zinc-900">
+      <h3 className="text-xl font-bold text-black mb-4">
         Technologies utilisées
       </h3>
       <div className="flex flex-wrap gap-2">
@@ -140,7 +140,7 @@ const TechnologiesList = ({ technologies }) => {
  */
 const ProjectResults = ({ results }) => (
   <div className="mb-8">
-    <h3 className="text-xl font-bold mb-4 text-zinc-900">Résultats obtenus</h3>
+    <h3 className="text-xl font-bold text-black mb-4">Résultats obtenus</h3>
     <ul className="space-y-3">
       {results.map((result, index) => (
         <li key={index} className="flex items-start gap-3">
@@ -166,9 +166,9 @@ const ProjectLinks = ({ github, demo }) => (
         href={github}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-zinc-600 hover:bg-zinc-700 focus:outline-none focus:ring-0"
+        className="inline-flex items-center justify-center gap-2 px-4 py-2 text-base font-medium text-black rounded transition-all duration-300 bg-zinc-100 ring-inset ring-zinc-500 ring-2 hover:ring-zinc-800 hover:bg-white"
         aria-label="Voir le code source sur GitHub">
-        <IoOpenOutline className="w-5 h-5" />
+        <IoLogoGithub className="w-5 h-5" />
         Code source
       </a>
     )}
@@ -177,7 +177,7 @@ const ProjectLinks = ({ github, demo }) => (
         href={demo}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-0"
+        className="inline-flex items-center justify-center gap-2 px-4 py-2 text-base font-medium text-white rounded transition-all duration-300 bg-orange-600 hover:bg-orange-700"
         aria-label="Voir la démonstration du projet">
         <IoOpenOutline className="w-5 h-5" />
         Voir le projet
@@ -237,16 +237,16 @@ const ProjectPage = () => {
             <div className="flex items-center gap-4 my-12 lg:my-6">
               <button
                 onClick={handleBack}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-lg shadow-sm transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-0 hover:shadow-md"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 text-base font-medium text-white rounded transition-all duration-300 bg-orange-600 hover:bg-orange-700"
                 aria-label="Retourner à la liste des projets">
                 <IoArrowBack className="w-4 h-4" />
                 Retour
               </button>
             </div>
-            <h1 className="text-3xl font-bold md:text-4xl mb-4 text-zinc-900">
+            <h1 className="text-3xl font-bold text-black md:text-4xl mb-4">
               {project.title}
             </h1>
-            <p className="text-lg md:text-xl text-zinc-600 mb-6">
+            <p className="text-lg md:text-xl text-zinc-900 mb-6">
               {project.description}
             </p>
           </header>
@@ -254,7 +254,7 @@ const ProjectPage = () => {
 
         {/* Image principale du projet */}
         <FadeIn className="delay-100">
-          <div className="relative rounded-xl shadow-lg overflow-hidden aspect-video mb-8">
+          <div className="relative rounded shadow-lg overflow-hidden aspect-video mb-8">
             <img
               src={project.image}
               alt={project.title}
@@ -274,14 +274,14 @@ const ProjectPage = () => {
             {/* Problématique */}
             <FadeIn className="delay-200">
               <section>
-                <h2 className="text-2xl font-bold mb-4 text-zinc-900">
+                <h2 className="text-2xl font-bold text-black mb-4">
                   Problématique
                 </h2>
                 <p className="leading-relaxed text-zinc-700 mb-6">
                   {project.problem}
                 </p>
 
-                <h3 className="text-xl font-semibold mb-4 text-zinc-900">
+                <h3 className="text-xl font-semibold text-black mb-4">
                   Objectifs
                 </h3>
                 <ul className="space-y-3 mb-6">
@@ -293,7 +293,7 @@ const ProjectPage = () => {
                   ))}
                 </ul>
 
-                <h3 className="text-xl font-semibold mb-4 text-zinc-900">
+                <h3 className="text-xl font-semibold text-black mb-4">
                   Solution
                 </h3>
                 <p className="leading-relaxed text-zinc-700">
@@ -319,7 +319,7 @@ const ProjectPage = () => {
             {/* Liens */}
             <FadeIn className="delay-500">
               <section>
-                <h3 className="text-xl font-bold mb-4 text-zinc-900">
+                <h3 className="text-xl font-bold text-black mb-4">
                   Liens du projet
                 </h3>
                 <ProjectLinks github={project.github} demo={project.demo} />
