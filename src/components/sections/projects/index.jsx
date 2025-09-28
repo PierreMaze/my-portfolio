@@ -4,7 +4,10 @@ import ImgProjectMakeSense from "../../../assets/make_sense.png";
 import ImgProjectPortfolio from "../../../assets/portfolio.png";
 import ImgProjectSignature from "../../../assets/signature.png";
 import { useProjects } from "../../../hooks";
-import { FadeIn } from "../../ui";
+import {
+  ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary,
+  FadeIn,
+} from "../../ui";
 import { createImageArray } from "../../utils/imageUtils";
 import { ProjectCard } from "./components/ProjectCard";
 
@@ -254,18 +257,13 @@ export const Projects = () => {
             role="radiogroup"
             aria-label="Filtres de catégories de projets">
             {categories.map((category) => (
-              <button
+              <ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary
                 key={category}
                 onClick={() => handleCategoryChange(category)}
-                aria-pressed={selectedCategory === category}
-                aria-label={`Filtrer par ${category}`}
-                className={`px-3 py-1.5 text-sm font-medium transition-all duration-300 rounded gap-2  ${
-                  selectedCategory === category
-                    ? "bg-orange-600 text-white ring-orange-600 ring-2 "
-                    : "text-black bg-zinc-100 ring-zinc-500 ring-2 hover:ring-zinc-800 hover:bg-white"
-                }`}>
+                isActive={selectedCategory === category}
+                ariaLabel={`Filtrer par ${category}`}>
                 {category}
-              </button>
+              </ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary>
             ))}
           </div>
         </fieldset>
