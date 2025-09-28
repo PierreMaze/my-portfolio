@@ -20,7 +20,11 @@ import {
 import { TbApi, TbBrandFramerMotion, TbBrandHeadlessui } from "react-icons/tb";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../components/layout/Container";
-import { FadeIn, TechRectangularBadge } from "../components/ui";
+import {
+  ButtonRectangularPrimary,
+  FadeIn,
+  TechRectangularBadge,
+} from "../components/ui";
 import { useProjects } from "../contexts";
 import { useMeta, useTabTitle } from "../hooks";
 import Error from "./ErrorPage";
@@ -273,13 +277,12 @@ const ProjectPage = () => {
           <header className="mb-8">
             {/* Bouton de retour intégré dans le header */}
             <div className="flex items-center gap-4 my-12 lg:my-6">
-              <button
+              <ButtonRectangularPrimary
                 onClick={handleBack}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 text-base font-medium text-white rounded transition-all duration-300 bg-orange-600 hover:bg-orange-700"
-                aria-label="Retourner à la liste des projets">
+                ariaLabel="Retourner à la liste des projets">
                 <IoArrowBack className="w-4 h-4" />
                 Retour
-              </button>
+              </ButtonRectangularPrimary>
             </div>
             <h1 className="text-3xl font-bold text-black md:text-4xl mb-4">
               {project.title}

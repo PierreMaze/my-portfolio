@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FadeIn } from "../components/ui";
+import {
+  ButtonRectangularPrimary,
+  ButtonRectangularSecondary,
+  FadeIn,
+} from "../components/ui";
 
 const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
   const getErrorContent = () => {
@@ -81,27 +85,27 @@ const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
             className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              to="/"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 hover:shadow-lg hover:shadow-orange-500/25">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                />
-              </svg>
-              Retour à l'accueil
+            <Link to="/">
+              <ButtonRectangularPrimary className="px-6 py-3 hover:shadow-lg hover:shadow-orange-500/25">
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  />
+                </svg>
+                Retour à l'accueil
+              </ButtonRectangularPrimary>
             </Link>
 
-            <button
+            <ButtonRectangularSecondary
               onClick={() => window.history.back()}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium border rounded-lg transition-all duration-300 text-zinc-700 bg-zinc-50 ring-zinc-300 ring-2 hover:ring-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-orange-600 focus:ring-offset-2">
+              className="px-6 py-3 text-base">
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -115,7 +119,7 @@ const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
                 />
               </svg>
               Page précédente
-            </button>
+            </ButtonRectangularSecondary>
           </motion.div>
         </FadeIn>
       </div>
