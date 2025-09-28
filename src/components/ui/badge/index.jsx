@@ -1,2 +1,3 @@
 // Export des composants de badges
-export { SkillBadge, TechBadge } from "./SkillBadge";
+export { CompetenceBadge } from "./CompetenceBadge";
+export { TechBadge } from "./TechBadge";
