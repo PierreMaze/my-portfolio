@@ -77,7 +77,7 @@ const Hero = () => {
                     variant="github"
                     title="GitHub"
                     ariaLabel="GitHub">
-                    <IoLogoGithub />
+                    <IoLogoGithub className="w-full h-full" />
                   </ButtonIconsSecondaryHoveredColoredQuarteRotate>
 
                   <ButtonIconsSecondaryHoveredColoredQuarteRotate
@@ -86,7 +86,7 @@ const Hero = () => {
                     variant="linkedin"
                     title="LinkedIn"
                     ariaLabel="LinkedIn">
-                    <IoLogoLinkedin />
+                    <IoLogoLinkedin className="w-full h-full" />
                   </ButtonIconsSecondaryHoveredColoredQuarteRotate>
                 </div>
                 <div>

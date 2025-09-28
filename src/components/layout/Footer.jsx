@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import {
   ButtonIconsSecondaryHoveredColoredQuarteRotate,
   ButtonUnderlineSecondaryHoveredPrimary,
@@ -11,19 +11,19 @@ const Footer = () => {
         <div className="flex justify-center gap-6 mb-6">
           <ButtonIconsSecondaryHoveredColoredQuarteRotate
             href="https://github.com/PierreMaze"
-            size="large"
+            size="small"
             variant="github"
             title="Github"
             ariaLabel="GitHub">
-            <FaGithub />
+            <IoLogoGithub className="w-full h-full" />
           </ButtonIconsSecondaryHoveredColoredQuarteRotate>
           <ButtonIconsSecondaryHoveredColoredQuarteRotate
             href="https://fr.linkedin.com/in/pierremazelaygue"
-            size="large"
+            size="small"
             variant="linkedin"
             title="LinkedIn"
             ariaLabel="LinkedIn">
-            <FaLinkedin />
+            <IoLogoLinkedin className="w-full h-full" />
           </ButtonIconsSecondaryHoveredColoredQuarteRotate>
         </div>
         <div className="my-4">
