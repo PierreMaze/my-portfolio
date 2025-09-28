@@ -4,12 +4,12 @@ import {
   ButtonUnderlineSecondaryHoveredPrimary,
   FadeIn,
 } from "../components/ui";
-import { useMeta, useTabTitle } from "../hooks/index.jsx";
+import { useMeta } from "../hooks";
 
 const Legal = () => {
-  // SEO dynamique
-  useTabTitle("Mentions Legales");
+  // SEO dynamique unifié
   useMeta({
+    title: "Mentions Légales",
     description:
       "Mentions légales du portfolio de Pierre Mazelaygue. Informations sur l'éditeur, l'hébergement, la propriété intellectuelle, la protection des données et la politique des cookies.",
     keywords:

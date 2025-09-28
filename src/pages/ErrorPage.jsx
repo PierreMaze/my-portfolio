@@ -5,6 +5,7 @@ import {
   ButtonRectangularSecondary,
   FadeIn,
 } from "../components/ui";
+import { useMeta } from "../hooks";
 
 const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
   const getErrorContent = () => {
@@ -36,6 +37,15 @@ const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
   };
 
   const errorContent = getErrorContent();
+
+  // SEO dynamique unifié
+  useMeta({
+    title: `Erreur ${errorContent.title}`,
+    description: errorContent.description,
+    keywords: "erreur, page non trouvée, portfolio, Pierre Mazelaygue",
+    ogTitle: `${errorContent.title} - Portfolio Pierre Mazelaygue`,
+    ogDescription: errorContent.description,
+  });
 
   return (
     <section className="flex items-center justify-center min-h-screen">

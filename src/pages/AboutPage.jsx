@@ -1,11 +1,11 @@
 import { Container } from "../components/layout/Container";
 import { ButtonRectangularPrimary, FadeIn } from "../components/ui";
-import { useMeta, useTabTitle } from "../hooks";
+import { useMeta } from "../hooks";
 
 const About = () => {
-  // SEO dynamique
-  useTabTitle("À propos");
+  // SEO dynamique unifié
   useMeta({
+    title: "À propos",
     description:
       "Découvrez le parcours et l'expertise de Pierre Mazelaygue, développeur Fullstack passionné par la création d'expériences web modernes.",
     keywords:

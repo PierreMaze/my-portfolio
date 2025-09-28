@@ -26,7 +26,7 @@ import {
   TechRectangularBadge,
 } from "../components/ui";
 import { useProjects } from "../contexts";
-import { useMeta, useTabTitle } from "../hooks";
+import { useMeta } from "../hooks";
 import Error from "./ErrorPage";
 
 /**
@@ -242,11 +242,15 @@ const ProjectPage = () => {
   const project = getProjectById(id);
   const { previous, next } = getAdjacentProjects(parseInt(id));
 
-  // Gestion du titre de la page et des meta tags
-  useTabTitle(project ? `${project.title} | Portfolio` : "Projet non trouvé");
+  // SEO dynamique unifié
   useMeta({
+    title: project ? `${project.title} | Portfolio` : "Projet non trouvé",
     description: project?.description || "Projet non trouvé",
     keywords: project?.tags?.join(", ") || "portfolio, projet",
+    ogTitle: project
+      ? `${project.title} - Portfolio Pierre Mazelaygue`
+      : "Projet non trouvé",
+    ogDescription: project?.description || "Projet non trouvé",
   });
 
   const handleNavigate = useCallback(

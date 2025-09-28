@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import Contact from "../components/sections/common/Contact.jsx";
 import Hero from "../components/sections/common/Hero.jsx";
 import { SkeletonFallback } from "../components/ui/index.jsx";
-import { useMeta, useTabTitle } from "../hooks/index.jsx";
+import { useMeta } from "../hooks";
 
 // Lazy loading des sections lourdes
 const Projects = lazy(() =>
@@ -15,15 +15,16 @@ const Timeline = lazy(() =>
 
 const Home = () => {
   // SEO dynamique
-  useTabTitle("Portfolio");
   useMeta({
+    title: "MAZE Dev.",
+    titleSuffix: " | Développeur Fullstack",
     description:
-      "Portfolio de Pierre Mazelaygue, développeur Fullstack spécialisé en React, Node.js et TailwindCSS. Découvrez mes projets et compétences.",
+      "Site web de Pierre Mazelaygue, développeur Fullstack spécialisé en React, Node.js et TailwindCSS. Découvrez mes projets et compétences.",
     keywords:
-      "développeur fullstack, React, Node.js, JavaScript, portfolio, Pierre Mazelaygue, développement web",
+      "développeur fullstack, développeur frontend, développeur backend, React, Node.js, JavaScript, portfolio, Pierre Mazelaygue, développement web",
     ogTitle: "Pierre Mazelaygue - Développeur Fullstack",
     ogDescription:
-      "Portfolio d'un développeur Fullstack passionné par les technologies modernes",
+      "Site web d'un développeur Fullstack avec des technologies modernes",
   });
 
   // Le scroll vers le haut est géré par AppRoot pour éviter les conflits
