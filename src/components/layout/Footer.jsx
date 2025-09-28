@@ -1,27 +1,30 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { ButtonUnderlineSecondaryHoveredPrimary } from "../ui/buttons";
+import {
+  ButtonIconsSecondaryHoveredColoredQuarteRotate,
+  ButtonUnderlineSecondaryHoveredPrimary,
+} from "../ui/buttons";
 
 const Footer = () => {
   return (
     <footer className="pt-16 pb-12 text-center xl:pt-32 group">
       <div className="mx-auto w-full">
         <div className="flex justify-center gap-6 mb-6">
-          <a
+          <ButtonIconsSecondaryHoveredColoredQuarteRotate
             href="https://github.com/PierreMaze"
+            size="large"
+            variant="github"
             title="Github"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-2xl transition-transform hover:text-highlight hover:rotate-12 focus:outline-none focus:ring-0">
-            <FaGithub className="transition-colors text-zinc-900 hover:text-zinc-700" />
-          </a>
-          <a
+            ariaLabel="GitHub">
+            <FaGithub />
+          </ButtonIconsSecondaryHoveredColoredQuarteRotate>
+          <ButtonIconsSecondaryHoveredColoredQuarteRotate
             href="https://fr.linkedin.com/in/pierremazelaygue"
+            size="large"
+            variant="linkedin"
             title="LinkedIn"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-2xl transition-transform hover:text-highlight hover:rotate-12 focus:outline-none focus:ring-0">
-            <FaLinkedin className="transition-colors text-zinc-900 hover:text-blue-600" />
-          </a>
+            ariaLabel="LinkedIn">
+            <FaLinkedin />
+          </ButtonIconsSecondaryHoveredColoredQuarteRotate>
         </div>
         <div className="my-4">
           <ButtonUnderlineSecondaryHoveredPrimary to="/legal">
