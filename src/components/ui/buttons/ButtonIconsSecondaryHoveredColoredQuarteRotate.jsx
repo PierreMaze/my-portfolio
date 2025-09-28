@@ -57,8 +57,7 @@ const ButtonIconsSecondaryHoveredColoredQuarteRotate = ({
       title={title}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${baseStyles}${containerSize}${disabledStyles}${
-        className || ""
+      className={`${baseStyles}${containerSize}${disabledStyles}${className||""
       }`}
       {...props}>
       <span className={`${iconSize}${colorStyles}`}>{children}</span>

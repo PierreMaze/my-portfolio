@@ -252,20 +252,22 @@ export const Projects = () => {
       <FadeIn className="delay-100">
         <fieldset className="mb-12">
           <legend className="sr-only">Filtres de catégories de projets</legend>
-          <div
+          <ul
             className="flex flex-wrap justify-start gap-2"
             role="radiogroup"
             aria-label="Filtres de catégories de projets">
             {categories.map((category) => (
-              <ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary
-                key={category}
-                onClick={() => handleCategoryChange(category)}
-                isActive={selectedCategory === category}
-                ariaLabel={`Filtrer par ${category}`}>
-                {category}
-              </ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary>
+              <li key={category}>
+                <ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary
+                  key={category}
+                  onClick={() => handleCategoryChange(category)}
+                  isActive={selectedCategory === category}
+                  ariaLabel={`Filtrer par ${category}`}>
+                  {category}
+                </ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary>
+              </li>
             ))}
-          </div>
+          </ul>
         </fieldset>
       </FadeIn>
 
