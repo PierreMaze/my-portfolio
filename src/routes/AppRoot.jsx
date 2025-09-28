@@ -1,22 +1,11 @@
-import { useEffect } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { ParallaxGrid } from "../components/ui";
 import { ProjectsProvider } from "../contexts";
-import { useSmoothScroll } from "../hooks";
+import { useScrollToTop, useSmoothScroll } from "../hooks";
 
 const AppRoot = () => {
   useSmoothScroll();
-  const location = useLocation();
-
-  // Scroll vers le haut à chaque changement de route
-  useEffect(() => {
-    // Scroll immédiat et fluide vers le haut
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  }, [location.pathname]);
+  useScrollToTop();
 
   return (
     <ProjectsProvider>
