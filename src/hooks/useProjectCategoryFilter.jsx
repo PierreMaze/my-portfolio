@@ -2,10 +2,10 @@ import { useCallback, useMemo, useState } from "react";
 import { PROJECT_CATEGORIES } from "../constants/projects";
 
 /**
- * Hook personnalisé pour gérer la logique des projets
- * Centralise la gestion des filtres
+ * Hook personnalisé pour gérer le filtrage des projets par catégorie
+ * Centralise la logique de filtrage des projets selon leur catégorie
  */
-const useProjects = (projects) => {
+const useProjectCategoryFilter = (projects) => {
   const [selectedCategory, setSelectedCategory] = useState("Tous");
 
   // Mémoriser les projets filtrés
@@ -45,4 +45,4 @@ const useProjects = (projects) => {
   };
 };
 
-export default useProjects;
+export default useProjectCategoryFilter;

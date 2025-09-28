@@ -3,7 +3,7 @@ import ImgProjectLumi from "../../../assets/lumi.png";
 import ImgProjectMakeSense from "../../../assets/make_sense.png";
 import ImgProjectPortfolio from "../../../assets/portfolio.png";
 import ImgProjectSignature from "../../../assets/signature.png";
-import { useProjects } from "../../../hooks";
+import { useProjectCategoryFilter } from "../../../hooks";
 import {
   ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary,
   FadeIn,
@@ -233,7 +233,7 @@ export const Projects = () => {
     filteredProjects,
     categories,
     handleCategoryChange,
-  } = useProjects(projects);
+  } = useProjectCategoryFilter(projects);
 
   return (
     <div className="py-16 lg:py-24 xl:py-32">
