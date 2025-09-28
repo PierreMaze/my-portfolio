@@ -1,5 +1,5 @@
 import { useRouteError } from "react-router-dom";
-import Error from "../pages/ErrorPage";
+import Error from "../../../pages/ErrorPage";
 
 const RouteErrorBoundary = () => {
   const error = useRouteError();
