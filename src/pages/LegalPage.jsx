@@ -1,5 +1,6 @@
 import { Container } from "../components/layout/Container";
 import {
+  ButtonRectangularPrimary,
   ButtonUnderlineSecondaryHoveredPrimary,
   FadeIn,
 } from "../components/ui";
@@ -23,11 +24,9 @@ const Legal = () => {
         {/* Bouton de navigation */}
         <FadeIn>
           <div className="mb-8">
-            <button
-              onClick={() => window.history.back()}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2 text-base font-medium text-white rounded transition-all duration-300 bg-orange-600 hover:bg-orange-700">
+            <ButtonRectangularPrimary onClick={() => window.history.back()}>
               ← Retour
-            </button>
+            </ButtonRectangularPrimary>
           </div>
         </FadeIn>
 

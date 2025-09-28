@@ -4,7 +4,12 @@ import { IoMdDownload } from "react-icons/io";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { MdDownloadDone } from "react-icons/md";
 import ImgAvatar from "../../../assets/avatar.png";
-import { ButtonRectangularPrimary, FadeIn, ImageLoader } from "../../ui";
+import {
+  ButtonIconsSecondaryHoveredColoredQuarteRotate,
+  ButtonRectangularPrimary,
+  FadeIn,
+  ImageLoader,
+} from "../../ui";
 
 // Lazy loading de l'image simple
 const SimpleImage = lazy(() => import("../../ui/loader/ImageLoader"));
@@ -66,23 +71,23 @@ const Hero = () => {
             <div className="flex justify-center md:justify-start">
               <div className="flex items-center justify-between m-4">
                 <div className="flex items-center space-x-6">
-                  <a
+                  <ButtonIconsSecondaryHoveredColoredQuarteRotate
                     href="https://github.com/PierreMaze"
+                    size="medium"
+                    variant="github"
                     title="GitHub"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-8 h-8 transition-transform hover:rotate-12 focus:outline-none focus:ring-0">
-                    <IoLogoGithub className="w-full h-full transition-colors text-zinc-900 hover:text-zinc-700" />
-                  </a>
+                    ariaLabel="GitHub">
+                    <IoLogoGithub />
+                  </ButtonIconsSecondaryHoveredColoredQuarteRotate>
 
-                  <a
+                  <ButtonIconsSecondaryHoveredColoredQuarteRotate
                     href="https://fr.linkedin.com/in/pierremazelaygue"
+                    size="medium"
+                    variant="linkedin"
                     title="LinkedIn"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-8 h-8 transition-transform hover:rotate-12 focus:outline-none focus:ring-0">
-                    <IoLogoLinkedin className="w-full h-full transition-colors text-zinc-900 hover:text-blue-600" />
-                  </a>
+                    ariaLabel="LinkedIn">
+                    <IoLogoLinkedin />
+                  </ButtonIconsSecondaryHoveredColoredQuarteRotate>
                 </div>
                 <div>
                   <ButtonRectangularPrimary
