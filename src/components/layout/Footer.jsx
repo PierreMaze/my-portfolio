@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { ButtonUnderlineSecondaryHoveredPrimary } from "../ui/buttons";
 
 const Footer = () => {
   return (
@@ -23,10 +23,10 @@ const Footer = () => {
             <FaLinkedin className="transition-colors text-zinc-900 hover:text-blue-600" />
           </a>
         </div>
-        <div className="my-4 underline transition-colors underline-offset-4 hover:text-orange-600 hover:font-medium">
-          <Link to="/legal" className="focus:outline-none focus:ring-0">
+        <div className="my-4">
+          <ButtonUnderlineSecondaryHoveredPrimary to="/legal">
             Mentions légales
-          </Link>
+          </ButtonUnderlineSecondaryHoveredPrimary>
         </div>
       </div>
       <div className="flex flex-col gap-y-2 px-8 w-full text-sm mt-8">

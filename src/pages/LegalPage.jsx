@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
 import { Container } from "../components/layout/Container";
-import { FadeIn } from "../components/ui";
+import {
+  ButtonUnderlineSecondaryHoveredPrimary,
+  FadeIn,
+} from "../components/ui";
 import { useMeta, useTabTitle } from "../hooks/index.jsx";
 
 const Legal = () => {
@@ -126,9 +128,9 @@ const Legal = () => {
                 <p className="text-text-secondary">
                   Pour toute question concernant ces mentions légales, vous
                   pouvez me contacter via le{" "}
-                  <Link
+                  <ButtonUnderlineSecondaryHoveredPrimary
                     to="/#contact"
-                    className="underline transition-colors underline-offset-4 text-orange-600 hover:font-medium"
+                    className="text-black"
                     onClick={() => {
                       setTimeout(() => {
                         const contactSection =
@@ -139,7 +141,7 @@ const Legal = () => {
                       }, 100);
                     }}>
                     formulaire de contact
-                  </Link>{" "}
+                  </ButtonUnderlineSecondaryHoveredPrimary>{" "}
                   disponible sur ce site.
                 </p>
               </div>
