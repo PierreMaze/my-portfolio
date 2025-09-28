@@ -23,7 +23,7 @@ const Footer = () => {
             <FaLinkedin className="transition-colors text-zinc-900 hover:text-blue-600" />
           </a>
         </div>
-        <div className="my-4 underline transition-colors underline-offset-auto hover:text-orange-500">
+        <div className="my-4 underline transition-colors underline-offset-4 hover:text-orange-600 hover:font-medium">
           <Link to="/legal" className="focus:outline-none focus:ring-0">
             Mentions légales
           </Link>
