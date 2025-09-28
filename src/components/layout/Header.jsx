@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { NAVIGATION_ITEMS, SECTIONS } from "../../constants/navigation";
+import { ButtonNavigationResponsiveUnderlineSecondaryHoveredUnderlinePrimaryFocusedAllPrimary } from "../ui/buttons";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -146,17 +147,13 @@ const Header = () => {
             ) : (
               // Navigation par défaut (page d'accueil)
               NAVIGATION_ITEMS.map((item) => (
-                <button
+                <ButtonNavigationResponsiveUnderlineSecondaryHoveredUnderlinePrimaryFocusedAllPrimary
                   key={item.path}
                   onClick={() => handleNavClick(item.path)}
-                  aria-label={`Aller à la section ${item.label}`}
-                  className={`px-4 py-2 text-zinc-900 hover:text-orange-600 transition-colors focus:outline-none focus:ring-0 relative ${
-                    activeSection === item.path.substring(1)
-                      ? "text-orange-600 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-orange-600 after:transition-all after:duration-300"
-                      : "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-transparent after:transition-all after:duration-300"
-                  }`}>
+                  isActive={activeSection === item.path.substring(1)}
+                  ariaLabel={`Aller à la section ${item.label}`}>
                   {item.label}
-                </button>
+                </ButtonNavigationResponsiveUnderlineSecondaryHoveredUnderlinePrimaryFocusedAllPrimary>
               ))
             )}
           </div>
@@ -257,7 +254,7 @@ const Header = () => {
                     ) : (
                       // Navigation mobile par défaut (page d'accueil)
                       NAVIGATION_ITEMS.map((item, index) => (
-                        <motion.button
+                        <motion.div
                           key={item.path}
                           initial={{ opacity: 0, x: 20 }}
                           animate={{ opacity: 1, x: 0 }}
@@ -265,21 +262,18 @@ const Header = () => {
                             duration: 0.3,
                             delay: index * 0.1,
                             ease: "easeOut",
-                          }}
-                          onClick={() => {
-                            handleNavClick(item.path);
-                            setIsMobileMenuOpen(false);
-                          }}
-                          aria-label={`Aller à la section ${item.label}`}
-                          className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group border-none focus:outline-none focus:ring-0 ${
-                            activeSection === item.path.substring(1)
-                              ? "bg-white text-orange-500 ring-2 ring-orange-500"
-                              : "text-zinc-700 hover:bg-orange-50 hover:text-orange-600 ring-2 ring-transparent focus:ring-orange-500 active:ring-orange-500"
-                          }`}>
-                          <span className="text-lg font-medium transition-transform duration-200 group-hover:translate-x-1">
+                          }}>
+                          <ButtonNavigationResponsiveUnderlineSecondaryHoveredUnderlinePrimaryFocusedAllPrimary
+                            onClick={() => {
+                              handleNavClick(item.path);
+                              setIsMobileMenuOpen(false);
+                            }}
+                            isActive={activeSection === item.path.substring(1)}
+                            ariaLabel={`Aller à la section ${item.label}`}
+                            className="text-lg font-medium">
                             {item.label}
-                          </span>
-                        </motion.button>
+                          </ButtonNavigationResponsiveUnderlineSecondaryHoveredUnderlinePrimaryFocusedAllPrimary>
+                        </motion.div>
                       ))
                     )}
                   </nav>

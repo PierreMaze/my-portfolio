@@ -21,16 +21,12 @@ const ButtonNavigationResponsiveUnderlineSecondaryHoveredUnderlinePrimaryFocused
   }) => {
     // Styles de base communs
     const baseStyles =
-      "transition-all duration-300 focus:outline-none focus:ring-0";
+      "transition-all duration-300 focus:outline-none focus:ring-0 border-0";
 
     // Styles pour la version mobile (rectangulaire)
     const mobileStyles = `
-    w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group border-none
-    ${
-      isActive
-        ? "bg-white text-orange-500 ring-2 ring-orange-500"
-        : "text-zinc-700 hover:bg-orange-50 hover:text-orange-600 ring-2 ring-transparent focus:ring-orange-500 active:ring-orange-500"
-    }
+    w-full text-left px-4 py-3 rounded transition-all duration-200 group
+    ${isActive ? "text-white no-underline bg-orange-600" : "text-zinc-700"}
   `;
 
     // Styles pour la version desktop (underline)
@@ -40,8 +36,8 @@ const ButtonNavigationResponsiveUnderlineSecondaryHoveredUnderlinePrimaryFocused
     lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:right-0 lg:after:h-0.5 lg:after:transition-all lg:after:duration-300
     ${
       isActive
-        ? "md:text-orange-600 md:after:bg-orange-600"
-        : "md:after:bg-transparent"
+        ? "lg:text-orange-600 lg:after:bg-orange-600"
+        : "lg:after:bg-transparent"
     }
   `;
 
@@ -61,7 +57,7 @@ const ButtonNavigationResponsiveUnderlineSecondaryHoveredUnderlinePrimaryFocused
           className || " "
         }`}
         {...props}>
-        <span className="transition-transform duration-200 md:group-hover:translate-x-1">
+        <span className="transition-transform duration-200 lg:group-hover:translate-x-1">
           {children}
         </span>
       </button>
