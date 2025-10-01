@@ -11,7 +11,7 @@ import { Container } from "../components/layout/Container";
 import {
   ButtonRectangularPrimary,
   FadeIn,
-  TechRectangularBadge,
+  StackTagRectangular,
 } from "../components/ui";
 import { useProjects } from "../contexts";
 import { STACKS_DATA } from "../data/stacks/stacks.js";
@@ -165,7 +165,7 @@ const TechnologiesList = ({ technologies }) => {
         {technologies.map((tech) => {
           const { iconComponent: IconComponent, iconColor } = getTechData(tech);
           return (
-            <TechRectangularBadge
+            <StackTagRectangular
               key={tech}
               name={tech}
               icon={<IconComponent className={`w-4 h-4${iconColor}`} />}

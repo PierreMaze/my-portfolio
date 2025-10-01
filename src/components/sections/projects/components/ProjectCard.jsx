@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { TechRoundedBadge } from "../../../ui";
+import { StackTagRounded } from "../../../ui";
 /**
  * Composant ProjectCard
  * Affiche une carte de projet avec image, titre, description et tags
@@ -57,7 +57,7 @@ export const ProjectCard = ({
           aria-label={`Technologies utilisées pour ${title}`}>
           {tags.map((tag) => (
             <li key={tag}>
-              <TechRoundedBadge name={tag} />
+              <StackTagRounded name={tag} />
             </li>
           ))}
         </ul>

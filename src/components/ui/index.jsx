@@ -14,4 +14,4 @@ export * from "./animation";
 export * from "./error";
 
 // Composants de badges
-export * from "./badge";
+export * from "./tags";
