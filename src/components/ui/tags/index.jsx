@@ -1,3 +1,2 @@
-// Export des composants de badges
-export { TechRectangularBadge } from "./StackTagRectangular";
-export { TechRoundedBadge } from "./StackTagRounded";
+// Export du composant unifié de badges
+export { StackTag } from "./StackTag";

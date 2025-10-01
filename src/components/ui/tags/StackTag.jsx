@@ -36,13 +36,15 @@ const getTechData = (techName) => {
 };
 
 /**
- * Composant de badge pour les technologies avec icônes rondes
- * Utilisé spécifiquement dans ProjectCard pour les badges ronds
+ * Composant unifié pour les badges de technologies
  * @param {Object} props
  * @param {string} props.name - Nom de la technologie
+ * @param {string} props.type - Type de badge: "rounded" ou "rectangular"
+ * @param {React.ReactNode} [props.icon] - Icône personnalisée (optionnel pour rectangular)
+ * @param {string} [props.color] - Classes CSS de couleur personnalisées (optionnel)
  * @returns {JSX.Element}
  */
-export const TechRoundedBadge = ({ name }) => {
+export const StackTag = ({ name, type = "rectangular", icon, color }) => {
   const {
     iconComponent: IconComponent,
     iconColor,
@@ -58,22 +60,44 @@ export const TechRoundedBadge = ({ name }) => {
   const textClass =
     colorClasses.find((cls) => cls.startsWith("text-")) || "text-zinc-700";
 
-  const badgeClasses = `flex items-center justify-center w-8 h-8 ${bgClass} border-2 rounded-full shadow-sm transition-shadow duration-200 ${borderClass} hover:shadow-md`;
-  const iconClasses = `w-4 h-4 ${iconColor}`;
+  if (type === "rounded") {
+    // Badge rond pour ProjectCard
+    const badgeClasses = `flex items-center justify-center w-8 h-8 ${bgClass} border-2 rounded-full shadow-sm transition-shadow duration-200 ${borderClass} hover:shadow-md`;
+    const iconClasses = `w-4 h-4 ${iconColor}`;
+
+    return (
+      <div
+        className={badgeClasses}
+        title={name}
+        aria-label={`Technologie: ${name}`}>
+        <div className="scale-75" aria-hidden="true">
+          <IconComponent className={iconClasses} />
+        </div>
+      </div>
+    );
+  }
+
+  // Badge rectangulaire pour ProjectPage et Skills
+  const customTagColor = color || tagColor;
+  const customIconColor = iconColor;
 
   return (
     <div
-      className={badgeClasses}
-      title={name}
-      aria-label={`Technologie: ${name}`}>
-      <div className="scale-75" aria-hidden="true">
-        <IconComponent className={iconClasses} />
+      className={`${"flex items-center gap-2 px-2 py-1 border-2 rounded-md shadow-sm transition-all duration-300 "}${customTagColor}`}
+      aria-label={`Compétence en ${name}`}>
+      <div className="scale-75 text-md" aria-hidden="true">
+        {icon || <IconComponent className={`w-4 h-4${customIconColor}`} />}
       </div>
+      <span className={`text-sm font-medium lg:text-base${textClass}`}>
+        {name}
+      </span>
     </div>
   );
 };
 
-TechRoundedBadge.propTypes = {
+StackTag.propTypes = {
   name: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(["rounded", "rectangular"]),
+  icon: PropTypes.node,
   color: PropTypes.string,
 };

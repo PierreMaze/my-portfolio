@@ -1,5 +1,5 @@
 import { STACKS_DATA } from "../../../data/stacks/stacks.js";
-import { FadeIn, TechRectangularBadge } from "../../ui";
+import { FadeIn, StackTag } from "../../ui";
 
 const Skills = () => {
   // Grouper les données par catégorie
@@ -12,7 +12,7 @@ const Skills = () => {
 
     acc[stack.category].push({
       name: stack.name,
-      icon: <IconComponent className={`${"w-4 h-4 "}${stack.iconColor}`} />,
+      icon: <IconComponent className={`w-4 h-4${stack.iconColor}`} />,
     });
     return acc;
   }, {});
@@ -42,7 +42,11 @@ const Skills = () => {
                 aria-label={`Compétences en ${title}`}>
                 {stacks.map((stack, index) => (
                   <li key={`${title}-${index}`}>
-                    <TechRectangularBadge name={stack.name} icon={stack.icon} />
+                    <StackTag
+                      name={stack.name}
+                      type="rectangular"
+                      icon={stack.icon}
+                    />
                   </li>
                 ))}
               </ul>

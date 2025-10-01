@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { StackTagRounded } from "../../../ui";
+import { StackTag } from "../../../ui";
 /**
  * Composant ProjectCard
  * Affiche une carte de projet avec image, titre, description et tags
@@ -57,7 +57,7 @@ export const ProjectCard = ({
           aria-label={`Technologies utilisées pour ${title}`}>
           {tags.map((tag) => (
             <li key={tag}>
-              <StackTagRounded name={tag} />
+              <StackTag name={tag} type="rounded" />
             </li>
           ))}
         </ul>

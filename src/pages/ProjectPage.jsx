@@ -8,48 +8,10 @@ import {
 } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../components/layout/Container";
-import {
-  ButtonRectangularPrimary,
-  FadeIn,
-  StackTagRectangular,
-} from "../components/ui";
+import { ButtonRectangularPrimary, FadeIn, StackTag } from "../components/ui";
 import { useProjects } from "../contexts";
-import { STACKS_DATA } from "../data/stacks/stacks.js";
 import { useMeta } from "../hooks";
 import Error from "./ErrorPage";
-
-/**
- * Récupère les données d'une technologie depuis stacks.js
- * @param {string} techName - Nom de la technologie
- * @returns {Object} Objet avec iconComponent et iconColor
- */
-const getTechData = (techName) => {
-  // Nettoyer le nom de la technologie (supprimer les espaces en début/fin)
-  const cleanTechName = techName.trim();
-
-  // Recherche exacte d'abord
-  let stackData = STACKS_DATA.find((stack) => stack.name === cleanTechName);
-
-  // Si pas trouvé, recherche par correspondance partielle (insensible à la casse)
-  if (!stackData) {
-    stackData = STACKS_DATA.find(
-      (stack) =>
-        stack.name.toLowerCase().includes(cleanTechName.toLowerCase()) ||
-        cleanTechName.toLowerCase().includes(stack.name.toLowerCase())
-    );
-  }
-
-  if (!stackData) {
-    console.warn(`Technologie non trouvée: "${cleanTechName}"`);
-    return {
-      iconComponent: STACKS_DATA[0].iconComponent,
-      iconColor: "text-zinc-600",
-    };
-  }
-
-  const { iconComponent, iconColor } = stackData;
-  return { iconComponent, iconColor };
-};
 
 /**
  * Composant de navigation entre projets
@@ -162,16 +124,9 @@ const TechnologiesList = ({ technologies }) => {
         Technologies utilisées
       </h3>
       <div className="flex flex-wrap gap-2">
-        {technologies.map((tech) => {
-          const { iconComponent: IconComponent, iconColor } = getTechData(tech);
-          return (
-            <StackTagRectangular
-              key={tech}
-              name={tech}
-              icon={<IconComponent className={`w-4 h-4${iconColor}`} />}
-            />
-          );
-        })}
+        {technologies.map((tech) => (
+          <StackTag key={tech} name={tech} type="rectangular" />
+        ))}
       </div>
     </div>
   );
