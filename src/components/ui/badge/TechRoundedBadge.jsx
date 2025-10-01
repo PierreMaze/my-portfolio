@@ -1,81 +1,38 @@
 import PropTypes from "prop-types";
-import { FaChartBar } from "react-icons/fa";
-import {
-  SiCalendly,
-  SiChakraui,
-  SiDotenv,
-  SiFigma,
-  SiNodedotjs,
-  SiReact,
-  SiReactrouter,
-  SiTailwindcss,
-} from "react-icons/si";
-import { TbApi, TbBrandFramerMotion, TbBrandHeadlessui } from "react-icons/tb";
-import { BADGE_COLOR_CLASSES } from "../../../constants/projects";
+import { STACKS_DATA } from "../../../data/stacks/stacks.js";
 
 /**
- * Mapping des technologies vers leurs icônes et couleurs
+ * Récupère les données d'une technologie depuis stacks.js
  * @param {string} techName - Nom de la technologie
- * @returns {Object} Objet avec icon et color
+ * @returns {Object} Objet avec iconComponent, iconColor et tagColor
  */
-const getTechIconAndColor = (techName) => {
-  const techMap = {
-    React: {
-      icon: <SiReact className="w-4 h-4 text-cyan-600" />,
-      color: "cyan",
-    },
-    TailwindCSS: {
-      icon: <SiTailwindcss className="w-4 h-4 text-sky-500" />,
-      color: "sky",
-    },
-    Node: {
-      icon: <SiNodedotjs className="w-4 h-4 text-green-600" />,
-      color: "green",
-    },
-    Figma: {
-      icon: <SiFigma className="w-4 h-4 text-sky-600" />,
-      color: "sky",
-    },
-    "framer-motion": {
-      icon: <TbBrandFramerMotion className="w-4 h-4 text-pink-600" />,
-      color: "pink",
-    },
-    "react-router-dom": {
-      icon: <SiReactrouter className="w-4 h-4 text-red-600" />,
-      color: "red",
-    },
-    HeadlessUI: {
-      icon: <TbBrandHeadlessui className="w-4 h-4 text-purple-600" />,
-      color: "purple",
-    },
-    chakraui: {
-      icon: <SiChakraui className="w-4 h-4 text-teal-600" />,
-      color: "teal",
-    },
-    Dotenv: {
-      icon: <SiDotenv className="w-4 h-4 text-yellow-600" />,
-      color: "yellow",
-    },
-    calendly: {
-      icon: <SiCalendly className="w-4 h-4 text-blue-600" />,
-      color: "blue",
-    },
-    "d3.js": {
-      icon: <FaChartBar className="w-4 h-4 text-orange-600" />,
-      color: "orange",
-    },
-    api: {
-      icon: <TbApi className="w-4 h-4 text-blue-600" />,
-      color: "blue",
-    },
-  };
+const getTechData = (techName) => {
+  // Nettoyer le nom de la technologie (supprimer les espaces en début/fin)
+  const cleanTechName = techName.trim();
 
-  return (
-    techMap[techName] || {
-      icon: <SiReact className="w-4 h-4 text-zinc-600" />,
-      color: "stone",
-    }
-  );
+  // Recherche exacte d'abord
+  let stackData = STACKS_DATA.find((stack) => stack.name === cleanTechName);
+
+  // Si pas trouvé, recherche par correspondance partielle (insensible à la casse)
+  if (!stackData) {
+    stackData = STACKS_DATA.find(
+      (stack) =>
+        stack.name.toLowerCase().includes(cleanTechName.toLowerCase()) ||
+        cleanTechName.toLowerCase().includes(stack.name.toLowerCase())
+    );
+  }
+
+  if (!stackData) {
+    console.warn(`Technologie non trouvée: "${cleanTechName}"`);
+    return {
+      iconComponent: STACKS_DATA[0].iconComponent,
+      iconColor: "text-zinc-600",
+      tagColor: "border-zinc-500 text-zinc-700 bg-zinc-100",
+    };
+  }
+
+  const { iconComponent, iconColor, tagColor } = stackData;
+  return { iconComponent, iconColor, tagColor };
 };
 
 /**
@@ -83,22 +40,34 @@ const getTechIconAndColor = (techName) => {
  * Utilisé spécifiquement dans ProjectCard pour les badges ronds
  * @param {Object} props
  * @param {string} props.name - Nom de la technologie
- * @param {string} props.color - Couleur du badge (optionnel, sera surchargée par le mapping)
  * @returns {JSX.Element}
  */
-export const TechRoundedBadge = ({ name, color }) => {
-  const { icon, color: mappedColor } = getTechIconAndColor(name);
-  const badgeColor = color || mappedColor;
-  const colorClass =
-    BADGE_COLOR_CLASSES[badgeColor] || BADGE_COLOR_CLASSES.stone;
+export const TechRoundedBadge = ({ name }) => {
+  const {
+    iconComponent: IconComponent,
+    iconColor,
+    tagColor,
+  } = getTechData(name);
+
+  // Extraire les classes de couleur du tagColor
+  const colorClasses = tagColor.split(" ");
+  const bgClass =
+    colorClasses.find((cls) => cls.startsWith("bg-")) || "bg-zinc-100";
+  const borderClass =
+    colorClasses.find((cls) => cls.startsWith("border-")) || "border-zinc-500";
+  const textClass =
+    colorClasses.find((cls) => cls.startsWith("text-")) || "text-zinc-700";
+
+  const badgeClasses = `flex items-center justify-center w-8 h-8 ${bgClass} border-2 rounded-full shadow-sm transition-shadow duration-200 ${borderClass} hover:shadow-md`;
+  const iconClasses = `w-4 h-4 ${iconColor}`;
 
   return (
     <div
-      className={`${"flex items-center justify-center w-8 h-8 bg-white border-2 rounded-full shadow-sm transition-shadow duration-200 border-zinc-200 hover:shadow-md "}${colorClass}`}
+      className={badgeClasses}
       title={name}
       aria-label={`Technologie: ${name}`}>
       <div className="scale-75" aria-hidden="true">
-        {icon}
+        <IconComponent className={iconClasses} />
       </div>
     </div>
   );

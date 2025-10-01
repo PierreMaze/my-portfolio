@@ -1,5 +1,4 @@
 import { useCallback } from "react";
-import { FaChartBar } from "react-icons/fa";
 import {
   IoArrowBack,
   IoChevronBack,
@@ -7,17 +6,6 @@ import {
   IoLogoGithub,
   IoOpenOutline,
 } from "react-icons/io5";
-import {
-  SiCalendly,
-  SiChakraui,
-  SiDotenv,
-  SiFigma,
-  SiNodedotjs,
-  SiReact,
-  SiReactrouter,
-  SiTailwindcss,
-} from "react-icons/si";
-import { TbApi, TbBrandFramerMotion, TbBrandHeadlessui } from "react-icons/tb";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../components/layout/Container";
 import {
@@ -26,31 +14,41 @@ import {
   TechRectangularBadge,
 } from "../components/ui";
 import { useProjects } from "../contexts";
+import { STACKS_DATA } from "../data/stacks/stacks.js";
 import { useMeta } from "../hooks";
 import Error from "./ErrorPage";
 
 /**
- * Mapping des technologies vers leurs icônes
+ * Récupère les données d'une technologie depuis stacks.js
  * @param {string} techName - Nom de la technologie
- * @returns {React.ReactNode} Icône de la technologie
+ * @returns {Object} Objet avec iconComponent et iconColor
  */
-const getTechIcon = (techName) => {
-  const techMap = {
-    React: <SiReact className="w-4 h-4 text-cyan-600" />,
-    TailwindCSS: <SiTailwindcss className="w-4 h-4 text-sky-500" />,
-    Node: <SiNodedotjs className="w-4 h-4 text-green-600" />,
-    Figma: <SiFigma className="w-4 h-4 text-sky-600" />,
-    "framer-motion": <TbBrandFramerMotion className="w-4 h-4 text-pink-600" />,
-    "react-router-dom": <SiReactrouter className="w-4 h-4 text-red-600" />,
-    HeadlessUI: <TbBrandHeadlessui className="w-4 h-4 text-purple-600" />,
-    chakraui: <SiChakraui className="w-4 h-4 text-teal-600" />,
-    Dotenv: <SiDotenv className="w-4 h-4 text-yellow-600" />,
-    calendly: <SiCalendly className="w-4 h-4 text-blue-600" />,
-    "d3.js": <FaChartBar className="w-4 h-4 text-orange-600" />,
-    api: <TbApi className="w-4 h-4 text-blue-600" />,
-  };
+const getTechData = (techName) => {
+  // Nettoyer le nom de la technologie (supprimer les espaces en début/fin)
+  const cleanTechName = techName.trim();
 
-  return techMap[techName] || <SiReact className="w-4 h-4 text-zinc-600" />;
+  // Recherche exacte d'abord
+  let stackData = STACKS_DATA.find((stack) => stack.name === cleanTechName);
+
+  // Si pas trouvé, recherche par correspondance partielle (insensible à la casse)
+  if (!stackData) {
+    stackData = STACKS_DATA.find(
+      (stack) =>
+        stack.name.toLowerCase().includes(cleanTechName.toLowerCase()) ||
+        cleanTechName.toLowerCase().includes(stack.name.toLowerCase())
+    );
+  }
+
+  if (!stackData) {
+    console.warn(`Technologie non trouvée: "${cleanTechName}"`);
+    return {
+      iconComponent: STACKS_DATA[0].iconComponent,
+      iconColor: "text-zinc-600",
+    };
+  }
+
+  const { iconComponent, iconColor } = stackData;
+  return { iconComponent, iconColor };
 };
 
 /**
@@ -164,13 +162,16 @@ const TechnologiesList = ({ technologies }) => {
         Technologies utilisées
       </h3>
       <div className="flex flex-wrap gap-2">
-        {technologies.map((tech) => (
-          <TechRectangularBadge
-            key={tech}
-            name={tech}
-            icon={getTechIcon(tech)}
-          />
-        ))}
+        {technologies.map((tech) => {
+          const { iconComponent: IconComponent, iconColor } = getTechData(tech);
+          return (
+            <TechRectangularBadge
+              key={tech}
+              name={tech}
+              icon={<IconComponent className={`w-4 h-4${iconColor}`} />}
+            />
+          );
+        })}
       </div>
     </div>
   );
