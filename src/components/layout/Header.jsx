@@ -113,7 +113,9 @@ const Header = () => {
   // Mémoriser les classes conditionnelles
   const headerClasses = useMemo(() => {
     return `fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-      isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
+      isScrolled
+        ? "bg-stone-200/50 backdrop-blur-lg shadow-sm"
+        : "bg-transparent"
     } ${isVisible ? "opacity-100" : "opacity-0"}`;
   }, [isScrolled, isVisible]);
 
