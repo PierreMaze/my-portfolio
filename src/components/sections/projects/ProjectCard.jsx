@@ -1,18 +1,11 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { StackTag } from "../../../ui";
+import { StackTag } from "../../ui";
 /**
  * Composant ProjectCard
  * Affiche une carte de projet avec image, titre, description et tags
  */
-export const ProjectCard = ({
-  id,
-  title,
-  description,
-  image,
-  tags,
-  ...props
-}) => {
+const ProjectCard = ({ id, title, description, image, tags, ...props }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -73,3 +66,5 @@ ProjectCard.propTypes = {
   image: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
+
+export default ProjectCard;
