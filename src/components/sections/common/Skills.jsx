@@ -1,4 +1,4 @@
-import { STACKS_DATA } from "../../../data/stacks/stacks.js";
+import { STACKS_DATA } from "../../../data/stacks.js";
 import { FadeIn, StackTag } from "../../ui";
 
 const Skills = () => {

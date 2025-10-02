@@ -1,33 +1,34 @@
 import PropTypes from "prop-types";
-import { STACKS_DATA } from "../../../data/stacks/stacks.js";
+import { BsQuestionCircleFill } from "react-icons/bs";
+import { STACKS_DATA } from "../../../data/stacks.js";
 
 /**
  * Récupère les données d'une technologie depuis stacks.js
  * @param {string} techName - Nom de la technologie
  * @returns {Object} Objet avec iconComponent, iconColor et tagColor
  */
-const getTechData = (techName) => {
+const getStackData = (techName) => {
   // Nettoyer le nom de la technologie (supprimer les espaces en début/fin)
-  const cleanTechName = techName.trim();
+  const cleanStackName = techName.trim();
 
   // Recherche exacte d'abord
-  let stackData = STACKS_DATA.find((stack) => stack.name === cleanTechName);
+  let stackData = STACKS_DATA.find((stack) => stack.name === cleanStackName);
 
   // Si pas trouvé, recherche par correspondance partielle (insensible à la casse)
   if (!stackData) {
     stackData = STACKS_DATA.find(
       (stack) =>
-        stack.name.toLowerCase().includes(cleanTechName.toLowerCase()) ||
-        cleanTechName.toLowerCase().includes(stack.name.toLowerCase())
+        stack.name.toLowerCase().includes(cleanStackName.toLowerCase()) ||
+        cleanStackName.toLowerCase().includes(stack.name.toLowerCase())
     );
   }
 
   if (!stackData) {
-    console.warn(`Technologie non trouvée: "${cleanTechName}"`);
+    console.warn(`Technologie non trouvée: "${cleanStackName}"`);
     return {
-      iconComponent: STACKS_DATA[0].iconComponent,
-      iconColor: "text-zinc-600",
-      tagColor: "border-zinc-500 text-zinc-700 bg-zinc-100",
+      iconComponent: BsQuestionCircleFill,
+      iconColor: "text-zinc-800",
+      tagColor: "border-zinc-600 text-zinc-800 bg-zinc-100",
     };
   }
 
@@ -49,44 +50,47 @@ export const StackTag = ({ name, type = "rectangular", icon, color }) => {
     iconComponent: IconComponent,
     iconColor,
     tagColor,
-  } = getTechData(name);
+  } = getStackData(name);
 
   // Extraire les classes de couleur du tagColor
-  const colorClasses = tagColor.split(" ");
+  const tagColorClass = tagColor.split(" ");
   const bgClass =
-    colorClasses.find((cls) => cls.startsWith("bg-")) || "bg-zinc-100";
+    tagColorClass.find((tagClass) => tagClass.startsWith("bg-")) ||
+    "bg-zinc-100";
   const borderClass =
-    colorClasses.find((cls) => cls.startsWith("border-")) || "border-zinc-500";
+    tagColorClass.find((tagClass) => tagClass.startsWith("border-")) ||
+    "border-zinc-600";
   const textClass =
-    colorClasses.find((cls) => cls.startsWith("text-")) || "text-zinc-700";
+    tagColorClass.find((tagClass) => tagClass.startsWith("text-")) ||
+    "text-zinc-800";
 
   if (type === "rounded") {
     // Badge rond pour ProjectCard
-    const badgeClasses = `flex items-center justify-center w-8 h-8 ${bgClass} border-2 rounded-full shadow-sm transition-shadow duration-200 ${borderClass} hover:shadow-md`;
-    const iconClasses = `w-4 h-4 ${iconColor}`;
+    const tagStackClass = `flex items-center justify-center w-8 h-8 ${bgClass} border-2 rounded-full shadow-sm transition-shadow duration-200 ${borderClass} hover:shadow-md`;
+    const iconStackClass = `w-4 h-4 ${iconColor}`;
 
     return (
       <div
-        className={badgeClasses}
+        className={tagStackClass}
         title={name}
         aria-label={`Technologie: ${name}`}>
         <div className="scale-75" aria-hidden="true">
-          <IconComponent className={iconClasses} />
+          <IconComponent className={iconStackClass} />
         </div>
       </div>
     );
   }
 
   // Badge rectangulaire pour ProjectPage et Skills
-  const customTagColor = color || tagColor;
-  const customIconColor = iconColor;
+  const tagStackColor = color || tagColor;
+  const iconStackColor = iconColor;
 
   return (
     <div
-      className={`${"flex items-center gap-2 px-2 py-1 border-2 rounded-md shadow-sm transition-all duration-300 "}${customTagColor}`}
+      className={`${"flex items-center gap-2 px-2 py-1 border-2 rounded shadow-sm transition-all duration-300 "}${tagStackColor}`}
       aria-label={`Compétence en ${name}`}>
       <div className="scale-75 text-md" aria-hidden="true">
-        {icon || <IconComponent className={`w-4 h-4${customIconColor}`} />}
+        {icon || <IconComponent className={`w-4 h-4${iconStackColor}`} />}
       </div>
       <span className={`text-sm font-medium lg:text-base${textClass}`}>
         {name}
