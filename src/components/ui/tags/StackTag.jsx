@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
-import { BsQuestionCircleFill } from "react-icons/bs";
+import { TbError404 } from "react-icons/tb";
 import { STACKS_DATA } from "../../../data/stacks.js";
 
 /**
  * Récupère les données d'une technologie depuis stacks.js
- * @param {string} techName - Nom de la technologie
+ * @param {string} stackName - Nom de la technologie
  * @returns {Object} Objet avec iconComponent, iconColor et tagColor
  */
-const getStackData = (techName) => {
+const getStackData = (stackName) => {
   // Nettoyer le nom de la technologie (supprimer les espaces en début/fin)
-  const cleanStackName = techName.trim();
+  const cleanStackName = stackName.trim();
 
   // Recherche exacte d'abord
   let stackData = STACKS_DATA.find((stack) => stack.name === cleanStackName);
@@ -26,9 +26,9 @@ const getStackData = (techName) => {
   if (!stackData) {
     console.warn(`Technologie non trouvée: "${cleanStackName}"`);
     return {
-      iconComponent: BsQuestionCircleFill,
-      iconColor: "text-zinc-800",
-      tagColor: "border-zinc-600 text-zinc-800 bg-zinc-100",
+      iconComponent: TbError404,
+      iconColor: "text-neutral-800",
+      tagColor: "border-neutral-600 text-neutral-800 bg-neutral-100",
     };
   }
 
