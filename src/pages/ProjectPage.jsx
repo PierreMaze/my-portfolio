@@ -1,17 +1,36 @@
 import { useCallback } from "react";
-import {
-  IoArrowBack,
-  IoChevronBack,
-  IoChevronForward,
-  IoLogoGithub,
-  IoOpenOutline,
-} from "react-icons/io5";
+import { IoArrowBack, IoChevronBack, IoChevronForward } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../components/layout/Container";
-import { ButtonRectangularPrimary, FadeIn, StackTag } from "../components/ui";
-import { useProjects } from "../contexts";
+import { FadeIn } from "../components/ui";
+import { ButtonRectangularPrimary } from "../components/ui/buttons";
+import { StackTag } from "../components/ui/tags";
+import { useProjects } from "../contexts/ProjectsContext";
 import { useMeta } from "../hooks";
-import Error from "./ErrorPage";
+
+/**
+ * Composant d'erreur simple pour les projets
+ * @param {Object} props
+ * @param {number} props.statusCode - Code d'erreur
+ * @param {string} props.message - Message d'erreur
+ * @returns {JSX.Element}
+ */
+const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-zinc-50">
+      <div className="text-center">
+        <h1 className="text-6xl font-bold text-zinc-300 mb-4">{statusCode}</h1>
+        <p className="text-xl text-zinc-600 mb-8">{message}</p>
+        <a
+          href="/"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors">
+          <IoArrowBack className="w-4 h-4" />
+          Retour à l'accueil
+        </a>
+      </div>
+    </div>
+  );
+};
 
 /**
  * Composant de navigation entre projets
@@ -19,46 +38,40 @@ import Error from "./ErrorPage";
  * @param {Object|null} props.previous - Projet précédent
  * @param {Object|null} props.next - Projet suivant
  * @param {Function} props.onNavigate - Fonction de navigation
- * @returns {JSX.Element|null}
+ * @returns {JSX.Element}
  */
 const ProjectNavigation = ({ previous, next, onNavigate }) => {
-  if (!previous && !next) return null;
-
   return (
-    <nav
-      className="flex items-center justify-between py-8"
-      aria-label="Navigation entre projets">
+    <nav className="flex justify-between items-center mt-12 pt-8 border-t border-zinc-200">
       <div className="flex-1">
-        {previous && (
+        {previous ? (
           <button
             onClick={() => onNavigate(previous.id)}
-            className="relative flex items-center gap-3 text-black border-none transition-all duration-200 group"
-            aria-label={`Aller au projet précédent: ${previous.title}`}>
-            <IoChevronBack className="w-5 h-5 transition-transform duration-200 group-hover:-translate-x-1" />
+            className="flex items-center gap-3 text-zinc-600 hover:text-orange-600 transition-colors group">
+            <IoChevronBack className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
             <div className="text-left">
-              <div className="text-sm text-zinc-900">Projet précédent</div>
-              <div className="font-medium">{previous.title}</div>
+              <p className="text-sm text-zinc-500">Projet précédent</p>
+              <p className="font-medium">{previous.title}</p>
             </div>
-            {/* Underline personnalisée */}
-            <div className="absolute left-0 w-full h-1 transition-transform duration-200 transform -bottom-1 bg-orange-600 hover:bg-orange-700 scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100"></div>
           </button>
+        ) : (
+          <div></div>
         )}
       </div>
 
-      <div className="flex justify-end flex-1">
-        {next && (
+      <div className="flex-1 flex justify-end">
+        {next ? (
           <button
             onClick={() => onNavigate(next.id)}
-            className="relative flex items-center gap-3 text-black transition-all duration-200 group ring-0 focus:outline-none focus:ring-0"
-            aria-label={`Aller au projet suivant: ${next.title}`}>
+            className="flex items-center gap-3 text-zinc-600 hover:text-orange-600 transition-colors group">
             <div className="text-right">
-              <div className="text-sm text-zinc-900">Projet suivant</div>
-              <div className="font-medium">{next.title}</div>
+              <p className="text-sm text-zinc-500">Projet suivant</p>
+              <p className="font-medium">{next.title}</p>
             </div>
-            <IoChevronForward className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
-            {/* Underline personnalisée */}
-            <div className="absolute left-0 w-full h-1 transition-transform duration-200 transform -bottom-1 bg-orange-500 scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100"></div>
+            <IoChevronForward className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
+        ) : (
+          <div></div>
         )}
       </div>
     </nav>
@@ -160,30 +173,44 @@ const ProjectResults = ({ results }) => (
  * @returns {JSX.Element}
  */
 const ProjectLinks = ({ github, demo }) => (
-  <div className="flex flex-col gap-4 sm:flex-row">
-    {github && (
-      <a
-        href={github}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 px-4 py-2 text-base font-medium text-black rounded transition-all duration-300 bg-zinc-100 ring-inset ring-zinc-500 ring-2 hover:ring-zinc-800 hover:bg-white"
-        aria-label="Voir le code source sur GitHub">
-        <IoLogoGithub className="w-5 h-5" />
-        Code source
-      </a>
-    )}
-    {demo && (
-      <a
-        href={demo}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 px-4 py-2 text-base font-medium text-white rounded transition-all duration-300 bg-orange-600 hover:bg-orange-700"
-        aria-label="Voir la démonstration du projet">
-        <IoOpenOutline className="w-5 h-5" />
-        Voir le projet
-      </a>
-    )}
-  </div>
+  <section className="mb-8">
+    <h3 className="text-xl font-bold text-black mb-4">Liens du projet</h3>
+    <div className="flex flex-wrap gap-4">
+      {github && (
+        <a
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-800 text-white rounded-lg hover:bg-zinc-700 transition-colors">
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+          Code source
+        </a>
+      )}
+      {demo && (
+        <a
+          href={demo}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors">
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            />
+          </svg>
+          Voir le projet
+        </a>
+      )}
+    </div>
+  </section>
 );
 
 /**
@@ -306,7 +333,7 @@ const ProjectPage = () => {
             {/* Technologies */}
             <FadeIn className="delay-300">
               <section>
-                <TechnologiesList technologies={project.technologies} />
+                <TechnologiesList technologies={project.tags} />
               </section>
             </FadeIn>
 
