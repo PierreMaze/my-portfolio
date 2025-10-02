@@ -10,7 +10,7 @@ const Home = lazy(() => import("../pages/HomePage"));
 const About = lazy(() => import("../pages/AboutPage"));
 const Legal = lazy(() => import("../pages/LegalPage"));
 const Error = lazy(() => import("../pages/ErrorPage"));
-const ProjectPage = lazy(() => import("../pages/ProjectPage"));
+const ProjectPage = lazy(() => import("../pages/projects/ProjectPage"));
 
 // Composant de fallback amélioré pour les routes
 const RouteFallback = () => (
