@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { createContext, useContext, useMemo } from "react";
-import { PROJECTS_DATA } from "../data/projects";
-import useProjectsData from "../hooks/useProjectsData";
+import { PROJECTS_DATA } from "../data/projects.data";
+import { useProjectsData } from "../hooks";
 
 /**
  * Contexte des projets
