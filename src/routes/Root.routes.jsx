@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../components/layout";
 import { LoadingFallback } from "../components/ui";
 import RouteErrorBoundary from "../components/ui/error/RouteErrorBoundary";
-import AppRoot from "./AppRoot";
+import AppRoot from "./RootLayout.routes";
 
 // Lazy loading des pages
 const Home = lazy(() => import("../pages/HomePage"));
