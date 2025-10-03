@@ -1,21 +1,10 @@
-import { STACKS_DATA } from "../../../data/stacks.js";
+import { STACK_TAG_TYPES } from "../../../constants/stacks.constants";
+import { useStacksData } from "../../../hooks";
 import { FadeIn, StackTag } from "../../ui";
 
 const Skills = () => {
-  // Grouper les données par catégorie
-  const skillsData = STACKS_DATA.reduce((acc, stack) => {
-    if (!acc[stack.category]) {
-      acc[stack.category] = [];
-    }
-
-    const IconComponent = stack.iconComponent;
-
-    acc[stack.category].push({
-      name: stack.name,
-      icon: <IconComponent className={`w-4 h-4${stack.iconColor}`} />,
-    });
-    return acc;
-  }, {});
+  // Utilisation du hook personnalisé pour gérer les données des stacks
+  const { stacksByCategory } = useStacksData();
 
   return (
     <section className="py-16 lg:py-24 xl:py-32">
@@ -30,7 +19,7 @@ const Skills = () => {
         </h2>
       </FadeIn>
       <div className="grid grid-cols-1 gap-8 mx-auto sm:grid-cols-2 lg:grid-cols-3 max-w-6xl">
-        {Object.entries(skillsData).map(([title, stacks]) => (
+        {Object.entries(stacksByCategory).map(([title, stacks]) => (
           <FadeIn key={title}>
             <div className="py-4 mx-4">
               <h3 className="flex items-center gap-2 text-lg font-semibold text-start text-stone-800 mb-4">
@@ -44,7 +33,7 @@ const Skills = () => {
                   <li key={`${title}-${index}`}>
                     <StackTag
                       name={stack.name}
-                      type="rectangular"
+                      type={STACK_TAG_TYPES.RECTANGULAR}
                       icon={stack.icon}
                     />
                   </li>

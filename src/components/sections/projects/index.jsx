@@ -1,5 +1,5 @@
 import { useProjects } from "../../../contexts/ProjectsContext";
-import { useProjectCategoryFilter } from "../../../hooks";
+import { useProjectsCategoriesFilter } from "../../../hooks";
 import ProjectFilters from "./ProjectFilters";
 import ProjectGrid from "./ProjectGrid";
 import ProjectsHeader from "./ProjectsHeader";
@@ -11,7 +11,7 @@ export const Projects = () => {
     filteredProjects,
     categories,
     handleCategoryChange,
-  } = useProjectCategoryFilter(projects);
+  } = useProjectsCategoriesFilter(projects);
 
   return (
     <div className="py-16 lg:py-24 xl:py-32">
