@@ -34,8 +34,14 @@
     "vite": "^6.3.6"
   },
   "main": "postcss.config.js",
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Dev",
+    "Portfolio",
+    "React",
+    "TailwindCSS",
+    "Framer Motion"
+  ],
+  "author": "Pierre MAZELAYGUE",
   "license": "ISC",
-  "description": ""
+  "description": "Project portfolio with React, TailwindCSS and modern technologies."
 }
