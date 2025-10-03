@@ -1,4 +1,4 @@
-import { STACK_TAG_TYPES } from "../../../constants/stacks.constants";
+import { STACK_TAG_TYPES } from "../../../constants";
 import { useStacksData } from "../../../hooks";
 import { FadeIn, StackTag } from "../../ui";
 

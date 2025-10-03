@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from "react";
-import { PROJECT_CATEGORIES } from "../../constants/categories.constants";
+import { PROJECT_CATEGORIES } from "../../constants";
 
 /**
  * Hook personnalisé pour gérer le filtrage des projets par catégorie

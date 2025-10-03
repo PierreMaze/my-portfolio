@@ -5,7 +5,7 @@ import {
   findAdjacentProjects,
   findProjectById,
   getProjectsByCategory,
-} from "../../utils/projects.utils";
+} from "../../utils";
 
 /**
  * Hook personnalisé pour gérer les données des projets

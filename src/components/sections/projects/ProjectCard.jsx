@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { STACK_TAG_TYPES } from "../../../constants/stacks.constants";
+import { STACK_TAG_TYPES } from "../../../constants";
 import { StackTag } from "../../ui";
 /**
  * Composant ProjectCard

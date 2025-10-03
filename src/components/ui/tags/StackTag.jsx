@@ -1,9 +1,6 @@
 import PropTypes from "prop-types";
-import {
-  STACK_TAG_TYPES,
-  TAG_STYLES,
-} from "../../../constants/stacks.constants";
-import { extractColorClasses, getStackData } from "../../../utils/stacks.utils";
+import { STACK_TAG_TYPES, TAG_STYLES } from "../../../constants";
+import { extractColorClasses, getStackData } from "../../../utils";
 
 /**
  * Composant unifié pour les badges de technologies

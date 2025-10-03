@@ -3,8 +3,8 @@ import {
   DEFAULT_STACK_CONFIG,
   ICON_SIZES,
   STACK_ERROR_MESSAGES,
-} from "../constants/stacks.constants";
-import { STACKS_DATA } from "../data/stacks.data";
+} from "../constants";
+import { STACKS_DATA } from "../data";
 
 /**
  * Nettoie le nom d'une technologie (supprime les espaces en début/fin)

@@ -1,10 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import {
-  NAVIGATION_ITEMS,
-  SECTIONS,
-} from "../../constants/navigations.constants";
+import { NAVIGATION_ITEMS, SECTIONS } from "../../constants";
 import { ButtonNavigationResponsiveUnderlineSecondaryHoveredUnderlinePrimaryFocusedAllPrimary } from "../ui/buttons";
 
 const Header = () => {

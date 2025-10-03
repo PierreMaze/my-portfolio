@@ -1,11 +1,11 @@
 import { useMemo } from "react";
-import { STACKS_DATA } from "../data/stacks.data";
+import { STACKS_DATA } from "../data";
 import {
   createStackIconClasses,
   extractStackCategories,
   filterStacksByCategory,
   groupStacksByCategory,
-} from "../utils/stacks.utils";
+} from "../utils";
 
 /**
  * Hook personnalisé pour gérer les données des stacks
