@@ -9,7 +9,6 @@ import PropTypes from "prop-types";
  */
 const ProjectLinks = ({ github, demo }) => (
   <section className="mb-8">
-    <h3 className="text-xl font-bold text-black mb-4">Liens du projet</h3>
     <div className="flex flex-wrap gap-4">
       {github && (
         <a
