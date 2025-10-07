@@ -19,7 +19,7 @@ const Legal = () => {
       "Mentions légales et informations juridiques du portfolio de Pierre Mazelaygue, développeur Fullstack",
   });
   return (
-    <section className="py-20">
+    <section className="py-24">
       <Container>
         {/* Bouton de navigation */}
         <FadeIn>

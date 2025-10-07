@@ -86,7 +86,7 @@ const ProjectPage = () => {
   }
 
   return (
-    <div className="py-8 md:py-12">
+    <div className="py-12 lg:py-24">
       <Container>
         {/* En-tête du projet */}
         <FadeIn>
