@@ -1,5 +1,5 @@
 // Configuration de la navigation
-export const NAVIGATION_ITEMS = [
+export const NAVIGATION_PORTFOLIO_ITEMS = [
   {
     label: "Accueil",
     path: "#home",
@@ -22,4 +22,10 @@ export const NAVIGATION_ITEMS = [
   },
 ];
 
-export const SECTIONS = ["home", "projects", "skills", "timeline", "contact"];
+export const SECTIONS_PORTFOLIO = [
+  "home",
+  "projects",
+  "skills",
+  "timeline",
+  "contact",
+];
