@@ -6,9 +6,9 @@ import { handleNavClick as handleNavClickShared } from "../../utils/navigation.u
 import { ButtonRectangularPrimary } from "../ui/buttons/ButtonRectangularPrimary";
 import BrandLogo from "./header/BrandLogo";
 import {
-  HeaderMobileMenu,
-  HeaderNav,
+  MobileMenu,
   MobileMenuButton,
+  NavDropdown,
   NavItem,
 } from "./header/index";
 
@@ -83,7 +83,7 @@ export default function Header() {
           <MobileMenuButton onClick={() => setMobileMenuOpen(true)} />
         </div>
         <div className="hidden items-center h-10 lg:flex lg:gap-x-12">
-          <HeaderNav
+          <NavDropdown
             buttonLabel="Portfolio"
             open={isPopoverOpen}
             onToggle={() => setIsPopoverOpen((v) => !v)}>
@@ -99,7 +99,7 @@ export default function Header() {
                 />
               ))}
             </div>
-          </HeaderNav>
+          </NavDropdown>
 
           <a
             href="/about"
@@ -125,7 +125,7 @@ export default function Header() {
           </div>
         </div>
       </nav>
-      <HeaderMobileMenu
+      <MobileMenu
         open={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
         navItems={HEADER_NAV_ITEMS}

@@ -30,13 +30,14 @@ const HeaderMobileMenu = ({ open, onClose, navItems = [], onNavigate }) => {
   useEffect(() => {
     if (open) {
       setShouldRender(true);
-      setIsSectionOpen(true);
+      // Ouvrir le sous-menu Portfolio seulement si on est sur la page d'accueil
+      setIsSectionOpen(location.pathname === "/");
     } else {
       setAnimateOpen(false);
       const t = setTimeout(() => setShouldRender(false), 300);
       return () => clearTimeout(t);
     }
-  }, [open]);
+  }, [open, location.pathname]);
 
   useLayoutEffect(() => {
     if (shouldRender && open) {

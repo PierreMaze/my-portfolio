@@ -17,14 +17,17 @@ const NavItem = ({ item, onClick, isActive, className }) => {
 
   return (
     <div
-      className={`hover:underline hover:underline-offset-4 hover:decoration-2 decoration-orange-600${baseClasses}${isActive?activeClasses : inactiveClasses}${className||""}`}>
+      className={`hover:underline hover:underline-offset-4 hover:decoration-2 decoration-orange-600${baseClasses}${
+        isActive ? activeClasses : inactiveClasses
+      }${className || ""}`}>
       <div className="flex-auto">
         <a
           href={item.href}
           className={`flex items-center gap-x-2 font-medium ${
             isActive
               ? "text-orange-600"
-              : "text-neutral-900 hover:text-orange-600"}`}
+              : "text-neutral-900 hover:text-orange-600"
+          }`}
           onClick={(e) => {
             e.preventDefault();
             onClick(item.href);
@@ -34,7 +37,8 @@ const NavItem = ({ item, onClick, isActive, className }) => {
               className={`w-4 h-4 ${
                 isActive
                   ? "text-orange-600"
-                  : "text-black group-hover:text-orange-600"}`}
+                  : "text-black group-hover:text-orange-600"
+              }`}
             />
           )}
           {item.label}
