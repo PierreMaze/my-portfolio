@@ -72,7 +72,7 @@ const HeaderMobileMenu = ({
             ? "opacity-100 translate-x-0"
             : "opacity-0 translate-x-full"}`}>
         <div className="flex items-center justify-between">
-          <a href="#" className="p-1 -m-1">
+          <a href="#" className="inline-flex items-center p-1 -m-1">
             <span className="sr-only">PIXEL STONE</span>
             <img alt="Logo" src={LogoPixelStone} className="w-auto h-10" />
           </a>
@@ -91,7 +91,7 @@ const HeaderMobileMenu = ({
               <button
                 type="button"
                 onClick={() => setIsSectionOpen((v) => !v)}
-                className="flex items-center justify-between py-2 pr-3 w-full font-semibold text-black rounded-lg text-base/7 hover:bg-white/5">
+                className="flex items-center justify-between py-2 pr-3 w-full text-lg font-semibold text-black rounded-lg hover:bg-white/5">
                 <span>Portfolio</span>
                 <HiChevronDown
                   aria-hidden="true"
@@ -122,7 +122,7 @@ const HeaderMobileMenu = ({
                       }
                       onClose?.();
                     }}
-                    className={`block py-2 pr-3 pl-6 font-semibold rounded-lg text-sm/7 ${
+                    className={`block py-2 pr-3 pl-6 font-semibold rounded-lg text-md ${
                       location.pathname === "/" && isAnchorActive(item.href)
                         ? "text-orange-600 underline underline-offset-4 decoration-2"
                         : "text-black hover:bg-white/5"}`}>
@@ -138,7 +138,7 @@ const HeaderMobileMenu = ({
                   navigate("/about");
                   onClose?.();
                 }}
-                className={`block px-3  py-2 font-semibold rounded -mx-3 text-base/7 !mb-6 ${
+                className={`block px-3  py-2 font-semibold rounded -mx-3 text-lg !mb-6 ${
                   isRouteActive("/about")
                     ? "text-orange-600"
                     : "text-black hover:bg-white/5"}`}>
@@ -155,7 +155,7 @@ const HeaderMobileMenu = ({
                   }
                   onClose?.();
                 }}
-                className="w-full">
+                className="w-full text-lg">
                 Contact
               </ButtonRectangularPrimary>
             </div>
