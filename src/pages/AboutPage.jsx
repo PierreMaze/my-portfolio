@@ -16,7 +16,7 @@ const About = () => {
   });
 
   return (
-    <section className="py-20">
+    <section className="py-24">
       <Container>
         {/* Bouton de navigation */}
         <FadeIn>

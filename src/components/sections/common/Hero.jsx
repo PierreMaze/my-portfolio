@@ -105,7 +105,7 @@ const Hero = () => {
         {/* Avatar */}
         <a
           href="/about"
-          className="inline-block mx-auto w-52 h-52 md:mx-4 lg:mt-16 hover:shadow-2xl hover:shadow-amber-600/50 md:mt-48 lg:w-80 lg:h-80 2xl:scale-150 focus:outline-none focus:ring-0">
+          className="inline-block mx-auto w-52 h-52 md:mx-4 lg:mt-16 mt-12 hover:shadow-2xl hover:shadow-amber-600/50 md:mt-48 lg:w-80 lg:h-80 2xl:scale-150 focus:outline-none focus:ring-0">
           <Suspense
             fallback={<ImageLoader className="w-full h-full rounded-md" />}>
             <img
