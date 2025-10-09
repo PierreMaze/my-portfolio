@@ -5,7 +5,6 @@ export const HEADER_NAV_ITEMS = [
   { label: "Compétences", href: "#skills" },
   { label: "Projets", href: "#projects" },
   { label: "Parcours", href: "#timeline" },
-  { label: "Contact", href: "#contact" },
 ];
 
 export const HEADER_ROUTE_ITEMS = [{ label: "A propos", to: "/about" }];
