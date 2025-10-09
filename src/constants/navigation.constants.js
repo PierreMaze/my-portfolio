@@ -1,10 +1,16 @@
 // Constantes de navigation pour le Header (routes et sections)
+import {
+  HiAcademicCap,
+  HiCodeBracket,
+  HiFolder,
+  HiHome,
+} from "react-icons/hi2";
 
 export const HEADER_NAV_ITEMS = [
-  { label: "Accueil", href: "#home" },
-  { label: "Compétences", href: "#skills" },
-  { label: "Projets", href: "#projects" },
-  { label: "Parcours", href: "#timeline" },
+  { label: "Accueil", href: "#home", icon: HiHome },
+  { label: "Compétences", href: "#skills", icon: HiCodeBracket },
+  { label: "Projets", href: "#projects", icon: HiFolder },
+  { label: "Parcours", href: "#timeline", icon: HiAcademicCap },
 ];
 
 export const HEADER_ROUTE_ITEMS = [{ label: "A propos", to: "/about" }];

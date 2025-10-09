@@ -113,23 +113,44 @@ const HeaderMobileMenu = ({ open, onClose, navItems = [], onNavigate }) => {
                   transition: "max-height 250ms ease-in-out",
                 }}
                 className="mt-2 space-y-2">
-                {navItems.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const sectionItem = { kind: "section", href: item.href };
-                      handleNavClick(sectionItem, navigate, location, onClose);
-                    }}
-                    className={`block py-2 pr-3 pl-6 font-semibold rounded-lg text-md ${
-                      location.pathname === "/" && isSectionActive(item.href)
-                        ? "text-orange-600 underline underline-offset-4 decoration-2"
-                        : "text-black hover:bg-white/5"
-                    }`}>
-                    {item.label}
-                  </a>
-                ))}
+                {navItems.map((item) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const sectionItem = {
+                          kind: "section",
+                          href: item.href,
+                        };
+                        handleNavClick(
+                          sectionItem,
+                          navigate,
+                          location,
+                          onClose
+                        );
+                      }}
+                      className={`flex items-center gap-x-2 py-2 pr-3 pl-6 font-semibold rounded-lg text-md ${
+                        location.pathname === "/" && isSectionActive(item.href)
+                          ? "text-orange-600 underline underline-offset-4 decoration-2"
+                          : "text-black hover:bg-white/5"
+                      }`}>
+                      {IconComponent && (
+                        <IconComponent
+                          className={`w-4 h-4 ${
+                            location.pathname === "/" &&
+                            isSectionActive(item.href)
+                              ? "text-orange-600"
+                              : "text-black"
+                          }`}
+                        />
+                      )}
+                      {item.label}
+                    </a>
+                  );
+                })}
               </div>
               {/* A propos (route) */}
               {HEADER_ROUTE_ITEMS.map((item) => (
