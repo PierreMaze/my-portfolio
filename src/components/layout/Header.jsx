@@ -3,14 +3,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { HEADER_NAV_ITEMS, HEADER_SECONDARY_LINKS } from "../../constants";
 import { useActiveNav, useHeaderMenu } from "../../hooks/header";
 import { handleNavClick as handleNavClickShared } from "../../utils/navigation.utils";
-import { ButtonRectangularPrimary } from "../ui/buttons/ButtonRectangularPrimary";
 import BrandLogo from "./header/BrandLogo";
-import {
-  MobileMenu,
-  MobileMenuButton,
-  NavDropdown,
-  NavItem,
-} from "./header/index";
+import { DesktopNav, MobileMenuButton, MobileNav } from "./header/index";
 
 export default function Header() {
   const { isAnchorActive, isRouteActive } = useActiveNav({
@@ -75,57 +69,25 @@ export default function Header() {
     <header className="fixed top-0 right-0 left-0 z-40 w-full bg-white">
       <nav
         aria-label="Global"
-        className="flex items-center justify-between px-4 py-3 w-full lg:px-12 xl:px-18">
+        className="flex items-center justify-between px-8 py-3 w-full lg:px-12 xl:px-18">
         <div className="flex lg:flex-1">
           <BrandLogo onClick={handleBrandClick} />
         </div>
         <div className="flex lg:hidden">
           <MobileMenuButton onClick={() => setMobileMenuOpen(true)} />
         </div>
-        <div className="hidden items-center h-10 lg:flex lg:gap-x-12">
-          <NavDropdown
-            buttonLabel="Portfolio"
-            open={isPopoverOpen}
-            onToggle={() => setIsPopoverOpen((v) => !v)}>
-            <div className="p-2">
-              {HEADER_NAV_ITEMS.map((item) => (
-                <NavItem
-                  key={item.label}
-                  item={item}
-                  onClick={handleNavClick}
-                  isActive={
-                    location.pathname === "/" && isAnchorActive(item.href)
-                  }
-                />
-              ))}
-            </div>
-          </NavDropdown>
-
-          <a
-            href="/about"
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("/about");
-              closeMenus();
-            }}
-            className={`inline-flex items-center h-10 font-semibold text-base ${
-              isRouteActive("/about")
-                ? "text-orange-600"
-                : "text-black hover:text-orange-600"}`}>
-            A propos
-          </a>
-
-          <div className="flex items-center h-10">
-            <ButtonRectangularPrimary
-              ariaLabel="Aller à la section contact"
-              onClick={() => handleNavClick("#contact")}
-              className="px-4 py-2 text-base">
-              Contact
-            </ButtonRectangularPrimary>
-          </div>
-        </div>
+        <DesktopNav
+          handleNavClick={handleNavClick}
+          closeMenus={closeMenus}
+          isAnchorActive={isAnchorActive}
+          isRouteActive={isRouteActive}
+          isPopoverOpen={isPopoverOpen}
+          setIsPopoverOpen={setIsPopoverOpen}
+          location={location}
+          navigate={navigate}
+        />
       </nav>
-      <MobileMenu
+      <MobileNav
         open={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
         navItems={HEADER_NAV_ITEMS}

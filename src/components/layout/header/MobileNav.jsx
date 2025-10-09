@@ -12,8 +12,9 @@ import { useSectionSpy } from "../../../hooks/header";
 import { handleNavClick } from "../../../utils/navigation.utils";
 import { ButtonIconsSecondaryHoveredColoredQuarteRotate } from "../../ui/buttons/ButtonIconsSecondaryHoveredColoredQuarteRotate";
 import { ButtonRectangularPrimary } from "../../ui/buttons/ButtonRectangularPrimary";
+import NavItem from "./NavItem";
 
-const HeaderMobileMenu = ({ open, onClose, navItems = [], onNavigate }) => {
+const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
   const [shouldRender, setShouldRender] = useState(open);
   const [animateOpen, setAnimateOpen] = useState(false);
   const [isSectionOpen, setIsSectionOpen] = useState(true);
@@ -63,20 +64,18 @@ const HeaderMobileMenu = ({ open, onClose, navItems = [], onNavigate }) => {
   return (
     <div className="lg:hidden">
       <div
-        className={`fixed inset-0 z-40 transition-opacity duration-300 ease-out ${
+        className={`fixed inset-0z-40 transition-opacity duration-300 ease-out ${
           animateOpen
             ? "opacity-100 bg-black/30 backdrop-blur-[2px]"
-            : "opacity-0 pointer-events-none"
-        }`}
+            : "opacity-0 pointer-events-none"}`}
         onClick={onClose}
       />
       <div
-        className={`fixed inset-y-0 right-0 z-50 p-4 w-full bg-white overflow-y-auto sm:max-w-sm  transform transition-all duration-300 ease-out ${
+        className={`fixed inset-y-0 right-0 z-50 p-4 w-full bg-white overflow-y-auto sm:max-w-sm transform transition-all duration-300 ease-out ${
           animateOpen
             ? "opacity-100 translate-x-0"
-            : "opacity-0 translate-x-full"
-        }`}>
-        <div className="flex items-center justify-between">
+            : "opacity-0 translate-x-full"}`}>
+        <div className="flex items-center justify-between px-4">
           <a href="#" className="inline-flex items-center p-1 -m-1">
             <span className="sr-only">PIXEL STONE</span>
             <img alt="Logo" src={LogoPixelStone} className="w-auto h-10" />
@@ -96,13 +95,12 @@ const HeaderMobileMenu = ({ open, onClose, navItems = [], onNavigate }) => {
               <button
                 type="button"
                 onClick={() => setIsSectionOpen((v) => !v)}
-                className="flex items-center justify-between py-2 pr-3 w-full text-lg font-semibold text-black rounded-lg hover:bg-white/5">
+                className="flex items-center justify-between px-3 py-2 w-full text-lg font-semibold text-black rounded-lg hover:bg-white/5">
                 <span>Portfolio</span>
                 <HiChevronDown
                   aria-hidden="true"
                   className={`size-5 transition-transform ${
-                    isSectionOpen ? "rotate-180" : ""
-                  }`}
+                    isSectionOpen ? "rotate-180" : ""}`}
                 />
               </button>
               <div
@@ -114,44 +112,23 @@ const HeaderMobileMenu = ({ open, onClose, navItems = [], onNavigate }) => {
                   transition: "max-height 250ms ease-in-out",
                 }}
                 className="mt-2 space-y-2">
-                {navItems.map((item) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const sectionItem = {
-                          kind: "section",
-                          href: item.href,
-                        };
-                        handleNavClick(
-                          sectionItem,
-                          navigate,
-                          location,
-                          onClose
-                        );
-                      }}
-                      className={`flex items-center gap-x-2 py-2 pr-3 pl-6 font-semibold rounded-lg text-md ${
-                        location.pathname === "/" && isSectionActive(item.href)
-                          ? "text-orange-600 underline underline-offset-4 decoration-2"
-                          : "text-black hover:bg-white/5"
-                      }`}>
-                      {IconComponent && (
-                        <IconComponent
-                          className={`w-4 h-4 ${
-                            location.pathname === "/" &&
-                            isSectionActive(item.href)
-                              ? "text-orange-600"
-                              : "text-black"
-                          }`}
-                        />
-                      )}
-                      {item.label}
-                    </a>
-                  );
-                })}
+                {navItems.map((item) => (
+                  <NavItem
+                    key={item.label}
+                    item={item}
+                    onClick={(href) => {
+                      const sectionItem = {
+                        kind: "section",
+                        href: href,
+                      };
+                      handleNavClick(sectionItem, navigate, location, onClose);
+                    }}
+                    isActive={
+                      location.pathname === "/" && isSectionActive(item.href)
+                    }
+                    variant="mobile"
+                  />
+                ))}
               </div>
               {/* A propos (route) */}
               {HEADER_ROUTE_ITEMS.map((item) => (
@@ -163,11 +140,10 @@ const HeaderMobileMenu = ({ open, onClose, navItems = [], onNavigate }) => {
                     const routeItem = { kind: "route", to: item.to };
                     handleNavClick(routeItem, navigate, location, onClose);
                   }}
-                  className={`block px-3 py-2 font-semibold rounded -mx-3 text-lg !mb-6 ${
+                  className={`block px-3 py-2 font-semibold rounded text-lg !mb-6 ${
                     location.pathname === item.to
                       ? "text-orange-600"
-                      : "text-black hover:bg-white/5"
-                  }`}>
+                      : "text-black hover:bg-white/5"}`}>
                   {item.label}
                 </a>
               ))}
@@ -214,16 +190,17 @@ const HeaderMobileMenu = ({ open, onClose, navItems = [], onNavigate }) => {
   );
 };
 
-HeaderMobileMenu.propTypes = {
+MobileNav.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   navItems: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
+      icon: PropTypes.elementType,
     })
   ),
   onNavigate: PropTypes.func,
 };
 
-export default HeaderMobileMenu;
+export default MobileNav;
