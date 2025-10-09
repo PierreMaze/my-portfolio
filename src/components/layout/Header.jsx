@@ -1,20 +1,31 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { HiBars3 } from "react-icons/hi2";
 import { useLocation, useNavigate } from "react-router-dom";
 import LogoPixelStone from "../../assets/logo-pixel-stone.png";
 import { HEADER_NAV_ITEMS, HEADER_SECONDARY_LINKS } from "../../constants";
-import { useActiveNav } from "../../hooks";
+import { useActiveNav, useHeaderMenu } from "../../hooks/header";
+import { handleNavClick as handleNavClickShared } from "../../utils/navigation.utils";
 import { ButtonRectangularPrimary } from "../ui/buttons/ButtonRectangularPrimary";
 import { HeaderMobileMenu, HeaderNav } from "./header/index";
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const { isAnchorActive, isRouteActive } = useActiveNav({
     sectionAnchors: HEADER_NAV_ITEMS.map((i) => i.href),
   });
   const location = useLocation();
   const navigate = useNavigate();
+  const {
+    isMobileMenuOpen: mobileMenuOpen,
+    setIsMobileMenuOpen: setMobileMenuOpen,
+    isPopoverOpen,
+    setIsPopoverOpen,
+    handleNavClick: handleMenuNavClick,
+  } = useHeaderMenu({
+    navItems: HEADER_NAV_ITEMS.map((i) => ({ label: i.label, href: i.href })),
+    onNavigate: () => {
+      // noop: fermeture déjà gérée dans le hook
+    },
+  });
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -28,28 +39,13 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   const handleNavClick = (href) => {
-    if (!href) return;
-    if (href.startsWith("#")) {
-      const elementId = href.substring(1);
-      if (location.pathname !== "/") {
-        navigate(`/#${elementId}`);
-      } else {
-        const element = document.getElementById(elementId);
-        if (element) {
-          const isMobile = window.innerWidth < 768;
-          const offset = isMobile ? 60 : -10;
-          const top = element.offsetTop - offset;
-          window.scrollTo({ top, behavior: "smooth" });
-          navigate(`#${elementId}`, { replace: false });
-        } else {
-          navigate(`/#${elementId}`);
-        }
-      }
-    } else {
-      window.location.href = href;
-    }
-    setMobileMenuOpen(false);
-    setIsPopoverOpen(false);
+    const item = href?.startsWith("#")
+      ? { kind: "section", href }
+      : { kind: "route", to: href };
+    handleNavClickShared(item, navigate, location, () => {
+      setMobileMenuOpen(false);
+      setIsPopoverOpen(false);
+    });
   };
 
   const handleBrandClick = (e) => {
@@ -91,7 +87,7 @@ export default function Header() {
             <HiBars3 aria-hidden="true" className="size-6" />
           </button>
         </div>
-        <div className="hidden items-center h-10 lg:flex lg:gap-x-12">
+        <div className="hidden items-center h- lg:flex lg:gap-x-12">
           <HeaderNav
             buttonLabel="Portfolio"
             open={isPopoverOpen}
@@ -100,7 +96,7 @@ export default function Header() {
               {HEADER_NAV_ITEMS.map((item) => (
                 <div
                   key={item.label}
-                  className={`relative flex items-center gap-x-4 p-3 rounded group text-sm/6 ${
+                  className={`relative flex items-center gap-x-4 p-3 rounded group text-base ${
                     location.pathname === "/" && isAnchorActive(item.href)
                       ? "text-orange-600 underline underline-offset-4 decoration-2"
                       : "hover:text-orange-600 hover:underline hover:underline-offset-4 hover:decoration-2"}`}>
@@ -131,7 +127,7 @@ export default function Header() {
               navigate("/about");
               setIsPopoverOpen(false);
             }}
-            className={`inline-flex items-center h-10 font-semibold text-sm/6 ${
+            className={`inline-flex items-center h-10 font-semibold text-base ${
               isRouteActive("/about")
                 ? "text-orange-600"
                 : "text-black hover:text-orange-600"}`}>
@@ -142,7 +138,7 @@ export default function Header() {
             <ButtonRectangularPrimary
               ariaLabel="Aller à la section contact"
               onClick={() => handleNavClick("#contact")}
-              className="px-4 py-2 text-sm">
+              className="px-4 py-2 text-base">
               Contact
             </ButtonRectangularPrimary>
           </div>

@@ -1,29 +1,31 @@
+import PropTypes from "prop-types";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { HiChevronDown, HiXMark } from "react-icons/hi2";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { useLocation, useNavigate } from "react-router-dom";
 import LogoPixelStone from "../../../assets/logo-pixel-stone.png";
-import { useActiveNav } from "../../../hooks";
+import {
+  HEADER_ROUTE_ITEMS,
+  HEADER_SECONDARY_LINKS,
+} from "../../../constants/navigation.constants";
+import { useSectionSpy } from "../../../hooks/header";
+import { handleNavClick } from "../../../utils/navigation.utils";
 import { ButtonIconsSecondaryHoveredColoredQuarteRotate } from "../../ui/buttons/ButtonIconsSecondaryHoveredColoredQuarteRotate";
 import { ButtonRectangularPrimary } from "../../ui/buttons/ButtonRectangularPrimary";
 
-const HeaderMobileMenu = ({
-  open,
-  onClose,
-  navItems = [],
-  secondary = [],
-  onNavigate,
-}) => {
+const HeaderMobileMenu = ({ open, onClose, navItems = [], onNavigate }) => {
   const [shouldRender, setShouldRender] = useState(open);
   const [animateOpen, setAnimateOpen] = useState(false);
   const [isSectionOpen, setIsSectionOpen] = useState(true);
   const submenuRef = useRef(null);
   const [submenuHeight, setSubmenuHeight] = useState(0);
-  const { isAnchorActive, isRouteActive } = useActiveNav({
-    sectionAnchors: navItems.map((n) => n.href).concat(["about", "#contact"]),
-  });
   const location = useLocation();
   const navigate = useNavigate();
+
+  // Scroll-spy pour les sections
+  const { isSectionActive } = useSectionSpy({
+    sectionIds: navItems.map((item) => item.href),
+  });
 
   useEffect(() => {
     if (open) {
@@ -114,16 +116,10 @@ const HeaderMobileMenu = ({
                     href={item.href}
                     onClick={(e) => {
                       e.preventDefault();
-                      const id = (item.href || "").replace("#", "");
-                      if (location.pathname !== "/") {
-                        navigate(`/#${id}`);
-                      } else {
-                        onNavigate?.(item.href);
-                      }
-                      onClose?.();
+                      handleNavClick(item, navigate, location, onClose);
                     }}
                     className={`block py-2 pr-3 pl-6 font-semibold rounded-lg text-md ${
-                      location.pathname === "/" && isAnchorActive(item.href)
+                      location.pathname === "/" && isSectionActive(item.href)
                         ? "text-orange-600 underline underline-offset-4 decoration-2"
                         : "text-black hover:bg-white/5"}`}>
                     {item.label}
@@ -131,53 +127,55 @@ const HeaderMobileMenu = ({
                 ))}
               </div>
               {/* A propos (route) */}
-              <a
-                href="/about"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate("/about");
-                  onClose?.();
-                }}
-                className={`block px-3  py-2 font-semibold rounded -mx-3 text-lg !mb-6 ${
-                  isRouteActive("/about")
-                    ? "text-orange-600"
-                    : "text-black hover:bg-white/5"}`}>
-                A propos
-              </a>
+              {HEADER_ROUTE_ITEMS.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.to}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item, navigate, location, onClose);
+                  }}
+                  className={`block px-3 py-2 font-semibold rounded -mx-3 text-lg !mb-6 ${
+                    location.pathname === item.to
+                      ? "text-orange-600"
+                      : "text-black hover:bg-white/5"}`}>
+                  {item.label}
+                </a>
+              ))}
               {/* Contact dans la même section, sans séparateur au-dessus */}
               <ButtonRectangularPrimary
                 ariaLabel="Aller à la section contact"
                 onClick={() => {
-                  if (location.pathname !== "/") {
-                    navigate("/#contact");
-                  } else {
-                    onNavigate?.("#contact");
-                  }
-                  onClose?.();
+                  const contactItem = {
+                    kind: "section",
+                    target: "contact",
+                    href: "#contact",
+                  };
+                  handleNavClick(contactItem, navigate, location, onClose);
                 }}
                 className="w-full text-lg">
-                Contact
+                Me contacter
               </ButtonRectangularPrimary>
             </div>
             {/* Section 2: Liens secondaires (icônes) */}
             <div className="py-6">
               <div className="flex items-center justify-center gap-4">
-                <ButtonIconsSecondaryHoveredColoredQuarteRotate
-                  href="https://github.com/PierreMaze"
-                  size="small"
-                  variant="github"
-                  title="GitHub"
-                  ariaLabel="GitHub">
-                  <IoLogoGithub className="w-full h-full" />
-                </ButtonIconsSecondaryHoveredColoredQuarteRotate>
-                <ButtonIconsSecondaryHoveredColoredQuarteRotate
-                  href="https://fr.linkedin.com/in/pierremazelaygue"
-                  size="small"
-                  variant="linkedin"
-                  title="LinkedIn"
-                  ariaLabel="LinkedIn">
-                  <IoLogoLinkedin className="w-full h-full" />
-                </ButtonIconsSecondaryHoveredColoredQuarteRotate>
+                {HEADER_SECONDARY_LINKS.map((link) => (
+                  <ButtonIconsSecondaryHoveredColoredQuarteRotate
+                    key={link.label}
+                    href={link.href}
+                    size="small"
+                    variant={link.icon}
+                    title={link.label}
+                    ariaLabel={link.label}>
+                    {link.icon === "github" && (
+                      <IoLogoGithub className="w-full h-full" />
+                    )}
+                    {link.icon === "linkedin" && (
+                      <IoLogoLinkedin className="w-full h-full" />
+                    )}
+                  </ButtonIconsSecondaryHoveredColoredQuarteRotate>
+                ))}
               </div>
             </div>
           </div>
@@ -185,6 +183,18 @@ const HeaderMobileMenu = ({
       </div>
     </div>
   );
+};
+
+HeaderMobileMenu.propTypes = {
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  navItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
+    })
+  ),
+  onNavigate: PropTypes.func,
 };
 
 export default HeaderMobileMenu;
