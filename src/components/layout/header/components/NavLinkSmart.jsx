@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useLocation, useNavigate } from "react-router-dom";
-import { handleNavClick } from "../../../utils/navigation.utils";
+import { handleNavClick } from "../../../../utils/navigation.utils";
 
 /**
  * Composant de lien de navigation intelligent
