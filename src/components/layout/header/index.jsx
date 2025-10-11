@@ -71,7 +71,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 right-0 left-0 z-40 w-full">
       {/* Container avec effet glassmorphism pour desktop */}
-      <div className="border shadow-sm bg-white/80 backdrop-blur-md border-white/20 shadow-black/5 lg:bg-white/80 lg:backdrop-blur-lg lg:shadow-xl lg:shadow-black/10">
+      <div className="border shadow-xl border-white/20 bg-white/80 backdrop-blur-lg shadow-black/10">
         <nav
           aria-label="Global"
           className="flex items-center justify-between px-8 py-3 w-full lg:px-12 xl:px-18">
