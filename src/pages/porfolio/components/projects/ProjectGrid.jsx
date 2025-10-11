@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { FadeIn } from "../../ui";
+import { FadeIn } from "../../../../components/ui";
 import ProjectCard from "./ProjectCard";
 
 /**

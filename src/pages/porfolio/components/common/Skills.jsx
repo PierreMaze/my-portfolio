@@ -1,6 +1,6 @@
-import { STACK_TAG_TYPES } from "../../../constants";
-import { useStacksData } from "../../../hooks";
-import { FadeIn, StackTag } from "../../ui";
+import { FadeIn, StackTag } from "../../../../components/ui";
+import * as constants from "../../../../constants";
+import { useStacksData } from "../../../../hooks";
 
 const Skills = () => {
   // Utilisation du hook personnalisé pour gérer les données des stacks
@@ -33,7 +33,7 @@ const Skills = () => {
                   <li key={`${title}-${index}`}>
                     <StackTag
                       name={stack.name}
-                      type={STACK_TAG_TYPES.RECTANGULAR}
+                      type={constants.STACK_TAG_TYPES.RECTANGULAR}
                       icon={stack.icon}
                     />
                   </li>

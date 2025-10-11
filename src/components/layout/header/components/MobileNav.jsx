@@ -3,15 +3,15 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { HiChevronDown, HiXMark } from "react-icons/hi2";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { useLocation, useNavigate } from "react-router-dom";
-import LogoPixelStone from "../../../assets/logo-pixel-stone.png";
+import LogoPixelStone from "../../../../assets/logo-pixel-stone.png";
 import {
   HEADER_ROUTE_ITEMS,
   HEADER_SECONDARY_LINKS,
-} from "../../../constants/navigation.constants";
-import { useSectionSpy } from "../../../hooks/header";
-import { handleNavClick } from "../../../utils/navigation.utils";
-import { ButtonIconsSecondaryHoveredColoredQuarteRotate } from "../../ui/buttons/ButtonIconsSecondaryHoveredColoredQuarteRotate";
-import { ButtonRectangularPrimary } from "../../ui/buttons/ButtonRectangularPrimary";
+} from "../../../../constants/navigation.constants";
+import { useSectionSpy } from "../../../../hooks/header";
+import { handleNavClick } from "../../../../utils/navigation.utils";
+import { ButtonIconsSecondaryHoveredColoredQuarteRotate } from "../../../ui/buttons/ButtonIconsSecondaryHoveredColoredQuarteRotate";
+import { ButtonRectangularPrimary } from "../../../ui/buttons/ButtonRectangularPrimary";
 import NavItem from "./NavItem";
 
 const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {

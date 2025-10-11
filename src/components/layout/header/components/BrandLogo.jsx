@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import LogoPixelStone from "../../../assets/logo-pixel-stone.png";
+import LogoPixelStone from "../../../../assets/logo-pixel-stone.png";
 
 /**
  * Composant du logo de marque réutilisable

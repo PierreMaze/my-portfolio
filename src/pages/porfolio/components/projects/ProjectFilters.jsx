@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { FadeIn } from "../../ui";
-import { ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary } from "../../ui/buttons";
+import { FadeIn } from "../../../../components/ui";
+import { ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary } from "../../../../components/ui/buttons";
 
 /**
  * Composant des filtres de projets

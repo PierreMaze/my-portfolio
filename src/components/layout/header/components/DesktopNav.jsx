@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { HEADER_NAV_ITEMS } from "../../../constants";
-import { ButtonRectangularPrimary } from "../../ui/buttons/ButtonRectangularPrimary";
+import { HEADER_NAV_ITEMS } from "../../../../constants";
+import { ButtonRectangularPrimary } from "../../../ui/buttons/ButtonRectangularPrimary";
 import { NavDropdown, NavItem } from "./index";
 
 /**

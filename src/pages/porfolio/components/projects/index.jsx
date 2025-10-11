@@ -1,5 +1,5 @@
-import { useProjects } from "../../../contexts/ProjectsContext";
-import { useProjectsCategoriesFilter } from "../../../hooks";
+import { useProjects } from "../../../../contexts/ProjectsContext";
+import { useProjectsCategoriesFilter } from "../../../../hooks";
 import ProjectFilters from "./ProjectFilters";
 import ProjectGrid from "./ProjectGrid";
 import ProjectsHeader from "./ProjectsHeader";

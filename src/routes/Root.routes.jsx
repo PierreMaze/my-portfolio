@@ -6,7 +6,7 @@ import RouteErrorBoundary from "../components/ui/error/RouteErrorBoundary";
 import AppRoot from "./RootLayout.routes";
 
 // Lazy loading des pages
-const Home = lazy(() => import("../pages/HomePage"));
+const Home = lazy(() => import("../pages/porfolio/HomePage"));
 const About = lazy(() => import("../pages/AboutPage"));
 const Legal = lazy(() => import("../pages/LegalPage"));
 const Error = lazy(() => import("../pages/ErrorPage"));

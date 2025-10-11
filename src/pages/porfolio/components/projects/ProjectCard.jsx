@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { STACK_TAG_TYPES } from "../../../constants";
-import { StackTag } from "../../ui";
+import { StackTag } from "../../../../components/ui";
+import { STACK_TAG_TYPES } from "../../../../constants";
 /**
  * Composant ProjectCard
  * Affiche une carte de projet avec image, titre, description et tags
