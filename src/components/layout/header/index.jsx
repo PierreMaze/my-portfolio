@@ -69,27 +69,30 @@ export default function Header() {
   );
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-40 w-full bg-white">
-      <nav
-        aria-label="Global"
-        className="flex items-center justify-between px-8 py-3 w-full lg:px-12 xl:px-18">
-        <div className="flex lg:flex-1">
-          <BrandLogo onClick={handleBrandClick} />
-        </div>
-        <div className="flex lg:hidden">
-          <MobileMenuButton onClick={() => setMobileMenuOpen(true)} />
-        </div>
-        <DesktopNav
-          handleNavClick={handleNavClick}
-          closeMenus={closeMenus}
-          isAnchorActive={isAnchorActive}
-          isRouteActive={isRouteActive}
-          isPopoverOpen={isPopoverOpen}
-          setIsPopoverOpen={setIsPopoverOpen}
-          location={location}
-          navigate={navigate}
-        />
-      </nav>
+    <header className="fixed top-0 right-0 left-0 z-40 w-full">
+      {/* Container avec effet glassmorphism pour desktop */}
+      <div className="border shadow-xl border-white/20 bg-white/80 backdrop-blur-lg shadow-black/10">
+        <nav
+          aria-label="Global"
+          className="flex items-center justify-between px-8 py-3 w-full lg:px-12 xl:px-18">
+          <div className="flex lg:flex-1">
+            <BrandLogo onClick={handleBrandClick} />
+          </div>
+          <div className="flex lg:hidden">
+            <MobileMenuButton onClick={() => setMobileMenuOpen(true)} />
+          </div>
+          <DesktopNav
+            handleNavClick={handleNavClick}
+            closeMenus={closeMenus}
+            isAnchorActive={isAnchorActive}
+            isRouteActive={isRouteActive}
+            isPopoverOpen={isPopoverOpen}
+            setIsPopoverOpen={setIsPopoverOpen}
+            location={location}
+            navigate={navigate}
+          />
+        </nav>
+      </div>
       <MobileNav
         open={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
