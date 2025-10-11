@@ -1,4 +1,4 @@
-import { FadeIn } from "../../ui";
+import { FadeIn } from "../../../../components/ui";
 
 /**
  * Composant de l'en-tête de la section projets
