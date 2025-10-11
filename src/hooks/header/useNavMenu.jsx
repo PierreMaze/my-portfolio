@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import useOutsideClick from "./useOutsideClick";
 
-export const useHeaderMenu = ({ navItems = [], onNavigate } = {}) => {
+export const useNavMenu = ({ navItems = [], onNavigate } = {}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const popoverRef = useRef(null);
@@ -46,6 +46,4 @@ export const useHeaderMenu = ({ navItems = [], onNavigate } = {}) => {
   };
 };
 
-export default useHeaderMenu;
-
-
+export default useNavMenu;

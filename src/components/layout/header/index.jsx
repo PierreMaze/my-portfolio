@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { HEADER_NAV_ITEMS, HEADER_SECONDARY_LINKS } from "../../../constants";
-import { useActiveNav, useHeaderMenu } from "../../../hooks/header";
+import { useActiveNav, useNavMenu } from "../../../hooks/header";
 import { handleNavClick as handleNavClickShared } from "../../../utils/navigation.utils";
 import { DesktopNav, MobileMenuButton, MobileNav } from "./components/";
 import BrandLogo from "./components/BrandLogo";
@@ -18,7 +18,7 @@ export default function Header() {
     isPopoverOpen,
     setIsPopoverOpen,
     handleNavClick: handleMenuNavClick,
-  } = useHeaderMenu({
+  } = useNavMenu({
     navItems: HEADER_NAV_ITEMS.map((items) => ({
       label: items.label,
       href: items.href,
