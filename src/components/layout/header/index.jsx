@@ -3,8 +3,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { HEADER_NAV_ITEMS, HEADER_SECONDARY_LINKS } from "../../../constants";
 import { useActiveNav, useNavMenu } from "../../../hooks/header";
 import { handleNavClick as handleNavClickShared } from "../../../utils/navigation.utils";
-import { DesktopNav, MobileMenuButton, MobileNav } from "./components/";
-import BrandLogo from "./components/BrandLogo";
+import {
+  BrandLogo,
+  DesktopNav,
+  MobileMenuButton,
+  MobileNav,
+} from "./components/";
 
 export default function Header() {
   const { isAnchorActive, isRouteActive } = useActiveNav({
