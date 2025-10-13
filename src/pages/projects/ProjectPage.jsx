@@ -2,7 +2,7 @@ import { useCallback, useMemo } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../../components/layout/Container";
-import { FadeIn } from "../../components/ui";
+import { FadeIn, SmartImage } from "../../components/ui";
 import { ButtonRectangularPrimary } from "../../components/ui/buttons";
 import { ProjectError } from "../../components/ui/error";
 import { useProjects } from "../../contexts/ProjectsContext";
@@ -35,6 +35,7 @@ const ProjectPage = () => {
     description,
     tags,
     image,
+    imageWebp,
     problem,
     objectives,
     solution,
@@ -112,14 +113,14 @@ const ProjectPage = () => {
         {/* Image principale du projet */}
         <FadeIn className="delay-100">
           <div className="relative rounded shadow-lg overflow-hidden aspect-video mb-8">
-            <img
+            <SmartImage
               src={image}
+              webp={imageWebp}
               alt={title}
               className="w-full h-full object-cover"
-              fetchPriority="eager"
-              width="600"
-              height="400"
-              priority="true"
+              width={600}
+              height={400}
+              priority
             />
           </div>
         </FadeIn>

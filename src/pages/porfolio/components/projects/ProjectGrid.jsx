@@ -14,9 +14,15 @@ const ProjectGrid = ({ projects }) => {
       <ul
         className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 list-none"
         aria-label="Liste des projets">
-        {projects.map((project) => (
-          <li key={project.id}>
-            <ProjectCard {...project} />
+        {projects.map(({ id, title, description, image, imageWebp, tags }) => (
+          <li key={id}>
+            <ProjectCard
+              id={id}
+              title={title}
+              description={description}
+              image={{ image, imageWebp }}
+              tags={tags}
+            />
           </li>
         ))}
       </ul>
@@ -31,6 +37,7 @@ ProjectGrid.propTypes = {
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
+      imageWebp: PropTypes.string,
       tags: PropTypes.arrayOf(PropTypes.string).isRequired,
     })
   ).isRequired,

@@ -3,8 +3,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { HEADER_NAV_ITEMS, HEADER_SECONDARY_LINKS } from "../../../constants";
 import { useActiveNav, useNavMenu } from "../../../hooks/header";
 import { handleNavClick as handleNavClickShared } from "../../../utils/navigation.utils";
-import { DesktopNav, MobileMenuButton, MobileNav } from "./components/";
-import BrandLogo from "./components/BrandLogo";
+import {
+  BrandLogo,
+  DesktopNav,
+  MobileMenuButton,
+  MobileNav,
+} from "./components/";
 
 export default function Header() {
   const { isAnchorActive, isRouteActive } = useActiveNav({
@@ -74,7 +78,7 @@ export default function Header() {
       <div className="border shadow-xl border-white/20 bg-white/80 backdrop-blur-lg shadow-black/10">
         <nav
           aria-label="Global"
-          className="flex items-center justify-between px-8 py-3 w-full lg:px-12 xl:px-18">
+          className="flex items-center justify-between px-8 py-3 w-full lg:px-12 xl:px-18 2xl:px-32">
           <div className="flex lg:flex-1">
             <BrandLogo onClick={handleBrandClick} />
           </div>

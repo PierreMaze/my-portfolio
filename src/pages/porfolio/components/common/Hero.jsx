@@ -4,11 +4,13 @@ import { IoMdDownload } from "react-icons/io";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { MdDownloadDone } from "react-icons/md";
 import ImgAvatar from "../../../../assets/avatar.png";
+import ImgAvatarWebp from "../../../../assets/avatar.webp";
 import {
   ButtonIconsSecondaryHoveredColoredQuarteRotate,
   ButtonRectangularPrimary,
   FadeIn,
   ImageLoader,
+  SmartImage,
 } from "../../../../components/ui";
 
 // Lazy loading de l'image simple
@@ -110,14 +112,14 @@ const Hero = () => {
           className="inline-block mx-auto w-52 h-52 md:mx-4 lg:mt-16 mt-12 hover:shadow-2xl hover:shadow-amber-600/50 md:mt-48 lg:w-80 lg:h-80 2xl:scale-150 focus:outline-none focus:ring-0">
           <Suspense
             fallback={<ImageLoader className="w-full h-full rounded-md" />}>
-            <img
+            <SmartImage
               src={ImgAvatar}
+              webp={ImgAvatarWebp}
               alt="Mon avatar"
-              fetchPriority="eager"
               className="w-full h-full rounded-md transition-transform object-cover hover:scale-105"
-              width="256"
-              height="256"
-              priority="true"
+              width={256}
+              height={256}
+              priority
             />
           </Suspense>
         </a>

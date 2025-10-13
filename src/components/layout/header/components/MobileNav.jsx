@@ -4,12 +4,14 @@ import { HiChevronDown, HiXMark } from "react-icons/hi2";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { useLocation, useNavigate } from "react-router-dom";
 import LogoPixelStone from "../../../../assets/logo-pixel-stone.png";
+import LogoPixelStoneWebp from "../../../../assets/logo-pixel-stone.webp";
 import {
   HEADER_ROUTE_ITEMS,
   HEADER_SECONDARY_LINKS,
 } from "../../../../constants/navigation.constants";
 import { useSectionSpy } from "../../../../hooks/header";
 import { handleNavClick } from "../../../../utils/navigation.utils";
+import { SmartImage } from "../../../ui";
 import { ButtonIconsSecondaryHoveredColoredQuarteRotate } from "../../../ui/buttons/ButtonIconsSecondaryHoveredColoredQuarteRotate";
 import { ButtonRectangularPrimary } from "../../../ui/buttons/ButtonRectangularPrimary";
 import NavItem from "./NavItem";
@@ -64,7 +66,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
   return (
     <div className="lg:hidden">
       <div
-        className={`fixed inset-0z-40 transition-opacity duration-300 ease-out ${
+        className={`fixed inset-0 z-40 transition-opacity duration-300 ease-out ${
           animateOpen
             ? "opacity-100 bg-black/30 backdrop-blur-[2px]"
             : "opacity-0 pointer-events-none"}`}
@@ -78,7 +80,16 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
         <div className="flex items-center justify-between px-4">
           <a href="#" className="inline-flex items-center p-1 -m-1">
             <span className="sr-only">PIXEL STONE</span>
-            <img alt="Logo" src={LogoPixelStone} className="w-auto h-10" />
+            <SmartImage
+              alt="Logo"
+              src={LogoPixelStone}
+              webp={LogoPixelStoneWebp}
+              className="w-auto h-10"
+              width={40}
+              height={40}
+              loading="eager"
+              fetchPriority="high"
+            />
           </a>
           <button
             type="button"

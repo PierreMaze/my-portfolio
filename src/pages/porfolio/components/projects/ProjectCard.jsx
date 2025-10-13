@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { StackTag } from "../../../../components/ui";
+import { SmartImage, StackTag } from "../../../../components/ui";
 import { STACK_TAG_TYPES } from "../../../../constants";
 /**
  * Composant ProjectCard
  * Affiche une carte de projet avec image, titre, description et tags
  */
-const ProjectCard = ({ id, title, description, image, tags, ...props }) => {
+const ProjectCard = ({ id, title, description, image, tags, className }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -15,7 +15,7 @@ const ProjectCard = ({ id, title, description, image, tags, ...props }) => {
 
   return (
     <article
-      className="flex flex-col h-full border-2 rounded shadow-2xl cursor-pointer transition-colors hover:shadow-amber-500/30 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden focus:outline-none focus:ring-0"
+      className={`flex flex-col h-full border-2 rounded shadow-2xl cursor-pointer transition-colors hover:shadow-amber-500/30 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden focus:outline-none focus:ring-0${className}`}
       aria-labelledby={`project-title-${title
         .replace(/\s+/g, "-")
         .toLowerCase()}`}
@@ -27,15 +27,14 @@ const ProjectCard = ({ id, title, description, image, tags, ...props }) => {
           e.preventDefault();
           handleClick();
         }
-      }}
-      {...props}>
+      }}>
       <div className="relative overflow-hidden aspect-video">
-        <img
-          src={image}
+        <SmartImage
+          src={image?.image}
+          webp={image?.imageWebp}
           alt={`Aperçu du projet ${title}`}
-          loading="lazy"
-          width="600"
-          height="400"
+          width={600}
+          height={400}
           className="w-full h-full transition-transform object-cover group-hover:scale-105"
         />
       </div>
@@ -64,8 +63,12 @@ ProjectCard.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.shape({
+    image: PropTypes.string,
+    imageWebp: PropTypes.string,
+  }).isRequired,
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  className: PropTypes.string,
 };
 
 export default ProjectCard;
