@@ -1,9 +1,14 @@
 // Import des images des projets
 import ImgProjectClou from "../assets/clou.png";
+import ImgProjectClouWebp from "../assets/clou.webp";
 import ImgProjectLumi from "../assets/lumi.png";
+import ImgProjectLumiWebp from "../assets/lumi.webp";
 import ImgProjectMakeSense from "../assets/make_sense.png";
+import ImgProjectMakeSenseWebp from "../assets/make_sense.webp";
 import ImgProjectPortfolio from "../assets/portfolio.png";
+import ImgProjectPortfolioWebp from "../assets/portfolio.webp";
 import ImgProjectSignature from "../assets/signature.png";
+import ImgProjectSignatureWebp from "../assets/signature.webp";
 
 /**
  * Données des projets
@@ -16,6 +21,7 @@ export const PROJECTS_DATA = [
     description:
       "Site vitrine personnel moderne avec animations fluides et design responsive.",
     image: ImgProjectPortfolio,
+    imageWebp: ImgProjectPortfolioWebp,
     tags: [
       "ReactJS",
       "React Router DOM",
@@ -52,6 +58,7 @@ export const PROJECTS_DATA = [
     description:
       "App vitrine de prestations via WhatsApp et prise de RDV avec Calendly.",
     image: ImgProjectSignature,
+    imageWebp: ImgProjectSignatureWebp,
     tags: [
       "ReactJS",
       "React Router DOM",
@@ -89,6 +96,7 @@ export const PROJECTS_DATA = [
     description:
       "Site vitrine dans le BTP : services clairs, chantiers mis en valeur, demande de devis.",
     image: ImgProjectClou,
+    imageWebp: ImgProjectClouWebp,
     tags: ["ReactJS", "TailwindCSS", "Figma"],
     category: "Frontend",
     github: "https://github.com/username/clou-cie",
@@ -119,6 +127,7 @@ export const PROJECTS_DATA = [
     description:
       "App d'événements, connectée à Google Calendar, avec vitrine claire des services.",
     image: ImgProjectLumi,
+    imageWebp: ImgProjectLumiWebp,
     tags: [
       "ReactJS",
       "React Router DOM",
@@ -157,6 +166,7 @@ export const PROJECTS_DATA = [
     description:
       "Application web de gestion d'actions pour l'entreprise Make_Sense.",
     image: ImgProjectMakeSense,
+    imageWebp: ImgProjectMakeSenseWebp,
     tags: [
       "ReactJS",
       "React Router DOM",

@@ -4,12 +4,14 @@ import { HiChevronDown, HiXMark } from "react-icons/hi2";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { useLocation, useNavigate } from "react-router-dom";
 import LogoPixelStone from "../../../../assets/logo-pixel-stone.png";
+import LogoPixelStoneWebp from "../../../../assets/logo-pixel-stone.webp";
 import {
   HEADER_ROUTE_ITEMS,
   HEADER_SECONDARY_LINKS,
 } from "../../../../constants/navigation.constants";
 import { useSectionSpy } from "../../../../hooks/header";
 import { handleNavClick } from "../../../../utils/navigation.utils";
+import { SmartImage } from "../../../ui";
 import { ButtonIconsSecondaryHoveredColoredQuarteRotate } from "../../../ui/buttons/ButtonIconsSecondaryHoveredColoredQuarteRotate";
 import { ButtonRectangularPrimary } from "../../../ui/buttons/ButtonRectangularPrimary";
 import NavItem from "./NavItem";
@@ -67,18 +69,29 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
         className={`fixed inset-0z-40 transition-opacity duration-300 ease-out ${
           animateOpen
             ? "opacity-100 bg-black/30 backdrop-blur-[2px]"
-            : "opacity-0 pointer-events-none"}`}
+            : "opacity-0 pointer-events-none"
+        }`}
         onClick={onClose}
       />
       <div
         className={`fixed inset-y-0 right-0 z-50 p-4 w-full bg-white overflow-y-auto sm:max-w-sm transform transition-all duration-300 ease-out ${
           animateOpen
             ? "opacity-100 translate-x-0"
-            : "opacity-0 translate-x-full"}`}>
+            : "opacity-0 translate-x-full"
+        }`}>
         <div className="flex items-center justify-between px-4">
           <a href="#" className="inline-flex items-center p-1 -m-1">
             <span className="sr-only">PIXEL STONE</span>
-            <img alt="Logo" src={LogoPixelStone} className="w-auto h-10" />
+            <SmartImage
+              alt="Logo"
+              src={LogoPixelStone}
+              webp={LogoPixelStoneWebp}
+              className="w-auto h-10"
+              width={40}
+              height={40}
+              loading="eager"
+              fetchPriority="high"
+            />
           </a>
           <button
             type="button"
@@ -100,7 +113,8 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                 <HiChevronDown
                   aria-hidden="true"
                   className={`size-5 transition-transform ${
-                    isSectionOpen ? "rotate-180" : ""}`}
+                    isSectionOpen ? "rotate-180" : ""
+                  }`}
                 />
               </button>
               <div
@@ -143,7 +157,8 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                   className={`block px-3 py-2 font-semibold rounded text-lg !mb-6 ${
                     location.pathname === item.to
                       ? "text-orange-600"
-                      : "text-black hover:bg-white/5"}`}>
+                      : "text-black hover:bg-white/5"
+                  }`}>
                   {item.label}
                 </a>
               ))}

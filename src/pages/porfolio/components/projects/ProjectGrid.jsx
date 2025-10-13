@@ -31,6 +31,7 @@ ProjectGrid.propTypes = {
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
+      imageWebp: PropTypes.string,
       tags: PropTypes.arrayOf(PropTypes.string).isRequired,
     })
   ).isRequired,

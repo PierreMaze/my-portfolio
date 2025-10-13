@@ -15,3 +15,6 @@ export * from "./error";
 
 // Composants de badges
 export * from "./tags";
+
+// Images optimisées
+export { default as SmartImage } from "./SmartImage";

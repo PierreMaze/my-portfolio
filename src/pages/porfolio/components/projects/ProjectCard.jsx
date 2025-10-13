@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { StackTag } from "../../../../components/ui";
+import { SmartImage, StackTag } from "../../../../components/ui";
 import { STACK_TAG_TYPES } from "../../../../constants";
 /**
  * Composant ProjectCard
@@ -30,12 +30,12 @@ const ProjectCard = ({ id, title, description, image, tags, ...props }) => {
       }}
       {...props}>
       <div className="relative overflow-hidden aspect-video">
-        <img
-          src={image}
+        <SmartImage
+          src={image?.image || image}
+          webp={image?.imageWebp || undefined}
           alt={`Aperçu du projet ${title}`}
-          loading="lazy"
-          width="600"
-          height="400"
+          width={600}
+          height={400}
           className="w-full h-full transition-transform object-cover group-hover:scale-105"
         />
       </div>
@@ -64,7 +64,10 @@ ProjectCard.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({ image: PropTypes.string, imageWebp: PropTypes.string }),
+  ]).isRequired,
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
