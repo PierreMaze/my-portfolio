@@ -26,7 +26,7 @@ const BrandLogo = ({ onClick, className }) => {
         loading="eager"
         fetchPriority="high"
       />
-      <span className="text-lg font-extrabold ml-2 text-neutral-900">
+      <span className="text-xl font-black 2xl:text-2xl ml-2 text-neutral-900">
         PIXEL STONE
       </span>
     </a>

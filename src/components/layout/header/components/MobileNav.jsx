@@ -66,19 +66,17 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
   return (
     <div className="lg:hidden">
       <div
-        className={`fixed inset-0z-40 transition-opacity duration-300 ease-out ${
+        className={`fixed inset-0 z-40 transition-opacity duration-300 ease-out ${
           animateOpen
             ? "opacity-100 bg-black/30 backdrop-blur-[2px]"
-            : "opacity-0 pointer-events-none"
-        }`}
+            : "opacity-0 pointer-events-none"}`}
         onClick={onClose}
       />
       <div
         className={`fixed inset-y-0 right-0 z-50 p-4 w-full bg-white overflow-y-auto sm:max-w-sm transform transition-all duration-300 ease-out ${
           animateOpen
             ? "opacity-100 translate-x-0"
-            : "opacity-0 translate-x-full"
-        }`}>
+            : "opacity-0 translate-x-full"}`}>
         <div className="flex items-center justify-between px-4">
           <a href="#" className="inline-flex items-center p-1 -m-1">
             <span className="sr-only">PIXEL STONE</span>
@@ -113,8 +111,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                 <HiChevronDown
                   aria-hidden="true"
                   className={`size-5 transition-transform ${
-                    isSectionOpen ? "rotate-180" : ""
-                  }`}
+                    isSectionOpen ? "rotate-180" : ""}`}
                 />
               </button>
               <div
@@ -157,8 +154,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                   className={`block px-3 py-2 font-semibold rounded text-lg !mb-6 ${
                     location.pathname === item.to
                       ? "text-orange-600"
-                      : "text-black hover:bg-white/5"
-                  }`}>
+                      : "text-black hover:bg-white/5"}`}>
                   {item.label}
                 </a>
               ))}

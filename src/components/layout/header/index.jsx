@@ -78,7 +78,7 @@ export default function Header() {
       <div className="border shadow-xl border-white/20 bg-white/80 backdrop-blur-lg shadow-black/10">
         <nav
           aria-label="Global"
-          className="flex items-center justify-between px-8 py-3 w-full lg:px-12 xl:px-18">
+          className="flex items-center justify-between px-8 py-3 w-full lg:px-12 xl:px-18 2xl:px-32">
           <div className="flex lg:flex-1">
             <BrandLogo onClick={handleBrandClick} />
           </div>
