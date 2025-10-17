@@ -52,11 +52,11 @@ Ce portfolio est une vitrine moderne de mes compétences en développement web. 
 - **Hero section** avec présentation personnelle
 - **Compétences** organisées par catégories
 - **Projets** avec filtres et détails
-- **Timeline** interactive du parcours professionnel
+- **Timeline** du parcours professionnel
 
 ### 📁 Pages projets
 
-- **Galerie** de projets avec filtres par technologie
+- **Galerie** de projets avec filtres par categories
 - **Pages dédiées** pour chaque projet
 - **Détails techniques** et résultats obtenus
 - **Liens** vers démos et repositories
@@ -69,7 +69,7 @@ Ce portfolio est une vitrine moderne de mes compétences en développement web. 
 
 ### 📱 Responsive Design
 
-- **Mobile-first** approach
+- **Mobile-first** Version mobile priorisé
 - **Breakpoints** optimisés pour tous les écrans
 - **Touch-friendly** interface
 
@@ -104,6 +104,7 @@ Ce portfolio est une vitrine moderne de mes compétences en développement web. 
 - HTML5 / CSS3
 - JavaScript (ES6+)
 - TaiwindCSS
+- MySQL
 
 </details>
 
