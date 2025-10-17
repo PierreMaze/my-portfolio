@@ -11,7 +11,7 @@
 
 **Un portfolio moderne et performant développé avec React, TailwindCSS et Framer Motion**
 
-[🌐 **Voir le site**](https://pixel-stone.netlify.app/) • [📖 **Documentation**](#-documentation) • [🐛 **Signaler un bug**](https://github.com/PierreMaze/my-portfolio/issues/new) • [💬 **Discuter**](https://www.linkedin.com/in/pierremazelaygue/)
+[🌐 **Voir le site**](https://pixel-stone.netlify.app/) • [🐛 **Signaler un bug**](https://github.com/PierreMaze/my-portfolio/issues/new) • [💬 **Discuter**](https://www.linkedin.com/in/pierremazelaygue/)
 
 </div>
 
@@ -142,8 +142,8 @@ Ce portfolio est une vitrine moderne de mes compétences en développement web. 
 ### 1. Cloner le repository
 
 ```bash
-git clone https://github.com/Pi/my-portfolio.git
-cd portfolio-v2
+git clone https://github.com/PierreMaze/my-portfolio.git
+cd my-portfolio
 ```
 
 ### 2. Installer les dépendances
@@ -209,8 +209,8 @@ src/
 
 ### 🎨 Palette de couleurs
 
-- **Primaire** : Bleu moderne (#EA580C)
-- **Secondaire** : Gris élégant (#FAFAF8)
+- **Primaire** : Orange moderne (#EA580C)
+- **Secondaire** : Blanc élégant (#FAFAF8)
 
 ### 📝 Typographie
 
@@ -221,9 +221,8 @@ src/
 ### 🎭 Animations
 
 - **Transitions** fluides avec Framer Motion
-- **Micro-interactions** pour l'engagement
 - **Scroll animations** pour la narration
-- **Loading states** pour le feedback
+- **Loading states** pour l'expérience utilisateur
 
 ---
 
@@ -289,7 +288,7 @@ Les contributions sont les bienvenues ! Pour contribuer :
 
 **Pierre MAZELAYGUE** - Développeur Full Stack
 
-- 🌐 **Portfolio** : [portfolio-demo.com](https://pixel-stone.netlify.app/)
+- 🌐 **Portfolio** : [https://pixel-stone.netlify.app/](https://pixel-stone.netlify.app/)
 - 📧 **Email** : [promazelaygue@gmail.com](mailto:promazelaygue@gmail.com)
 - 💼 **LinkedIn** : [linkedin.com/in/pierre-mazelaygue](https://linkedin.com/in/pierre-mazelaygue)
 - 🐙 **GitHub** : [github.com/PierreMaze](https://github.com/PierreMaze)
