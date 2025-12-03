@@ -11,7 +11,7 @@
 
 **Un portfolio moderne et performant développé avec React, TailwindCSS et Framer Motion**
 
-[🌐 **Voir le site**](https://pixel-stone.netlify.app/) • [🐛 **Signaler un bug**](https://github.com/PierreMaze/my-portfolio/issues/new) • [💬 **Discuter**](https://www.linkedin.com/in/pierremazelaygue/)
+[🐛 **Signaler un bug**](https://github.com/PierreMaze/my-portfolio/issues/new) • [💬 **Discuter**](https://www.linkedin.com/in/pierremazelaygue/)
 
 </div>
 
