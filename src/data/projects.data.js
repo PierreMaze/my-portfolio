@@ -7,8 +7,10 @@ import ImgProjectMakeSense from "../assets/make_sense.png";
 import ImgProjectMakeSenseWebp from "../assets/make_sense.webp";
 import ImgProjectPortfolio from "../assets/portfolio.png";
 import ImgProjectPortfolioWebp from "../assets/portfolio.webp";
-import ImgProjectSignature from "../assets/signature.png";
-import ImgProjectSignatureWebp from "../assets/signature.webp";
+import ImgProjectLaVoixIntime from "../assets/la_voix_intime.png";
+import ImgProjectLaVoixIntimeWebp from "../assets/la_voix_intime.webp";
+import ImgProjectTradimedika from "../assets/tradimedika.png";
+import ImgProjectTradimedikaWebp from "../assets/tradimedika.webp";
 
 /**
  * Données des projets
@@ -17,6 +19,42 @@ import ImgProjectSignatureWebp from "../assets/signature.webp";
 export const PROJECTS_DATA = [
   {
     id: 1,
+    title: "TRADIMEDIKA (en cours)",
+    description:
+      "Application Web pour dénicher des remèdes de grand-mère qui aideront à soulager les symptômes en attendant de consulter un professionnel.",
+    image: ImgProjectTradimedika,
+    imageWebp: ImgProjectTradimedikaWebp,
+    tags: [
+      "ReactJS",
+      "React Router DOM",
+      "TailwindCSS",
+      "Framer Motion",
+      "Figma",
+    ],
+    category: "Frontend",
+    github: "https://github.com/PierreMaze/tradimedika",
+    demo: "https://pierremaze.github.io/tradimedika/",
+    problem:
+      "Obligé de faire l'effort de rechercher sur plusieurs sites pour vérifier la véracité et l'utilisation d'un remède de grand-mère.",
+    objectives: [
+      "Développer une app facile à prendre en main",
+      "Une expérience utilisateur immersive et minimaliste",
+      "Faire de la prévention sur l'utilisation des remèdes (ça ne remplace pas un médecin)",
+      "Base données verfier et labélisé dans des catégorie (safe, grossesse, enfant, etc..)",
+    ],
+    solution:
+      "Crée une app facile à prendre en main, intuitive et rapide tout en alimentant une base de données.",
+    challenges: [
+      "Optimisation des animations et transitions",
+      "Performance sur mobile et desktop",
+      "Accessibilité et SEO",
+    ],
+    results: [
+      "Score de performance : à venir",
+    ],
+  },
+  {
+    id: 2,
     title: "Mon Portfolio",
     description:
       "Site vitrine personnel moderne avec animations fluides et design responsive.",
@@ -30,8 +68,8 @@ export const PROJECTS_DATA = [
       "Figma",
     ],
     category: "Frontend",
-    github: "https://github.com/username/portfolio",
-    demo: "https://portfolio-demo.com",
+    github: "https://github.com/PierreMaze/my-portfolio",
+    demo: "https://pierremaze.github.io/my-portfolio",
     problem:
       "Création d'une identité visuelle forte et moderne pour présenter mes compétences",
     objectives: [
@@ -53,12 +91,12 @@ export const PROJECTS_DATA = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "La Voix Intime",
     description:
       "App vitrine de prestations via WhatsApp et prise de RDV avec Calendly.",
-    image: ImgProjectSignature,
-    imageWebp: ImgProjectSignatureWebp,
+    image: ImgProjectLaVoixIntime,
+    imageWebp: ImgProjectLaVoixIntimeWebp,
     tags: [
       "ReactJS",
       "React Router DOM",
@@ -68,8 +106,8 @@ export const PROJECTS_DATA = [
       "Calendly",
     ],
     category: "Frontend",
-    github: "https://github.com/username/la-voix-intime",
-    demo: "https://la-voix-intime-demo.com",
+    github: "https://github.com/PierreMaze/la-voix-intime",
+    demo: "https://lavoixintime.netlify.app/",
     problem:
       "Créer une vitrine professionnelle pour des prestations de coaching avec intégration de prise de rendez-vous",
     objectives: [
@@ -87,11 +125,11 @@ export const PROJECTS_DATA = [
     results: [
       "Augmentation de 150% des prises de RDV",
       "Réduction de 60% du temps de réponse",
-      "Satisfaction client de 98%",
+      "Satisfaction client de 95%",
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Clou & Cie",
     description:
       "Site vitrine dans le BTP : services clairs, chantiers mis en valeur, demande de devis.",
@@ -99,8 +137,8 @@ export const PROJECTS_DATA = [
     imageWebp: ImgProjectClouWebp,
     tags: ["ReactJS", "TailwindCSS", "Figma"],
     category: "Frontend",
-    github: "https://github.com/username/clou-cie",
-    demo: "https://clou-cie-demo.com",
+    github: "https://github.com/PierreMaze/clou-et-cie",
+    demo: "https://pierremaze.github.io/clou-et-cie",
     problem:
       "Créer une vitrine professionnelle pour une entreprise BTP avec mise en valeur des services et chantiers",
     objectives: [
@@ -122,7 +160,7 @@ export const PROJECTS_DATA = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "Luminescence33",
     description:
       "App d'événements, connectée à Google Calendar, avec vitrine claire des services.",
@@ -138,8 +176,8 @@ export const PROJECTS_DATA = [
       "Figma",
     ],
     category: "Fullstack",
-    github: "https://github.com/username/luminescence33",
-    demo: "https://luminescence33-demo.com",
+    github: "https://github.com/PierreMaze/luminescence33",
+    demo: "https://pierremaze.github.io/luminescence33",
     problem:
       "Créer une plateforme événementielle avec synchronisation Google Calendar et vitrine des services",
     objectives: [
@@ -161,7 +199,7 @@ export const PROJECTS_DATA = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "Make Sense",
     description:
       "Application web de gestion d'actions pour l'entreprise Make_Sense.",
@@ -177,8 +215,8 @@ export const PROJECTS_DATA = [
       "Figma",
     ],
     category: "Fullstack",
-    github: "https://github.com/username/make-sense",
-    demo: "https://make-sense-demo.com",
+    github: "https://github.com/PierreMaze/make-sense-wcs",
+    demo: "https://pierremaze.github.io/make-sense-wcs",
     problem:
       "Développer une plateforme de gestion d'actions pour l'entreprise Make_Sense avec interface intuitive",
     objectives: [
@@ -196,7 +234,6 @@ export const PROJECTS_DATA = [
     results: [
       "Amélioration de 75% de l'efficacité de gestion",
       "Réduction de 60% du temps de traitement des actions",
-      "Adoption par 100% des équipes Make_Sense",
     ],
   },
 ];

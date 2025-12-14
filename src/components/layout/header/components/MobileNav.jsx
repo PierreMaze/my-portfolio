@@ -15,6 +15,7 @@ import { SmartImage } from "../../../ui";
 import { ButtonIconsSecondaryHoveredColoredQuarteRotate } from "../../../ui/buttons/ButtonIconsSecondaryHoveredColoredQuarteRotate";
 import { ButtonRectangularPrimary } from "../../../ui/buttons/ButtonRectangularPrimary";
 import NavItem from "./NavItem";
+import PortfolioSubItem from "./PortfolioSubItem";
 
 const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
   const [shouldRender, setShouldRender] = useState(open);
@@ -102,11 +103,11 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
         <div className="flow-root mx-4 mt-6">
           <div className="-my-6 divide-y divide-black/10">
             {/* Section 1: Portfolio (sous-onglet) + A propos + Contact (sans séparateur) */}
-            <div className="py-6 space-y-2">
+            <div className="py-6 ">
               <button
                 type="button"
                 onClick={() => setIsSectionOpen((v) => !v)}
-                className="flex items-center justify-between px-3 py-2 w-full text-lg font-semibold text-black rounded-lg hover:bg-white/5">
+                className="flex items-center justify-between px-3 py-2 w-full text-lg font-semibold text-black rounded-lg hover:bg-neutral-100 hover:text-orange-600">
                 <span>Portfolio</span>
                 <HiChevronDown
                   aria-hidden="true"
@@ -122,24 +123,20 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                   overflow: "hidden",
                   transition: "max-height 250ms ease-in-out",
                 }}
-                className="mt-2 space-y-2">
-                {navItems.map((item) => (
-                  <NavItem
-                    key={item.label}
-                    item={item}
-                    onClick={(href) => {
-                      const sectionItem = {
-                        kind: "section",
-                        href: href,
-                      };
-                      handleNavClick(sectionItem, navigate, location, onClose);
-                    }}
-                    isActive={
-                      location.pathname === "/" && isSectionActive(item.href)
-                    }
-                    variant="mobile"
-                  />
-                ))}
+                className="mt-0">
+                  {navItems.map((item, index) => (
+                    <PortfolioSubItem
+                      key={item.label}
+                      label={item.label}
+                      href={item.href}
+                      isLast={index === navItems.length - 1}
+                      onClick={(href) => {
+                        const sectionItem = { kind: "section", href };
+                        handleNavClick(sectionItem, navigate, location, onClose);
+                      }}
+                      isActive={location.pathname === "/" && isSectionActive(item.href)}
+                    />
+                  ))}
               </div>
               {/* A propos (route) */}
               {HEADER_ROUTE_ITEMS.map((item) => (
@@ -151,7 +148,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                     const routeItem = { kind: "route", to: item.to };
                     handleNavClick(routeItem, navigate, location, onClose);
                   }}
-                  className={`block px-3 py-2 font-semibold rounded text-lg !mb-6 ${
+                  className={`block px-3 py-2 hover:bg-neutral-100 hover:text-orange-600 font-semibold rounded text-lg !mb-6 ${
                     location.pathname === item.to
                       ? "text-orange-600"
                       : "text-black hover:bg-white/5"}`}>

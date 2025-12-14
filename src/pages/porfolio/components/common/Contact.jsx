@@ -1,5 +1,5 @@
-import { IoPaperPlane } from "react-icons/io5";
 import { FadeIn } from "../../../../components/ui";
+import ContactForm from "../../../../components/ui/form/COntactForm";
 
 const Contact = () => {
   return (
@@ -75,47 +75,7 @@ const Contact = () => {
         </FadeIn>
 
         <FadeIn className="delay-200">
-          <form className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block font-medium mb-2">
-                Nom
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="px-4 py-2 w-full rounded ring-2 ring-zinc-300 focus:outline-none focus:ring-orange-600/50 focus:bg-white"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block font-medium mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="px-4 py-2 w-full rounded ring-2 ring-zinc-300 focus:bg-white focus:outline-none focus:ring-orange-600/50"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block font-medium mb-2">
-                Message
-              </label>
-              <textarea
-                id="message"
-                rows={4}
-                className="px-4 py-2 w-full rounded ring-2 ring-zinc-300 focus:bg-white focus:outline-none focus:ring-orange-600/50"
-                required></textarea>
-            </div>
-            <button
-              type="submit"
-              aria-label="Envoyer le message de contact"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2 text-base font-medium text-white rounded transition-all duration-300 bg-orange-600 hover:bg-orange-700">
-              <IoPaperPlane className="w-4 h-4" />
-              Envoyer le message
-            </button>
-          </form>
+          <ContactForm />
         </FadeIn>
       </div>
     </section>
