@@ -93,7 +93,6 @@ Ce portfolio est une vitrine moderne de mes compétences en développement web. 
 
 ### 🚀 Déploiement
 
-- **Netlify** - Hébergement et déploiement continu
 - **Lighthouse** - Audit de performance automatique
 
 ### 📊 Technologies maîtrisées
@@ -101,10 +100,8 @@ Ce portfolio est une vitrine moderne de mes compétences en développement web. 
 <details>
 <summary><strong>🔤 Langages</strong></summary>
 
-- HTML5 / CSS3
-- JavaScript (ES6+)
+- JSX
 - TaiwindCSS
-- MySQL
 
 </details>
 
@@ -267,29 +264,12 @@ pnpm preload          # Installation + démarrage rapide
 
 ---
 
-## 🤝 Contribution
-
-Les contributions sont les bienvenues ! Pour contribuer :
-
-1. **Fork** le projet
-2. **Créez** une branche feature (`git checkout -b feature/AmazingFeature`)
-3. **Commitez** vos changements (`git commit -m 'Add some AmazingFeature'`)
-4. **Pushez** vers la branche (`git push origin feature/AmazingFeature`)
-5. **Ouvrez** une Pull Request
-
-### 📋 Standards de contribution
-
-- **Code style** : ESLint + Prettier
-- **Commits** : Conventionnel (feat:, fix:, docs:, etc.)
-- **Documentation** : Mise à jour du README si nécessaire
-
----
 
 ## 📞 Contact
 
 **Pierre MAZELAYGUE** - Développeur Full Stack
 
-- 🌐 **Portfolio** : [https://pixel-stone.netlify.app/](https://pixel-stone.netlify.app/)
+- 🌐 **Portfolio** : A venir
 - 📧 **Email** : [promazelaygue@gmail.com](mailto:promazelaygue@gmail.com)
 - 💼 **LinkedIn** : [linkedin.com/in/pierre-mazelaygue](https://linkedin.com/in/pierre-mazelaygue)
 - 🐙 **GitHub** : [github.com/PierreMaze](https://github.com/PierreMaze)
