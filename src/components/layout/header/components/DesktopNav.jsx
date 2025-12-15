@@ -37,31 +37,30 @@ const DesktopNav = ({
               key={item.label}
               item={item}
               onClick={handleNavClick}
-              isActive={location.pathname === "/" && isAnchorActive(item.href)}
+              isActive={location.pathname === "/my-portfolio/" && isAnchorActive(item.href)}
             />
           ))}
         </div>
       </NavDropdown>
 
       <a
-        href="/about"
+        href="/my-portfolio/about"
         onClick={(e) => {
           e.preventDefault();
-          navigate("/about");
+          navigate("/my-portfolio/about");
           closeMenus();
         }}
-        className={`inline-flex items-center h-10 font-semibold text-base ${
-          isRouteActive("/about")
-            ? "text-orange-600"
-            : "text-black hover:text-orange-600"
-        }`}>
+        className={`inline-flex items-center h-10 font-semibold text-base ${isRouteActive("/my-portfolio/about")
+          ? "text-orange-600"
+          : "text-black hover:text-orange-600"
+          }`}>
         A propos
       </a>
 
       <div className="flex items-center h-10">
         <ButtonRectangularPrimary
           ariaLabel="Aller à la section contact"
-          onClick={() => handleNavClick("#contact")}
+          onClick={() => handleNavClick("/my-portfolio/#contact")}
           className="px-4 py-2 text-base">
           Contact
         </ButtonRectangularPrimary>

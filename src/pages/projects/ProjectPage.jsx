@@ -68,13 +68,13 @@ const ProjectPage = () => {
 
   const handleNavigate = useCallback(
     (projectId) => {
-      navigate(`/projects/${projectId}`);
+      navigate(`/my-portfolio/projects/${projectId}`);
     },
     [navigate]
   );
 
   const handleBack = useCallback(() => {
-    navigate("/");
+    navigate("/my-portfolio/");
   }, [navigate]);
 
   if (!project) {

@@ -12,7 +12,7 @@ import { SmartImage } from "../../../ui";
 const BrandLogo = ({ onClick, className }) => {
   return (
     <a
-      href="/"
+      href="/my-portfolio/"
       onClick={onClick}
       className={`inline-flex items-center p-1 -m-1${className}`}>
       <span className="sr-only">PIXEL STONE</span>

@@ -35,7 +35,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
     if (open) {
       setShouldRender(true);
       // Ouvrir le sous-menu Portfolio seulement si on est sur la page d'accueil
-      setIsSectionOpen(location.pathname === "/");
+      setIsSectionOpen(location.pathname === "/my-portfolio/");
     } else {
       setAnimateOpen(false);
       const t = setTimeout(() => setShouldRender(false), 300);
@@ -67,19 +67,17 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
   return (
     <div className="lg:hidden">
       <div
-        className={`fixed inset-0 z-40 transition-opacity duration-300 ease-out ${
-          animateOpen
-            ? "opacity-100 bg-black/30 backdrop-blur-[2px]"
-            : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 z-40 transition-opacity duration-300 ease-out ${animateOpen
+          ? "opacity-100 bg-black/30 backdrop-blur-[2px]"
+          : "opacity-0 pointer-events-none"}`}
         onClick={onClose}
       />
       <div
-        className={`fixed inset-y-0 right-0 z-50 p-4 w-full bg-white overflow-y-auto sm:max-w-sm transform transition-all duration-300 ease-out ${
-          animateOpen
-            ? "opacity-100 translate-x-0"
-            : "opacity-0 translate-x-full"}`}>
+        className={`fixed inset-y-0 right-0 z-50 p-4 w-full bg-white overflow-y-auto sm:max-w-sm transform transition-all duration-300 ease-out ${animateOpen
+          ? "opacity-100 translate-x-0"
+          : "opacity-0 translate-x-full"}`}>
         <div className="flex items-center justify-between px-4">
-          <a href="#" className="inline-flex items-center p-1 -m-1">
+          <a href="/my-portfolio/" className="inline-flex items-center p-1 -m-1">
             <span className="sr-only">PIXEL STONE</span>
             <SmartImage
               alt="Logo"
@@ -111,8 +109,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                 <span>Portfolio</span>
                 <HiChevronDown
                   aria-hidden="true"
-                  className={`size-5 transition-transform ${
-                    isSectionOpen ? "rotate-180" : ""}`}
+                  className={`size-5 transition-transform ${isSectionOpen ? "rotate-180" : ""}`}
                 />
               </button>
               <div
@@ -124,19 +121,19 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                   transition: "max-height 250ms ease-in-out",
                 }}
                 className="mt-0">
-                  {navItems.map((item, index) => (
-                    <PortfolioSubItem
-                      key={item.label}
-                      label={item.label}
-                      href={item.href}
-                      isLast={index === navItems.length - 1}
-                      onClick={(href) => {
-                        const sectionItem = { kind: "section", href };
-                        handleNavClick(sectionItem, navigate, location, onClose);
-                      }}
-                      isActive={location.pathname === "/" && isSectionActive(item.href)}
-                    />
-                  ))}
+                {navItems.map((item, index) => (
+                  <PortfolioSubItem
+                    key={item.label}
+                    label={item.label}
+                    href={item.href}
+                    isLast={index === navItems.length - 1}
+                    onClick={(href) => {
+                      const sectionItem = { kind: "section", href };
+                      handleNavClick(sectionItem, navigate, location, onClose);
+                    }}
+                    isActive={location.pathname === "/my-portfolio/" && isSectionActive(item.href)}
+                  />
+                ))}
               </div>
               {/* A propos (route) */}
               {HEADER_ROUTE_ITEMS.map((item) => (
@@ -148,10 +145,9 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                     const routeItem = { kind: "route", to: item.to };
                     handleNavClick(routeItem, navigate, location, onClose);
                   }}
-                  className={`block px-3 py-2 hover:bg-neutral-100 hover:text-orange-600 font-semibold rounded text-lg !mb-6 ${
-                    location.pathname === item.to
-                      ? "text-orange-600"
-                      : "text-black hover:bg-white/5"}`}>
+                  className={`block px-3 py-2 hover:bg-neutral-100 hover:text-orange-600 font-semibold rounded text-lg !mb-6 ${location.pathname === item.to
+                    ? "text-orange-600"
+                    : "text-black hover:bg-white/5"}`}>
                   {item.label}
                 </a>
               ))}
@@ -162,7 +158,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                   const contactItem = {
                     kind: "section",
                     target: "contact",
-                    href: "#contact",
+                    href: "/my-portfolio/#contact",
                   };
                   handleNavClick(contactItem, navigate, location, onClose);
                 }}

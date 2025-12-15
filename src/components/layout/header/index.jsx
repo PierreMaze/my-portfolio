@@ -61,11 +61,11 @@ export default function Header() {
   const handleBrandClick = useCallback(
     (e) => {
       e.preventDefault();
-      if (location.pathname !== "/") {
-        navigate("/");
+      if (location.pathname !== "/my-portfolio/") {
+        navigate("/my-portfolio/");
       } else {
         window.scrollTo({ top: 0, behavior: "smooth" });
-        navigate("/#home", { replace: false });
+        navigate("/my-portfolio/#home", { replace: false });
       }
       closeMenus();
     },

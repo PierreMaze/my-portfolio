@@ -27,7 +27,7 @@ const Footer = () => {
           </ButtonIconsSecondaryHoveredColoredQuarteRotate>
         </div>
         <div className="my-4">
-          <ButtonUnderlineSecondaryHoveredPrimary to="/legal">
+          <ButtonUnderlineSecondaryHoveredPrimary to="/my-portfolio/legal">
             Mentions légales
           </ButtonUnderlineSecondaryHoveredPrimary>
         </div>

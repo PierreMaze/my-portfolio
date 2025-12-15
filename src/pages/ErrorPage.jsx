@@ -95,7 +95,7 @@ const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
             className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link to="/">
+            <Link to="/my-portfolio/">
               <ButtonRectangularPrimary className="px-6 py-3 hover:shadow-lg hover:shadow-orange-500/25">
                 <svg
                   className="w-5 h-5"

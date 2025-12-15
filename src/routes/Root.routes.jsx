@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     errorElement: <RouteErrorBoundary />,
     children: [
       {
-        path: "/",
+        path: "/my-portfolio/",
         element: <Layout />,
         children: [
           {

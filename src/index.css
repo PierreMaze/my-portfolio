@@ -1,12 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Uniquement la base avec quelques styles minimes globaux */
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+@theme {
+  --color-light: #f1f0f1;
+  --color-dark: #23272d;
+
+  --font-poppins: "Poppins", sans-serif;
+}
+
+/* Configure dark mode variant for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
 
   body {
     font-family: "JetBrains Mono", monospace;
@@ -14,15 +19,19 @@
     line-height: 1.625;
     background-color: #fafaf8;
     color: black;
-  }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Inter", sans-serif;
+      font-weight: 600;
+    }
   }
+}
+
+html.dark body {
+  background: var(--color-dark);
 }
