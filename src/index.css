@@ -1,12 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Uniquement la base avec quelques styles minimes globaux */
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+/* Configure dark mode variant for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
 
   body {
     font-family: "JetBrains Mono", monospace;
@@ -25,4 +23,8 @@
     font-family: "Inter", sans-serif;
     font-weight: 600;
   }
+}
+
+html.dark body {
+  background: var(--color-dark);
 }
