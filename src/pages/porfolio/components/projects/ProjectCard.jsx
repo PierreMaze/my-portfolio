@@ -15,7 +15,7 @@ const ProjectCard = ({ id, title, description, image, tags, className }) => {
 
   return (
     <article
-      className={`flex flex-col h-full border-2 rounded shadow-2xl cursor-pointer transition-colors hover:shadow-amber-500/30 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden focus:outline-none focus:ring-0${className}`}
+      className={`flex flex-col h-full border-2 hover:border-orange-500 border-dashed border-transparent rounded shadow-2xl cursor-pointer transition-colors hover:shadow-amber-500/30 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden focus:outline-none focus:ring-0${className}`}
       aria-labelledby={`project-title-${title
         .replace(/\s+/g, "-")
         .toLowerCase()}`}
