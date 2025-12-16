@@ -18,8 +18,7 @@ const DesktopNav = ({
     () =>
       HEADER_NAV_ITEMS_DESKTOP.map((item) => ({
         ...item,
-        isActive:
-          location.pathname === "/" && isAnchorActive(item.href),
+        isActive: location.pathname === "/" && isAnchorActive(item.href),
       })),
     [location.pathname, isAnchorActive],
   );
@@ -62,7 +61,7 @@ const DesktopNav = ({
       <div className="flex h-10 items-center">
         <ButtonRectangularPrimary
           ariaLabel="Aller à la section contact"
-          onClick={() => handleNavClick("#contact")}
+          onClick={() => handleNavClick("/#contact")}
           className="px-4 py-2 text-base"
         >
           Contact

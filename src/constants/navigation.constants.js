@@ -22,9 +22,7 @@ export const HEADER_NAV_ITEMS_MOBILE = [
 
 export const HEADER_NAV_ITEMS = HEADER_NAV_ITEMS_DESKTOP;
 
-export const HEADER_ROUTE_ITEMS = [
-  { label: "A propos", to: "/my-portfolio/about" },
-];
+export const HEADER_ROUTE_ITEMS = [{ label: "A propos", to: "/about" }];
 
 export const HEADER_SECONDARY_LINKS = [
   { label: "GitHub", href: "https://github.com/PierreMaze", icon: "github" },
