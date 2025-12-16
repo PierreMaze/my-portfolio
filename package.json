@@ -18,7 +18,7 @@
     "preview": "vite preview",
     "fix": "prettier --write .",
     "clean": "rm -rf node_modules pnpm-lock.yaml package-lock.json dist",
-    "deploy": "gh-pages -d dist -f"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
