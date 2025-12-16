@@ -51,10 +51,11 @@ const NavItem = ({
         e.preventDefault();
         onClick(item.href);
       }}
-      className={`${currentStyles.container}${isActive?currentStyles.activeText : currentStyles.inactiveText}${className||""}`}>
+      className={`${currentStyles.container}${isActive ? currentStyles.activeText : currentStyles.inactiveText}${className || ""}`}
+    >
       {IconComponent && (
         <IconComponent
-          className={`${currentStyles.icon}${isActive?currentStyles.activeIcon : currentStyles.inactiveIcon}`}
+          className={`${currentStyles.icon}${isActive ? currentStyles.activeIcon : currentStyles.inactiveIcon}`}
         />
       )}
       {item.label}

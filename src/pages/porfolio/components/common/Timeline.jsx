@@ -43,48 +43,54 @@ const Timeline = () => {
   return (
     <section className="py-16 lg:py-24 xl:py-32">
       <FadeIn>
-        <h2 className="relative text-3xl font-bold text-center mb-16">
+        <h2 className="relative mb-16 text-center text-3xl font-bold">
           <span className="relative inline-block">
             <span
-              className="absolute block -skew-y-3 bg-orange-200 -inset-1"
-              aria-hidden="true"></span>
+              className="absolute -inset-1 block -skew-y-3 bg-orange-200"
+              aria-hidden="true"
+            ></span>
             <span className="relative">Mon parcours</span>
           </span>
         </h2>
       </FadeIn>
       <div className="relative mx-auto max-w-4xl">
         {/* Ligne verticale centrale */}
-        <div className="absolute top-0 bottom-0 w-0.5 left-1/2 bg-zinc-300 -translate-x-1/2" />
+        <div className="absolute top-0 bottom-0 left-1/2 w-0.5 -translate-x-1/2 bg-zinc-300" />
 
         {timelineData.map((item, index) => (
           <FadeIn key={item.id}>
             <div
-              className={`relative md:mb-16 last:mb-0 ${
+              className={`relative last:mb-0 md:mb-16 ${
                 index % 2 === 0
                   ? "md:pr-[calc(50%+2rem)]"
-                  : "md:pl-[calc(50%+2rem)]"}`}>
+                  : "md:pl-[calc(50%+2rem)]"
+              }`}
+            >
               {/* Point sur la ligne */}
-              <div className="absolute z-10 w-4 h-4 rounded-full bg-orange-600 -translate-x-1/2 left-1/2 -top-6 md:top-6" />
+              <div className="absolute -top-6 left-1/2 z-10 h-4 w-4 -translate-x-1/2 rounded-full bg-orange-600 md:top-6" />
 
               {/* Contenu */}
               <div
-                className={`bg-zinc-100 ring-2 ring-zinc-300 my-12 md:my-0 p-8 rounded relative ${
-                  index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}>
+                className={`relative my-12 rounded bg-zinc-100 p-8 ring-2 ring-zinc-300 md:my-0 ${
+                  index % 2 === 0 ? "md:pr-8" : "md:pl-8"
+                }`}
+              >
                 {/* Flèche */}
                 <div
-                  className={`hidden md:block absolute top-6 w-4 h-4 ring-zinc-300 bg-zinc-100 transform rotate-45 ${
+                  className={`absolute top-6 hidden h-4 w-4 rotate-45 transform bg-zinc-100 ring-zinc-300 md:block ${
                     index % 2 === 0
-                      ? "right-[-8px] border-r-2 border-zinc-300  border-t-2"
-                      : "left-[-8px] border-l-2 border-zinc-300 border-b-2"}`}
+                      ? "right-[-8px] border-t-2 border-r-2 border-zinc-300"
+                      : "left-[-8px] border-b-2 border-l-2 border-zinc-300"
+                  }`}
                 />
 
-                <div className="font-semibold mb-3 text-orange-600">
+                <div className="mb-3 font-semibold text-orange-600">
                   {item.date}
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-zinc-800">
+                <h3 className="mb-3 text-xl font-semibold text-zinc-800">
                   {item.title}
                 </h3>
-                <h4 className="text-sm mb-4 italic text-zinc-600">
+                <h4 className="mb-4 text-sm text-zinc-600 italic">
                   {item.company}
                 </h4>
                 <p className="leading-relaxed text-zinc-700">

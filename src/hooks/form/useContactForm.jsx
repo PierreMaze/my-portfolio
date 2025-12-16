@@ -38,7 +38,7 @@ export function useContactForm() {
           reply_to: formData.email,
           message: formData.message,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
 
       setStatus("success");
@@ -46,7 +46,7 @@ export function useContactForm() {
     } catch (err) {
       setStatus("error");
       setError(
-        "Une erreur est survenue lors de l’envoi du message. Veuillez réessayer."
+        "Une erreur est survenue lors de l’envoi du message. Veuillez réessayer.",
       );
     }
   }, [formData, resetForm]);
@@ -59,7 +59,7 @@ export function useContactForm() {
 
       sendEmail();
     },
-    [sendEmail, status]
+    [sendEmail, status],
   );
 
   return {
@@ -68,6 +68,6 @@ export function useContactForm() {
     error,
     handleChange,
     handleSubmit,
-    setStatus, 
+    setStatus,
   };
 }

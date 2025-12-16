@@ -33,13 +33,14 @@ const HeaderNav = ({
         onClick={onToggle}
         aria-expanded={open}
         aria-haspopup="menu"
-        className={`inline-flex items-center gap-x-1 px-3 py-0 h-10 text-base font-semibold leading-none text-black rounded group hover:text-orange-600 ${
+        className={`group inline-flex h-10 items-center gap-x-1 rounded px-3 py-0 text-base leading-none font-semibold text-black hover:text-orange-600 ${
           className || ""
-        }`}>
+        }`}
+      >
         <span>{buttonLabel}</span>
         <HiChevronDown
           aria-hidden="true"
-          className={`flex-none size-5 transition-transform text-neutral-600 group-hover:text-orange-600 ${
+          className={`size-5 flex-none text-neutral-600 transition-transform group-hover:text-orange-600 ${
             open ? "rotate-180" : ""
           }`}
         />
@@ -48,14 +49,15 @@ const HeaderNav = ({
         <div
           role="menu"
           aria-labelledby={buttonId}
-          className={`absolute left-1/2 z-20 mt-4 m-fit -translate-x-1/2 overflow-hidden rounded border border-neutral-200/60 bg-white/90 p-2 shadow-xl ring-1 ring-black/5 backdrop-blur-md transition-all duration-200 ease-out ${
+          className={`m-fit absolute left-1/2 z-20 mt-4 -translate-x-1/2 overflow-hidden rounded border border-neutral-200/60 bg-white/90 p-2 shadow-xl ring-1 ring-black/5 backdrop-blur-md transition-all duration-200 ease-out ${
             animateOpen
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-1 pointer-events-none"
-          }`}>
+              ? "translate-y-0 opacity-100"
+              : "pointer-events-none -translate-y-1 opacity-0"
+          }`}
+        >
           {/* caret */}
           <div
-            className={`absolute -top-2 left-1/2 -translate-x-1/2 h-3 w-3 rotate-45 bg-white/90 border-l border-t border-neutral-200/60 transition-opacity duration-200 ${
+            className={`absolute -top-2 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-t border-l border-neutral-200/60 bg-white/90 transition-opacity duration-200 ${
               animateOpen ? "opacity-100" : "opacity-0"
             }`}
             aria-hidden="true"

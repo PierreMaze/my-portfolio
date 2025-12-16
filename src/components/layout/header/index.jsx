@@ -1,6 +1,10 @@
 import { useCallback, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { HEADER_NAV_ITEMS, HEADER_SECONDARY_LINKS } from "../../../constants";
+import {
+  HEADER_NAV_ITEMS_DESKTOP,
+  HEADER_NAV_ITEMS_MOBILE,
+  HEADER_SECONDARY_LINKS,
+} from "../../../constants";
 import { useActiveNav, useNavMenu } from "../../../hooks/header";
 import { handleNavClick as handleNavClickShared } from "../../../utils/navigation.utils";
 import {
@@ -12,7 +16,7 @@ import {
 
 export default function Header() {
   const { isAnchorActive, isRouteActive } = useActiveNav({
-    sectionAnchors: HEADER_NAV_ITEMS.map((item) => item.href),
+    sectionAnchors: HEADER_NAV_ITEMS_DESKTOP.map((item) => item.href),
   });
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,7 +27,7 @@ export default function Header() {
     setIsPopoverOpen,
     handleNavClick: handleMenuNavClick,
   } = useNavMenu({
-    navItems: HEADER_NAV_ITEMS.map((items) => ({
+    navItems: HEADER_NAV_ITEMS_MOBILE.map((items) => ({
       label: items.label,
       href: items.href,
     })),
@@ -101,7 +105,7 @@ export default function Header() {
       <MobileNav
         open={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
-        navItems={HEADER_NAV_ITEMS}
+        navItems={HEADER_NAV_ITEMS_MOBILE}
         secondary={HEADER_SECONDARY_LINKS}
         onNavigate={handleNavClick}
       />

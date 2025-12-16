@@ -14,8 +14,8 @@ import {
 } from "../../../../components/ui";
 
 // Lazy loading de l'image simple
-const SimpleImage = lazy(() =>
-  import("../../../../components/ui/loader/ImageLoader")
+const SimpleImage = lazy(
+  () => import("../../../../components/ui/loader/ImageLoader"),
 );
 
 const Hero = () => {
@@ -53,35 +53,38 @@ const Hero = () => {
 
   return (
     <section
-      className="flex items-center justify-center min-h-screen"
-      style={{ paddingTop: "-200px" }}>
-      <div className="flex flex-col-reverse items-center gap-8 lg:gap-0 md:flex-row md:items-center 2xl:gap-48">
+      className="flex min-h-screen items-center justify-center"
+      style={{ paddingTop: "-200px" }}
+    >
+      <div className="flex flex-col-reverse items-center gap-8 md:flex-row md:items-center lg:gap-0 2xl:gap-48">
         <FadeIn>
-          <div className="text-center mt-4 max-w-3xl md:text-left 2xl:max-w-screen-lg">
-            <h1 className="text-4xl font-bold mb-6 md:text-6xl 2xl:text-6xl">
+          <div className="mt-4 max-w-3xl text-center md:text-left 2xl:max-w-screen-lg">
+            <h1 className="mb-6 text-4xl font-bold md:text-6xl 2xl:text-6xl">
               Développeur
-              <span className="relative inline-block ml-4">
+              <span className="relative ml-4 inline-block">
                 <span
-                  className="absolute block -skew-y-3 bg-orange-200 -inset-1"
-                  aria-hidden="true"></span>
+                  className="absolute -inset-1 block -skew-y-3 bg-orange-200"
+                  aria-hidden="true"
+                ></span>
                 <span className="relative">Fullstack</span>
               </span>
             </h1>
-            <p className="text-base md:text-xl mb-8 text-zinc-800">
+            <p className="mb-8 text-base text-zinc-800 md:text-xl">
               Je crée des applications web modernes et performantes avec React,
               Node.js et TailwindCSS.
             </p>
             {/* Btn et liens sociaux */}
             <div className="flex justify-center md:justify-start">
-              <div className="flex items-center justify-between m-4">
+              <div className="m-4 flex items-center justify-between">
                 <div className="flex items-center space-x-6">
                   <ButtonIconsSecondaryHoveredColoredQuarteRotate
                     href="https://github.com/PierreMaze"
                     size="medium"
                     variant="github"
                     title="GitHub"
-                    ariaLabel="GitHub">
-                    <IoLogoGithub className="w-full h-full" />
+                    ariaLabel="GitHub"
+                  >
+                    <IoLogoGithub className="h-full w-full" />
                   </ButtonIconsSecondaryHoveredColoredQuarteRotate>
 
                   <ButtonIconsSecondaryHoveredColoredQuarteRotate
@@ -89,15 +92,17 @@ const Hero = () => {
                     size="medium"
                     variant="linkedin"
                     title="LinkedIn"
-                    ariaLabel="LinkedIn">
-                    <IoLogoLinkedin className="w-full h-full" />
+                    ariaLabel="LinkedIn"
+                  >
+                    <IoLogoLinkedin className="h-full w-full" />
                   </ButtonIconsSecondaryHoveredColoredQuarteRotate>
                 </div>
                 <div>
                   <ButtonRectangularPrimary
                     onClick={handleDownload}
                     ariaLabel="Télécharger mon CV au format PDF"
-                    className="mx-8 w-3/4">
+                    className="mx-8 w-3/4"
+                  >
                     {getDownloadIcon()}
                     Mon CV
                   </ButtonRectangularPrimary>
@@ -109,14 +114,16 @@ const Hero = () => {
         {/* Avatar */}
         <a
           href="/about"
-          className="inline-block mx-auto w-52 h-52 md:mx-4 lg:mt-16 mt-12 hover:shadow-2xl hover:shadow-amber-600/50 md:mt-48 lg:w-80 lg:h-80 2xl:scale-150 focus:outline-none focus:ring-0">
+          className="mx-auto mt-12 inline-block h-52 w-52 hover:shadow-2xl hover:shadow-amber-600/50 focus:ring-0 focus:outline-none md:mx-4 md:mt-48 lg:mt-16 lg:h-80 lg:w-80 2xl:scale-150"
+        >
           <Suspense
-            fallback={<ImageLoader className="w-full h-full rounded-md" />}>
+            fallback={<ImageLoader className="h-full w-full rounded-md" />}
+          >
             <SmartImage
               src={ImgAvatar}
               webp={ImgAvatarWebp}
               alt="Mon avatar"
-              className="w-full h-full rounded-md transition-transform object-cover hover:scale-105"
+              className="h-full w-full rounded-md object-cover transition-transform hover:scale-105"
               width={256}
               height={256}
               priority

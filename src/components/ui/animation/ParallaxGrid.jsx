@@ -26,7 +26,7 @@ const ParallaxGrid = () => {
   }, [handleScroll]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none" style={{ zIndex: -1 }}>
+    <div className="pointer-events-none fixed inset-0" style={{ zIndex: -1 }}>
       {/* Grille de fond */}
       <div
         className="absolute inset-0"

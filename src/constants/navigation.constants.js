@@ -6,12 +6,21 @@ import {
   HiHome,
 } from "react-icons/hi2";
 
-export const HEADER_NAV_ITEMS = [
+export const HEADER_NAV_ITEMS_DESKTOP = [
+  { label: "Accueil", href: "/my-portfolio/#home", icon: HiHome },
+  { label: "Compétences", href: "/my-portfolio/#skills", icon: HiCodeBracket },
+  { label: "Projets", href: "/my-portfolio/#projects", icon: HiFolder },
+  { label: "Parcours", href: "/my-portfolio/#timeline", icon: HiAcademicCap },
+];
+
+export const HEADER_NAV_ITEMS_MOBILE = [
   { label: "Accueil", href: "/#home", icon: HiHome },
   { label: "Compétences", href: "/#skills", icon: HiCodeBracket },
   { label: "Projets", href: "/#projects", icon: HiFolder },
   { label: "Parcours", href: "/#timeline", icon: HiAcademicCap },
 ];
+
+export const HEADER_NAV_ITEMS = HEADER_NAV_ITEMS_DESKTOP;
 
 export const HEADER_ROUTE_ITEMS = [
   { label: "A propos", to: "/my-portfolio/about" },
@@ -30,6 +39,6 @@ export const HEADER_SECONDARY_LINKS = [
  * Configuration pour le scroll-spy avec IntersectionObserver
  */
 export const SCROLL_SPY_CONFIG = {
-  rootMargin: "-60px 0px -60px 0px", // Offset pour la détection
-  threshold: [0, 0.1, 0.5, 0.9, 1.0], // Seuils de visibilité
+  rootMargin: "-60px 0px -60px 0px",
+  threshold: 0.5,
 };

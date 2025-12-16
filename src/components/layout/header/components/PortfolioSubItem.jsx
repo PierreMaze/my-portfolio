@@ -9,12 +9,14 @@ const PortfolioSubItem = ({ label, href, isLast, onClick, isActive }) => {
     <button
       type="button"
       onClick={() => onClick(href)}
-      className={`flex items-center w-full text-left font-mono text-lg px-4 py-0.5 rounded hover:bg-white/5 transition-colors `}
+      className={`flex w-full items-center rounded px-4 py-0.5 text-left font-mono text-lg transition-colors hover:bg-white/5`}
     >
-      <span className={`mr-2 scale-150 text-neutral-400 `}>
-        {prefix}
+      <span className={`mr-2 scale-150 text-neutral-400`}>{prefix}</span>
+      <span
+        className={`hover:text-orange-600 ${isActive ? "text-orange-600" : "text-black"}`}
+      >
+        {label}
       </span>
-      <span className={` hover:text-orange-600 ${isActive ? "text-orange-600" : "text-black"}`}>{label}</span>
     </button>
   );
 };

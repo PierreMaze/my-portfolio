@@ -12,8 +12,9 @@ const ProjectGrid = ({ projects }) => {
   return (
     <FadeIn className="delay-200">
       <ul
-        className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 list-none"
-        aria-label="Liste des projets">
+        className="grid list-none gap-8 md:grid-cols-2 lg:grid-cols-3"
+        aria-label="Liste des projets"
+      >
         {projects.map(({ id, title, description, image, imageWebp, tags }) => (
           <li key={id}>
             <ProjectCard
@@ -39,7 +40,7 @@ ProjectGrid.propTypes = {
       image: PropTypes.string.isRequired,
       imageWebp: PropTypes.string,
       tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    })
+    }),
   ).isRequired,
 };
 

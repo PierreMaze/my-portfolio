@@ -1,34 +1,59 @@
 // /src/components/ui/form/ContactForm.jsx
 import { useEffect } from "react";
-import { IoPaperPlane, IoCheckmarkCircle, IoCloseCircle } from "react-icons/io5";
+import {
+  IoPaperPlane,
+  IoCheckmarkCircle,
+  IoCloseCircle,
+} from "react-icons/io5";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useContactForm } from "../../../hooks/form/useContactForm";
 
 const STATUS_CONFIG = {
   idle: {
     text: "Envoyer le message",
-    icon: <IoPaperPlane className="w-5 h-5 transition-transform duration-300" aria-hidden="true" />,
+    icon: (
+      <IoPaperPlane
+        className="h-5 w-5 transition-transform duration-300"
+        aria-hidden="true"
+      />
+    ),
     color: "bg-orange-600 hover:bg-orange-700",
   },
   loading: {
     text: "Envoi...",
-    icon: <AiOutlineLoading3Quarters className="w-5 h-5 animate-spin" aria-hidden="true" />,
+    icon: (
+      <AiOutlineLoading3Quarters
+        className="h-5 w-5 animate-spin"
+        aria-hidden="true"
+      />
+    ),
     color: "bg-orange-600",
   },
   success: {
     text: "Envoyé",
-    icon: <IoCheckmarkCircle className="w-5 h-5 scale-110 text-white transition-transform duration-300" aria-hidden="true" />,
+    icon: (
+      <IoCheckmarkCircle
+        className="h-5 w-5 scale-110 text-white transition-transform duration-300"
+        aria-hidden="true"
+      />
+    ),
     color: "bg-green-600 hover:bg-green-700",
   },
   error: {
     text: "Erreur",
-    icon: <IoCloseCircle className="w-5 h-5 scale-110 text-white transition-transform duration-300" aria-hidden="true" />,
+    icon: (
+      <IoCloseCircle
+        className="h-5 w-5 scale-110 text-white transition-transform duration-300"
+        aria-hidden="true"
+      />
+    ),
     color: "bg-red-600 hover:bg-red-700",
   },
 };
 
 const ContactForm = () => {
-  const { formData, status, setStatus, handleChange, handleSubmit } = useContactForm();
+  const { formData, status, setStatus, handleChange, handleSubmit } =
+    useContactForm();
 
   const isLoading = status === "loading";
   const currentStatus = STATUS_CONFIG[status] || STATUS_CONFIG.idle;
@@ -42,11 +67,13 @@ const ContactForm = () => {
       return () => clearTimeout(timer);
     }
   }, [status, setStatus]);
-  
+
   return (
     <form className="space-y-6" onSubmit={handleSubmit} noValidate>
       <div>
-        <label htmlFor="name" className="block font-medium mb-2">Nom</label>
+        <label htmlFor="name" className="mb-2 block font-medium">
+          Nom
+        </label>
         <input
           id="name"
           name="name"
@@ -54,12 +81,14 @@ const ContactForm = () => {
           required
           value={formData.name}
           onChange={handleChange}
-          className="px-4 py-2 w-full rounded ring-2 ring-zinc-300 focus:outline-none focus:ring-orange-600/50 focus:bg-white"
+          className="w-full rounded px-4 py-2 ring-2 ring-zinc-300 focus:bg-white focus:ring-orange-600/50 focus:outline-none"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block font-medium mb-2">Email</label>
+        <label htmlFor="email" className="mb-2 block font-medium">
+          Email
+        </label>
         <input
           id="email"
           name="email"
@@ -67,12 +96,14 @@ const ContactForm = () => {
           required
           value={formData.email}
           onChange={handleChange}
-          className="px-4 py-2 w-full rounded ring-2 ring-zinc-300 focus:outline-none focus:ring-orange-600/50 focus:bg-white"
+          className="w-full rounded px-4 py-2 ring-2 ring-zinc-300 focus:bg-white focus:ring-orange-600/50 focus:outline-none"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block font-medium mb-2">Message</label>
+        <label htmlFor="message" className="mb-2 block font-medium">
+          Message
+        </label>
         <textarea
           id="message"
           name="message"
@@ -80,7 +111,7 @@ const ContactForm = () => {
           required
           value={formData.message}
           onChange={handleChange}
-          className="px-4 py-2 w-full rounded ring-2 ring-zinc-300 focus:outline-none focus:ring-orange-600/50 focus:bg-white"
+          className="w-full rounded px-4 py-2 ring-2 ring-zinc-300 focus:bg-white focus:ring-orange-600/50 focus:outline-none"
         />
       </div>
 
@@ -89,11 +120,7 @@ const ContactForm = () => {
         type="submit"
         disabled={isLoading}
         aria-busy={isLoading}
-        className={`
-          relative inline-flex items-center justify-center gap-2 px-4 py-2 w-full md:max-w-64
-          text-base font-medium text-white rounded transition-all duration-300
-          ${currentStatus.color} disabled:opacity-60 disabled:cursor-not-allowed
-        `}
+        className={`relative inline-flex w-full items-center justify-center gap-2 rounded px-4 py-2 text-base font-medium text-white transition-all duration-300 md:max-w-64 ${currentStatus.color} disabled:cursor-not-allowed disabled:opacity-60`}
       >
         {currentStatus.icon}
         <span className="transition-all duration-300">

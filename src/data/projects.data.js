@@ -49,9 +49,7 @@ export const PROJECTS_DATA = [
       "Performance sur mobile et desktop",
       "Accessibilité et SEO",
     ],
-    results: [
-      "Score de performance : à venir",
-    ],
+    results: ["Score de performance : à venir"],
   },
   {
     id: 2,

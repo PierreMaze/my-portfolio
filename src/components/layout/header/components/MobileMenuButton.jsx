@@ -12,7 +12,8 @@ const MobileMenuButton = ({ onClick, className }) => {
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex items-center justify-center p-2 rounded -m-2 text-neutral-600${className}`}>
+      className={`-m-2 inline-flex items-center justify-center rounded p-2 text-neutral-600${className}`}
+    >
       <span className="sr-only">Open main menu</span>
       <HiBars3 aria-hidden="true" className="size-6" />
     </button>

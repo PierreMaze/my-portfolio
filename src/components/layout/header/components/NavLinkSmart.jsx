@@ -56,7 +56,8 @@ const NavLinkSmart = ({
       onClick={handleClick}
       className={combinedClassName}
       {...ariaAttributes}
-      {...props}>
+      {...props}
+    >
       {children || item.label}
     </a>
   );

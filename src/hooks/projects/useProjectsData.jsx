@@ -29,21 +29,21 @@ const useProjectsData = (projects) => {
     (id) => {
       return findProjectById(projects, id);
     },
-    [projects]
+    [projects],
   );
 
   const getProjectsByCategoryCallback = useCallback(
     (category) => {
       return getProjectsByCategory(projectsByCategoryMap, category);
     },
-    [projectsByCategoryMap]
+    [projectsByCategoryMap],
   );
 
   const getAdjacentProjects = useCallback(
     (currentId) => {
       return findAdjacentProjects(projects, currentId);
     },
-    [projects]
+    [projects],
   );
 
   return {

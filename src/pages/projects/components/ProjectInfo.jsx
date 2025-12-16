@@ -8,13 +8,13 @@ import PropTypes from "prop-types";
  */
 const ProjectInfo = ({ project }) => {
   return (
-    <div className="relative bg-white rounded shadow-lg overflow-hidden shadow-zinc-200/50 mb-8">
+    <div className="relative mb-8 overflow-hidden rounded bg-white shadow-lg shadow-zinc-200/50">
       {/* Header avec gradient */}
-      <div className="relative px-8 py-6 bg-orange-600">
+      <div className="relative bg-orange-600 px-8 py-6">
         <div className="relative flex items-center gap-4">
           <div>
             <h3 className="text-2xl font-bold text-white">Défis relevés</h3>
-            <p className="text-sm text-zinc-50 mt-1">
+            <p className="mt-1 text-sm text-zinc-50">
               Obstacles surmontés durant le développement
             </p>
           </div>
@@ -27,13 +27,14 @@ const ProjectInfo = ({ project }) => {
           {project.challenges.map((challenge, index) => (
             <div
               key={index}
-              className="flex items-start gap-3 p-3 bg-white rounded-lg transition-all duration-300 sm:gap-4 sm:p-4 group">
-              <div className="flex items-center justify-center w-6 h-6 rounded-full transition-colors duration-300 sm:w-7 sm:h-7 bg-orange-100 mt-0.5 flex-shrink-0">
-                <span className="text-xs font-bold sm:text-sm text-orange-600">
+              className="group flex items-start gap-3 rounded-lg bg-white p-3 transition-all duration-300 sm:gap-4 sm:p-4"
+            >
+              <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-orange-100 transition-colors duration-300 sm:h-7 sm:w-7">
+                <span className="text-xs font-bold text-orange-600 sm:text-sm">
                   {index + 1}
                 </span>
               </div>
-              <div className="flex-1 min-w-0">
+              <div className="min-w-0 flex-1">
                 <p className="text-sm leading-relaxed text-black transition-colors duration-300 sm:text-base">
                   {challenge}
                 </p>

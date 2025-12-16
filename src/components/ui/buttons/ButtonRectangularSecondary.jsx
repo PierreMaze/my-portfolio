@@ -20,10 +20,11 @@ const ButtonRectangularSecondary = ({
       onClick={onClick}
       disabled={disabled}
       aria-label={ariaLabel}
-      className={`inline-flex items-center justify-center gap-2 px-3 py-1.5 text-sm font-medium rounded transition-all duration-300 text-black bg-zinc-100 ring-zinc-500 ring-2 hover:ring-zinc-800 hover:bg-white focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed ${
+      className={`inline-flex items-center justify-center gap-2 rounded bg-zinc-100 px-3 py-1.5 text-sm font-medium text-black ring-2 ring-zinc-500 transition-all duration-300 hover:bg-white hover:ring-zinc-800 focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 ${
         className || ""
       }`}
-      {...props}>
+      {...props}
+    >
       {children}
     </button>
   );

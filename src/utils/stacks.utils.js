@@ -35,7 +35,7 @@ export const findStackByPartialMatch = (stackName) => {
   return STACKS_DATA.find(
     (stack) =>
       stack.name.toLowerCase().includes(cleanName.toLowerCase()) ||
-      cleanName.toLowerCase().includes(stack.name.toLowerCase())
+      cleanName.toLowerCase().includes(stack.name.toLowerCase()),
   );
 };
 

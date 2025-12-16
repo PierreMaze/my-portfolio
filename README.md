@@ -264,7 +264,6 @@ pnpm preload          # Installation + démarrage rapide
 
 ---
 
-
 ## 📞 Contact
 
 **Pierre MAZELAYGUE** - Développeur Full Stack

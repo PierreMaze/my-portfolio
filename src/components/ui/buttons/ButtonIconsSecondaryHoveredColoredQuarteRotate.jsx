@@ -60,7 +60,8 @@ const ButtonIconsSecondaryHoveredColoredQuarteRotate = ({
       className={`${baseStyles}${containerSize}${disabledStyles}${
         className || ""
       }`}
-      {...props}>
+      {...props}
+    >
       <span className={`${iconSize}${colorStyles}`}>{children}</span>
     </a>
   );

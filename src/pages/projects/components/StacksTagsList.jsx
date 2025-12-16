@@ -10,7 +10,7 @@ import { StackTag } from "../../../components/ui/tags";
 const StacksTagsList = ({ stacks }) => {
   return (
     <div className="mb-8">
-      <h3 className="text-xl font-bold text-black mb-4">Stacks utilisées</h3>
+      <h3 className="mb-4 text-xl font-bold text-black">Stacks utilisées</h3>
       <div className="flex flex-wrap gap-2">
         {stacks.map((stack) => (
           <StackTag key={stack} name={stack} type="rectangular" />

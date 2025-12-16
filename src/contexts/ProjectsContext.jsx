@@ -41,7 +41,7 @@ export const ProjectsProvider = ({ children, projects = PROJECTS_DATA }) => {
       projects,
       ...projectsData,
     }),
-    [projects, projectsData]
+    [projects, projectsData],
   );
 
   return (
@@ -68,7 +68,7 @@ ProjectsProvider.propTypes = {
       challenges: PropTypes.arrayOf(PropTypes.string).isRequired,
       github: PropTypes.string,
       demo: PropTypes.string,
-    })
+    }),
   ),
 };
 

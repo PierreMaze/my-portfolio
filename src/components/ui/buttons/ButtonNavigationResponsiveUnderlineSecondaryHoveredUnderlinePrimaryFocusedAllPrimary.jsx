@@ -56,7 +56,8 @@ const ButtonNavigationResponsiveUnderlineSecondaryHoveredUnderlinePrimaryFocused
         className={`${baseStyles}${mobileStyles}${desktopStyles}${disabledStyles}${
           className || " "
         }`}
-        {...props}>
+        {...props}
+      >
         <span className="transition-transform duration-200 lg:group-hover:translate-x-1">
           {children}
         </span>

@@ -22,14 +22,16 @@ const ProjectFilters = ({
         <ul
           className="flex flex-wrap justify-start gap-2"
           role="radiogroup"
-          aria-label="Filtres de catégories de projets">
+          aria-label="Filtres de catégories de projets"
+        >
           {categories.map((category) => (
             <li key={category}>
               <ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary
                 key={category}
                 onClick={() => handleCategoryChange(category)}
                 isActive={selectedCategory === category}
-                ariaLabel={`Filtrer par ${category}`}>
+                ariaLabel={`Filtrer par ${category}`}
+              >
                 {category}
               </ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary>
             </li>

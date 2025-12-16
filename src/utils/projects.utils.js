@@ -20,7 +20,7 @@ export const findProjectById = (projects, id) => {
  */
 export const findAdjacentProjects = (projects, currentId) => {
   const currentIndex = projects.findIndex(
-    (project) => project.id === Number(currentId)
+    (project) => project.id === Number(currentId),
   );
 
   if (currentIndex === -1) {

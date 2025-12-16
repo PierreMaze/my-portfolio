@@ -36,7 +36,8 @@ const ButtonUnderlineSecondaryHoveredPrimary = ({
         disabled={disabled}
         aria-label={ariaLabel}
         className={`${baseStyles}${conditionalStyles}${className || ""}`}
-        {...props}>
+        {...props}
+      >
         {children}
       </a>
     );
@@ -49,7 +50,8 @@ const ButtonUnderlineSecondaryHoveredPrimary = ({
         onClick={onClick}
         aria-label={ariaLabel}
         className={`${baseStyles}${conditionalStyles}${className || ""}`}
-        {...props}>
+        {...props}
+      >
         {children}
       </Link>
     );
@@ -63,7 +65,8 @@ const ButtonUnderlineSecondaryHoveredPrimary = ({
       disabled={disabled}
       aria-label={ariaLabel}
       className={`${baseStyles}${conditionalStyles}${className || ""}`}
-      {...props}>
+      {...props}
+    >
       {children}
     </button>
   );

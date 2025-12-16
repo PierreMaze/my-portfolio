@@ -1,20 +1,9 @@
 import PropTypes from "prop-types";
-import { HEADER_NAV_ITEMS } from "../../../../constants";
+import { useMemo } from "react";
+import { HEADER_NAV_ITEMS_DESKTOP } from "../../../../constants";
 import { ButtonRectangularPrimary } from "../../../ui/buttons/ButtonRectangularPrimary";
 import { NavDropdown, NavItem } from "./index";
 
-/**
- * Composant de navigation desktop
- * @param {Object} props
- * @param {Function} props.handleNavClick - Handler de navigation
- * @param {Function} props.closeMenus - Fonction pour fermer les menus
- * @param {Function} props.isAnchorActive - Fonction pour vérifier l'état actif des ancres
- * @param {Function} props.isRouteActive - Fonction pour vérifier l'état actif des routes
- * @param {boolean} props.isPopoverOpen - État d'ouverture du popover
- * @param {Function} props.setIsPopoverOpen - Fonction pour gérer l'état du popover
- * @param {Object} props.location - Objet location de react-router
- * @param {Function} props.navigate - Fonction navigate de react-router
- */
 const DesktopNav = ({
   handleNavClick,
   closeMenus,
@@ -25,6 +14,16 @@ const DesktopNav = ({
   location,
   navigate,
 }) => {
+  const navItems = useMemo(
+    () =>
+      HEADER_NAV_ITEMS_DESKTOP.map((item) => ({
+        ...item,
+        isActive:
+          location.pathname === "/my-portfolio/" && isAnchorActive(item.href),
+      })),
+    [location.pathname, isAnchorActive],
+  );
+
   return (
     <div className="hidden h-10 items-center lg:flex lg:gap-x-12">
       <NavDropdown
@@ -33,15 +32,12 @@ const DesktopNav = ({
         onToggle={() => setIsPopoverOpen((v) => !v)}
       >
         <div className="p-2">
-          {HEADER_NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <NavItem
               key={item.label}
               item={item}
               onClick={handleNavClick}
-              isActive={
-                location.pathname === "/my-portfolio/" &&
-                isAnchorActive(item.href)
-              }
+              isActive={item.isActive}
             />
           ))}
         </div>
@@ -66,7 +62,7 @@ const DesktopNav = ({
       <div className="flex h-10 items-center">
         <ButtonRectangularPrimary
           ariaLabel="Aller à la section contact"
-          onClick={() => handleNavClick("/my-portfolio/#contact")}
+          onClick={() => handleNavClick("#contact")}
           className="px-4 py-2 text-base"
         >
           Contact

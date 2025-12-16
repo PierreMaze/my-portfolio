@@ -8,11 +8,11 @@ import PropTypes from "prop-types";
  */
 const ProjectResults = ({ results }) => (
   <div className="mb-8">
-    <h3 className="text-xl font-bold text-black mb-4">Résultats obtenus</h3>
+    <h3 className="mb-4 text-xl font-bold text-black">Résultats obtenus</h3>
     <ul className="space-y-3">
       {results.map((result, index) => (
         <li key={index} className="flex items-start gap-3">
-          <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0 mt-2" />
+          <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500" />
           <span className="text-zinc-700">{result}</span>
         </li>
       ))}

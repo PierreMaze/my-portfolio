@@ -35,7 +35,8 @@ export const StackTag = ({
       <div
         className={tagStackClass}
         title={name}
-        aria-label={`Technologie: ${name}`}>
+        aria-label={`Technologie: ${name}`}
+      >
         <div className={TAG_STYLES.ROUNDED.icon} aria-hidden="true">
           <IconComponent className={iconStackClass} />
         </div>
@@ -50,9 +51,10 @@ export const StackTag = ({
   return (
     <div
       className={`${TAG_STYLES.RECTANGULAR.container}${" "}${tagStackColor}`}
-      aria-label={`Compétence en ${name}`}>
+      aria-label={`Compétence en ${name}`}
+    >
       <div className={TAG_STYLES.RECTANGULAR.icon} aria-hidden="true">
-        {icon || <IconComponent className={`${"w-4 h-4 "}${iconStackColor}`} />}
+        {icon || <IconComponent className={`${"h-4 w-4 "}${iconStackColor}`} />}
       </div>
       <span className={`${TAG_STYLES.RECTANGULAR.text}${" "}${textClass}`}>
         {name}

@@ -24,29 +24,29 @@ const useActiveNav = ({
   );
 
   const handleScroll = useCallback(() => {
-    const isMobile = window.innerWidth < 768;
-    const offset = isMobile ? mobileOffset : desktopOffset;
-    const current = sectionIds.find((id) =>
-      isElementInViewportWithOffset(document.getElementById(id), offset),
-    );
-    // Met à jour même si aucune section n'est détectée pour éviter des restes d'état entre pages
+    const offset = window.innerWidth < 768 ? mobileOffset : desktopOffset;
+    const current = sectionIds.find((id) => {
+      const element = document.getElementById(id);
+      return element ? isElementInViewportWithOffset(element, offset) : false;
+    });
     setActiveSectionId(current || null);
   }, [sectionIds, mobileOffset, desktopOffset]);
 
   useEffect(() => {
-    let ticking = false;
+    const rafId = { current: null };
     const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
+      cancelAnimationFrame(rafId.current);
+      rafId.current = requestAnimationFrame(() => {
+        handleScroll();
+      });
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(rafId.current);
+    };
   }, [handleScroll]);
 
   const isRouteActive = useCallback(

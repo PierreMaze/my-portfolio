@@ -35,7 +35,8 @@ const ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary = ({
       aria-label={ariaLabel}
       aria-pressed={isActive}
       className={`${baseStyles}${conditionalStyles}${className}`}
-      {...props}>
+      {...props}
+    >
       {children}
     </button>
   );

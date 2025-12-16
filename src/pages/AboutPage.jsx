@@ -28,11 +28,12 @@ const About = () => {
         </FadeIn>
 
         <FadeIn>
-          <h2 className="relative text-3xl font-bold mb-12">
+          <h2 className="relative mb-12 text-3xl font-bold">
             <span className="relative inline-block">
               <span
-                className="absolute block -skew-y-3 bg-orange-200 -inset-1"
-                aria-hidden="true"></span>
+                className="absolute -inset-1 block -skew-y-3 bg-orange-200"
+                aria-hidden="true"
+              ></span>
               <span className="relative">À propos</span>
             </span>
           </h2>
@@ -59,25 +60,25 @@ const About = () => {
 
           <FadeIn className="delay-200">
             <div className="space-y-6">
-              <div className="p-6 bg-white rounded shadow-sm ring-2 ring-zinc-200">
-                <h3 className="text-xl font-semibold mb-4">Expertise</h3>
+              <div className="rounded bg-white p-6 shadow-sm ring-2 ring-zinc-200">
+                <h3 className="mb-4 text-xl font-semibold">Expertise</h3>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                    <span className="h-2 w-2 rounded-full bg-orange-600"></span>
                     <span>
                       Développement Frontend avec React et TailwindCSS
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                    <span className="h-2 w-2 rounded-full bg-orange-600"></span>
                     <span>Architecture Backend avec Node.js et PostgreSQL</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                    <span className="h-2 w-2 rounded-full bg-orange-600"></span>
                     <span>Optimisation des performances et SEO</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                    <span className="h-2 w-2 rounded-full bg-orange-600"></span>
                     <span>Design d'interface utilisateur et UX</span>
                   </li>
                 </ul>

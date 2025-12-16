@@ -14,7 +14,7 @@ const FadeIn = ({ children, className }) => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (elementRef.current) {
@@ -31,7 +31,8 @@ const FadeIn = ({ children, className }) => {
   return (
     <div
       ref={elementRef}
-      className={`${"opacity-0 transition-all duration-500 "}${className}`}>
+      className={`${"opacity-0 transition-all duration-500 "}${className}`}
+    >
       {children}
     </div>
   );

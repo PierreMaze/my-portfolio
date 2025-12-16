@@ -5,11 +5,12 @@ const Contact = () => {
   return (
     <section className="py-16 lg:py-24 xl:py-32">
       <FadeIn>
-        <h2 className="relative text-3xl font-bold mb-12">
+        <h2 className="relative mb-12 text-3xl font-bold">
           <span className="relative inline-block">
             <span
-              className="absolute block -skew-y-3 bg-orange-200 -inset-1"
-              aria-hidden="true"></span>
+              className="absolute -inset-1 block -skew-y-3 bg-orange-200"
+              aria-hidden="true"
+            ></span>
             <span className="relative">Me contacter</span>
           </span>
         </h2>
@@ -25,12 +26,13 @@ const Contact = () => {
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-orange-100">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-100">
                   <svg
-                    className="w-6 h-6 text-orange-600"
+                    className="h-6 w-6 text-orange-600"
                     fill="none"
                     stroke="currentColor"
-                    viewBox="0 0 24 24">
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -45,12 +47,13 @@ const Contact = () => {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-orange-100">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-100">
                   <svg
-                    className="w-6 h-6 text-orange-600"
+                    className="h-6 w-6 text-orange-600"
                     fill="none"
                     stroke="currentColor"
-                    viewBox="0 0 24 24">
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"

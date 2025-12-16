@@ -34,16 +34,17 @@ const Home = () => {
         <Suspense
           fallback={
             <div className="py-16 lg:py-24 xl:py-32">
-              <div className="container px-4 mx-auto">
-                <SkeletonFallback className="w-64 h-12 mb-8" />
+              <div className="container mx-auto px-4">
+                <SkeletonFallback className="mb-8 h-12 w-64" />
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {[...Array(6)].map((_, i) => (
-                    <SkeletonFallback key={i} className="w-full h-32" />
+                    <SkeletonFallback key={i} className="h-32 w-full" />
                   ))}
                 </div>
               </div>
             </div>
-          }>
+          }
+        >
           <Skills />
         </Suspense>
       </section>
@@ -51,16 +52,17 @@ const Home = () => {
         <Suspense
           fallback={
             <div className="py-16 lg:py-24 xl:py-32">
-              <div className="container px-4 mx-auto">
-                <SkeletonFallback className="w-64 h-12 mb-8" />
+              <div className="container mx-auto px-4">
+                <SkeletonFallback className="mb-8 h-12 w-64" />
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   {[...Array(6)].map((_, i) => (
-                    <SkeletonFallback key={i} className="w-full h-80" />
+                    <SkeletonFallback key={i} className="h-80 w-full" />
                   ))}
                 </div>
               </div>
             </div>
-          }>
+          }
+        >
           <Projects />
         </Suspense>
       </section>
@@ -68,22 +70,23 @@ const Home = () => {
         <Suspense
           fallback={
             <div className="py-16 lg:py-24 xl:py-32">
-              <div className="container px-4 mx-auto">
-                <SkeletonFallback className="w-64 h-12 mb-8" />
+              <div className="container mx-auto px-4">
+                <SkeletonFallback className="mb-8 h-12 w-64" />
                 <div className="space-y-8">
                   {[...Array(4)].map((_, i) => (
                     <div key={i} className="flex gap-4">
-                      <SkeletonFallback className="w-4 h-4 rounded-full mt-2 flex-shrink-0" />
+                      <SkeletonFallback className="mt-2 h-4 w-4 flex-shrink-0 rounded-full" />
                       <div className="flex-1">
-                        <SkeletonFallback className="w-full h-6 mb-2" />
-                        <SkeletonFallback className="w-3/4 h-4" />
+                        <SkeletonFallback className="mb-2 h-6 w-full" />
+                        <SkeletonFallback className="h-4 w-3/4" />
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-          }>
+          }
+        >
           <Timeline />
         </Suspense>
       </section>

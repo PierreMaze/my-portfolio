@@ -49,17 +49,16 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
   }, [shouldRender, open]);
 
   useEffect(() => {
-    const measure = () => {
+    if (!shouldRender || !isSectionOpen) return;
+
+    const measureHeight = () => {
       if (submenuRef.current) {
         setSubmenuHeight(submenuRef.current.scrollHeight);
       }
     };
-    if (shouldRender) {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(measure);
-      });
-    }
-  }, [navItems.length, isSectionOpen, shouldRender]);
+
+    requestAnimationFrame(measureHeight);
+  }, [shouldRender, isSectionOpen]);
 
   if (!shouldRender) return null;
 

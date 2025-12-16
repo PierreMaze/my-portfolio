@@ -15,19 +15,21 @@ class ChunkErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="flex items-center justify-center min-h-screen">
-          <div className="px-6 mx-auto text-center max-w-md">
+        <div className="flex min-h-screen items-center justify-center">
+          <div className="mx-auto max-w-md px-6 text-center">
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mb-6">
-              <div className="flex items-center justify-center mx-auto w-20 h-20 rounded-full mb-4 bg-orange-100">
+              className="mb-6"
+            >
+              <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-orange-100">
                 <svg
-                  className="w-10 h-10 text-orange-500"
+                  className="h-10 w-10 text-orange-500"
                   fill="none"
                   stroke="currentColor"
-                  viewBox="0 0 24 24">
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -36,10 +38,10 @@ class ChunkErrorBoundary extends React.Component {
                   />
                 </svg>
               </div>
-              <h2 className="text-2xl font-semibold mb-2 text-zinc-900">
+              <h2 className="mb-2 text-2xl font-semibold text-zinc-900">
                 Erreur de chargement
               </h2>
-              <p className="text-base text-zinc-700 mb-6">
+              <p className="mb-6 text-base text-zinc-700">
                 Oups, échec de chargement du composant. Veuillez réessayer.
               </p>
             </motion.div>
@@ -47,16 +49,19 @@ class ChunkErrorBoundary extends React.Component {
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}>
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            >
               <button
                 onClick={() => location.reload()}
                 aria-label="Recharger la page pour réessayer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium text-white rounded-lg transition-all duration-300 bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 hover:shadow-lg hover:shadow-orange-500/25">
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-orange-500 px-6 py-3 text-base font-medium text-white transition-all duration-300 hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-500/25 focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:outline-none"
+              >
                 <svg
-                  className="w-5 h-5"
+                  className="h-5 w-5"
                   fill="none"
                   stroke="currentColor"
-                  viewBox="0 0 24 24">
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
