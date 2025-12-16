@@ -26,7 +26,7 @@ const Hero = () => {
 
     // Créer un lien temporaire pour le téléchargement
     const link = document.createElement("a");
-    link.href = "/docs/CV_SPONTANEE.pdf";
+    link.href = `${import.meta.env.BASE_URL}docs/CV_SPONTANEE.pdf`;
     link.download = "CV_PierreMazelaygue.pdf";
 
     // Simuler un délai de téléchargement

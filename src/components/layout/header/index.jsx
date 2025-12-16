@@ -54,7 +54,7 @@ export default function Header() {
 
   const handleNavClick = useCallback(
     (href) => {
-      const item = href?.startsWith("/my-portfolio/#")
+      const item = href?.startsWith("/#")
         ? { kind: "section", href }
         : { kind: "route", to: href };
       handleNavClickShared(item, navigate, location, closeMenus);
@@ -65,11 +65,11 @@ export default function Header() {
   const handleBrandClick = useCallback(
     (e) => {
       e.preventDefault();
-      if (location.pathname !== "/my-portfolio/") {
-        navigate("/my-portfolio/");
+      if (location.pathname !== "/") {
+        navigate("/");
       } else {
         window.scrollTo({ top: 0, behavior: "smooth" });
-        navigate("/my-portfolio/#home", { replace: false });
+        navigate("/#home", { replace: false });
       }
       closeMenus();
     },

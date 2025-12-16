@@ -135,7 +135,7 @@ const Legal = () => {
                   Pour toute question concernant ces mentions légales, vous
                   pouvez me contacter via le{" "}
                   <ButtonUnderlineSecondaryHoveredPrimary
-                    to="/my-portfolio/#contact"
+                    to="/#contact"
                     className="text-black"
                     onClick={() => {
                       setTimeout(() => {

@@ -34,7 +34,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
     if (open) {
       setShouldRender(true);
       // Ouvrir le sous-menu Portfolio seulement si on est sur la page d'accueil
-      setIsSectionOpen(location.pathname === "/my-portfolio/");
+      setIsSectionOpen(location.pathname === "/");
     } else {
       setAnimateOpen(false);
       const t = setTimeout(() => setShouldRender(false), 300);
@@ -81,7 +81,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
       >
         <div className="flex items-center justify-between px-4">
           <a
-            href="/my-portfolio/#"
+            href="/#"
             className="-m-1 inline-flex items-center p-1"
           >
             <span className="sr-only">PIXEL STONE</span>
@@ -143,7 +143,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                       handleNavClick(sectionItem, navigate, location, onClose);
                     }}
                     isActive={
-                      location.pathname === "/my-portfolio/" &&
+                      location.pathname === "/" &&
                       isSectionActive(item.href)
                     }
                   />

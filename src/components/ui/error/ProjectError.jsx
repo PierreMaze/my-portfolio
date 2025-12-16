@@ -15,7 +15,7 @@ const ProjectError = ({ statusCode = 404, message = "Page non trouvée" }) => {
         <h1 className="mb-4 text-6xl font-bold text-zinc-300">{statusCode}</h1>
         <p className="mb-8 text-xl text-zinc-600">{message}</p>
         <a
-          href="/my-portfolio/"
+          href="/"
           className="inline-flex items-center gap-2 rounded-lg bg-orange-600 px-6 py-3 text-white transition-colors hover:bg-orange-700"
         >
           <IoArrowBack className="h-4 w-4" />

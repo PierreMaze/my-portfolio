@@ -19,7 +19,7 @@ const DesktopNav = ({
       HEADER_NAV_ITEMS_DESKTOP.map((item) => ({
         ...item,
         isActive:
-          location.pathname === "/my-portfolio/" && isAnchorActive(item.href),
+          location.pathname === "/" && isAnchorActive(item.href),
       })),
     [location.pathname, isAnchorActive],
   );
@@ -44,14 +44,14 @@ const DesktopNav = ({
       </NavDropdown>
 
       <a
-        href="/my-portfolio/about"
+        href="/about"
         onClick={(e) => {
           e.preventDefault();
-          navigate("/my-portfolio/about");
+          navigate("/about");
           closeMenus();
         }}
         className={`inline-flex h-10 items-center text-base font-semibold ${
-          isRouteActive("/my-portfolio/about")
+          isRouteActive("/about")
             ? "text-orange-600"
             : "text-black hover:text-orange-600"
         }`}

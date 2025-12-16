@@ -20,61 +20,66 @@ const RouteFallback = () => (
 );
 
 // Configuration du router avec layout route
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <AppRoot />,
+      errorElement: <RouteErrorBoundary />,
+      children: [
+        {
+          path: "/",
+          element: <Layout />,
+          children: [
+            {
+              index: true,
+              element: (
+                <Suspense fallback={<RouteFallback />}>
+                  <Home />
+                </Suspense>
+              ),
+            },
+            {
+              path: "about",
+              element: (
+                <Suspense fallback={<RouteFallback />}>
+                  <About />
+                </Suspense>
+              ),
+            },
+            {
+              path: "legal",
+              element: (
+                <Suspense fallback={<RouteFallback />}>
+                  <Legal />
+                </Suspense>
+              ),
+            },
+            {
+              path: "projects/:id",
+              element: (
+                <Suspense fallback={<RouteFallback />}>
+                  <ProjectPage />
+                </Suspense>
+              ),
+            },
+            {
+              path: "*",
+              element: (
+                <Suspense fallback={<RouteFallback />}>
+                  <Error />
+                </Suspense>
+              ),
+            },
+          ],
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <AppRoot />,
-    errorElement: <RouteErrorBoundary />,
-    children: [
-      {
-        path: "/my-portfolio/",
-        element: <Layout />,
-        children: [
-          {
-            index: true,
-            element: (
-              <Suspense fallback={<RouteFallback />}>
-                <Home />
-              </Suspense>
-            ),
-          },
-          {
-            path: "about",
-            element: (
-              <Suspense fallback={<RouteFallback />}>
-                <About />
-              </Suspense>
-            ),
-          },
-          {
-            path: "legal",
-            element: (
-              <Suspense fallback={<RouteFallback />}>
-                <Legal />
-              </Suspense>
-            ),
-          },
-          {
-            path: "projects/:id",
-            element: (
-              <Suspense fallback={<RouteFallback />}>
-                <ProjectPage />
-              </Suspense>
-            ),
-          },
-          {
-            path: "*",
-            element: (
-              <Suspense fallback={<RouteFallback />}>
-                <Error />
-              </Suspense>
-            ),
-          },
-        ],
-      },
-    ],
-  },
-]);
+    basename: import.meta.env.BASE_URL,
+  }
+);
 
 // Composant principal du router
 const AppRouter = () => {

@@ -10,7 +10,7 @@ const ProjectCard = ({ id, title, description, image, tags, className }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/my-portfolio/projects/${id}`);
+    navigate(`/projects/${id}`);
   };
 
   return (
