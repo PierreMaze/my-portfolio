@@ -1,1 +1,0 @@
-import{c as l,j as m}from"./index-B1I7V7L7.js";const r=c=>{const s=l.c(3),{children:a,className:o}=c,e=`mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 ${o===void 0?"":o}`;let t;return s[0]!==a||s[1]!==e?(t=m.jsx("div",{className:e,children:a}),s[0]=a,s[1]=e,s[2]=t):t=s[2],t};export{r as C};
