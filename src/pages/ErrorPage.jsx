@@ -4,8 +4,8 @@ import {
   ButtonRectangularPrimary,
   ButtonRectangularSecondary,
   FadeIn,
-} from "../components/ui";
-import { useMeta } from "../hooks";
+} from "../components/ui/index.jsx";
+import { useMeta } from "../hooks/index.jsx";
 
 const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
   const getErrorContent = () => {

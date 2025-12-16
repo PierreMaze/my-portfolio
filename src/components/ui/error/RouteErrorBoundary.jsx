@@ -1,5 +1,7 @@
+import { lazy, Suspense } from "react";
 import { useRouteError } from "react-router-dom";
-import Error from "../../../pages/ErrorPage";
+
+const Error = lazy(() => import("../../../pages/ErrorPage.jsx"));
 
 const RouteErrorBoundary = () => {
   const error = useRouteError();
@@ -26,7 +28,17 @@ const RouteErrorBoundary = () => {
 
   const { statusCode, message } = getErrorInfo();
 
-  return <Error statusCode={statusCode} message={message} />;
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center">
+          <div className="text-zinc-600">Chargement...</div>
+        </div>
+      }
+    >
+      <Error statusCode={statusCode} message={message} />
+    </Suspense>
+  );
 };
 
 export default RouteErrorBoundary;
