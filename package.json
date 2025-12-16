@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "http://pierremaze.github.io/my-portfolio",
+  "homepage": "https://pierremaze.github.io/my-portfolio",
   "prettier": {
     "plugins": [
       "prettier-plugin-tailwindcss"

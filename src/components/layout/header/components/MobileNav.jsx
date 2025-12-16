@@ -14,7 +14,6 @@ import { handleNavClick } from "../../../../utils/navigation.utils";
 import { SmartImage } from "../../../ui";
 import { ButtonIconsSecondaryHoveredColoredQuarteRotate } from "../../../ui/buttons/ButtonIconsSecondaryHoveredColoredQuarteRotate";
 import { ButtonRectangularPrimary } from "../../../ui/buttons/ButtonRectangularPrimary";
-import NavItem from "./NavItem";
 import PortfolioSubItem from "./PortfolioSubItem";
 
 const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
@@ -35,7 +34,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
     if (open) {
       setShouldRender(true);
       // Ouvrir le sous-menu Portfolio seulement si on est sur la page d'accueil
-      setIsSectionOpen(location.pathname === "/");
+      setIsSectionOpen(location.pathname === "/my-portfolio/");
     } else {
       setAnimateOpen(false);
       const t = setTimeout(() => setShouldRender(false), 300);
@@ -69,23 +68,29 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
       <div
         className={`fixed inset-0 z-40 transition-opacity duration-300 ease-out ${
           animateOpen
-            ? "opacity-100 bg-black/30 backdrop-blur-[2px]"
-            : "opacity-0 pointer-events-none"}`}
+            ? "bg-black/30 opacity-100 backdrop-blur-[2px]"
+            : "pointer-events-none opacity-0"
+        }`}
         onClick={onClose}
       />
       <div
-        className={`fixed inset-y-0 right-0 z-50 p-4 w-full bg-white overflow-y-auto sm:max-w-sm transform transition-all duration-300 ease-out ${
+        className={`fixed inset-y-0 right-0 z-50 w-full transform overflow-y-auto bg-white p-4 transition-all duration-300 ease-out sm:max-w-sm ${
           animateOpen
-            ? "opacity-100 translate-x-0"
-            : "opacity-0 translate-x-full"}`}>
+            ? "translate-x-0 opacity-100"
+            : "translate-x-full opacity-0"
+        }`}
+      >
         <div className="flex items-center justify-between px-4">
-          <a href="#" className="inline-flex items-center p-1 -m-1">
+          <a
+            href="/my-portfolio/#"
+            className="-m-1 inline-flex items-center p-1"
+          >
             <span className="sr-only">PIXEL STONE</span>
             <SmartImage
               alt="Logo"
               src={LogoPixelStone}
               webp={LogoPixelStoneWebp}
-              className="w-auto h-10"
+              className="h-10 w-auto"
               width={40}
               height={40}
               loading="eager"
@@ -95,24 +100,27 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded -m-2 text-neutral-600">
+            className="-m-2 rounded p-2 text-neutral-600"
+          >
             <span className="sr-only">Close menu</span>
             <HiXMark aria-hidden="true" className="size-6" />
           </button>
         </div>
-        <div className="flow-root mx-4 mt-6">
+        <div className="mx-4 mt-6 flow-root">
           <div className="-my-6 divide-y divide-black/10">
             {/* Section 1: Portfolio (sous-onglet) + A propos + Contact (sans séparateur) */}
-            <div className="py-6 ">
+            <div className="py-6">
               <button
                 type="button"
                 onClick={() => setIsSectionOpen((v) => !v)}
-                className="flex items-center justify-between px-3 py-2 w-full text-lg font-semibold text-black rounded-lg hover:bg-neutral-100 hover:text-orange-600">
+                className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-lg font-semibold text-black hover:bg-neutral-100 hover:text-orange-600"
+              >
                 <span>Portfolio</span>
                 <HiChevronDown
                   aria-hidden="true"
                   className={`size-5 transition-transform ${
-                    isSectionOpen ? "rotate-180" : ""}`}
+                    isSectionOpen ? "rotate-180" : ""
+                  }`}
                 />
               </button>
               <div
@@ -123,20 +131,24 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                   overflow: "hidden",
                   transition: "max-height 250ms ease-in-out",
                 }}
-                className="mt-0">
-                  {navItems.map((item, index) => (
-                    <PortfolioSubItem
-                      key={item.label}
-                      label={item.label}
-                      href={item.href}
-                      isLast={index === navItems.length - 1}
-                      onClick={(href) => {
-                        const sectionItem = { kind: "section", href };
-                        handleNavClick(sectionItem, navigate, location, onClose);
-                      }}
-                      isActive={location.pathname === "/" && isSectionActive(item.href)}
-                    />
-                  ))}
+                className="mt-0"
+              >
+                {navItems.map((item, index) => (
+                  <PortfolioSubItem
+                    key={item.label}
+                    label={item.label}
+                    href={item.href}
+                    isLast={index === navItems.length - 1}
+                    onClick={(href) => {
+                      const sectionItem = { kind: "section", href };
+                      handleNavClick(sectionItem, navigate, location, onClose);
+                    }}
+                    isActive={
+                      location.pathname === "/my-portfolio/" &&
+                      isSectionActive(item.href)
+                    }
+                  />
+                ))}
               </div>
               {/* A propos (route) */}
               {HEADER_ROUTE_ITEMS.map((item) => (
@@ -148,10 +160,12 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                     const routeItem = { kind: "route", to: item.to };
                     handleNavClick(routeItem, navigate, location, onClose);
                   }}
-                  className={`block px-3 py-2 hover:bg-neutral-100 hover:text-orange-600 font-semibold rounded text-lg !mb-6 ${
+                  className={`mb-6 block rounded px-3 py-2 text-lg font-semibold hover:bg-neutral-100 hover:text-orange-600 ${
                     location.pathname === item.to
                       ? "text-orange-600"
-                      : "text-black hover:bg-white/5"}`}>
+                      : "text-black hover:bg-white/5"
+                  }`}
+                >
                   {item.label}
                 </a>
               ))}
@@ -162,11 +176,12 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                   const contactItem = {
                     kind: "section",
                     target: "contact",
-                    href: "#contact",
+                    href: "/#contact",
                   };
                   handleNavClick(contactItem, navigate, location, onClose);
                 }}
-                className="w-full text-lg">
+                className="w-full text-lg"
+              >
                 Me contacter
               </ButtonRectangularPrimary>
             </div>
@@ -180,12 +195,13 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                     size="small"
                     variant={link.icon}
                     title={link.label}
-                    ariaLabel={link.label}>
+                    ariaLabel={link.label}
+                  >
                     {link.icon === "github" && (
-                      <IoLogoGithub className="w-full h-full" />
+                      <IoLogoGithub className="h-full w-full" />
                     )}
                     {link.icon === "linkedin" && (
-                      <IoLogoLinkedin className="w-full h-full" />
+                      <IoLogoLinkedin className="h-full w-full" />
                     )}
                   </ButtonIconsSecondaryHoveredColoredQuarteRotate>
                 ))}
@@ -206,7 +222,7 @@ MobileNav.propTypes = {
       label: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
       icon: PropTypes.elementType,
-    })
+    }),
   ),
   onNavigate: PropTypes.func,
 };

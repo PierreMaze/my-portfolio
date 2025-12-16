@@ -26,43 +26,49 @@ const DesktopNav = ({
   navigate,
 }) => {
   return (
-    <div className="hidden items-center h-10 lg:flex lg:gap-x-12">
+    <div className="hidden h-10 items-center lg:flex lg:gap-x-12">
       <NavDropdown
         buttonLabel="Portfolio"
         open={isPopoverOpen}
-        onToggle={() => setIsPopoverOpen((v) => !v)}>
+        onToggle={() => setIsPopoverOpen((v) => !v)}
+      >
         <div className="p-2">
           {HEADER_NAV_ITEMS.map((item) => (
             <NavItem
               key={item.label}
               item={item}
               onClick={handleNavClick}
-              isActive={location.pathname === "/" && isAnchorActive(item.href)}
+              isActive={
+                location.pathname === "/my-portfolio/" &&
+                isAnchorActive(item.href)
+              }
             />
           ))}
         </div>
       </NavDropdown>
 
       <a
-        href="/about"
+        href="/my-portfolio/about"
         onClick={(e) => {
           e.preventDefault();
-          navigate("/about");
+          navigate("/my-portfolio/about");
           closeMenus();
         }}
-        className={`inline-flex items-center h-10 font-semibold text-base ${
-          isRouteActive("/about")
+        className={`inline-flex h-10 items-center text-base font-semibold ${
+          isRouteActive("/my-portfolio/about")
             ? "text-orange-600"
             : "text-black hover:text-orange-600"
-        }`}>
+        }`}
+      >
         A propos
       </a>
 
-      <div className="flex items-center h-10">
+      <div className="flex h-10 items-center">
         <ButtonRectangularPrimary
           ariaLabel="Aller à la section contact"
-          onClick={() => handleNavClick("#contact")}
-          className="px-4 py-2 text-base">
+          onClick={() => handleNavClick("/my-portfolio/#contact")}
+          className="px-4 py-2 text-base"
+        >
           Contact
         </ButtonRectangularPrimary>
       </div>

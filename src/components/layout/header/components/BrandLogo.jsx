@@ -12,21 +12,22 @@ import { SmartImage } from "../../../ui";
 const BrandLogo = ({ onClick, className }) => {
   return (
     <a
-      href="/"
+      href="/my-portfolio/"
       onClick={onClick}
-      className={`inline-flex items-center p-1 -m-1${className}`}>
+      className={`inline-flex items-center p-1 -m-1${className}`}
+    >
       <span className="sr-only">PIXEL STONE</span>
       <SmartImage
         alt="Logo PIXEL STONE"
         src={LogoPixelStone}
         webp={LogoPixelStoneWebp}
-        className="w-auto h-10"
+        className="h-10 w-auto"
         width={40}
         height={40}
         loading="eager"
         fetchPriority="high"
       />
-      <span className="text-xl font-black 2xl:text-2xl ml-2 text-neutral-900">
+      <span className="ml-2 text-xl font-black text-neutral-900 2xl:text-2xl">
         PIXEL STONE
       </span>
     </a>

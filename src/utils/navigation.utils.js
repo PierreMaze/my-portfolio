@@ -20,13 +20,14 @@ export const handleNavClick = (item, navigate, location, onAfter) => {
   }
 
   // Lien de section (hash)
-  const href = item.href || (item.target ? `#${item.target}` : null);
+  const href =
+    item.href || (item.target ? `/my-portfolio/#${item.target}` : null);
   if (!href) return;
 
-  if (href.startsWith("#")) {
+  if (href.startsWith("/my-portfolio/#")) {
     const elementId = href.substring(1);
-    if (location.pathname !== "/") {
-      navigate(`/#${elementId}`);
+    if (location.pathname !== "/my-portfolio/") {
+      navigate(`/my-portfolio/#${elementId}`);
     } else {
       const element = document.getElementById(elementId);
       if (element) {
@@ -34,9 +35,9 @@ export const handleNavClick = (item, navigate, location, onAfter) => {
         const offset = isMobile ? 60 : -10;
         const top = element.offsetTop - offset;
         window.scrollTo({ top, behavior: "smooth" });
-        navigate(`#${elementId}`, { replace: false });
+        navigate(`/my-portfolio/#${elementId}`, { replace: false });
       } else {
-        navigate(`/#${elementId}`);
+        navigate(`/my-portfolio/#${elementId}`);
       }
     }
   } else {

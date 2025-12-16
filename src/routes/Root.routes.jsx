@@ -14,7 +14,7 @@ const ProjectPage = lazy(() => import("../pages/projects/ProjectPage"));
 
 // Composant de fallback amélioré pour les routes
 const RouteFallback = () => (
-  <div className="flex items-center justify-center min-h-screen">
+  <div className="flex min-h-screen items-center justify-center">
     <LoadingFallback message="Chargement de la page..." />
   </div>
 );
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     errorElement: <RouteErrorBoundary />,
     children: [
       {
-        path: "/",
+        path: "/my-portfolio/",
         element: <Layout />,
         children: [
           {

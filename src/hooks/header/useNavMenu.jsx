@@ -9,14 +9,14 @@ export const useNavMenu = ({ navItems = [], onNavigate } = {}) => {
   useOutsideClick(popoverRef, () => setIsPopoverOpen(false));
 
   const sections = useMemo(
-    () => navItems.map((item) => item.href.replace("#", "")),
-    [navItems]
+    () => navItems.map((item) => item.href.replace("/my-portfolio/#", "")),
+    [navItems],
   );
 
   const handleNavClick = useCallback(
     (href) => {
       if (!href) return;
-      if (href.startsWith("#")) {
+      if (href.startsWith("/my-portfolio/#")) {
         const elementId = href.substring(1);
         const element = document.getElementById(elementId);
         if (element) {
@@ -32,7 +32,7 @@ export const useNavMenu = ({ navItems = [], onNavigate } = {}) => {
       setIsMobileMenuOpen(false);
       setIsPopoverOpen(false);
     },
-    [onNavigate]
+    [onNavigate],
   );
 
   return {

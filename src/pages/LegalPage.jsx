@@ -31,11 +31,12 @@ const Legal = () => {
         </FadeIn>
 
         <FadeIn>
-          <h2 className="relative text-3xl font-bold mb-12">
+          <h2 className="relative mb-12 text-3xl font-bold">
             <span className="relative inline-block">
               <span
-                className="absolute block -skew-y-3 bg-orange-200 -inset-1"
-                aria-hidden="true"></span>
+                className="absolute -inset-1 block -skew-y-3 bg-orange-200"
+                aria-hidden="true"
+              ></span>
               <span className="relative">Mentions Légales</span>
             </span>
           </h2>
@@ -46,8 +47,9 @@ const Legal = () => {
             <div className="space-y-8">
               <div
                 id="informations-legales"
-                className="p-6 bg-white rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold mb-4">
+                className="rounded-lg bg-white p-6 shadow-sm"
+              >
+                <h3 className="mb-4 text-xl font-semibold">
                   1. Informations Légales
                 </h3>
                 <p className="text-text-secondary">
@@ -58,8 +60,9 @@ const Legal = () => {
 
               <div
                 id="hebergement"
-                className="p-6 bg-white rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold mb-4">2. Hébergement</h3>
+                className="rounded-lg bg-white p-6 shadow-sm"
+              >
+                <h3 className="mb-4 text-xl font-semibold">2. Hébergement</h3>
                 <p className="text-text-secondary">
                   Ce site est hébergé par Netlify, Inc. 2325 3rd Street, Suite
                   296, San Francisco, CA 94107, États-Unis.
@@ -68,8 +71,9 @@ const Legal = () => {
 
               <div
                 id="propriete-intellectuelle"
-                className="p-6 bg-white rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold mb-4">
+                className="rounded-lg bg-white p-6 shadow-sm"
+              >
+                <h3 className="mb-4 text-xl font-semibold">
                   3. Propriété Intellectuelle
                 </h3>
                 <p className="text-text-secondary">
@@ -83,8 +87,9 @@ const Legal = () => {
 
               <div
                 id="protection-donnees"
-                className="p-6 bg-white rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold mb-4">
+                className="rounded-lg bg-white p-6 shadow-sm"
+              >
+                <h3 className="mb-4 text-xl font-semibold">
                   4. Protection des Données Personnelles
                 </h3>
                 <p className="text-text-secondary">
@@ -97,8 +102,9 @@ const Legal = () => {
 
               <div
                 id="politique-cookies"
-                className="p-6 bg-white rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold mb-4">
+                className="rounded-lg bg-white p-6 shadow-sm"
+              >
+                <h3 className="mb-4 text-xl font-semibold">
                   5. Politique des Cookies
                 </h3>
                 <p className="text-text-secondary mb-4">
@@ -106,7 +112,7 @@ const Legal = () => {
                   navigation. Les cookies sont de petits fichiers texte stockés
                   sur votre ordinateur qui nous permettent de :
                 </p>
-                <ul className="list-disc list-inside space-y-2 text-text-secondary">
+                <ul className="text-text-secondary list-inside list-disc space-y-2">
                   <li>Mémoriser vos préférences de navigation</li>
                   <li>
                     Analyser l'utilisation du site pour améliorer nos services
@@ -122,13 +128,14 @@ const Legal = () => {
 
               <div
                 id="contact-legal"
-                className="p-6 bg-white rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold mb-4">6. Contact</h3>
+                className="rounded-lg bg-white p-6 shadow-sm"
+              >
+                <h3 className="mb-4 text-xl font-semibold">6. Contact</h3>
                 <p className="text-text-secondary">
                   Pour toute question concernant ces mentions légales, vous
                   pouvez me contacter via le{" "}
                   <ButtonUnderlineSecondaryHoveredPrimary
-                    to="/#contact"
+                    to="/my-portfolio/#contact"
                     className="text-black"
                     onClick={() => {
                       setTimeout(() => {
@@ -138,7 +145,8 @@ const Legal = () => {
                           contactSection.scrollIntoView({ behavior: "smooth" });
                         }
                       }, 100);
-                    }}>
+                    }}
+                  >
                     formulaire de contact
                   </ButtonUnderlineSecondaryHoveredPrimary>{" "}
                   disponible sur ce site.

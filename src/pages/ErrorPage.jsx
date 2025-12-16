@@ -48,16 +48,17 @@ const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
   });
 
   return (
-    <section className="flex items-center justify-center min-h-screen">
-      <div className="px-6 mx-auto text-center max-w-2xl">
+    <section className="flex min-h-screen items-center justify-center">
+      <div className="mx-auto max-w-2xl px-6 text-center">
         <FadeIn>
           {/* Code d'erreur */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mb-8">
-            <h1 className="text-8xl font-bold md:text-9xl text-orange-500">
+            className="mb-8"
+          >
+            <h1 className="text-8xl font-bold text-orange-500 md:text-9xl">
               {errorContent.title}
             </h1>
           </motion.div>
@@ -67,7 +68,8 @@ const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="text-2xl font-semibold md:text-3xl mb-4 text-zinc-900">
+            className="mb-4 text-2xl font-semibold text-zinc-900 md:text-3xl"
+          >
             {errorContent.subtitle}
           </motion.h2>
 
@@ -76,7 +78,8 @@ const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-            className="text-base leading-relaxed md:text-lg mb-6 text-zinc-700">
+            className="mb-6 text-base leading-relaxed text-zinc-700 md:text-lg"
+          >
             {errorContent.description}
           </motion.p>
 
@@ -85,7 +88,8 @@ const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-            className="text-sm md:text-base mb-8 text-zinc-600">
+            className="mb-8 text-sm text-zinc-600 md:text-base"
+          >
             {errorContent.suggestion}
           </motion.p>
 
@@ -94,14 +98,16 @@ const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
-            className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link to="/">
+            className="flex flex-col items-center justify-center gap-4 sm:flex-row"
+          >
+            <Link to="/my-portfolio/">
               <ButtonRectangularPrimary className="px-6 py-3 hover:shadow-lg hover:shadow-orange-500/25">
                 <svg
-                  className="w-5 h-5"
+                  className="h-5 w-5"
                   fill="none"
                   stroke="currentColor"
-                  viewBox="0 0 24 24">
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -115,12 +121,14 @@ const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
 
             <ButtonRectangularSecondary
               onClick={() => window.history.back()}
-              className="px-6 py-3 text-base">
+              className="px-6 py-3 text-base"
+            >
               <svg
-                className="w-5 h-5"
+                className="h-5 w-5"
                 fill="none"
                 stroke="currentColor"
-                viewBox="0 0 24 24">
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"

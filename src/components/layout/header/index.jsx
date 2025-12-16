@@ -50,35 +50,36 @@ export default function Header() {
 
   const handleNavClick = useCallback(
     (href) => {
-      const item = href?.startsWith("#")
+      const item = href?.startsWith("/my-portfolio/#")
         ? { kind: "section", href }
         : { kind: "route", to: href };
       handleNavClickShared(item, navigate, location, closeMenus);
     },
-    [navigate, location, closeMenus]
+    [navigate, location, closeMenus],
   );
 
   const handleBrandClick = useCallback(
     (e) => {
       e.preventDefault();
-      if (location.pathname !== "/") {
-        navigate("/");
+      if (location.pathname !== "/my-portfolio/") {
+        navigate("/my-portfolio/");
       } else {
         window.scrollTo({ top: 0, behavior: "smooth" });
-        navigate("/#home", { replace: false });
+        navigate("/my-portfolio/#home", { replace: false });
       }
       closeMenus();
     },
-    [location.pathname, navigate, closeMenus]
+    [location.pathname, navigate, closeMenus],
   );
 
   return (
     <header className="fixed top-0 right-0 left-0 z-40 w-full">
       {/* Container avec effet glassmorphism pour desktop */}
-      <div className="border shadow-xl border-white/20 bg-white/80 backdrop-blur-lg shadow-black/10">
+      <div className="border border-white/20 bg-white/80 shadow-xl shadow-black/10 backdrop-blur-lg">
         <nav
           aria-label="Global"
-          className="flex items-center justify-between px-8 py-3 w-full lg:px-12 xl:px-18 2xl:px-32">
+          className="flex w-full items-center justify-between px-8 py-3 lg:px-12 xl:px-18 2xl:px-32"
+        >
           <div className="flex lg:flex-1">
             <BrandLogo onClick={handleBrandClick} />
           </div>

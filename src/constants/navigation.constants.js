@@ -7,13 +7,15 @@ import {
 } from "react-icons/hi2";
 
 export const HEADER_NAV_ITEMS = [
-  { label: "Accueil", href: "#home", icon: HiHome },
-  { label: "Compétences", href: "#skills", icon: HiCodeBracket },
-  { label: "Projets", href: "#projects", icon: HiFolder },
-  { label: "Parcours", href: "#timeline", icon: HiAcademicCap },
+  { label: "Accueil", href: "/#home", icon: HiHome },
+  { label: "Compétences", href: "/#skills", icon: HiCodeBracket },
+  { label: "Projets", href: "/#projects", icon: HiFolder },
+  { label: "Parcours", href: "/#timeline", icon: HiAcademicCap },
 ];
 
-export const HEADER_ROUTE_ITEMS = [{ label: "A propos", to: "/about" }];
+export const HEADER_ROUTE_ITEMS = [
+  { label: "A propos", to: "/my-portfolio/about" },
+];
 
 export const HEADER_SECONDARY_LINKS = [
   { label: "GitHub", href: "https://github.com/PierreMaze", icon: "github" },

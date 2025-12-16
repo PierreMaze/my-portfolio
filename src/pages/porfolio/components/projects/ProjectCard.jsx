@@ -10,12 +10,12 @@ const ProjectCard = ({ id, title, description, image, tags, className }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/projects/${id}`);
+    navigate(`/my-portfolio/projects/${id}`);
   };
 
   return (
     <article
-      className={`flex flex-col h-full border-2 rounded shadow-2xl cursor-pointer transition-colors hover:shadow-amber-500/30 group bg-zinc-100 hover:bg-zinc-200 overflow-hidden focus:outline-none focus:ring-0${className}`}
+      className={`group flex h-full cursor-pointer flex-col overflow-hidden rounded border-2 bg-zinc-100 shadow-2xl transition-colors hover:bg-zinc-200 hover:shadow-amber-500/30 focus:outline-none focus:ring-0${className}`}
       aria-labelledby={`project-title-${title
         .replace(/\s+/g, "-")
         .toLowerCase()}`}
@@ -27,27 +27,30 @@ const ProjectCard = ({ id, title, description, image, tags, className }) => {
           e.preventDefault();
           handleClick();
         }
-      }}>
-      <div className="relative overflow-hidden aspect-video">
+      }}
+    >
+      <div className="relative aspect-video overflow-hidden">
         <SmartImage
           src={image?.image}
           webp={image?.imageWebp}
           alt={`Aperçu du projet ${title}`}
           width={600}
           height={400}
-          className="w-full h-full transition-transform object-cover group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform group-hover:scale-105"
         />
       </div>
-      <div className="flex flex-col p-6 flex-grow">
+      <div className="flex flex-grow flex-col p-6">
         <h3
           id={`project-title-${title.replace(/\s+/g, "-").toLowerCase()}`}
-          className="text-xl font-semibold mb-3 text-zinc-900">
+          className="mb-3 text-xl font-semibold text-zinc-900"
+        >
           {title}
         </h3>
-        <p className="text-sm mb-4 text-zinc-800 line-clamp-3">{description}</p>
+        <p className="mb-4 line-clamp-3 text-sm text-zinc-800">{description}</p>
         <ul
-          className="flex flex-wrap gap-2 mt-auto list-none"
-          aria-label={`Technologies utilisées pour ${title}`}>
+          className="mt-auto flex list-none flex-wrap gap-2"
+          aria-label={`Technologies utilisées pour ${title}`}
+        >
           {tags.map((tag) => (
             <li key={tag}>
               <StackTag name={tag} type={STACK_TAG_TYPES.ROUNDED} />

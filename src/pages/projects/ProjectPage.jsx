@@ -60,7 +60,7 @@ const ProjectPage = () => {
         : "Projet non trouvé",
       ogDescription: description || "Projet non trouvé",
     }),
-    [project, title, description, tags]
+    [project, title, description, tags],
   );
 
   // SEO dynamique unifié
@@ -68,13 +68,13 @@ const ProjectPage = () => {
 
   const handleNavigate = useCallback(
     (projectId) => {
-      navigate(`/projects/${projectId}`);
+      navigate(`/my-portfolio/projects/${projectId}`);
     },
-    [navigate]
+    [navigate],
   );
 
   const handleBack = useCallback(() => {
-    navigate("/");
+    navigate("/my-portfolio/");
   }, [navigate]);
 
   if (!project) {
@@ -93,18 +93,19 @@ const ProjectPage = () => {
         <FadeIn>
           <header className="mb-8">
             {/* Bouton de retour intégré dans le header */}
-            <div className="flex items-center gap-4 my-12 lg:my-6">
+            <div className="my-12 flex items-center gap-4 lg:my-6">
               <ButtonRectangularPrimary
                 onClick={handleBack}
-                ariaLabel="Retourner à la liste des projets">
-                <IoArrowBack className="w-4 h-4" />
+                ariaLabel="Retourner à la liste des projets"
+              >
+                <IoArrowBack className="h-4 w-4" />
                 Retour
               </ButtonRectangularPrimary>
             </div>
-            <h1 className="text-3xl font-bold text-black md:text-4xl mb-4">
+            <h1 className="mb-4 text-3xl font-bold text-black md:text-4xl">
               {title}
             </h1>
-            <p className="text-lg md:text-xl text-zinc-900 mb-6">
+            <p className="mb-6 text-lg text-zinc-900 md:text-xl">
               {description}
             </p>
           </header>
@@ -112,12 +113,12 @@ const ProjectPage = () => {
 
         {/* Image principale du projet */}
         <FadeIn className="delay-100">
-          <div className="relative rounded shadow-lg overflow-hidden aspect-video mb-8">
+          <div className="relative mb-8 aspect-video overflow-hidden rounded shadow-lg">
             <SmartImage
               src={image}
               webp={imageWebp}
               alt={title}
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
               width={600}
               height={400}
               priority
@@ -128,28 +129,28 @@ const ProjectPage = () => {
         {/* Contenu principal */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {/* Colonne principale */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="space-y-8 lg:col-span-2">
             {/* Problématique */}
             <FadeIn className="delay-200">
               <section>
-                <h2 className="text-2xl font-bold text-black mb-4">
+                <h2 className="mb-4 text-2xl font-bold text-black">
                   Problématique
                 </h2>
-                <p className="leading-relaxed text-zinc-700 mb-6">{problem}</p>
+                <p className="mb-6 leading-relaxed text-zinc-700">{problem}</p>
 
-                <h3 className="text-xl font-semibold text-black mb-4">
+                <h3 className="mb-4 text-xl font-semibold text-black">
                   Objectifs
                 </h3>
-                <ul className="space-y-3 mb-6">
+                <ul className="mb-6 space-y-3">
                   {objectives.map((objective, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="w-2 h-2 rounded-full flex-shrink-0 mt-2 bg-orange-500" />
+                      <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-orange-500" />
                       <span className="text-zinc-700">{objective}</span>
                     </li>
                   ))}
                 </ul>
 
-                <h3 className="text-xl font-semibold text-black mb-4">
+                <h3 className="mb-4 text-xl font-semibold text-black">
                   Solution
                 </h3>
                 <p className="leading-relaxed text-zinc-700">{solution}</p>
@@ -173,7 +174,7 @@ const ProjectPage = () => {
             {/* Liens */}
             <FadeIn className="delay-500">
               <section>
-                <h3 className="text-xl font-bold text-black mb-4">
+                <h3 className="mb-4 text-xl font-bold text-black">
                   Liens du projet
                 </h3>
                 <ProjectLinks github={github} demo={demo} />

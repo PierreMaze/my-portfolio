@@ -10,14 +10,15 @@ import { IoArrowBack } from "react-icons/io5";
  */
 const ProjectError = ({ statusCode = 404, message = "Page non trouvée" }) => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-zinc-50">
+    <div className="flex min-h-screen items-center justify-center bg-zinc-50">
       <div className="text-center">
-        <h1 className="text-6xl font-bold text-zinc-300 mb-4">{statusCode}</h1>
-        <p className="text-xl text-zinc-600 mb-8">{message}</p>
+        <h1 className="mb-4 text-6xl font-bold text-zinc-300">{statusCode}</h1>
+        <p className="mb-8 text-xl text-zinc-600">{message}</p>
         <a
-          href="/"
-          className="inline-flex items-center gap-2 px-6 py-3 text-white rounded-lg transition-colors bg-orange-600 hover:bg-orange-700">
-          <IoArrowBack className="w-4 h-4" />
+          href="/my-portfolio/"
+          className="inline-flex items-center gap-2 rounded-lg bg-orange-600 px-6 py-3 text-white transition-colors hover:bg-orange-700"
+        >
+          <IoArrowBack className="h-4 w-4" />
           Retour à l'accueil
         </a>
       </div>

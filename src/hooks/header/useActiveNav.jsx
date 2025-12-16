@@ -8,7 +8,7 @@ const isElementInViewportWithOffset = (element, offset = 100) => {
 };
 
 const normalizeAnchor = (href) =>
-  (href || "").startsWith("#") ? href.slice(1) : href;
+  (href || "").startsWith("/my-portfolio/#") ? href.slice(1) : href;
 
 const useActiveNav = ({
   sectionAnchors = [],
@@ -20,14 +20,14 @@ const useActiveNav = ({
 
   const sectionIds = useMemo(
     () => sectionAnchors.map((h) => normalizeAnchor(h)),
-    [sectionAnchors]
+    [sectionAnchors],
   );
 
   const handleScroll = useCallback(() => {
     const isMobile = window.innerWidth < 768;
     const offset = isMobile ? mobileOffset : desktopOffset;
     const current = sectionIds.find((id) =>
-      isElementInViewportWithOffset(document.getElementById(id), offset)
+      isElementInViewportWithOffset(document.getElementById(id), offset),
     );
     // Met à jour même si aucune section n'est détectée pour éviter des restes d'état entre pages
     setActiveSectionId(current || null);
@@ -50,17 +50,18 @@ const useActiveNav = ({
   }, [handleScroll]);
 
   const isRouteActive = useCallback(
-    (path) => !!path && path.startsWith("/") && location.pathname === path,
-    [location.pathname]
+    (path) =>
+      !!path && path.startsWith("/my-portfolio/") && location.pathname === path,
+    [location.pathname],
   );
 
   const isAnchorActive = useCallback(
     (href) => {
-      if (!href || !href.startsWith("#")) return false;
+      if (!href || !href.startsWith("/my-portfolio/#")) return false;
       const id = normalizeAnchor(href);
       return activeSectionId === id;
     },
-    [activeSectionId]
+    [activeSectionId],
   );
 
   return { activeSectionId, isRouteActive, isAnchorActive };

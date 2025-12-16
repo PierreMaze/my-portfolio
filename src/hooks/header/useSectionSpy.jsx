@@ -20,15 +20,15 @@ export const useSectionSpy = ({
 
   // Normaliser les IDs des sections
   const normalizedSectionIds = useMemo(
-    () => sectionIds.map((id) => id.replace("#", "")),
-    [sectionIds]
+    () => sectionIds.map((id) => id.replace("/my-portfolio/#", "")),
+    [sectionIds],
   );
 
   // Callback pour l'IntersectionObserver
   const handleIntersection = useCallback(
     (entries) => {
       // Ne pas traiter si on n'est pas sur la page d'accueil
-      if (location.pathname !== "/") {
+      if (location.pathname !== "/my-portfolio/") {
         setActiveId(null);
         return;
       }
@@ -46,7 +46,7 @@ export const useSectionSpy = ({
 
       setActiveId(mostVisible);
     },
-    [location.pathname]
+    [location.pathname],
   );
 
   // Configuration de l'IntersectionObserver
@@ -55,19 +55,19 @@ export const useSectionSpy = ({
       rootMargin: config.rootMargin,
       threshold: config.threshold,
     }),
-    [config]
+    [config],
   );
 
   useEffect(() => {
     // Ne pas observer si on n'est pas sur la page d'accueil
-    if (location.pathname !== "/") {
+    if (location.pathname !== "/my-portfolio/") {
       setActiveId(null);
       return;
     }
 
     const observer = new IntersectionObserver(
       handleIntersection,
-      observerConfig
+      observerConfig,
     );
 
     // Observer tous les éléments des sections
@@ -91,10 +91,10 @@ export const useSectionSpy = ({
   // Fonction pour vérifier si une section est active
   const isSectionActive = useCallback(
     (sectionId) => {
-      const normalizedId = sectionId.replace("#", "");
+      const normalizedId = sectionId.replace("/my-portfolio/#", "");
       return activeId === normalizedId;
     },
-    [activeId]
+    [activeId],
   );
 
   return {
