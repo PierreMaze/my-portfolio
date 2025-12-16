@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import { useMemo } from "react";
 import { HEADER_NAV_ITEMS_DESKTOP } from "../../../../constants";
-import { ButtonRectangularPrimary } from "../../../ui/buttons/ButtonRectangularPrimary";
-import { NavDropdown, NavItem } from "./index";
+import { ButtonRectangularPrimary } from "../../../ui/buttons/ButtonRectangularPrimary.jsx";
+import { NavDropdown, NavItem } from "./index.jsx";
 
 const DesktopNav = ({
   handleNavClick,

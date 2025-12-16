@@ -1,6 +1,6 @@
-import { Container } from "../components/layout/Container";
-import { ButtonRectangularPrimary, FadeIn } from "../components/ui";
-import { useMeta } from "../hooks";
+import { Container } from "../components/layout/Container.jsx";
+import { ButtonRectangularPrimary, FadeIn } from "../components/ui/index.jsx";
+import { useMeta } from "../hooks/index.jsx";
 
 const About = () => {
   // SEO dynamique unifié

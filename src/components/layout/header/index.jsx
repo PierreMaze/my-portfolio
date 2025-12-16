@@ -12,7 +12,7 @@ import {
   DesktopNav,
   MobileMenuButton,
   MobileNav,
-} from "./components/";
+} from "./components/index.jsx";
 
 export default function Header() {
   const { isAnchorActive, isRouteActive } = useActiveNav({

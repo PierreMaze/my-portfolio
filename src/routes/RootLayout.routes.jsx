@@ -1,7 +1,11 @@
 import { Outlet } from "react-router-dom";
-import { ParallaxGrid } from "../components/ui";
-import { ProjectsProvider } from "../contexts";
-import { useScrollToHash, useScrollToTop, useSmoothScroll } from "../hooks";
+import { ParallaxGrid } from "../components/ui/index.jsx";
+import { ProjectsProvider } from "../contexts/index.jsx";
+import {
+  useScrollToHash,
+  useScrollToTop,
+  useSmoothScroll,
+} from "../hooks/index.jsx";
 
 const AppRoot = () => {
   useSmoothScroll();

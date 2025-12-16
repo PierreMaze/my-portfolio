@@ -1,5 +1,5 @@
-import { FadeIn } from "../../../../components/ui";
-import ContactForm from "../../../../components/ui/form/COntactForm";
+import { FadeIn } from "../../../../components/ui/index.jsx";
+import ContactForm from "../../../../components/ui/form/ContactForm.jsx";
 
 const Contact = () => {
   return (

@@ -11,10 +11,10 @@ import {
 } from "../../../../constants/navigation.constants";
 import { useSectionSpy } from "../../../../hooks/header";
 import { handleNavClick } from "../../../../utils/navigation.utils";
-import { SmartImage } from "../../../ui";
-import { ButtonIconsSecondaryHoveredColoredQuarteRotate } from "../../../ui/buttons/ButtonIconsSecondaryHoveredColoredQuarteRotate";
-import { ButtonRectangularPrimary } from "../../../ui/buttons/ButtonRectangularPrimary";
-import PortfolioSubItem from "./PortfolioSubItem";
+import { SmartImage } from "../../../ui/index.jsx";
+import { ButtonIconsSecondaryHoveredColoredQuarteRotate } from "../../../ui/buttons/ButtonIconsSecondaryHoveredColoredQuarteRotate.jsx";
+import { ButtonRectangularPrimary } from "../../../ui/buttons/ButtonRectangularPrimary.jsx";
+import PortfolioSubItem from "./PortfolioSubItem.jsx";
 
 const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
   const [shouldRender, setShouldRender] = useState(open);

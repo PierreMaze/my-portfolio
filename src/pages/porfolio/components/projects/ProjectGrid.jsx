@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { FadeIn } from "../../../../components/ui";
-import ProjectCard from "./ProjectCard";
+import { FadeIn } from "../../../../components/ui/index.jsx";
+import ProjectCard from "./ProjectCard.jsx";
 
 /**
  * Composant de la grille de projets

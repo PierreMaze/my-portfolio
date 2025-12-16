@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useRef, useState } from "react";
-import useOutsideClick from "./useOutsideClick";
+import useOutsideClick from "./useOutsideClick.jsx";
 
 export const useNavMenu = ({ navItems = [], onNavigate } = {}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
