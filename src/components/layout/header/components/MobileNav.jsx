@@ -172,7 +172,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                   const contactItem = {
                     kind: "section",
                     target: "contact",
-                    href: "/my-portfolio/#contact",
+                    href: "#contact",
                   };
                   handleNavClick(contactItem, navigate, location, onClose);
                 }}
