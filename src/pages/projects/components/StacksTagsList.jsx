@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { StackTag } from "../../../components/ui/tags";
+import { StackTag } from "../../../components/ui/tags/index.jsx";
 
 /**
  * Composant des stacks utilisées

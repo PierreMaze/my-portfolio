@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { IoLogoGithub } from "react-icons/io5";
 import { HiExternalLink } from "react-icons/hi";
-import { Button } from "../../../components/ui/buttons";
+import { Button } from "../../../components/ui/buttons/index.jsx";
 
 /**
  * Composant des liens du projet

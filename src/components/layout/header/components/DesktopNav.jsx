@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useMemo } from "react";
-import { HEADER_NAV_ITEMS_DESKTOP } from "../../../../constants";
-import { Button } from "../../../ui/buttons";
+import { HEADER_NAV_ITEMS_DESKTOP } from "../../../../constants/index.js";
+import { Button } from "../../../ui/buttons/index.jsx";
 import { NavDropdown, NavItem } from "./index.jsx";
 
 const DesktopNav = ({
@@ -63,7 +63,7 @@ const DesktopNav = ({
           variant="primary"
           size="md"
           ariaLabel="Aller à la section contact"
-          onClick={() => handleNavClick("/#contact")}
+          onClick={() => handleNavClick("#contact")}
         >
           Contact
         </Button>

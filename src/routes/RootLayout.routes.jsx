@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { ParallaxGrid } from "../components/ui/index.jsx";
+import { ParallaxGrid } from "../components/ui/animation/index.jsx";
 import { ProjectsProvider } from "../contexts/index.jsx";
 import {
   useScrollToHash,

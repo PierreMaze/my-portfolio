@@ -1,6 +1,6 @@
 import { Container } from "../components/layout/Container.jsx";
 import { Button } from "../components/ui/buttons/index.jsx";
-import { FadeIn } from "../components/ui/index.jsx";
+import { FadeIn } from "../components/ui/animation/index.jsx";
 import { useMeta } from "../hooks/index.jsx";
 
 const About = () => {

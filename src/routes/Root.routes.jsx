@@ -1,8 +1,8 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../components/layout/index.jsx";
-import { LoadingFallback } from "../components/ui/index.jsx";
-import RouteErrorBoundary from "../components/ui/error/RouteErrorBoundary.jsx";
+import { LoadingFallback } from "../components/ui/loader/index.jsx";
+import { RouteErrorBoundary } from "../components/ui/error/index.jsx";
 import AppRoot from "./RootLayout.routes.jsx";
 
 // Lazy loading des pages

@@ -4,7 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../../components/layout/Container.jsx";
 import { Button } from "../../components/ui/buttons/index.jsx";
 import { ProjectError } from "../../components/ui/error/index.jsx";
-import { FadeIn, SmartImage } from "../../components/ui/index.jsx";
+import { FadeIn } from "../../components/ui/animation/index.jsx";
+import { SmartImage } from "../../components/ui/images/index.jsx";
 import { useProjects } from "../../contexts/ProjectsContext.jsx";
 import { useMeta } from "../../hooks/index.jsx";
 import {

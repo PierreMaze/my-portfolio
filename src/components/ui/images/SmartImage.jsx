@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const SmartImage = ({
+export default function SmartImage({
   webp,
   src,
   alt,
@@ -13,7 +13,7 @@ const SmartImage = ({
   priority = false,
   fetchPriority,
   ...rest
-}) => {
+}) {
   const isPriority = priority === true;
   const finalLoading = isPriority ? "eager" : loading || "lazy";
   const finalFetchPriority = isPriority ? "high" : fetchPriority;
@@ -34,7 +34,7 @@ const SmartImage = ({
       />
     </picture>
   );
-};
+}
 
 SmartImage.propTypes = {
   webp: PropTypes.string,
@@ -49,5 +49,3 @@ SmartImage.propTypes = {
   priority: PropTypes.bool,
   fetchPriority: PropTypes.oneOf(["high", "low", "auto"]),
 };
-
-export default SmartImage;

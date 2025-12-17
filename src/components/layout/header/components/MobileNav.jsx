@@ -11,8 +11,8 @@ import {
 } from "../../../../constants/navigation.constants";
 import { useSectionSpy } from "../../../../hooks/header";
 import { handleNavClick } from "../../../../utils/navigation.utils";
-import { SmartImage } from "../../../ui/index.jsx";
-import { Button, ButtonIcon } from "../../../ui/buttons";
+import { Button, ButtonIcon } from "../../../ui/buttons/index.jsx";
+import SmartImage from "../../../ui/images/SmartImage.jsx";
 import PortfolioSubItem from "./PortfolioSubItem.jsx";
 
 const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
@@ -79,10 +79,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
         }`}
       >
         <div className="flex items-center justify-between px-4">
-          <a
-            href="/#"
-            className="-m-1 inline-flex items-center p-1"
-          >
+          <a href="/#" className="-m-1 inline-flex items-center p-1">
             <span className="sr-only">PIXEL STONE</span>
             <SmartImage
               alt="Logo"
@@ -142,8 +139,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                       handleNavClick(sectionItem, navigate, location, onClose);
                     }}
                     isActive={
-                      location.pathname === "/" &&
-                      isSectionActive(item.href)
+                      location.pathname === "/" && isSectionActive(item.href)
                     }
                   />
                 ))}

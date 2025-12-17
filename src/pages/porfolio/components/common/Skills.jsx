@@ -1,4 +1,5 @@
-import { FadeIn, StackTag } from "../../../../components/ui";
+import { FadeIn } from "../../../../components/ui/animation/index.jsx";
+import { StackTag } from "../../../../components/ui/tags/index.jsx";
 import * as constants from "../../../../constants";
 import { useStacksData } from "../../../../hooks";
 

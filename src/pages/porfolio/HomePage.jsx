@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { SkeletonFallback } from "../../components/ui/index.jsx";
+import { SkeletonFallback } from "../../components/ui/loader/index.jsx";
 import { useMeta } from "../../hooks/index.jsx";
 import Contact from "./components/common/Contact.jsx";
 import Hero from "./components/common/Hero.jsx";

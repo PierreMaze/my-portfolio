@@ -1,12 +1,20 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { SmartImage, StackTag } from "../../../../components/ui";
+import SmartImage from "../../../../components/ui/images/SmartImage.jsx";
+import { StackTag } from "../../../../components/ui/tags/index.jsx";
 import { STACK_TAG_TYPES } from "../../../../constants";
 /**
  * Composant ProjectCard
  * Affiche une carte de projet avec image, titre, description et tags
  */
-const ProjectCard = ({ id, title, description, image, tags, className }) => {
+export default function ProjectCard({
+  id,
+  title,
+  description,
+  image,
+  tags,
+  className,
+}) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -39,7 +47,7 @@ const ProjectCard = ({ id, title, description, image, tags, className }) => {
           className="h-full w-full object-cover transition-transform group-hover:scale-105"
         />
       </div>
-      <div className="flex flex-grow flex-col p-6">
+      <div className="flex grow flex-col p-6">
         <h3
           id={`project-title-${title.replace(/\s+/g, "-").toLowerCase()}`}
           className="mb-3 text-xl font-semibold text-zinc-900"
@@ -60,7 +68,7 @@ const ProjectCard = ({ id, title, description, image, tags, className }) => {
       </div>
     </article>
   );
-};
+}
 
 ProjectCard.propTypes = {
   id: PropTypes.number.isRequired,
@@ -73,5 +81,3 @@ ProjectCard.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   className: PropTypes.string,
 };
-
-export default ProjectCard;

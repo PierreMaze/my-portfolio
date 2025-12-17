@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { FadeIn } from "../../../../components/ui";
-import { Button } from "../../../../components/ui/buttons";
+import { FadeIn } from "../../../../components/ui/animation/index.jsx";
+import { Button } from "../../../../components/ui/buttons/index.jsx";
 
 /**
  * Composant des filtres de projets

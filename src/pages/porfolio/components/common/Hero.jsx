@@ -5,12 +5,13 @@ import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { MdDownloadDone } from "react-icons/md";
 import ImgAvatar from "../../../../assets/avatar.png";
 import ImgAvatarWebp from "../../../../assets/avatar.webp";
+import { FadeIn } from "../../../../components/ui/animation/index.jsx";
 import {
-  FadeIn,
-  ImageLoader,
-  SmartImage,
-} from "../../../../components/ui";
-import { Button, ButtonIcon } from "../../../../components/ui/buttons";
+  Button,
+  ButtonIcon,
+} from "../../../../components/ui/buttons/index.jsx";
+import SmartImage from "../../../../components/ui/images/SmartImage.jsx";
+import { ImageLoader } from "../../../../components/ui/loader/index.jsx";
 
 // Lazy loading de l'image simple
 const SimpleImage = lazy(

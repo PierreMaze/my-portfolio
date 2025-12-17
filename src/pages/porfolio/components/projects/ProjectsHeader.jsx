@@ -1,4 +1,4 @@
-import { FadeIn } from "../../../../components/ui";
+import { FadeIn } from "../../../../components/ui/animation/index.jsx";
 
 /**
  * Composant de l'en-tête de la section projets

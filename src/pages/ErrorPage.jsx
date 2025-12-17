@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/buttons/index.jsx";
-import { FadeIn } from "../components/ui/index.jsx";
+import { FadeIn } from "../components/ui/animation/index.jsx";
 import { useMeta } from "../hooks/index.jsx";
 
 const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {

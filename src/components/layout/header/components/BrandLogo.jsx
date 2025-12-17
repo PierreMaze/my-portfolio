@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import LogoPixelStone from "../../../../assets/logo-pixel-stone.png";
 import LogoPixelStoneWebp from "../../../../assets/logo-pixel-stone.webp";
-import { SmartImage } from "../../../ui";
+import SmartImage from "../../../ui/images/SmartImage.jsx";
 
 /**
  * Composant du logo de marque réutilisable
