@@ -15,10 +15,10 @@ const Home = () => {
     title: "MAZE Dev.",
     titleSuffix: " | Développeur Fullstack",
     description:
-      "Site web de Pierre Mazelaygue, développeur Fullstack spécialisé en React, Node.js et TailwindCSS. Découvrez mes projets et compétences.",
+      "Site web de Pierre MAZELAYGUE, développeur Fullstack spécialisé en React, Node.js et TailwindCSS. Découvrez mes projets et compétences.",
     keywords:
-      "développeur fullstack, développeur frontend, développeur backend, React, Node.js, JavaScript, portfolio, Pierre Mazelaygue, développement web",
-    ogTitle: "Pierre Mazelaygue - Développeur Fullstack",
+      "développeur fullstack, développeur frontend, développeur backend, React, Node.js, JavaScript, portfolio, Pierre MAZELAYGUE, développement web",
+    ogTitle: "Pierre MAZELAYGUE - Développeur Fullstack",
     ogDescription:
       "Site web d'un développeur Fullstack avec des technologies modernes",
   });
