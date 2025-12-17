@@ -5,7 +5,7 @@ import { Container } from "../../components/layout/Container.jsx";
 import { FadeIn } from "../../components/ui/animation/index.jsx";
 import { Button } from "../../components/ui/buttons/index.jsx";
 import { ProjectError } from "../../components/ui/error/index.jsx";
-import { SmartImage } from "../../components/ui/images/index.jsx";
+import SmartImage from "../../components/ui/images/SmartImage.jsx";
 import { useProjects } from "../../contexts/ProjectsContext.jsx";
 import { useMeta } from "../../hooks/index.jsx";
 import {
