@@ -7,8 +7,21 @@ const isElementInViewportWithOffset = (element, offset = 100) => {
   return rect.top <= offset && rect.bottom >= offset;
 };
 
-const normalizeAnchor = (href) =>
-  (href || "").startsWith("/my-portfolio/#") ? href.slice(1) : href;
+const normalizeAnchor = (item) => {
+  const basePath = import.meta.env.BASE_URL;
+  if (typeof item === "object" && item.target) {
+    return item.target;
+  }
+  if (typeof item === "string") {
+    if (item.startsWith(`${basePath}#`)) {
+      return item.split("#")[1];
+    }
+    if (item.startsWith("#")) {
+      return item.substring(1);
+    }
+  }
+  return item;
+};
 
 const useActiveNav = ({
   sectionAnchors = [],
@@ -17,6 +30,7 @@ const useActiveNav = ({
 } = {}) => {
   const location = useLocation();
   const [activeSectionId, setActiveSectionId] = useState(null);
+  const basePath = import.meta.env.BASE_URL;
 
   const sectionIds = useMemo(
     () => sectionAnchors.map((h) => normalizeAnchor(h)),
@@ -51,17 +65,27 @@ const useActiveNav = ({
 
   const isRouteActive = useCallback(
     (path) =>
-      !!path && path.startsWith("/my-portfolio/") && location.pathname === path,
-    [location.pathname],
+      !!path && path.startsWith(basePath) && location.pathname === path,
+    [location.pathname, basePath],
   );
 
   const isAnchorActive = useCallback(
-    (href) => {
-      if (!href || !href.startsWith("/my-portfolio/#")) return false;
-      const id = normalizeAnchor(href);
-      return activeSectionId === id;
+    (item) => {
+      if (!item) return false;
+      // Si c'est un objet avec target
+      if (typeof item === "object" && item.target) {
+        return activeSectionId === item.target;
+      }
+      // Si c'est un string qui commence par basePath#
+      if (typeof item === "string") {
+        if (item.startsWith(`${basePath}#`)) {
+          const id = normalizeAnchor(item);
+          return activeSectionId === id;
+        }
+      }
+      return false;
     },
-    [activeSectionId],
+    [activeSectionId, basePath],
   );
 
   return { activeSectionId, isRouteActive, isAnchorActive };

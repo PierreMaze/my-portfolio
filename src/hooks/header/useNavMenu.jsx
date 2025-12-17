@@ -9,25 +9,28 @@ export const useNavMenu = ({ navItems = [], onNavigate } = {}) => {
   useOutsideClick(popoverRef, () => setIsPopoverOpen(false));
 
   const sections = useMemo(
-    () => navItems.map((item) => item.href.replace("/my-portfolio/#", "")),
+    () => navItems.map((item) => (item.target ? item.target : item)),
     [navItems],
   );
 
   const handleNavClick = useCallback(
-    (href) => {
-      if (!href) return;
-      if (href.startsWith("/my-portfolio/#")) {
-        const elementId = href.substring(1);
-        const element = document.getElementById(elementId);
+    (item) => {
+      if (!item) return;
+      const basePath = import.meta.env.BASE_URL;
+
+      // Si c'est un objet avec target, c'est une section
+      if (typeof item === "object" && item.target) {
+        const element = document.getElementById(item.target);
         if (element) {
           const isMobile = window.innerWidth < 768;
           const offset = isMobile ? 60 : -10;
           const top = element.offsetTop - offset;
           window.scrollTo({ top, behavior: "smooth" });
-          onNavigate?.(elementId);
+          onNavigate?.(`${basePath}#${item.target}`);
         }
-      } else {
-        window.location.href = href;
+      } else if (typeof item === "string") {
+        // Lien externe ou autre
+        window.location.href = item;
       }
       setIsMobileMenuOpen(false);
       setIsPopoverOpen(false);

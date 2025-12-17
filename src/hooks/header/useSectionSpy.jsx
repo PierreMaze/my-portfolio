@@ -17,10 +17,12 @@ export const useSectionSpy = ({
 } = {}) => {
   const location = useLocation();
   const [activeId, setActiveId] = useState(null);
+  const basePath = import.meta.env.BASE_URL;
 
-  // Normaliser les IDs des sections
+  // Normaliser les IDs des sections - extraire le target si c'est un objet
   const normalizedSectionIds = useMemo(
-    () => sectionIds.map((id) => id.replace("/my-portfolio/#", "")),
+    () =>
+      sectionIds.map((item) => (typeof item === "object" ? item.target : item)),
     [sectionIds],
   );
 
@@ -28,7 +30,7 @@ export const useSectionSpy = ({
   const handleIntersection = useCallback(
     (entries) => {
       // Ne pas traiter si on n'est pas sur la page d'accueil
-      if (location.pathname !== "/my-portfolio/") {
+      if (location.pathname !== basePath) {
         setActiveId(null);
         return;
       }
@@ -60,7 +62,7 @@ export const useSectionSpy = ({
 
   useEffect(() => {
     // Ne pas observer si on n'est pas sur la page d'accueil
-    if (location.pathname !== "/my-portfolio/") {
+    if (location.pathname !== basePath) {
       setActiveId(null);
       return;
     }
@@ -91,7 +93,8 @@ export const useSectionSpy = ({
   // Fonction pour vérifier si une section est active
   const isSectionActive = useCallback(
     (sectionId) => {
-      const normalizedId = sectionId.replace("/my-portfolio/#", "");
+      const normalizedId =
+        typeof sectionId === "object" ? sectionId.target : sectionId;
       return activeId === normalizedId;
     },
     [activeId],
