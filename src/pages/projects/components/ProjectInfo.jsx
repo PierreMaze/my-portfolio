@@ -29,7 +29,7 @@ const ProjectInfo = ({ project }) => {
               key={index}
               className="group flex items-start gap-3 rounded-lg bg-white p-3 transition-all duration-300 sm:gap-4 sm:p-4"
             >
-              <div className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-orange-100 transition-colors duration-300 sm:h-7 sm:w-7">
+              <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-100 transition-colors duration-300 sm:h-7 sm:w-7">
                 <span className="text-xs font-bold text-orange-600 sm:text-sm">
                   {index + 1}
                 </span>
