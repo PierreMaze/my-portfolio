@@ -20,14 +20,16 @@ export const handleNavClick = (item, navigate, location, onAfter) => {
   }
 
   // Lien de section (hash)
+  const basePath = import.meta.env.BASE_URL;
   const href =
-    item.href || (item.target ? `/my-portfolio/#${item.target}` : null);
+    item.href || (item.target ? `${basePath}#${item.target}` : null);
   if (!href) return;
 
-  if (href.startsWith("/my-portfolio/#")) {
-    const elementId = href.substring(1);
-    if (location.pathname !== "/my-portfolio/") {
-      navigate(`/my-portfolio/#${elementId}`);
+  if (href.startsWith(`${basePath}#`)) {
+    // Extrait l'ID après le #
+    const elementId = href.split("#")[1];
+    if (location.pathname !== basePath) {
+      navigate(`${basePath}#${elementId}`);
     } else {
       const element = document.getElementById(elementId);
       if (element) {
@@ -35,9 +37,9 @@ export const handleNavClick = (item, navigate, location, onAfter) => {
         const offset = isMobile ? 60 : -10;
         const top = element.offsetTop - offset;
         window.scrollTo({ top, behavior: "smooth" });
-        navigate(`/my-portfolio/#${elementId}`, { replace: false });
+        navigate(`${basePath}#${elementId}`, { replace: false });
       } else {
-        navigate(`/my-portfolio/#${elementId}`);
+        navigate(`${basePath}#${elementId}`);
       }
     }
   } else {
