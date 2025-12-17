@@ -12,7 +12,7 @@ import SmartImage from "../../../ui/images/SmartImage.jsx";
 const BrandLogo = ({ onClick, className }) => {
   return (
     <a
-      href="/my-portfolio/"
+      href={import.meta.env.BASE_URL}
       onClick={onClick}
       className={`inline-flex items-center p-1 -m-1${className}`}
     >

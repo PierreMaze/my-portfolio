@@ -7,17 +7,37 @@ import {
 } from "react-icons/hi2";
 
 export const HEADER_NAV_ITEMS_DESKTOP = [
-  { label: "Accueil", href: "/my-portfolio/#home", icon: HiHome },
-  { label: "Compétences", href: "/my-portfolio/#skills", icon: HiCodeBracket },
-  { label: "Projets", href: "/my-portfolio/#projects", icon: HiFolder },
-  { label: "Parcours", href: "/my-portfolio/#timeline", icon: HiAcademicCap },
+  { label: "Accueil", kind: "section", target: "home", icon: HiHome },
+  {
+    label: "Compétences",
+    kind: "section",
+    target: "skills",
+    icon: HiCodeBracket,
+  },
+  { label: "Projets", kind: "section", target: "projects", icon: HiFolder },
+  {
+    label: "Parcours",
+    kind: "section",
+    target: "timeline",
+    icon: HiAcademicCap,
+  },
 ];
 
 export const HEADER_NAV_ITEMS_MOBILE = [
-  { label: "Accueil", href: "/#home", icon: HiHome },
-  { label: "Compétences", href: "/#skills", icon: HiCodeBracket },
-  { label: "Projets", href: "/#projects", icon: HiFolder },
-  { label: "Parcours", href: "/#timeline", icon: HiAcademicCap },
+  { label: "Accueil", kind: "section", target: "home", icon: HiHome },
+  {
+    label: "Compétences",
+    kind: "section",
+    target: "skills",
+    icon: HiCodeBracket,
+  },
+  { label: "Projets", kind: "section", target: "projects", icon: HiFolder },
+  {
+    label: "Parcours",
+    kind: "section",
+    target: "timeline",
+    icon: HiAcademicCap,
+  },
 ];
 
 export const HEADER_NAV_ITEMS = HEADER_NAV_ITEMS_DESKTOP;
