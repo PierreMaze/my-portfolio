@@ -75,7 +75,7 @@ const Home = () => {
                 <div className="space-y-8">
                   {[...Array(4)].map((_, i) => (
                     <div key={i} className="flex gap-4">
-                      <SkeletonFallback className="mt-2 h-4 w-4 flex-shrink-0 rounded-full" />
+                      <SkeletonFallback className="mt-2 flex h-4 w-4 shrink-0 rounded-full" />
                       <div className="flex-1">
                         <SkeletonFallback className="mb-2 h-6 w-full" />
                         <SkeletonFallback className="h-4 w-3/4" />

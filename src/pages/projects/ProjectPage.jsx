@@ -2,9 +2,9 @@ import { useCallback, useMemo } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../../components/layout/Container.jsx";
+import { FadeIn } from "../../components/ui/animation/index.jsx";
 import { Button } from "../../components/ui/buttons/index.jsx";
 import { ProjectError } from "../../components/ui/error/index.jsx";
-import { FadeIn } from "../../components/ui/animation/index.jsx";
 import { SmartImage } from "../../components/ui/images/index.jsx";
 import { useProjects } from "../../contexts/ProjectsContext.jsx";
 import { useMeta } from "../../hooks/index.jsx";
@@ -147,7 +147,7 @@ const ProjectPage = () => {
                 <ul className="mb-6 space-y-3">
                   {objectives.map((objective, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-orange-500" />
+                      <span className="mt-2 flex h-2 w-2 shrink-0 rounded-full bg-orange-500" />
                       <span className="text-zinc-700">{objective}</span>
                     </li>
                   ))}
