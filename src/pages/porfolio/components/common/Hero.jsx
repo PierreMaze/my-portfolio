@@ -58,7 +58,7 @@ const Hero = () => {
     >
       <div className="flex flex-col-reverse items-center gap-8 md:flex-row md:items-center lg:gap-0 2xl:gap-48">
         <FadeIn>
-          <div className="mt-4 max-w-3xl text-center md:text-left 2xl:max-w-screen-lg">
+          <div className="mt-4 max-w-3xl text-center md:text-left 2xl:max-w-lg">
             <h1 className="mb-6 text-4xl font-bold md:text-6xl 2xl:text-6xl">
               Développeur
               <span className="relative ml-4 inline-block">
