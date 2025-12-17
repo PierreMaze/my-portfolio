@@ -1,15 +1,12 @@
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
-import {
-  ButtonIconsSecondaryHoveredColoredQuarteRotate,
-  ButtonUnderlineSecondaryHoveredPrimary,
-} from "../ui/buttons";
+import { Button, ButtonIcon } from "../ui/buttons";
 
 const Footer = () => {
   return (
     <footer className="group pt-16 pb-12 text-center xl:pt-32">
       <div className="mx-auto w-full">
         <div className="mb-6 flex justify-center gap-6">
-          <ButtonIconsSecondaryHoveredColoredQuarteRotate
+          <ButtonIcon
             href="https://github.com/PierreMaze"
             size="small"
             variant="github"
@@ -17,8 +14,8 @@ const Footer = () => {
             ariaLabel="GitHub"
           >
             <IoLogoGithub className="h-full w-full" />
-          </ButtonIconsSecondaryHoveredColoredQuarteRotate>
-          <ButtonIconsSecondaryHoveredColoredQuarteRotate
+          </ButtonIcon>
+          <ButtonIcon
             href="https://fr.linkedin.com/in/pierremazelaygue"
             size="small"
             variant="linkedin"
@@ -26,12 +23,12 @@ const Footer = () => {
             ariaLabel="LinkedIn"
           >
             <IoLogoLinkedin className="h-full w-full" />
-          </ButtonIconsSecondaryHoveredColoredQuarteRotate>
+          </ButtonIcon>
         </div>
         <div className="my-4">
-          <ButtonUnderlineSecondaryHoveredPrimary to="/legal">
+          <Button variant="link" size="md" to="/legal">
             Mentions légales
-          </ButtonUnderlineSecondaryHoveredPrimary>
+          </Button>
         </div>
       </div>
       <div className="mt-8 flex w-full flex-col gap-y-2 px-8 text-sm">

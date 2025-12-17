@@ -1,5 +1,6 @@
 import { Container } from "../components/layout/Container.jsx";
-import { ButtonRectangularPrimary, FadeIn } from "../components/ui/index.jsx";
+import { Button } from "../components/ui/buttons/index.jsx";
+import { FadeIn } from "../components/ui/index.jsx";
 import { useMeta } from "../hooks/index.jsx";
 
 const About = () => {
@@ -21,9 +22,13 @@ const About = () => {
         {/* Bouton de navigation */}
         <FadeIn>
           <div className="mb-8">
-            <ButtonRectangularPrimary onClick={() => window.history.back()}>
+            <Button
+              variant="primary"
+              size="md"
+              onClick={() => window.history.back()}
+            >
               ← Retour
-            </ButtonRectangularPrimary>
+            </Button>
           </div>
         </FadeIn>
 

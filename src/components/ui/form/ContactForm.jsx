@@ -7,6 +7,7 @@ import {
 } from "react-icons/io5";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useContactForm } from "../../../hooks/form/useContactForm";
+import { Button } from "../buttons";
 
 const STATUS_CONFIG = {
   idle: {
@@ -116,17 +117,18 @@ const ContactForm = () => {
       </div>
 
       {/* Submit Button */}
-      <button
+      <Button
         type="submit"
-        disabled={isLoading}
-        aria-busy={isLoading}
-        className={`relative inline-flex w-full items-center justify-center gap-2 rounded px-4 py-2 text-base font-medium text-white transition-all duration-300 md:max-w-64 ${currentStatus.color} disabled:cursor-not-allowed disabled:opacity-60`}
+        variant="primary"
+        size="md"
+        status={status}
+        isLoading={isLoading}
+        iconLeft={currentStatus.icon}
+        fullWidth
+        className="md:max-w-64"
       >
-        {currentStatus.icon}
-        <span className="transition-all duration-300">
-          {currentStatus.text}
-        </span>
-      </button>
+        {currentStatus.text}
+      </Button>
     </form>
   );
 };

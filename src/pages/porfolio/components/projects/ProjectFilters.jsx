@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { FadeIn } from "../../../../components/ui";
-import { ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary } from "../../../../components/ui/buttons";
+import { Button } from "../../../../components/ui/buttons";
 
 /**
  * Composant des filtres de projets
@@ -26,14 +26,15 @@ const ProjectFilters = ({
         >
           {categories.map((category) => (
             <li key={category}>
-              <ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary
-                key={category}
+              <Button
+                variant="filter"
+                size="md"
                 onClick={() => handleCategoryChange(category)}
                 isActive={selectedCategory === category}
                 ariaLabel={`Filtrer par ${category}`}
               >
                 {category}
-              </ButtonRectangularSecondaryHoveredSecondaryFocusedPrimary>
+              </Button>
             </li>
           ))}
         </ul>

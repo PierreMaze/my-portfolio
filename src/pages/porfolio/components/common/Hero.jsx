@@ -6,12 +6,11 @@ import { MdDownloadDone } from "react-icons/md";
 import ImgAvatar from "../../../../assets/avatar.png";
 import ImgAvatarWebp from "../../../../assets/avatar.webp";
 import {
-  ButtonIconsSecondaryHoveredColoredQuarteRotate,
-  ButtonRectangularPrimary,
   FadeIn,
   ImageLoader,
   SmartImage,
 } from "../../../../components/ui";
+import { Button, ButtonIcon } from "../../../../components/ui/buttons";
 
 // Lazy loading de l'image simple
 const SimpleImage = lazy(
@@ -77,7 +76,7 @@ const Hero = () => {
             <div className="flex justify-center md:justify-start">
               <div className="m-4 flex items-center justify-between">
                 <div className="flex items-center space-x-6">
-                  <ButtonIconsSecondaryHoveredColoredQuarteRotate
+                  <ButtonIcon
                     href="https://github.com/PierreMaze"
                     size="medium"
                     variant="github"
@@ -85,9 +84,9 @@ const Hero = () => {
                     ariaLabel="GitHub"
                   >
                     <IoLogoGithub className="h-full w-full" />
-                  </ButtonIconsSecondaryHoveredColoredQuarteRotate>
+                  </ButtonIcon>
 
-                  <ButtonIconsSecondaryHoveredColoredQuarteRotate
+                  <ButtonIcon
                     href="https://fr.linkedin.com/in/pierremazelaygue"
                     size="medium"
                     variant="linkedin"
@@ -95,17 +94,19 @@ const Hero = () => {
                     ariaLabel="LinkedIn"
                   >
                     <IoLogoLinkedin className="h-full w-full" />
-                  </ButtonIconsSecondaryHoveredColoredQuarteRotate>
+                  </ButtonIcon>
                 </div>
                 <div>
-                  <ButtonRectangularPrimary
+                  <Button
+                    variant="primary"
+                    size="md"
                     onClick={handleDownload}
                     ariaLabel="Télécharger mon CV au format PDF"
+                    iconLeft={getDownloadIcon()}
                     className="mx-8 w-3/4"
                   >
-                    {getDownloadIcon()}
                     Mon CV
-                  </ButtonRectangularPrimary>
+                  </Button>
                 </div>
               </div>
             </div>

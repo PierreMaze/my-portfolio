@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import {
-  ButtonRectangularPrimary,
-  ButtonRectangularSecondary,
-  FadeIn,
-} from "../components/ui/index.jsx";
+import { Button } from "../components/ui/buttons/index.jsx";
+import { FadeIn } from "../components/ui/index.jsx";
 import { useMeta } from "../hooks/index.jsx";
 
 const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
@@ -101,7 +98,35 @@ const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
             className="flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <Link to="/">
-              <ButtonRectangularPrimary className="px-6 py-3 hover:shadow-lg hover:shadow-orange-500/25">
+              <Button
+                variant="primary"
+                size="lg"
+                className="hover:shadow-lg hover:shadow-orange-500/25"
+                iconLeft={
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                    />
+                  </svg>
+                }
+              >
+                Retour à l'accueil
+              </Button>
+            </Link>
+
+            <Button
+              variant="secondary"
+              size="lg"
+              onClick={() => window.history.back()}
+              iconLeft={
                 <svg
                   className="h-5 w-5"
                   fill="none"
@@ -112,32 +137,13 @@ const Error = ({ statusCode = 404, message = "Page non trouvée" }) => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
                   />
                 </svg>
-                Retour à l'accueil
-              </ButtonRectangularPrimary>
-            </Link>
-
-            <ButtonRectangularSecondary
-              onClick={() => window.history.back()}
-              className="px-6 py-3 text-base"
+              }
             >
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                />
-              </svg>
               Page précédente
-            </ButtonRectangularSecondary>
+            </Button>
           </motion.div>
         </FadeIn>
       </div>

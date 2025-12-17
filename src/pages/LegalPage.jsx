@@ -1,10 +1,7 @@
-import { Container } from "../components/layout/Container";
-import {
-  ButtonRectangularPrimary,
-  ButtonUnderlineSecondaryHoveredPrimary,
-  FadeIn,
-} from "../components/ui";
-import { useMeta } from "../hooks";
+import { Container } from "../components/layout/Container.jsx";
+import { FadeIn } from "../components/ui/animation/index.jsx";
+import { Button } from "../components/ui/buttons/index.jsx";
+import { useMeta } from "../hooks/index.jsx";
 
 const Legal = () => {
   // SEO dynamique unifié
@@ -24,9 +21,13 @@ const Legal = () => {
         {/* Bouton de navigation */}
         <FadeIn>
           <div className="mb-8">
-            <ButtonRectangularPrimary onClick={() => window.history.back()}>
+            <Button
+              variant="primary"
+              size="md"
+              onClick={() => window.history.back()}
+            >
               ← Retour
-            </ButtonRectangularPrimary>
+            </Button>
           </div>
         </FadeIn>
 
@@ -134,7 +135,9 @@ const Legal = () => {
                 <p className="text-text-secondary">
                   Pour toute question concernant ces mentions légales, vous
                   pouvez me contacter via le{" "}
-                  <ButtonUnderlineSecondaryHoveredPrimary
+                  <Button
+                    variant="link"
+                    size="md"
                     to="/#contact"
                     className="text-black"
                     onClick={() => {
@@ -148,7 +151,7 @@ const Legal = () => {
                     }}
                   >
                     formulaire de contact
-                  </ButtonUnderlineSecondaryHoveredPrimary>{" "}
+                  </Button>{" "}
                   disponible sur ce site.
                 </p>
               </div>

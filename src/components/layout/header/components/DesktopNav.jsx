@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useMemo } from "react";
 import { HEADER_NAV_ITEMS_DESKTOP } from "../../../../constants";
-import { ButtonRectangularPrimary } from "../../../ui/buttons/ButtonRectangularPrimary.jsx";
+import { Button } from "../../../ui/buttons";
 import { NavDropdown, NavItem } from "./index.jsx";
 
 const DesktopNav = ({
@@ -59,13 +59,14 @@ const DesktopNav = ({
       </a>
 
       <div className="flex h-10 items-center">
-        <ButtonRectangularPrimary
+        <Button
+          variant="primary"
+          size="md"
           ariaLabel="Aller à la section contact"
           onClick={() => handleNavClick("/#contact")}
-          className="px-4 py-2 text-base"
         >
           Contact
-        </ButtonRectangularPrimary>
+        </Button>
       </div>
     </div>
   );

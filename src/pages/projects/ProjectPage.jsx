@@ -1,19 +1,19 @@
 import { useCallback, useMemo } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
-import { Container } from "../../components/layout/Container";
-import { FadeIn, SmartImage } from "../../components/ui";
-import { ButtonRectangularPrimary } from "../../components/ui/buttons";
-import { ProjectError } from "../../components/ui/error";
-import { useProjects } from "../../contexts/ProjectsContext";
-import { useMeta } from "../../hooks";
+import { Container } from "../../components/layout/Container.jsx";
+import { Button } from "../../components/ui/buttons/index.jsx";
+import { ProjectError } from "../../components/ui/error/index.jsx";
+import { FadeIn, SmartImage } from "../../components/ui/index.jsx";
+import { useProjects } from "../../contexts/ProjectsContext.jsx";
+import { useMeta } from "../../hooks/index.jsx";
 import {
   ProjectInfo,
   ProjectLinks,
   ProjectNavigation,
   ProjectResults,
   StacksTagsList,
-} from "./components";
+} from "./components/index.jsx";
 
 /**
  * Page de détail d'un projet
@@ -94,13 +94,15 @@ const ProjectPage = () => {
           <header className="mb-8">
             {/* Bouton de retour intégré dans le header */}
             <div className="my-12 flex items-center gap-4 lg:my-6">
-              <ButtonRectangularPrimary
+              <Button
+                variant="primary"
+                size="md"
                 onClick={handleBack}
                 ariaLabel="Retourner à la liste des projets"
+                iconLeft={<IoArrowBack className="h-4 w-4" />}
               >
-                <IoArrowBack className="h-4 w-4" />
                 Retour
-              </ButtonRectangularPrimary>
+              </Button>
             </div>
             <h1 className="mb-4 text-3xl font-bold text-black md:text-4xl">
               {title}

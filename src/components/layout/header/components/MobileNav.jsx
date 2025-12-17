@@ -12,8 +12,7 @@ import {
 import { useSectionSpy } from "../../../../hooks/header";
 import { handleNavClick } from "../../../../utils/navigation.utils";
 import { SmartImage } from "../../../ui/index.jsx";
-import { ButtonIconsSecondaryHoveredColoredQuarteRotate } from "../../../ui/buttons/ButtonIconsSecondaryHoveredColoredQuarteRotate.jsx";
-import { ButtonRectangularPrimary } from "../../../ui/buttons/ButtonRectangularPrimary.jsx";
+import { Button, ButtonIcon } from "../../../ui/buttons";
 import PortfolioSubItem from "./PortfolioSubItem.jsx";
 
 const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
@@ -169,7 +168,9 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                 </a>
               ))}
               {/* Contact dans la même section, sans séparateur au-dessus */}
-              <ButtonRectangularPrimary
+              <Button
+                variant="primary"
+                size="md"
                 ariaLabel="Aller à la section contact"
                 onClick={() => {
                   const contactItem = {
@@ -179,16 +180,17 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                   };
                   handleNavClick(contactItem, navigate, location, onClose);
                 }}
-                className="w-full text-lg"
+                fullWidth
+                className="text-lg"
               >
                 Me contacter
-              </ButtonRectangularPrimary>
+              </Button>
             </div>
             {/* Section 2: Liens secondaires (icônes) */}
             <div className="py-6">
               <div className="flex items-center justify-center gap-4">
                 {HEADER_SECONDARY_LINKS.map((link) => (
-                  <ButtonIconsSecondaryHoveredColoredQuarteRotate
+                  <ButtonIcon
                     key={link.label}
                     href={link.href}
                     size="small"
@@ -202,7 +204,7 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                     {link.icon === "linkedin" && (
                       <IoLogoLinkedin className="h-full w-full" />
                     )}
-                  </ButtonIconsSecondaryHoveredColoredQuarteRotate>
+                  </ButtonIcon>
                 ))}
               </div>
             </div>
