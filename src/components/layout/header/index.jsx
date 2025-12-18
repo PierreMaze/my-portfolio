@@ -51,10 +51,28 @@ export default function Header() {
 
   const handleNavClick = useCallback(
     (href) => {
-      const item = href?.startsWith("/#")
-        ? { kind: "section", href }
-        : { kind: "route", to: href };
-      handleNavClickShared(item, navigate, location, closeMenus);
+      // Gérer les hash fragments (avec ou sans slash initial)
+      const isHash = href?.startsWith("#") || href?.startsWith("/#");
+
+      if (isHash) {
+        // Extraire le fragment sans préfixe (ex: "#projects" → "#projects", "/#skills" → "#skills")
+        const fragment = href.replace(/^\/?/, ""); // Retire le "/" initial si présent
+        const basePath = import.meta.env.BASE_URL;
+        const normalizedHref = `${basePath}${fragment}`; // "/my-portfolio/#projects"
+        handleNavClickShared(
+          { kind: "section", href: normalizedHref },
+          navigate,
+          location,
+          closeMenus,
+        );
+      } else {
+        handleNavClickShared(
+          { kind: "route", to: href },
+          navigate,
+          location,
+          closeMenus,
+        );
+      }
     },
     [navigate, location, closeMenus],
   );

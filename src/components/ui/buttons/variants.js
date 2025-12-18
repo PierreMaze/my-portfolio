@@ -64,7 +64,6 @@ export const variants = {
     inactive:
       "text-black bg-zinc-100 ring-zinc-500 ring-2 hover:ring-zinc-800 hover:bg-white",
     active: "bg-orange-600 text-white ring-orange-600 ring-2",
-    focus: "focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2",
     sizes: {
       sm: "px-2 py-1 text-xs",
       md: "px-3 py-1.5 text-sm",
@@ -74,8 +73,7 @@ export const variants = {
 
   nav: {
     // Mobile (rectangulaire)
-    mobile:
-      "w-full text-left px-4 py-3 rounded transition-all duration-200",
+    mobile: "w-full text-left px-4 py-3 rounded transition-all duration-200",
     mobileInactive: "text-zinc-700",
     mobileActive: "text-white no-underline bg-orange-600",
 

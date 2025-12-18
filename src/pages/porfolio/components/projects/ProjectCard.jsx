@@ -23,7 +23,7 @@ export default function ProjectCard({
 
   return (
     <article
-      className={`group flex h-full cursor-pointer flex-col overflow-hidden rounded border-2 bg-zinc-100 shadow-2xl transition-colors hover:bg-zinc-200 hover:shadow-amber-500/30 focus:outline-none focus:ring-0${className}`}
+      className={`group flex h-full cursor-pointer flex-col overflow-hidden rounded bg-zinc-100 shadow-2xl ring-2 ring-neutral-300 transition-colors hover:bg-zinc-200 hover:shadow-amber-500/30 hover:ring-orange-400 ${className}`}
       aria-labelledby={`project-title-${title
         .replace(/\s+/g, "-")
         .toLowerCase()}`}

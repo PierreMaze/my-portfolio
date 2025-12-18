@@ -135,7 +135,11 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                     href={item.href}
                     isLast={index === navItems.length - 1}
                     onClick={(href) => {
-                      const sectionItem = { kind: "section", href };
+                      // Normaliser le href avec BASE_URL pour navigation.utils.js
+                      const fragment = href.replace(/^\/?/, ""); // Retire le "/" initial si présent
+                      const basePath = import.meta.env.BASE_URL;
+                      const normalizedHref = `${basePath}${fragment}`; // "/my-portfolio/#projects"
+                      const sectionItem = { kind: "section", href: normalizedHref };
                       handleNavClick(sectionItem, navigate, location, onClose);
                     }}
                     isActive={
@@ -169,10 +173,12 @@ const MobileNav = ({ open, onClose, navItems = [], onNavigate }) => {
                 size="md"
                 ariaLabel="Aller à la section contact"
                 onClick={() => {
+                  // Normaliser le href avec BASE_URL pour navigation.utils.js
+                  const basePath = import.meta.env.BASE_URL;
                   const contactItem = {
                     kind: "section",
                     target: "contact",
-                    href: "#contact",
+                    href: `${basePath}#contact`,
                   };
                   handleNavClick(contactItem, navigate, location, onClose);
                 }}

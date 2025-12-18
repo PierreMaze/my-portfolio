@@ -19,6 +19,9 @@ const useScrollToTop = ({
   useEffect(() => {
     if (!enabled) return;
 
+    // Ne pas scroller si un hash est présent (useScrollToHash s'en charge)
+    if (location.hash && location.hash.length > 1) return;
+
     const scrollToTop = () => {
       window.scrollTo({
         top: 0,
@@ -33,7 +36,7 @@ const useScrollToTop = ({
     } else {
       scrollToTop();
     }
-  }, [location.pathname, enabled, behavior, delay]);
+  }, [location.pathname, location.hash, enabled, behavior, delay]);
 };
 
 export default useScrollToTop;

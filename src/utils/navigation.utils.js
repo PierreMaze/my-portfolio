@@ -28,18 +28,25 @@ export const handleNavClick = (item, navigate, location, onAfter) => {
   if (href.startsWith(`${basePath}#`)) {
     // Extrait l'ID après le #
     const elementId = href.split("#")[1];
-    if (location.pathname !== basePath) {
-      navigate(`${basePath}#${elementId}`);
+
+    // Normaliser les paths pour comparaison (retirer le slash final)
+    const currentPath = location.pathname.replace(/\/$/, '');
+    const homeBasePath = basePath.replace(/\/$/, '');
+
+    if (currentPath !== homeBasePath) {
+      // On n'est PAS sur la page d'accueil, naviguer vers /#section
+      navigate(`/#${elementId}`);
     } else {
+      // On est sur la page d'accueil, juste scroller
       const element = document.getElementById(elementId);
       if (element) {
         const isMobile = window.innerWidth < 768;
         const offset = isMobile ? 60 : -10;
         const top = Math.max(0, element.offsetTop - offset);
         window.scrollTo({ top, behavior: "smooth" });
-        navigate(`${basePath}#${elementId}`, { replace: false });
+        navigate(`/#${elementId}`, { replace: false });
       } else {
-        navigate(`${basePath}#${elementId}`);
+        navigate(`/#${elementId}`);
       }
     }
   } else {

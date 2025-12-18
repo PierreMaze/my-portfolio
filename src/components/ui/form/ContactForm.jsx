@@ -1,11 +1,11 @@
 // /src/components/ui/form/ContactForm.jsx
 import { useEffect } from "react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import {
-  IoPaperPlane,
   IoCheckmarkCircle,
   IoCloseCircle,
+  IoPaperPlane,
 } from "react-icons/io5";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useContactForm } from "../../../hooks/form/useContactForm";
 import { Button } from "../buttons";
 
@@ -125,7 +125,7 @@ const ContactForm = () => {
         isLoading={isLoading}
         iconLeft={currentStatus.icon}
         fullWidth
-        className="md:max-w-64"
+        className="text-white md:max-w-64"
       >
         {currentStatus.text}
       </Button>
