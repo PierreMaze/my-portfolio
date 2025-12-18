@@ -27,10 +27,7 @@ export default function Header() {
     setIsPopoverOpen,
     handleNavClick: handleMenuNavClick,
   } = useNavMenu({
-    navItems: HEADER_NAV_ITEMS_MOBILE.map((items) => ({
-      label: items.label,
-      href: items.href,
-    })),
+    navItems: HEADER_NAV_ITEMS_MOBILE,
     onNavigate: () => {
       // noop: fermeture déjà gérée dans le hook
     },

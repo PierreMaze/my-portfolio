@@ -35,7 +35,7 @@ export const handleNavClick = (item, navigate, location, onAfter) => {
       if (element) {
         const isMobile = window.innerWidth < 768;
         const offset = isMobile ? 60 : -10;
-        const top = element.offsetTop - offset;
+        const top = Math.max(0, element.offsetTop - offset);
         window.scrollTo({ top, behavior: "smooth" });
         navigate(`${basePath}#${elementId}`, { replace: false });
       } else {

@@ -46,7 +46,7 @@ const NavLinkSmart = ({
     "aria-current": isActive
       ? item.kind === "route"
         ? "page"
-        : "true"
+        : "location"
       : undefined,
   };
 

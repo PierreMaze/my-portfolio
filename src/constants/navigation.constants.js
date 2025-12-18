@@ -7,35 +7,39 @@ import {
 } from "react-icons/hi2";
 
 export const HEADER_NAV_ITEMS_DESKTOP = [
-  { label: "Accueil", kind: "section", target: "home", icon: HiHome },
+  { label: "Accueil", kind: "section", target: "home", href: "#home", icon: HiHome },
   {
     label: "Compétences",
     kind: "section",
     target: "skills",
+    href: "#skills",
     icon: HiCodeBracket,
   },
-  { label: "Projets", kind: "section", target: "projects", icon: HiFolder },
+  { label: "Projets", kind: "section", target: "projects", href: "#projects", icon: HiFolder },
   {
     label: "Parcours",
     kind: "section",
     target: "timeline",
+    href: "#timeline",
     icon: HiAcademicCap,
   },
 ];
 
 export const HEADER_NAV_ITEMS_MOBILE = [
-  { label: "Accueil", kind: "section", target: "home", icon: HiHome },
+  { label: "Accueil", kind: "section", target: "home", href: "#home", icon: HiHome },
   {
     label: "Compétences",
     kind: "section",
     target: "skills",
+    href: "#skills",
     icon: HiCodeBracket,
   },
-  { label: "Projets", kind: "section", target: "projects", icon: HiFolder },
+  { label: "Projets", kind: "section", target: "projects", href: "#projects", icon: HiFolder },
   {
     label: "Parcours",
     kind: "section",
     target: "timeline",
+    href: "#timeline",
     icon: HiAcademicCap,
   },
 ];

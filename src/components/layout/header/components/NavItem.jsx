@@ -68,6 +68,9 @@ NavItem.propTypes = {
   item: PropTypes.shape({
     label: PropTypes.string.isRequired,
     href: PropTypes.string.isRequired,
+    kind: PropTypes.oneOf(["section", "route"]),
+    target: PropTypes.string,
+    to: PropTypes.string,
     icon: PropTypes.elementType,
   }).isRequired,
   onClick: PropTypes.func.isRequired,
