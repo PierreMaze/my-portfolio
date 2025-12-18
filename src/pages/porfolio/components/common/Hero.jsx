@@ -49,6 +49,7 @@ const Hero = () => {
   return (
     <section
       className="flex min-h-screen items-center justify-center"
+      aria-label="Présentation du développeur fullstack"
     >
       <div className="flex flex-col-reverse items-center gap-8 md:flex-row md:items-center lg:gap-0 2xl:gap-48">
         <FadeIn>
@@ -111,6 +112,7 @@ const Hero = () => {
         <Link
           to="/about"
           className="mx-auto mt-12 inline-block h-52 w-52 hover:shadow-2xl hover:shadow-amber-600/50 focus:ring-0 focus:outline-none md:mx-4 md:mt-48 lg:mt-16 lg:h-80 lg:w-80 2xl:scale-150"
+          aria-label="Voir la page À propos de Pierre Mazelaygue"
         >
           <Suspense
             fallback={<ImageLoader className="h-full w-full rounded-md" />}

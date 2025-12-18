@@ -1,34 +1,40 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const ParallaxGrid = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  const handleScroll = useCallback(() => {
-    setScrollY(window.scrollY);
-  }, []);
+  const gridRef = useRef(null);
+  const tickingRef = useRef(false);
 
   useEffect(() => {
-    // Throttle le scroll pour améliorer les performances
-    let ticking = false;
+    if (!gridRef.current) return;
+
+    const grid = gridRef.current;
 
     const throttledHandleScroll = () => {
-      if (!ticking) {
+      if (!tickingRef.current) {
+        tickingRef.current = true;
+
         requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
+          // Lire scrollY et appliquer directement au style (pas de setState)
+          const scrollY = window.scrollY;
+          const offset = scrollY * 0.1;
+
+          // Utiliser transform au lieu de backgroundPosition (GPU-accelerated)
+          grid.style.transform = `translateY(${offset}px)`;
+
+          tickingRef.current = false;
         });
-        ticking = true;
       }
     };
 
     window.addEventListener("scroll", throttledHandleScroll, { passive: true });
     return () => window.removeEventListener("scroll", throttledHandleScroll);
-  }, [handleScroll]);
+  }, []);
 
   return (
     <div className="pointer-events-none fixed inset-0" style={{ zIndex: -1 }}>
       {/* Grille de fond */}
       <div
+        ref={gridRef}
         className="absolute inset-0"
         style={{
           backgroundImage: `
@@ -36,8 +42,7 @@ const ParallaxGrid = () => {
             linear-gradient(90deg, rgba(93, 123, 138, 0.5) 2px, transparent 2px)
           `,
           backgroundSize: "50px 50px",
-          backgroundPosition: `0 ${scrollY * 0.1}px`,
-          transition: "background-position 0.05s ease-out",
+          willChange: "transform", // Hint pour GPU
         }}
       />
 

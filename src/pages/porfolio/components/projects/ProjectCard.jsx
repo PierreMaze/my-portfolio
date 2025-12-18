@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 import SmartImage from "../../../../components/ui/images/SmartImage.jsx";
 import { StackTag } from "../../../../components/ui/tags/index.jsx";
@@ -7,7 +8,7 @@ import { STACK_TAG_TYPES } from "../../../../constants";
  * Composant ProjectCard
  * Affiche une carte de projet avec image, titre, description et tags
  */
-export default function ProjectCard({
+const ProjectCard = memo(function ProjectCard({
   id,
   title,
   description,
@@ -68,7 +69,7 @@ export default function ProjectCard({
       </div>
     </article>
   );
-}
+});
 
 ProjectCard.propTypes = {
   id: PropTypes.number.isRequired,
@@ -81,3 +82,5 @@ ProjectCard.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   className: PropTypes.string,
 };
+
+export default ProjectCard;

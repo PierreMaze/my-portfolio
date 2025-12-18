@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { SCROLL_SPY_CONFIG } from "../../constants/navigation.constants";
 
@@ -18,6 +18,12 @@ export const useSectionSpy = ({
   const location = useLocation();
   const [activeId, setActiveId] = useState(null);
   const basePath = import.meta.env.BASE_URL;
+  const pathRef = useRef(location.pathname);
+
+  // Mettre à jour la ref lors du changement de route
+  useEffect(() => {
+    pathRef.current = location.pathname;
+  }, [location.pathname]);
 
   // Normaliser les IDs des sections - extraire le target si c'est un objet
   const normalizedSectionIds = useMemo(
@@ -30,7 +36,8 @@ export const useSectionSpy = ({
   const handleIntersection = useCallback(
     (entries) => {
       // Ne pas traiter si on n'est pas sur la page d'accueil
-      if (location.pathname !== basePath) {
+      // Utiliser pathRef.current au lieu de location.pathname
+      if (pathRef.current !== basePath) {
         setActiveId(null);
         return;
       }
@@ -48,7 +55,7 @@ export const useSectionSpy = ({
 
       setActiveId(mostVisible);
     },
-    [location.pathname],
+    [basePath],
   );
 
   // Configuration de l'IntersectionObserver
@@ -83,12 +90,7 @@ export const useSectionSpy = ({
     return () => {
       observer.disconnect();
     };
-  }, [
-    normalizedSectionIds,
-    handleIntersection,
-    observerConfig,
-    location.pathname,
-  ]);
+  }, [normalizedSectionIds, handleIntersection, observerConfig]);
 
   // Fonction pour vérifier si une section est active
   const isSectionActive = useCallback(

@@ -8,6 +8,7 @@ import {
 } from "react-icons/io5";
 import { useContactForm } from "../../../hooks/form/useContactForm";
 import { Button } from "../buttons";
+import FormField from "./FormField";
 
 const STATUS_CONFIG = {
   idle: {
@@ -71,77 +72,39 @@ const ContactForm = () => {
 
   return (
     <form className="space-y-6" onSubmit={handleSubmit} noValidate>
-      <div>
-        <label htmlFor="name" className="mb-2 block font-medium">
-          Nom
-        </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          value={formData.name}
-          onChange={handleChange}
-          className={`focus:ring-orange-500 w-full rounded bg-white px-4 py-2 ring-2 focus:outline-none ${
-            errors.name ? "ring-red-500" : "ring-zinc-300"
-          }`}
-          aria-invalid={errors.name ? "true" : "false"}
-          aria-describedby={errors.name ? "name-error" : undefined}
-        />
-        {errors.name && (
-          <p id="name-error" className="mt-1 text-sm text-red-600">
-            {errors.name}
-          </p>
-        )}
-      </div>
+      <FormField
+        id="name"
+        name="name"
+        label="Nom"
+        type="text"
+        value={formData.name}
+        onChange={handleChange}
+        error={errors.name}
+        required
+      />
 
-      <div>
-        <label htmlFor="email" className="mb-2 block font-medium">
-          Email
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          value={formData.email}
-          onChange={handleChange}
-          className={`focus:ring-orange-500 w-full rounded bg-white px-4 py-2 ring-2 focus:outline-none ${
-            errors.email ? "ring-red-500" : "ring-zinc-300"
-          }`}
-          aria-invalid={errors.email ? "true" : "false"}
-          aria-describedby={errors.email ? "email-error" : undefined}
-        />
-        {errors.email && (
-          <p id="email-error" className="mt-1 text-sm text-red-600">
-            {errors.email}
-          </p>
-        )}
-      </div>
+      <FormField
+        id="email"
+        name="email"
+        label="Email"
+        type="email"
+        value={formData.email}
+        onChange={handleChange}
+        error={errors.email}
+        required
+      />
 
-      <div>
-        <label htmlFor="message" className="mb-2 block font-medium">
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={4}
-          required
-          value={formData.message}
-          onChange={handleChange}
-          className={`w-full rounded bg-white px-4 py-2 ring-2 focus:ring-orange-500 focus:outline-none ${
-            errors.message ? "ring-red-500" : "ring-zinc-300"
-          }`}
-          aria-invalid={errors.message ? "true" : "false"}
-          aria-describedby={errors.message ? "message-error" : undefined}
-        />
-        {errors.message && (
-          <p id="message-error" className="mt-1 text-sm text-red-600">
-            {errors.message}
-          </p>
-        )}
-      </div>
+      <FormField
+        id="message"
+        name="message"
+        label="Message"
+        type="textarea"
+        value={formData.message}
+        onChange={handleChange}
+        error={errors.message}
+        rows={4}
+        required
+      />
 
       {/* Submit Button */}
       <Button

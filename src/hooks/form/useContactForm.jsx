@@ -31,13 +31,14 @@ export function useContactForm() {
     }));
 
     // Effacer l'erreur du champ modifié
-    if (errors[name]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: "",
-      }));
-    }
-  }, [errors]);
+    // Utiliser callback form pour éviter dépendance [errors]
+    setErrors((prev) => {
+      if (prev[name]) {
+        return { ...prev, [name]: "" };
+      }
+      return prev; // Pas de changement si pas d'erreur
+    });
+  }, []); // Dépendances vides maintenant
 
   const resetForm = useCallback(() => {
     setFormData(INITIAL_STATE);

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 
 /**
  * Composant ButtonIcon Spécialisé
@@ -66,8 +66,8 @@ const ButtonIcon = ({
     ? "opacity-50 cursor-not-allowed pointer-events-none"
     : "";
 
-  // Composant de base (avec ou sans Framer Motion)
-  const Component = animate ? motion.a : "a";
+  // Composant de base (avec ou sans Motion)
+  const Component = animate ? m.a : "a";
 
   // Props d'animation Framer Motion
   const motionProps = animate
@@ -82,20 +82,22 @@ const ButtonIcon = ({
   const iconSize = "w-full h-full";
 
   return (
-    <Component
-      href={href}
-      onClick={onClick}
-      aria-label={ariaLabel}
-      aria-disabled={disabled || undefined}
-      title={title}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`focus:outline-none focus:ring-0 ${containerSize} ${disabledStyles} ${className}`}
-      {...motionProps}
-      {...props}
-    >
-      <span className={`${iconSize} ${colorStyles}`}>{children}</span>
-    </Component>
+    <LazyMotion features={domAnimation}>
+      <Component
+        href={href}
+        onClick={onClick}
+        aria-label={ariaLabel}
+        aria-disabled={disabled || undefined}
+        title={title}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`focus:outline-none focus:ring-0 ${containerSize} ${disabledStyles} ${className}`}
+        {...motionProps}
+        {...props}
+      >
+        <span className={`${iconSize} ${colorStyles}`}>{children}</span>
+      </Component>
+    </LazyMotion>
   );
 };
 

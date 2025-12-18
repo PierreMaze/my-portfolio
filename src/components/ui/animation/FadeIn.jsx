@@ -25,6 +25,7 @@ const FadeIn = ({ children, className }) => {
       if (elementRef.current) {
         observer.unobserve(elementRef.current);
       }
+      observer.disconnect(); // Libération complète des ressources
     };
   }, []);
 

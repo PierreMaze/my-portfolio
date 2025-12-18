@@ -1,17 +1,16 @@
 import { useCallback, useMemo } from "react";
-import { IoArrowBack } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "../../components/layout/Container.jsx";
 import { FadeIn } from "../../components/ui/animation/index.jsx";
-import { Button } from "../../components/ui/buttons/index.jsx";
 import { ProjectError } from "../../components/ui/error/index.jsx";
-import SmartImage from "../../components/ui/images/SmartImage.jsx";
 import { useProjects } from "../../contexts/ProjectsContext.jsx";
 import { useMeta } from "../../hooks/index.jsx";
 import {
+  ProjectHeader,
   ProjectInfo,
   ProjectLinks,
   ProjectNavigation,
+  ProjectProblem,
   ProjectResults,
   StacksTagsList,
 } from "./components/index.jsx";
@@ -91,74 +90,24 @@ const ProjectPage = () => {
     <div className="py-12 lg:py-24">
       <Container>
         {/* En-tête du projet */}
-        <FadeIn>
-          <header className="mb-8">
-            {/* Bouton de retour intégré dans le header */}
-            <div className="my-12 flex items-center gap-4 lg:my-6">
-              <Button
-                variant="primary"
-                size="md"
-                onClick={handleBack}
-                ariaLabel="Retourner à la liste des projets"
-                iconLeft={<IoArrowBack className="h-4 w-4" />}
-              >
-                Retour
-              </Button>
-            </div>
-            <h1 className="mb-4 text-3xl font-bold text-black md:text-4xl">
-              {title}
-            </h1>
-            <p className="mb-6 text-lg text-zinc-900 md:text-xl">
-              {description}
-            </p>
-          </header>
-        </FadeIn>
-
-        {/* Image principale du projet */}
-        <FadeIn className="delay-100">
-          <div className="relative mb-8 aspect-video overflow-hidden rounded shadow-lg">
-            <SmartImage
-              src={image}
-              webp={imageWebp}
-              alt={title}
-              className="h-full w-full object-cover"
-              width={600}
-              height={400}
-              priority
-            />
-          </div>
-        </FadeIn>
+        <ProjectHeader
+          title={title}
+          description={description}
+          image={image}
+          imageWebp={imageWebp}
+          onBack={handleBack}
+        />
 
         {/* Contenu principal */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {/* Colonne principale */}
           <div className="space-y-8 lg:col-span-2">
             {/* Problématique */}
-            <FadeIn className="delay-200">
-              <section>
-                <h2 className="mb-4 text-2xl font-bold text-black">
-                  Problématique
-                </h2>
-                <p className="mb-6 leading-relaxed text-zinc-700">{problem}</p>
-
-                <h3 className="mb-4 text-xl font-semibold text-black">
-                  Objectifs
-                </h3>
-                <ul className="mb-6 space-y-3">
-                  {objectives.map((objective, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <span className="mt-2 flex h-2 w-2 shrink-0 rounded-full bg-orange-500" />
-                      <span className="text-zinc-700">{objective}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <h3 className="mb-4 text-xl font-semibold text-black">
-                  Solution
-                </h3>
-                <p className="leading-relaxed text-zinc-700">{solution}</p>
-              </section>
-            </FadeIn>
+            <ProjectProblem
+              problem={problem}
+              objectives={objectives}
+              solution={solution}
+            />
 
             {/* Stacks */}
             <FadeIn className="delay-300">
