@@ -53,7 +53,7 @@ const STATUS_CONFIG = {
 };
 
 const ContactForm = () => {
-  const { formData, status, setStatus, handleChange, handleSubmit } =
+  const { formData, status, errors, setStatus, handleChange, handleSubmit } =
     useContactForm();
 
   const isLoading = status === "loading";
@@ -82,8 +82,17 @@ const ContactForm = () => {
           required
           value={formData.name}
           onChange={handleChange}
-          className="focus::ring-orange-500 w-full rounded bg-white px-4 py-2 ring-2 ring-zinc-300 focus:outline-none"
+          className={`focus:ring-orange-500 w-full rounded bg-white px-4 py-2 ring-2 focus:outline-none ${
+            errors.name ? "ring-red-500" : "ring-zinc-300"
+          }`}
+          aria-invalid={errors.name ? "true" : "false"}
+          aria-describedby={errors.name ? "name-error" : undefined}
         />
+        {errors.name && (
+          <p id="name-error" className="mt-1 text-sm text-red-600">
+            {errors.name}
+          </p>
+        )}
       </div>
 
       <div>
@@ -97,8 +106,17 @@ const ContactForm = () => {
           required
           value={formData.email}
           onChange={handleChange}
-          className="focus::ring-orange-500 w-full rounded bg-white px-4 py-2 ring-2 ring-zinc-300 focus:outline-none"
+          className={`focus:ring-orange-500 w-full rounded bg-white px-4 py-2 ring-2 focus:outline-none ${
+            errors.email ? "ring-red-500" : "ring-zinc-300"
+          }`}
+          aria-invalid={errors.email ? "true" : "false"}
+          aria-describedby={errors.email ? "email-error" : undefined}
         />
+        {errors.email && (
+          <p id="email-error" className="mt-1 text-sm text-red-600">
+            {errors.email}
+          </p>
+        )}
       </div>
 
       <div>
@@ -112,8 +130,17 @@ const ContactForm = () => {
           required
           value={formData.message}
           onChange={handleChange}
-          className="w-full rounded bg-white px-4 py-2 ring-2 ring-zinc-300 focus:ring-orange-500 focus:outline-none"
+          className={`w-full rounded bg-white px-4 py-2 ring-2 focus:ring-orange-500 focus:outline-none ${
+            errors.message ? "ring-red-500" : "ring-zinc-300"
+          }`}
+          aria-invalid={errors.message ? "true" : "false"}
+          aria-describedby={errors.message ? "message-error" : undefined}
         />
+        {errors.message && (
+          <p id="message-error" className="mt-1 text-sm text-red-600">
+            {errors.message}
+          </p>
+        )}
       </div>
 
       {/* Submit Button */}

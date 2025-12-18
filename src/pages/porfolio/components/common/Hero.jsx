@@ -1,4 +1,5 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { FiLoader } from "react-icons/fi";
 import { IoMdDownload } from "react-icons/io";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
@@ -13,11 +14,6 @@ import {
 import SmartImage from "../../../../components/ui/images/SmartImage.jsx";
 import { ImageLoader } from "../../../../components/ui/loader/index.jsx";
 
-// Lazy loading de l'image simple
-const SimpleImage = lazy(
-  () => import("../../../../components/ui/loader/ImageLoader"),
-);
-
 const Hero = () => {
   const [downloadState, setDownloadState] = useState("default"); // 'default', 'loading', 'done'
 
@@ -29,18 +25,17 @@ const Hero = () => {
     link.href = `${import.meta.env.BASE_URL}docs/CV_SPONTANEE.pdf`;
     link.download = "CV_PierreMazelaygue.pdf";
 
-    // Simuler un délai de téléchargement
+    // Téléchargement immédiat
+    link.click();
+    setDownloadState("done");
+
+    // Réinitialiser après 2 secondes
     setTimeout(() => {
-      link.click();
-      setDownloadState("done");
-      // Réinitialiser après 2 secondes
-      setTimeout(() => {
-        setDownloadState("default");
-      }, 2000);
-    }, 1500);
+      setDownloadState("default");
+    }, 2000);
   };
 
-  const getDownloadIcon = () => {
+  const downloadIcon = useMemo(() => {
     switch (downloadState) {
       case "loading":
         return <FiLoader className="animate-spin" />;
@@ -49,12 +44,11 @@ const Hero = () => {
       default:
         return <IoMdDownload />;
     }
-  };
+  }, [downloadState]);
 
   return (
     <section
       className="flex min-h-screen items-center justify-center"
-      style={{ paddingTop: "-200px" }}
     >
       <div className="flex flex-col-reverse items-center gap-8 md:flex-row md:items-center lg:gap-0 2xl:gap-48">
         <FadeIn>
@@ -103,7 +97,7 @@ const Hero = () => {
                     size="md"
                     onClick={handleDownload}
                     ariaLabel="Télécharger mon CV au format PDF"
-                    iconLeft={getDownloadIcon()}
+                    iconLeft={downloadIcon}
                     className="mx-8 w-3/4"
                   >
                     Mon CV
@@ -114,8 +108,8 @@ const Hero = () => {
           </div>
         </FadeIn>
         {/* Avatar */}
-        <a
-          href="/about"
+        <Link
+          to="/about"
           className="mx-auto mt-12 inline-block h-52 w-52 hover:shadow-2xl hover:shadow-amber-600/50 focus:ring-0 focus:outline-none md:mx-4 md:mt-48 lg:mt-16 lg:h-80 lg:w-80 2xl:scale-150"
         >
           <Suspense
@@ -131,7 +125,7 @@ const Hero = () => {
               priority
             />
           </Suspense>
-        </a>
+        </Link>
       </div>
     </section>
   );
