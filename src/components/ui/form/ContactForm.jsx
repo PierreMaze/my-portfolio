@@ -82,7 +82,7 @@ const ContactForm = () => {
           required
           value={formData.name}
           onChange={handleChange}
-          className="w-full rounded px-4 py-2 ring-2 ring-zinc-300 focus:bg-white focus:ring-orange-600/50 focus:outline-none"
+          className="focus::ring-orange-500 w-full rounded bg-white px-4 py-2 ring-2 ring-zinc-300 focus:outline-none"
         />
       </div>
 
@@ -97,7 +97,7 @@ const ContactForm = () => {
           required
           value={formData.email}
           onChange={handleChange}
-          className="w-full rounded px-4 py-2 ring-2 ring-zinc-300 focus:bg-white focus:ring-orange-600/50 focus:outline-none"
+          className="focus::ring-orange-500 w-full rounded bg-white px-4 py-2 ring-2 ring-zinc-300 focus:outline-none"
         />
       </div>
 
@@ -112,7 +112,7 @@ const ContactForm = () => {
           required
           value={formData.message}
           onChange={handleChange}
-          className="w-full rounded px-4 py-2 ring-2 ring-zinc-300 focus:bg-white focus:ring-orange-600/50 focus:outline-none"
+          className="w-full rounded bg-white px-4 py-2 ring-2 ring-zinc-300 focus:ring-orange-500 focus:outline-none"
         />
       </div>
 

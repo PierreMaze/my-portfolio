@@ -3,7 +3,7 @@ import ContactForm from "../../../../components/ui/form/ContactForm.jsx";
 
 const Contact = () => {
   return (
-    <section className="py-16 lg:py-24 xl:py-32">
+    <section className="border-none py-16 lg:py-24 xl:py-32">
       <FadeIn>
         <h2 className="relative mb-12 text-3xl font-bold">
           <span className="relative inline-block">
