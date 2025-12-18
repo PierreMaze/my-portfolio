@@ -21,6 +21,7 @@ FEATURES.md
 .vscode/*
 !.vscode/extensions.json
 .claude/
+.continue/
 .anythingllm/
 .idea
 .DS_Store
