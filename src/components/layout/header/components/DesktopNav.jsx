@@ -51,8 +51,8 @@ const DesktopNav = ({
         }}
         className={`inline-flex h-10 items-center text-base font-semibold ${
           isRouteActive("/about")
-            ? "text-orange-600"
-            : "text-black hover:text-orange-600"
+            ? "text-orange-700"
+            : "text-black hover:text-orange-700"
         }`}
       >
         A propos

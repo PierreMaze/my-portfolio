@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { getComponent, getComponentProps, buildClassName } from "./utils";
+import { buildClassName, getComponent, getComponentProps } from "./utils";
 
 /**
  * Composant Button Unifié
@@ -50,7 +50,7 @@ const Button = ({
 
   // États dérivés pour accessibilité
   const actualAriaPressed =
-    ariaPressed ?? (variant === "filter" && typeof isActive === "boolean")
+    (ariaPressed ?? (variant === "filter" && typeof isActive === "boolean"))
       ? isActive
       : undefined;
 
@@ -115,7 +115,7 @@ const Button = ({
     );
 
   return (
-    <Component {...componentProps} className={buttonClasses}>
+    <Component {...componentProps} className={`font-semibold ${buttonClasses}`}>
       {content}
     </Component>
   );

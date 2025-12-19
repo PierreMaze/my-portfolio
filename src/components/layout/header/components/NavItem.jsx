@@ -22,22 +22,22 @@ const NavItem = ({
   const styles = {
     desktop: {
       container:
-        "relative flex items-center gap-x-4 p-3 rounded group text-base hover:underline hover:underline-offset-4 hover:decoration-2 decoration-orange-600 ",
+        "relative flex items-center gap-x-4 p-3 rounded group text-base hover:underline hover:underline-offset-4 hover:decoration-2 decoration-orange-700 ",
       link: "flex items-center gap-x-2 font-medium ",
       icon: "w-4 h-4 ",
-      activeText: "text-orange-600 ",
-      inactiveText: "text-neutral-900 hover:text-orange-600 ",
-      activeIcon: "text-orange-600",
-      inactiveIcon: "text-black group-hover:text-orange-600 ",
+      activeText: "text-orange-700 ",
+      inactiveText: "text-neutral-900 hover:text-orange-700 ",
+      activeIcon: "text-orange-700",
+      inactiveIcon: "text-black group-hover:text-orange-700 ",
     },
     mobile: {
       container:
         "flex items-center gap-x-2 py-2 pr-3 pl-6 font-semibold rounded-lg text-md ",
       link: "flex items-center gap-x-2 ",
       icon: "w-4 h-4 ",
-      activeText: "text-orange-600 underline underline-offset-4 decoration-2 ",
-      inactiveText: "text-black hover:text-orange-600 hover:bg-white/5 ",
-      activeIcon: "text-orange-600 ",
+      activeText: "text-orange-700 underline underline-offset-4 decoration-2 ",
+      inactiveText: "text-black hover:text-orange-700 hover:bg-white/5 ",
+      activeIcon: "text-orange-700 ",
       inactiveIcon: "text-black ",
     },
   };

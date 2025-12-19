@@ -94,7 +94,7 @@ const Hero = () => {
                 </div>
                 <div>
                   <Button
-                    variant="primary"
+                    variant="cvButton"
                     size="md"
                     onClick={handleDownload}
                     ariaLabel="Télécharger mon CV au format PDF"

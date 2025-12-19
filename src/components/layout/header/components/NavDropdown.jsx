@@ -33,14 +33,14 @@ const HeaderNav = ({
         onClick={onToggle}
         aria-expanded={open}
         aria-haspopup="menu"
-        className={`group inline-flex h-10 items-center gap-x-1 rounded px-3 py-0 text-base leading-none font-semibold text-black hover:text-orange-600 ${
+        className={`group inline-flex h-10 items-center gap-x-1 rounded px-3 py-0 text-base leading-none font-semibold text-black hover:text-orange-700 ${
           className || ""
         }`}
       >
         <span>{buttonLabel}</span>
         <HiChevronDown
           aria-hidden="true"
-          className={`size-5 flex-none text-neutral-600 transition-transform group-hover:text-orange-600 ${
+          className={`size-5 flex-none text-neutral-600 transition-transform group-hover:text-orange-700 ${
             open ? "rotate-180" : ""
           }`}
         />

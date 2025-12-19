@@ -1,9 +1,11 @@
+import React from "react";
 import PropTypes from "prop-types";
 import { STACK_TAG_TYPES, TAG_STYLES } from "../../../constants";
 import { extractColorClasses, getStackData } from "../../../utils";
 
 /**
  * Composant unifié pour les badges de technologies
+ * Optimisé avec React.memo pour éviter les re-renders inutiles
  * @param {Object} props
  * @param {string} props.name - Nom de la technologie
  * @param {string} props.type - Type de badge: "rounded" ou "rectangular"
@@ -11,7 +13,7 @@ import { extractColorClasses, getStackData } from "../../../utils";
  * @param {string} [props.color] - Classes CSS de couleur personnalisées (optionnel)
  * @returns {JSX.Element}
  */
-export const StackTag = ({
+export const StackTag = React.memo(({
   name,
   type = STACK_TAG_TYPES.RECTANGULAR,
   icon,
@@ -32,15 +34,15 @@ export const StackTag = ({
     const iconStackClass = `w-4 h-4 ${iconColor}`;
 
     return (
-      <div
-        className={tagStackClass}
-        title={name}
+      <span
+        role="img"
         aria-label={`Technologie: ${name}`}
+        className={tagStackClass}
       >
-        <div className={TAG_STYLES.ROUNDED.icon} aria-hidden="true">
+        <span className={TAG_STYLES.ROUNDED.icon} aria-hidden="true">
           <IconComponent className={iconStackClass} />
-        </div>
-      </div>
+        </span>
+      </span>
     );
   }
 
@@ -49,19 +51,22 @@ export const StackTag = ({
   const iconStackColor = iconColor;
 
   return (
-    <div
-      className={`${TAG_STYLES.RECTANGULAR.container}${" "}${tagStackColor}`}
+    <span
+      role="img"
       aria-label={`Compétence en ${name}`}
+      className={`${TAG_STYLES.RECTANGULAR.container} ${tagStackColor}`}
     >
-      <div className={TAG_STYLES.RECTANGULAR.icon} aria-hidden="true">
-        {icon || <IconComponent className={`${"h-4 w-4 "}${iconStackColor}`} />}
-      </div>
-      <span className={`${TAG_STYLES.RECTANGULAR.text}${" "}${textClass}`}>
+      <span className={TAG_STYLES.RECTANGULAR.icon} aria-hidden="true">
+        {icon || <IconComponent className={`h-4 w-4 ${iconStackColor}`} />}
+      </span>
+      <span className={`${TAG_STYLES.RECTANGULAR.text} ${textClass}`}>
         {name}
       </span>
-    </div>
+    </span>
   );
-};
+});
+
+StackTag.displayName = "StackTag";
 
 StackTag.propTypes = {
   name: PropTypes.string.isRequired,

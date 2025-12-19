@@ -13,7 +13,7 @@ const PortfolioSubItem = ({ label, href, isLast, onClick, isActive }) => {
     >
       <span className={`mr-2 scale-150 text-neutral-400`}>{prefix}</span>
       <span
-        className={`hover:text-orange-600 ${isActive ? "text-orange-600" : "text-black"}`}
+        className={`hover:text-orange-700 ${isActive ? "text-orange-700" : "text-black"}`}
       >
         {label}
       </span>

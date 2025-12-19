@@ -10,7 +10,17 @@ export const baseStyles =
 // Variantes par type
 export const variants = {
   primary: {
-    base: "bg-orange-600 text-white hover:bg-orange-700",
+    base: "bg-orange-700 text-white hover:bg-orange-800",
+    focus: "focus:ring-2 focus:ring-orange-500 focus:ring-offset-2",
+    sizes: {
+      sm: "px-3 py-1.5 text-sm rounded",
+      md: "px-4 py-2 text-base rounded",
+      lg: "px-6 py-3 text-lg rounded-lg",
+    },
+  },
+
+  cvButton: {
+    base: "bg-orange-700 text-white hover:bg-orange-800",
     focus: "focus:ring-2 focus:ring-orange-500 focus:ring-offset-2",
     sizes: {
       sm: "px-3 py-1.5 text-sm rounded",
@@ -63,7 +73,7 @@ export const variants = {
     base: "rounded transition-all duration-300",
     inactive:
       "text-black bg-zinc-100 ring-zinc-500 ring-2 hover:ring-zinc-800 hover:bg-white",
-    active: "bg-orange-600 text-white ring-orange-600 ring-2",
+    active: "bg-orange-700 text-white ring-orange-700 ring-2",
     sizes: {
       sm: "px-2 py-1 text-xs",
       md: "px-3 py-1.5 text-sm",
@@ -83,7 +93,7 @@ export const variants = {
     desktopAfter:
       "lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:right-0 lg:after:h-0.5 lg:after:transition-all lg:after:duration-300",
     desktopInactive: "lg:after:bg-transparent",
-    desktopActive: "lg:text-orange-600 lg:after:bg-orange-600",
+    desktopActive: "lg:text-orange-700 lg:after:bg-orange-700",
 
     focus: "focus:outline-none focus:ring-0 border-0",
     sizes: {
@@ -97,10 +107,10 @@ export const variants = {
 // Status pour ContactForm
 export const statusVariants = {
   idle: {
-    color: "bg-orange-600 hover:bg-orange-700",
+    color: "bg-orange-700 hover:bg-orange-800",
   },
   loading: {
-    color: "bg-orange-600",
+    color: "bg-orange-700",
   },
   success: {
     color: "bg-green-600 hover:bg-green-700",
