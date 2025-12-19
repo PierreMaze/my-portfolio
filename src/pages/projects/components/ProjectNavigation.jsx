@@ -16,7 +16,7 @@ const ProjectNavigation = ({ previous, next, onNavigate }) => {
         {previous ? (
           <button
             onClick={() => onNavigate(previous.id)}
-            className="group flex items-center gap-3 text-black transition-colors hover:text-orange-600"
+            className="group flex items-center gap-3 text-black transition-colors hover:text-orange-700"
           >
             <IoChevronBack className="h-5 w-5 transition-transform group-hover:-translate-x-1" />
             <div className="text-left">
@@ -35,7 +35,7 @@ const ProjectNavigation = ({ previous, next, onNavigate }) => {
         {next ? (
           <button
             onClick={() => onNavigate(next.id)}
-            className="group flex items-center gap-3 text-black transition-colors hover:text-orange-600"
+            className="group flex items-center gap-3 text-black transition-colors hover:text-orange-700"
           >
             <div className="text-right">
               <p className="text-sm font-medium text-zinc-800">

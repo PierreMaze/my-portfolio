@@ -19,7 +19,7 @@ const ProjectProblem = ({ problem, objectives, solution }) => (
       <ul className="mb-6 space-y-3">
         {objectives.map((objective, index) => (
           <li key={index} className="flex items-start gap-3">
-            <span className="mt-2 flex h-2 w-2 shrink-0 rounded-full bg-orange-500" />
+            <span className="mt-2 flex h-2 w-2 shrink-0 rounded-full bg-orange-700" />
             <span className="text-zinc-700">{objective}</span>
           </li>
         ))}

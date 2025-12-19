@@ -11,7 +11,6 @@ export const baseStyles =
 export const variants = {
   primary: {
     base: "bg-orange-700 text-white hover:bg-orange-800",
-    focus: "focus:ring-2 focus:ring-orange-500 focus:ring-offset-2",
     sizes: {
       sm: "px-3 py-1.5 text-sm rounded",
       md: "px-4 py-2 text-base rounded",
@@ -21,7 +20,6 @@ export const variants = {
 
   cvButton: {
     base: "bg-orange-700 text-white hover:bg-orange-800",
-    focus: "focus:ring-2 focus:ring-orange-500 focus:ring-offset-2",
     sizes: {
       sm: "px-3 py-1.5 text-sm rounded",
       md: "px-4 py-2 text-base rounded",
@@ -60,7 +58,7 @@ export const variants = {
   },
 
   link: {
-    base: "underline underline-offset-4 transition-colors hover:text-orange-600 hover:font-medium",
+    base: "underline underline-offset-4 transition-colors hover:text-orange-700 hover:font-medium",
     focus: "focus:ring-0",
     sizes: {
       sm: "text-sm",
@@ -85,11 +83,11 @@ export const variants = {
     // Mobile (rectangulaire)
     mobile: "w-full text-left px-4 py-3 rounded transition-all duration-200",
     mobileInactive: "text-zinc-700",
-    mobileActive: "text-white no-underline bg-orange-600",
+    mobileActive: "text-white no-underline bg-orange-700",
 
     // Desktop (underline avec pseudo-element)
     desktop:
-      "lg:w-auto lg:text-center lg:px-4 lg:py-2 lg:rounded-none lg:ring-0 lg:bg-transparent lg:text-zinc-900 lg:hover:text-orange-600 lg:relative",
+      "lg:w-auto lg:text-center lg:px-4 lg:py-2 lg:rounded-none lg:ring-0 lg:bg-transparent lg:text-zinc-900 lg:hover:text-orange-700 lg:relative",
     desktopAfter:
       "lg:after:absolute lg:after:bottom-0 lg:after:left-0 lg:after:right-0 lg:after:h-0.5 lg:after:transition-all lg:after:duration-300",
     desktopInactive: "lg:after:bg-transparent",

@@ -1,12 +1,13 @@
 // File: src/data/stacks.js
 
-import { BiLogoPostgresql } from "react-icons/bi";
+import { BiLogoPostgresql, BiSolidTerminal } from "react-icons/bi";
+import { LuBot } from "react-icons/lu";
 import { PiFigmaLogoBold } from "react-icons/pi";
-
 import {
   SiCalendly,
   SiChakraui,
   SiClaude,
+  SiDocker,
   SiDotenv,
   SiExpress,
   SiGithub,
@@ -87,7 +88,7 @@ export const STACKS_DATA = [
     iconComponent: SiTailwindcss,
   },
   {
-    name: "ReactJS",
+    name: "React",
     category: "Librairies",
     tagColor: "border-cyan-500 text-cyan-700 bg-cyan-100",
     iconColor: "text-cyan-600",
@@ -253,5 +254,26 @@ export const STACKS_DATA = [
     tagColor: "border-teal-500 text-teal-700 bg-teal-100",
     iconColor: "text-teal-600",
     iconComponent: SiChakraui,
+  },
+  {
+    name: "LM Studio",
+    category: "Outils",
+    tagColor: "border-purple-500 text-purple-700 bg-purple-100",
+    iconColor: "text-purple-600",
+    iconComponent: LuBot,
+  },
+  {
+    name: "Continue.dev",
+    category: "Outils",
+    tagColor: "border-neutral-500 text-neutral-700 bg-neutral-100",
+    iconColor: "text-neutral-600",
+    iconComponent: BiSolidTerminal,
+  },
+  {
+    name: "Docker",
+    category: "Outils",
+    tagColor: "border-blue-500 text-blue-700 bg-blue-100",
+    iconColor: "text-blue-600",
+    iconComponent: SiDocker,
   },
 ];

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { baseStyles, variants, statusVariants } from "./variants";
+import { baseStyles, statusVariants, variants } from "./variants";
 
 /**
  * Détermine le composant à rendre selon les props
@@ -119,26 +119,23 @@ export const buildClassName = ({
   if (variant === "filter") {
     classes.push(variantConfig.base);
     classes.push(isActive ? variantConfig.active : variantConfig.inactive);
-    classes.push(variantConfig.focus);
     classes.push(sizeClasses);
   }
   // Variante nav (responsive mobile/desktop)
   else if (variant === "nav") {
     classes.push(variantConfig.mobile);
     classes.push(
-      isActive ? variantConfig.mobileActive : variantConfig.mobileInactive
+      isActive ? variantConfig.mobileActive : variantConfig.mobileInactive,
     );
     classes.push(variantConfig.desktop);
     classes.push(variantConfig.desktopAfter);
     classes.push(
-      isActive ? variantConfig.desktopActive : variantConfig.desktopInactive
+      isActive ? variantConfig.desktopActive : variantConfig.desktopInactive,
     );
-    classes.push(variantConfig.focus);
   }
   // Variantes standard
   else {
     classes.push(variantConfig.base);
-    classes.push(variantConfig.focus);
     classes.push(sizeClasses);
   }
 
@@ -147,7 +144,7 @@ export const buildClassName = ({
     const statusConfig = statusVariants[status];
     // Remplacer les classes de couleur de base par celles du status
     const colorClassIndex = classes.findIndex((c) =>
-      c.includes("bg-orange-600")
+      c.includes("bg-orange-600"),
     );
     if (colorClassIndex !== -1) {
       classes[colorClassIndex] = statusConfig.color;

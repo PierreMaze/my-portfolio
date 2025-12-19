@@ -12,7 +12,7 @@ const ProjectResults = ({ results }) => (
     <ul className="space-y-3">
       {results.map((result, index) => (
         <li key={index} className="flex items-start gap-3">
-          <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500" />
+          <div className="mt-2 flex h-2 w-2 shrink-0 rounded-full bg-green-600" />
           <span className="text-zinc-700">{result}</span>
         </li>
       ))}
