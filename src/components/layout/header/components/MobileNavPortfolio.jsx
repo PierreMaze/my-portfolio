@@ -102,7 +102,7 @@ const MobileNavPortfolio = ({
           key={item.label}
           href={item.to}
           onClick={(e) => handleRouteClick(e, item.to)}
-          className={`mb-6 block rounded rounded-lg px-3 py-2 text-lg font-semibold hover:text-orange-700 ${
+          className={`mb-6 block rounded-lg px-3 py-2 text-lg font-semibold hover:text-orange-700 ${
             location.pathname === item.to
               ? "text-orange-700"
               : "text-black hover:bg-neutral-100"
