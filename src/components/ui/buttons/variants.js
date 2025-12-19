@@ -58,7 +58,7 @@ export const variants = {
   },
 
   link: {
-    base: "underline underline-offset-4 transition-colors hover:text-orange-700 hover:font-medium",
+    base: "underline underline-offset-4 transition-colors font-semibold hover:text-orange-700",
     focus: "focus:ring-0",
     sizes: {
       sm: "text-sm",

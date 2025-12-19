@@ -27,7 +27,7 @@ const FormField = ({
     value,
     onChange,
     rows: isTextarea ? rows : undefined,
-    className: `focus:ring-orange-500 w-full rounded bg-white px-4 py-2 ring-2 focus:outline-none ${
+    className: `focus:ring-orange-700 w-full rounded bg-white px-4 py-2 ring-2 focus:outline-none ${
       error ? "ring-red-500" : "ring-zinc-300"
     } ${className}`,
     "aria-invalid": error ? "true" : "false",
@@ -41,7 +41,7 @@ const FormField = ({
       </label>
       <InputComponent {...inputProps} />
       {error && (
-        <p id={`${id}-error`} className="mt-1 text-sm text-red-600">
+        <p id={`${id}-error`} className="fint-medium mt-1 text-sm text-red-700">
           {error}
         </p>
       )}

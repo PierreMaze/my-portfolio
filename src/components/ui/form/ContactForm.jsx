@@ -19,7 +19,7 @@ const STATUS_CONFIG = {
         aria-hidden="true"
       />
     ),
-    color: "bg-orange-600 hover:bg-orange-700",
+    color: "bg-orange-700 hover:bg-orange-800",
   },
   loading: {
     text: "Envoi...",
@@ -29,7 +29,7 @@ const STATUS_CONFIG = {
         aria-hidden="true"
       />
     ),
-    color: "bg-orange-600",
+    color: "bg-orange-700",
   },
   success: {
     text: "Envoyé",

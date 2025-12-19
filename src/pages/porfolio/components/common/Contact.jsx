@@ -28,7 +28,7 @@ const Contact = () => {
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-100">
                   <svg
-                    className="h-6 w-6 text-orange-600"
+                    className="h-6 w-6 text-orange-700"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -49,7 +49,7 @@ const Contact = () => {
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-100">
                   <svg
-                    className="h-6 w-6 text-orange-600"
+                    className="h-6 w-6 text-orange-700"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

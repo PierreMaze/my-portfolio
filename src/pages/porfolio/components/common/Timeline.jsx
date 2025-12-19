@@ -29,7 +29,7 @@ const Timeline = () => {
               }`}
             >
               {/* Point sur la ligne */}
-              <div className="absolute -top-6 left-1/2 z-10 h-4 w-4 -translate-x-1/2 rounded-full bg-orange-600 md:top-6" />
+              <div className="absolute -top-6 left-1/2 z-10 h-4 w-4 -translate-x-1/2 rounded-full bg-orange-700 md:top-6" />
 
               {/* Contenu */}
               <div
@@ -46,7 +46,7 @@ const Timeline = () => {
                   }`}
                 />
 
-                <div className="mb-3 font-semibold text-orange-600">
+                <div className="mb-3 font-semibold text-orange-700">
                   {item.date}
                 </div>
                 <h3 className="mb-3 text-xl font-semibold text-zinc-800">
